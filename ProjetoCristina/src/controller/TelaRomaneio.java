@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -10,9 +10,16 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class TelaRomaneio extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -22,18 +29,7 @@ public class TelaRomaneio extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaRomaneio frame = new TelaRomaneio();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
@@ -52,9 +48,12 @@ public class TelaRomaneio extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(33, 157, 264, 148);
+		contentPane.add(scrollPane);
+		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(33, 157, 264, 148);
-		contentPane.add(textArea);
+		scrollPane.setViewportView(textArea);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(489, 55, 114, 19);
@@ -72,11 +71,16 @@ public class TelaRomaneio extends JFrame {
 		textField_3.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Sair");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnNewButton.setBounds(555, 378, 117, 25);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Gravar");
-		btnNewButton_1.setBounds(410, 378, 117, 25);
+		btnNewButton_1.setBounds(281, 378, 117, 25);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("Nome do Produto");
@@ -98,5 +102,18 @@ public class TelaRomaneio extends JFrame {
 		JLabel lblNewLabel_4 = new JLabel("Volume");
 		lblNewLabel_4.setBounds(489, 217, 70, 15);
 		contentPane.add(lblNewLabel_4);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TelaInicial TelaVoltaInicial = new TelaInicial();
+				TelaVoltaInicial.setLocationRelativeTo(null);
+				TelaVoltaInicial.setVisible(true);
+				
+			}
+		});
+		btnVoltar.setBounds(426, 378, 117, 25);
+		contentPane.add(btnVoltar);
 	}
 }
