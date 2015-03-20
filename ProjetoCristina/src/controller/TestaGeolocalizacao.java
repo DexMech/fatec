@@ -20,7 +20,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Scanner;
 
-public class Testaaa extends JFrame {
+public class TestaGeolocalizacao extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -35,7 +35,7 @@ public class Testaaa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Testaaa frame = new Testaaa();
+					TestaGeolocalizacao frame = new TestaGeolocalizacao();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +47,7 @@ public class Testaaa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Testaaa() {
+	public TestaGeolocalizacao() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 531, 370);
 		contentPane = new JPanel();
