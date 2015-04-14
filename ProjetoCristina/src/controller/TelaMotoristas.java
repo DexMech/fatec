@@ -32,14 +32,11 @@ public class TelaMotoristas extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
 	private JFormattedTextField textField_2;
 	private MaskFormatter mascara;
 	private JTextField textField_3;
 	private JFormattedTextField textField_4;
 	private MaskFormatter mascara_placa;
-	
-	private JComboBox comboBox;
 
 	/**
 	 * Launch the application.
@@ -58,17 +55,11 @@ public class TelaMotoristas extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		  comboBox = new JComboBox();
 		textField = new JTextField();
 		
 		textField.setBounds(31, 75, 211, 19);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(31, 171, 211, 19);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 		try {
 			mascara = new MaskFormatter("(##)#####-####");
 			mascara.setValidCharacters("0123456789");
@@ -77,20 +68,9 @@ public class TelaMotoristas extends JFrame {
 			JOptionPane.showMessageDialog(null, "verifique os dados passados","erro",JOptionPane.ERROR_MESSAGE);
 		}
 		textField_2 = new JFormattedTextField(mascara);
-		textField_2.setBounds(31, 275, 114, 19);
+		textField_2.setBounds(31, 160, 114, 19);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
-		
-		
-		comboBox.setBounds(31, 349, 114, 24);
-		comboBox.addItem("A");
-		comboBox.addItem("B");
-		comboBox.addItem("A/B");
-		comboBox.addItem("C");
-		comboBox.addItem("D");
-		comboBox.addItem("E");
-		
-		contentPane.add(comboBox);
 		
 		textField_3 = new JTextField();
 		textField_3.setBounds(490, 75, 160, 19);
@@ -116,9 +96,7 @@ try {
 		
 		IndexTabulacao tab = new IndexTabulacao();
 		tab.addIndexedComponent(textField);
-		tab.addIndexedComponent(textField_1);
 		tab.addIndexedComponent(textField_2);
-		tab.addIndexedComponent(comboBox);
 		tab.addIndexedComponent(textField_3);
 		tab.addIndexedComponent(textField_4);
 		
@@ -141,13 +119,10 @@ try {
 				
 				if(acha){
 					escreve.append(textField.getText()+";");
-					escreve.append(textField_1.getText()+";");
 					escreve.append(textField_2.getText()+";");
 					escreve.append(textField_4.getText()+";");
-					escreve.append(comboBox.getSelectedItem().toString()+";");
 					escreve.append(textField_3.getText());
-					
-					escreve.newLine();
+				    escreve.newLine();
 					JOptionPane.showMessageDialog(null, "Gravado com sucesso","Gravado com sucesso",JOptionPane.INFORMATION_MESSAGE);
 					escreve.close();
 					
@@ -184,17 +159,9 @@ try {
 		lblNewLabel.setBounds(34, 48, 70, 15);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Endereço");
-		lblNewLabel_1.setBounds(31, 144, 70, 15);
-		contentPane.add(lblNewLabel_1);
-		
 		JLabel lblNewLabel_2 = new JLabel("Telefone");
-		lblNewLabel_2.setBounds(34, 248, 70, 15);
+		lblNewLabel_2.setBounds(34, 133, 70, 15);
 		contentPane.add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("CNH");
-		lblNewLabel_3.setBounds(34, 322, 70, 15);
-		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Tipo de Veículo");
 		lblNewLabel_4.setBounds(490, 48, 126, 15);

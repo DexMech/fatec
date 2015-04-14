@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -15,19 +16,23 @@ import org.json.JSONObject;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.ParseException;
 import java.util.Scanner;
+
+import javax.swing.JFormattedTextField;
 
 public class TestaGeolocalizacao extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
-
+private JFormattedTextField txtOrigem;
+private JFormattedTextField txtDestino;
+private MaskFormatter mascara;
 	/**
 	 * Launch the application.
 	 */
@@ -68,16 +73,6 @@ public class TestaGeolocalizacao extends JFrame {
 		btnCalcular.setBounds(386, 305, 117, 25);
 		contentPane.add(btnCalcular);
 		
-		textField = new JTextField();
-		textField.setBounds(48, 58, 114, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(48, 165, 114, 19);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
 		lblNewLabel = new JLabel("origin");
 		lblNewLabel.setBounds(48, 31, 70, 15);
 		contentPane.add(lblNewLabel);
@@ -85,10 +80,28 @@ public class TestaGeolocalizacao extends JFrame {
 		lblNewLabel_1 = new JLabel("Destino");
 		lblNewLabel_1.setBounds(48, 142, 70, 15);
 		contentPane.add(lblNewLabel_1);
+		try {
+			mascara = new MaskFormatter("#####-###");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		 txtOrigem = new JFormattedTextField(mascara);
+		txtOrigem.setBounds(48, 77, 125, 25);
+		contentPane.add(txtOrigem);
+		
+		 txtDestino = new JFormattedTextField(mascara);
+		txtDestino.setBounds(52, 200, 121, 25);
+		contentPane.add(txtDestino);
 	}
 	private void chama(){
-	 String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ textField.getText()+"&destinations="+ textField_1.getText()+"&mode=driving&language=pt-BR&sensor=false";
-	 s += URLEncoder.encode( "UTF-8");
+	 String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ txtOrigem.getText()+"&destinations="+ txtDestino.getText()+"&mode=driving&language=pt-BR&sensor=false";
+	  try {
+		URLEncoder.encode(s, "UTF-8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	 URL url = null;
 	try {
 		url = new URL(s);
