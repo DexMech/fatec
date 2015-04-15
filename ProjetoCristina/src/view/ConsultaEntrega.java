@@ -108,7 +108,7 @@ public class ConsultaEntrega extends JFrame {
 				//System.out.println(getTxtCliente());
 				ControlaLeituraEntrega c = new ControlaLeituraEntrega();
 				
-				c.busca(txtCliente.getText());
+				c.busca();
 				
 			}
 		});

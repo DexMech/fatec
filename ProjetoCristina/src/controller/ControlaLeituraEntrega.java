@@ -27,8 +27,8 @@ public void sair(){
 }
 
 
-public void busca(String ck){
-	System.out.println(ck);
+public void busca(){
+	System.out.println(consulta.getTxtCliente().getText());
 /*
 			DefaultTableModel modelo = (DefaultTableModel) table.getModel();
 			String linha;
