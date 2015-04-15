@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -17,7 +19,10 @@ import view.ConsultaEntrega;
 
 public class ControlaLeituraEntrega {
 	DefaultTableModel modelo;
-	String cliente;
+	public ConsultaEntrega con ;
+	private String cliente;
+	
+	
 public void sair(){
 	
 	
@@ -32,7 +37,7 @@ public void sair(){
 
 public void busca(String cliente,String data,JTable tabela){
 	
-	this.cliente =cliente;
+	
 
 			 modelo = (DefaultTableModel) tabela.getModel();
 			String linha;
@@ -56,19 +61,21 @@ public void busca(String cliente,String data,JTable tabela){
 		}
 	
 	
-public void limpar(JTable tabela){
-System.out.println(tabela.getRowCount());
+public void limpar(JTable tabela,JLabel label,JTextField cliente,JFormattedTextField data){
+
 int i=0;
 	 modelo = (DefaultTableModel) tabela.getModel();
 	while(tabela.getRowCount()>0){
 	modelo.removeRow(i);
 	
 	 }
-	
+	label.setText("");
+	cliente.setText("");
+	data.setText("");
 
 }
 
-public void exporta(JTable tabela){
+public void exporta(JTable tabela,JLabel label){
 	ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 	StringBuilder b = new StringBuilder();
 	for(int i = 0; i< tabela.getRowCount(); i++){  
@@ -82,23 +89,26 @@ public void exporta(JTable tabela){
 	try {
 		escreve = new BufferedWriter(new FileWriter(cliente+".txt",true));
 	} catch (IOException e1) {
-		// TODO Auto-generated catch block
+		
 		e1.printStackTrace();
 	}
 	for(StringBuilder b1: linhas){  
 	    try {
 			escreve.write(b1.toString()+"\n");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}  
 	} 
 	try {
 		escreve.close();
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
 	}
+	
+	
+	label.setText("gravado com sucesso");
 }
 	
  

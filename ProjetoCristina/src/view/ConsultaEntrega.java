@@ -30,6 +30,14 @@ import java.awt.Font;
 import java.text.ParseException;
 
 public class ConsultaEntrega extends JFrame {
+private JLabel labelgrava;
+	
+
+
+
+	public JLabel getLabelgrava() {
+	return labelgrava;
+}
 
 	private JPanel contentPane;
 	public JTable table;
@@ -37,9 +45,13 @@ public class ConsultaEntrega extends JFrame {
 	private JTextField txtCliente;
 	private MaskFormatter mascara;
 	private JFormattedTextField txtdata;
+	public JFormattedTextField getTxtdata() {
+		return txtdata;
+	}
+
 	private ControlaLeituraEntrega control = new ControlaLeituraEntrega();
-	public String getTxtCliente() {
-		return txtCliente.getText().toString();
+	public JTextField getTxtCliente() {
+		return txtCliente;
 	}
 
 	public JTable getTable() {
@@ -107,7 +119,7 @@ public class ConsultaEntrega extends JFrame {
 		JButton btnExportarCvs = new JButton("Exportar cvs");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.exporta(getTable());
+				control.exporta(getTable(),getLabelgrava());
 			}
 		});
 		btnExportarCvs.setBounds(54, 385, 117, 25);
@@ -166,15 +178,19 @@ public class ConsultaEntrega extends JFrame {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				control.limpar(getTable());
+				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
 		btnLimpar.setBounds(431, 385, 117, 25);
 		contentPane.add(btnLimpar);
 		
+		 labelgrava = new JLabel();
+		labelgrava.setFont(new Font("Arial", Font.PLAIN, 9));
+		labelgrava.setForeground(Color.RED);
+		labelgrava.setBounds(204, 390, 157, 15);
+		contentPane.add(labelgrava);
+		
 		
 		
 	}
-
-	
 }
