@@ -13,7 +13,6 @@ import javax.swing.table.DefaultTableModel;
 import view.ConsultaEntrega;
 
 public class ControlaLeituraEntrega {
-ConsultaEntrega consulta = new ConsultaEntrega();
 
 public void sair(){
 	

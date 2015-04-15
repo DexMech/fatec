@@ -37,9 +37,9 @@ public class ConsultaEntrega extends JFrame {
 	private JTextField txtCliente;
 	private MaskFormatter mascara;
 	private JFormattedTextField txtdata;
-	
-	public JTextField getTxtCliente() {
-		return txtCliente;
+	private ControlaLeituraEntrega control = new ControlaLeituraEntrega();
+	public String getTxtCliente() {
+		return txtCliente.getText().toString();
 	}
 
 	public JTable getTable() {
@@ -97,7 +97,7 @@ public class ConsultaEntrega extends JFrame {
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-			new ControlaLeituraEntrega().sair();
+			control.sair();
 			
 			}
 		});
@@ -140,10 +140,10 @@ public class ConsultaEntrega extends JFrame {
 					
 				}
 				else{
-				ControlaLeituraEntrega c = new ControlaLeituraEntrega();
+				
 				
 			
-				c.busca(txtCliente.getText(),txtdata.getText(),getTable());
+				control.busca(txtCliente.getText(),txtdata.getText(),getTable());
 				}
 				
 			}
