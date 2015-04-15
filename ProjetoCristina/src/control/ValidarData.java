@@ -5,7 +5,6 @@ public class ValidarData {
 	public boolean isDataInsertedValid(String data_1, String data_2){
 		char[] firstData = data_1.toCharArray();
 		char[] secondData = data_2.toCharArray();
-		byte index = 0;
 		boolean validation = false;
 		int[] valueOne = new int [3];
 		int[] valueTwo = new int [3];
