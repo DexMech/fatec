@@ -105,6 +105,11 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.add(btnSair);
 		
 		JButton btnExportarCvs = new JButton("Exportar cvs");
+		btnExportarCvs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				control.exporta(getTable());
+			}
+		});
 		btnExportarCvs.setBounds(54, 385, 117, 25);
 		contentPane.add(btnExportarCvs);
 		
@@ -161,7 +166,7 @@ public class ConsultaEntrega extends JFrame {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ControlaLeituraEntrega().limpar(getTable());
+				control.limpar(getTable());
 			}
 		});
 		btnLimpar.setBounds(431, 385, 117, 25);
@@ -171,11 +176,5 @@ public class ConsultaEntrega extends JFrame {
 		
 	}
 
-	public void setTxtCliente(JTextField txtCliente) {
-		this.txtCliente = txtCliente;
-	}
-
-	public void setTxtdata(JFormattedTextField txtdata) {
-		this.txtdata = txtdata;
-	}
+	
 }
