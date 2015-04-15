@@ -14,7 +14,7 @@ import view.ConsultaEntrega;
 
 public class ControlaLeituraEntrega {
 ConsultaEntrega consulta = new ConsultaEntrega();
-private JTextField s;
+
 public void sair(){
 	
 	
@@ -27,31 +27,40 @@ public void sair(){
 }
 
 
-public void busca(){
-	System.out.println(consulta.getTxtCliente().getText());
-/*
-			DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+public void busca(String cliente,String data,JTable tabela){
+	
+	
+
+			DefaultTableModel modelo = (DefaultTableModel) tabela.getModel();
 			String linha;
 		
 			try {
 				BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
 		while(le.ready()){
 				linha = le.readLine();
-				if(linha.contains(cliente.getText())){
+				if(linha.contains(cliente) && (linha.contains(data))){
 				Object[] objeto = linha.split(";");
 				modelo.addRow(objeto);
 				}
 				
 				}
+		le.close();
 			} catch (IOException e1) {
 				
 				e1.printStackTrace();
 			}
-			*/
+			
 		}
 	
 	
+public void limpar(JTable tabela){
+int row = tabela.getRowCount();
 
+	
+	
+	
+
+}
 	
 	
 	

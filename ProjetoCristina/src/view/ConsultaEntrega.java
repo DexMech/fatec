@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JButton;
@@ -19,10 +20,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 import java.awt.Color;
 
 import javax.swing.JTextField;
+
+import java.awt.Font;
+import java.text.ParseException;
 
 public class ConsultaEntrega extends JFrame {
 
@@ -30,11 +35,20 @@ public class ConsultaEntrega extends JFrame {
 	public JTable table;
 	private JLabel labelControl;
 	private JTextField txtCliente;
+	private MaskFormatter mascara;
+	private JFormattedTextField txtdata;
+	
 	public JTextField getTxtCliente() {
 		return txtCliente;
 	}
 
-	private JTextField txtdata;
+	public JTable getTable() {
+		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
+	}
 
 
 	/**
@@ -97,37 +111,71 @@ public class ConsultaEntrega extends JFrame {
 		JLabel labelCliente = new JLabel("Cliente");
 		labelCliente.setBounds(51, 38, 57, 50);
 		contentPane.add(labelCliente);
+		try {
+			mascara = new MaskFormatter("##/##/####");
+			mascara.setValidCharacters("0123456789");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		txtdata = new JFormattedTextField(mascara);
+		txtdata.setBounds(398, 50, 122, 27);
+		contentPane.add(txtdata);
 		
 		JLabel labelData = new JLabel("Data");
 		labelData.setBounds(356, 38, 39, 50);
 		contentPane.add(labelData);
-		
+		 labelControl = new JLabel("");
+		 labelControl.setFont(new Font("Arial", Font.BOLD, 9));
+		labelControl.setForeground(Color.RED);
+		labelControl.setBounds(447, 6, 186, 15);
+		contentPane.add(labelControl);
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println(getTxtCliente());
+				if(txtCliente.getText().isEmpty()||txtdata.getText().isEmpty()){
+					
+					labelControl.setText("*preencha os campos");
+					
+				}
+				else{
 				ControlaLeituraEntrega c = new ControlaLeituraEntrega();
 				
-				c.busca();
+			
+				c.busca(txtCliente.getText(),txtdata.getText(),getTable());
+				}
 				
 			}
 		});
 		btnBuscar.setBounds(572, 51, 117, 25);
 		contentPane.add(btnBuscar);
 		
-		JLabel labelControl = new JLabel("");
-		labelControl.setForeground(Color.RED);
-		labelControl.setBounds(447, 6, 60, 15);
-		contentPane.add(labelControl);
+		
 		
 		txtCliente = new JTextField();
-		txtCliente.setBounds(100, 50, 122, 27);
+		txtCliente.setBounds(110, 50, 122, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 		
-		txtdata = new JTextField();
-		txtdata.setBounds(397, 50, 122, 27);
-		contentPane.add(txtdata);
-		txtdata.setColumns(10);
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ControlaLeituraEntrega().limpar(getTable());
+			}
+		});
+		btnLimpar.setBounds(431, 385, 117, 25);
+		contentPane.add(btnLimpar);
+		
+		
+		
+	}
+
+	public void setTxtCliente(JTextField txtCliente) {
+		this.txtCliente = txtCliente;
+	}
+
+	public void setTxtdata(JFormattedTextField txtdata) {
+		this.txtdata = txtdata;
 	}
 }
