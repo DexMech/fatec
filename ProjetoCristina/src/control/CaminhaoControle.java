@@ -21,15 +21,15 @@ public class CaminhaoControle extends Caminhao{
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			bw.write(getTipoCaminhao());
-			bw.newLine();
+			bw.write(";");
 			bw.write(Integer.toString(getCapacidadeCarga()));
-			bw.newLine();
+			bw.write(";");
 			bw.write(getNumeroPlaca());
-			bw.newLine();
+			bw.write(";");
 			bw.write(getCidade());
-			bw.newLine();
+			bw.write(";");
 			bw.write(getEstado());
-			bw.newLine();
+			bw.write(";");
 			bw.close();
 		} catch(IOException ioe){
 			ioe.printStackTrace();

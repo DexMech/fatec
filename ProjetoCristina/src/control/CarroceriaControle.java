@@ -23,15 +23,15 @@ public class CarroceriaControle extends Carroceria{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 
 			bw.write(getNome());
-			bw.newLine();
+			bw.write(";");
 			bw.write(Integer.toString(getPeso()));
-			bw.newLine();
+			bw.write(";");
 			bw.write(Double.toString(getAltura()));
-			bw.newLine();
+			bw.write(";");
 			bw.write(Double.toString(getLargura()));
-			bw.newLine();
+			bw.write(";");
 			bw.write(Double.toString(getComprimento()));
-			bw.newLine();
+			bw.write(";");
 			bw.write(Double.toString(getVolume()));
 			bw.newLine();
 			bw.close();
