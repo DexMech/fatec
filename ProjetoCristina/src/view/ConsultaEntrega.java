@@ -30,8 +30,8 @@ public class ConsultaEntrega extends JFrame {
 	public JTable table;
 	private JLabel labelControl;
 	private JTextField txtCliente;
-	public String getTxtCliente() {
-		return txtCliente.getText();
+	public JTextField getTxtCliente() {
+		return txtCliente;
 	}
 
 	private JTextField txtdata;
@@ -108,7 +108,7 @@ public class ConsultaEntrega extends JFrame {
 				//System.out.println(getTxtCliente());
 				ControlaLeituraEntrega c = new ControlaLeituraEntrega();
 				
-				c.busca(table,txtCliente);
+				c.busca(txtCliente.getText());
 				
 			}
 		});

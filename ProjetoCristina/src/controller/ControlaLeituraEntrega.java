@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import view.ConsultaEntrega;
 
 public class ControlaLeituraEntrega {
-private ConsultaEntrega consulta = new ConsultaEntrega();
+ConsultaEntrega consulta = new ConsultaEntrega();
 private JTextField s;
 public void sair(){
 	
@@ -27,8 +27,8 @@ public void sair(){
 }
 
 
-public void busca(JTable table,JTextField cliente){
-	System.out.println(consulta.getTxtCliente());
+public void busca(String ck){
+	System.out.println(ck);
 /*
 			DefaultTableModel modelo = (DefaultTableModel) table.getModel();
 			String linha;
