@@ -1,4 +1,4 @@
-package testing;
+/*package testing;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -102,3 +102,4 @@ public class ScreenTest extends JFrame{
 		new ScreenTest();
 	}
 }
+*/

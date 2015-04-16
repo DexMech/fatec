@@ -1,11 +1,11 @@
-package controller;
+package testing;
 
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.FocusTraversalPolicy;
 import java.util.ArrayList;
 
-public class IndexTabulacao extends  FocusTraversalPolicy {
+public class TestIndexTabulacao extends  FocusTraversalPolicy {
 
 	   private ArrayList <Component> components = new ArrayList<Component>();
 
