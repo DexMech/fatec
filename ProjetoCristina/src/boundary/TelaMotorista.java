@@ -170,7 +170,7 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(lblNome);
 		
 		textField = new JTextField();
-		textField.setBounds(10, 29, 348, 20);
+		textField.setBounds(10, 31, 348, 20);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
