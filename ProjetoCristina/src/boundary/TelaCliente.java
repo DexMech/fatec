@@ -151,7 +151,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(283, 362, 89, 23);
+		btnLimpar.setBounds(304, 362, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JRadioButton rdbtnCpf = new JRadioButton("CPF");
@@ -177,6 +177,16 @@ public class TelaCliente extends JFrame {
 		buttonGroup.add(rdbtnCnpj);
 		rdbtnCnpj.setBounds(105, 144, 86, 25);
 		contentPane.add(rdbtnCnpj);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			dispose();
+			new TelaInicial();
+			}
+		});
+		btnNewButton.setBounds(154, 361, 103, 25);
+		contentPane.add(btnNewButton);
 		
 		setVisible(true);
 	}

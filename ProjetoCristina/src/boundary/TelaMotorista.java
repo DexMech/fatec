@@ -323,7 +323,7 @@ public class TelaMotorista extends JFrame{
 				}
 			}
 		});
-		btnGravar.setBounds(10, 569, 89, 23);
+		btnGravar.setBounds(282, 569, 89, 23);
 		getContentPane().add(btnGravar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -348,7 +348,7 @@ public class TelaMotorista extends JFrame{
 				textField_14.setText(Double.toString(56.457));
 			}
 		});
-		btnLimpar.setBounds(269, 569, 89, 23);
+		btnLimpar.setBounds(25, 569, 89, 23);
 		getContentPane().add(btnLimpar);
 		
 		textField_3 = new JFormattedTextField(data);
@@ -450,6 +450,16 @@ public class TelaMotorista extends JFrame{
 		JLabel lblM_1 = new JLabel("m\u00B3");
 		lblM_1.setBounds(347, 363, 46, 14);
 		getContentPane().add(lblM_1);
+		
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new TelaInicial();
+			}
+		});
+		btnNewButton.setBounds(156, 568, 98, 25);
+		getContentPane().add(btnNewButton);
 		
 		setVisible(true);
 	}
