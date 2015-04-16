@@ -24,6 +24,7 @@ public class TelaInicial extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					dispose();
 					new TelaMotorista();
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
@@ -43,7 +44,8 @@ public class TelaInicial extends JFrame {
 		btnCadastrarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
-					new TelaCliente();
+					dispose();
+					new TelaCliente().setLocationRelativeTo(null);
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -63,6 +65,10 @@ public class TelaInicial extends JFrame {
 		getContentPane().add(btnVerEntregas);
 		
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
+		btnAbrirExcel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAbrirExcel.setBounds(86, 213, 154, 29);
 		getContentPane().add(btnAbrirExcel);
 		setVisible(true);
