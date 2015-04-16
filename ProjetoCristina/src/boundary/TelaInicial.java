@@ -40,10 +40,25 @@ public class TelaInicial extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
+		btnCadastrarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				try {
+					new TelaCliente();
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnCadastrarCliente.setBounds(86, 133, 154, 29);
 		getContentPane().add(btnCadastrarCliente);
 		
 		JButton btnVerEntregas = new JButton("Ver Entregas");
+		btnVerEntregas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				new ConsultaEntrega();
+			}
+		});
 		btnVerEntregas.setBounds(86, 173, 154, 29);
 		getContentPane().add(btnVerEntregas);
 		

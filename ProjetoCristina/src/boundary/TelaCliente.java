@@ -1,15 +1,23 @@
 package boundary;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.text.ParseException;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JCheckBox;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class TelaCliente extends JFrame {
 
@@ -19,28 +27,20 @@ public class TelaCliente extends JFrame {
 	private JTextField txtCEP;
 	private JTextField txtBairro;
 	private JTextField txtNumero;
-	private JTextField txtCPF;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaCliente frame = new TelaCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JFormattedTextField txtCPF;
+	private JFormattedTextField txtCNPJ;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private MaskFormatter cpf;
+	private MaskFormatter cnpj;
 
 	/**
 	 * Create the frame.
+	 * @throws ParseException 
 	 */
-	public TelaCliente() {
+	public TelaCliente() throws ParseException {
+		cpf = new MaskFormatter("###.###.###-##");
+		cnpj = new MaskFormatter("##.###.###/####-##");
+		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 437, 434);
@@ -95,14 +95,19 @@ public class TelaCliente extends JFrame {
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
 		
-		JLabel lblCpfCnpj = new JLabel("CPF / CNPJ");
-		lblCpfCnpj.setBounds(8, 148, 86, 14);
-		contentPane.add(lblCpfCnpj);
-		
-		txtCPF = new JTextField();
-		txtCPF.setBounds(66, 145, 94, 20);
-		contentPane.add(txtCPF);
+		txtCPF = new JFormattedTextField(cpf);
+		txtCPF.setBounds(241, 146, 166, 20);
+		//contentPane.add(txtCPF);
 		txtCPF.setColumns(10);
+		contentPane.add(txtCPF);
+		txtCPF.setVisible(true);
+		
+		txtCNPJ = new JFormattedTextField(cnpj);
+		txtCNPJ.setBounds(241, 146, 166, 20);
+		//contentPane.add(txtCNPJ);
+		txtCNPJ.setColumns(10);
+		contentPane.add(txtCNPJ);
+		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
 		lblJanelaDeEntrega.setBounds(10, 196, 103, 14);
@@ -114,7 +119,7 @@ public class TelaCliente extends JFrame {
 		panel.setLayout(null);
 		
 		JCheckBox chckbxSegunda = new JCheckBox("Segunda");
-		chckbxSegunda.setBounds(16, 7, 67, 23);
+		chckbxSegunda.setBounds(16, 7, 97, 23);
 		panel.add(chckbxSegunda);
 		
 		JCheckBox chckbxTerca = new JCheckBox("Terca");
@@ -148,5 +153,31 @@ public class TelaCliente extends JFrame {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setBounds(283, 362, 89, 23);
 		contentPane.add(btnLimpar);
+		
+		JRadioButton rdbtnCpf = new JRadioButton("CPF");
+		rdbtnCpf.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtCPF.setVisible(true);
+				txtCNPJ.setVisible(false);
+			}
+		});
+		buttonGroup.add(rdbtnCpf);
+		rdbtnCpf.setBounds(10, 144, 77, 25);
+		contentPane.add(rdbtnCpf);
+		
+		JRadioButton rdbtnCnpj = new JRadioButton("CNPJ");
+		rdbtnCnpj.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtCPF.setVisible(false);
+				txtCNPJ.setVisible(true);
+			}
+		});
+		buttonGroup.add(rdbtnCnpj);
+		rdbtnCnpj.setBounds(105, 144, 86, 25);
+		contentPane.add(rdbtnCnpj);
+		
+		setVisible(true);
 	}
 }

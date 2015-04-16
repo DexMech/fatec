@@ -30,11 +30,11 @@ public class TelaMotorista extends JFrame{
 	private JFormattedTextField textField_2;
 	private JFormattedTextField textField_4;
 	private JFormattedTextField textField_5;
-	private final String veiculo [] = {"Toco", "Truck", "Carreta 2 Eixos", "Carreta Baú", "Carreta 3 Eixos", "Carreta Cavalo Truckado", "Carreta Cavalo Truckado Baú",
-										"Bi-trem(Treminhão) - 7 eixos"};
-	private final String carroceria[] = {"Carroceria tipo sider tamanho padrão", "Carroceria tipo sider semi reboque ", 
-										"Carroceria tipo baú(4.000 kg)", "Carroceria tipo baú(6.000 kg)", 
-										"Carroceria tipo baú semi reboque", "Dry Van(20)", "Bulk(20)", "Ventilated", 
+	private final String veiculo [] = {"Toco", "Truck", "Carreta 2 Eixos", "Carreta BaÃº", "Carreta 3 Eixos", "Carreta Cavalo Truckado", "Carreta Cavalo Truckado BaÃº",
+										"Bi-trem(TreminhÃ£o) - 7 eixos"};
+	private final String carroceria[] = {"Carroceria tipo sider tamanho padrÃ£o", "Carroceria tipo sider semi reboque ", 
+										"Carroceria tipo baÃº(4.000 kg)", "Carroceria tipo baÃº(6.000 kg)", 
+										"Carroceria tipo baÃº semi reboque", "Dry Van(20)", "Bulk(20)", "Ventilated", 
 										"Open Top(20)", "Reefer(20)", "Platform(20)", "Dry Van(40)", "Bulk(40)", 
 										"Dry High Cube", "Open Top(40)", "Reefer(40)", "Port Hole", "Platform(40)", "Flat Track"};
 	private JTextField textField_6;
@@ -53,6 +53,9 @@ public class TelaMotorista extends JFrame{
 	private JTextField textField_12;
 	private JTextField textField_13;
 	private JTextField textField_14;
+	/**
+	 * @wbp.nonvisual location=283,714
+	 */
 	
 	public TelaMotorista() throws ParseException{
 		tel = new MaskFormatter("(##)####-####");

@@ -1,4 +1,4 @@
-package view;
+package boundary;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import controller.ControlaLeituraEntrega;
+import control.ControlaLeituraEntrega;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -62,22 +62,6 @@ private JLabel labelgrava;
 		this.table = table;
 	}
 
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultaEntrega frame = new ConsultaEntrega();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -191,6 +175,6 @@ private JLabel labelgrava;
 		contentPane.add(labelgrava);
 		
 		
-		
+		setVisible(true);
 	}
 }

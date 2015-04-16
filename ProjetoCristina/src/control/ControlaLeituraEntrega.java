@@ -1,4 +1,4 @@
-package controller;
+package control;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,7 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import view.ConsultaEntrega;
+import boundary.ConsultaEntrega;
 
 public class ControlaLeituraEntrega {
 	DefaultTableModel modelo;
