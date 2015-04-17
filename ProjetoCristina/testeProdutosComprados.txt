@@ -1,0 +1,7 @@
+paulo;16/11/1992;2dedodecoca;sssss;
+são paulo;ricardo;f100;16/11/1992;
+são paulo;joao;f100;16/11/1992;
+são paulo;francisco;f100;16/11/1992;
+são paulo;teo;f100;16/11/1992;
+são paulo;lucas;f100;16/11/1992;
+são paulo;alex;f100;16/11/1992;
