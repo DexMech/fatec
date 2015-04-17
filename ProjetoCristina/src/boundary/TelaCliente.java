@@ -1,11 +1,14 @@
 /**
  * @author Tiago Santos
- * 
+ *  
  * Tela responsável pelo cadastro de clientes*/
 
 package boundary;
 
-import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
@@ -19,32 +22,32 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
 
 public class TelaCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtNome;
-	private JTextField txtTelefone;
-	private JTextField txtCEP;
+	private JFormattedTextField txtTelefone;
+	private JFormattedTextField txtCEP;
 	private JTextField txtBairro;
 	private JTextField txtNumero;
 	private JFormattedTextField txtCPF;
 	private JFormattedTextField txtCNPJ;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private MaskFormatter cpf;
+	private MaskFormatter cep;
 	private MaskFormatter cnpj;
+	private MaskFormatter tel;
 
 	/**
 	 * Create the frame.
 	 * @throws ParseException 
 	 */
 	public TelaCliente() throws ParseException {
+		cep = new MaskFormatter("#####-###");
 		cpf = new MaskFormatter("###.###.###-##");
 		cnpj = new MaskFormatter("##.###.###/####-##");
+		tel = new MaskFormatter("(##)####-####");
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -71,13 +74,12 @@ public class TelaCliente extends JFrame {
 		lblCep.setBounds(283, 104, 46, 14);
 		contentPane.add(lblCep);
 		
-		txtTelefone = new JTextField();
-		txtTelefone.setText("(99)9999-9999");
+		txtTelefone = new JFormattedTextField(tel);
 		txtTelefone.setBounds(66, 52, 94, 20);
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
-		txtCEP = new JTextField();
+		txtCEP = new JFormattedTextField(cep);
 		txtCEP.setBounds(322, 101, 86, 20);
 		contentPane.add(txtCEP);
 		txtCEP.setColumns(10);
@@ -96,6 +98,17 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
+		txtNumero.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || (c==KeyEvent.VK_DELETE))
+                {
+                    getToolkit().beep();
+                    e.consume();
+                }
+			}
+		});
 		txtNumero.setBounds(281, 52, 127, 20);
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
@@ -182,16 +195,6 @@ public class TelaCliente extends JFrame {
 		buttonGroup.add(rdbtnCnpj);
 		rdbtnCnpj.setBounds(105, 144, 86, 25);
 		contentPane.add(rdbtnCnpj);
-		
-		JButton btnNewButton = new JButton("Voltar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			dispose();
-			new TelaInicial();
-			}
-		});
-		btnNewButton.setBounds(154, 361, 103, 25);
-		contentPane.add(btnNewButton);
 		
 		setVisible(true);
 	}
