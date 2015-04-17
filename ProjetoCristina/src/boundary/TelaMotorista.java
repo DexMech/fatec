@@ -1,3 +1,8 @@
+/**
+ * @author Arthur Gomes
+ * 
+ * Tela responsável por cadastrar motorista e seu respectivo caminhão*/
+
 package boundary;
 
 import java.awt.Color;

@@ -1,3 +1,9 @@
+/**
+ * @author Marcio Augusto
+ * @author Danilo Santos
+ * 
+ * Tela responsável por ligar cliente aos seus produtos a serem entregues*/
+
 package boundary;
 
 import java.awt.BorderLayout;

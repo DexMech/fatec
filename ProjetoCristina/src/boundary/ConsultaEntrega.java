@@ -1,3 +1,8 @@
+/**
+ * @author Alex Carlos
+ * 
+ * Tela responsável por mostrar e exportar para xls as entregas que serão realizadas*/
+
 package boundary;
 
 import java.awt.BorderLayout;

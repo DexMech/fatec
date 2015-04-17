@@ -1,3 +1,8 @@
+/**
+ * @author Arthur Gomes
+ * 
+ * Tela inicial do programa*/
+
 package boundary;
 
 import javax.swing.JFrame;
@@ -13,7 +18,7 @@ import javax.swing.SwingConstants;
 public class TelaInicial extends JFrame {
 
 	public TelaInicial(){
-		setSize(330,303);
+		setSize(334,345);
 		setTitle("");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,7 +66,7 @@ public class TelaInicial extends JFrame {
 				new ConsultaEntrega();
 			}
 		});
-		btnVerEntregas.setBounds(86, 173, 154, 29);
+		btnVerEntregas.setBounds(86, 213, 154, 29);
 		getContentPane().add(btnVerEntregas);
 		
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
@@ -69,8 +74,12 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAbrirExcel.setBounds(86, 213, 154, 29);
+		btnAbrirExcel.setBounds(86, 253, 154, 29);
 		getContentPane().add(btnAbrirExcel);
+		
+		JButton btnCadastrarEntregas = new JButton("Cadastrar Entregas");
+		btnCadastrarEntregas.setBounds(86, 173, 154, 29);
+		getContentPane().add(btnCadastrarEntregas);
 		setVisible(true);
 	}
 	

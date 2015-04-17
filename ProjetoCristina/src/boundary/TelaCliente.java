@@ -1,3 +1,8 @@
+/**
+ * @author Tiago Santos
+ * 
+ * Tela responsável pelo cadastro de clientes*/
+
 package boundary;
 
 import java.awt.EventQueue;
