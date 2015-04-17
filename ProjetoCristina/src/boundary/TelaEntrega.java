@@ -32,6 +32,9 @@ public class TelaEntrega extends JFrame {
 	private JTextField txtProduto;
 	private MaskFormatter mascara;
 	private JFormattedTextField txtdata;
+	private JTextField textField;
+	private JTextField txtPeso;
+	private JTextField txtVolume;
 
 	/**
 	 * Create the frame.
@@ -39,7 +42,7 @@ public class TelaEntrega extends JFrame {
 	public TelaEntrega() {
 		setTitle("Cadastro de Entrega");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 267, 300);
+		setBounds(100, 100, 300, 300);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
@@ -58,9 +61,9 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(btnBuscarCliente);
 		
 		txtCliente = new JTextField();
+		txtCliente.setBounds(20, 40, 180, 27);
 		txtCliente.setEnabled(false);
 		txtCliente.setEditable(false);
-		txtCliente.setBounds(20, 40, 180, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 		
@@ -69,19 +72,18 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(lblProduto);
 		
 		txtProduto = new JTextField();
+		txtProduto.setBounds(20, 100, 180, 27);
 		txtProduto.setEditable(false);
 		txtProduto.setEnabled(false);
-		txtProduto.setBounds(20, 100, 180, 27);
 		contentPane.add(txtProduto);
 		txtProduto.setColumns(10);
 		
 		JButton btnBuscarProduto = new JButton(iconbuscar);
+		btnBuscarProduto.setBounds(220, 102, 22, 22);
 		btnBuscarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		
-		btnBuscarProduto.setBounds(220, 102, 22, 22);
 		contentPane.add(btnBuscarProduto);
 		
 		try {
@@ -92,7 +94,7 @@ public class TelaEntrega extends JFrame {
 			e1.printStackTrace();
 		}
 		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(20, 160, 90, 27);
+		txtdata.setBounds(20, 160, 56, 27);
 		contentPane.add(txtdata);
 		
 		JLabel lblData = new JLabel("Data");
@@ -102,6 +104,7 @@ public class TelaEntrega extends JFrame {
 		setVisible(true);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(152, 220, 90, 23);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				txtProduto.setText("");
@@ -109,25 +112,51 @@ public class TelaEntrega extends JFrame {
 				txtdata.setValue("");
 							}
 		});
-		btnLimpar.setBounds(152, 220, 90, 23);
 		getContentPane().add(btnLimpar);
 		
 		JButton btnGravar = new JButton("Gravar");
+		btnGravar.setBounds(20, 220, 81, 23);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				}
 		});
-		btnGravar.setBounds(20, 220, 90, 23);
 		getContentPane().add(btnGravar);
+		
+		JLabel lblQuantidade = new JLabel("Quantidade");
+		lblQuantidade.setBounds(80, 141, 63, 14);
+		contentPane.add(lblQuantidade);
+		
+		textField = new JTextField();
+		textField.setBounds(84, 160, 63, 27);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		txtPeso = new JTextField();
+		txtPeso.setEditable(false);
+		txtPeso.setBounds(152, 160, 48, 27);
+		contentPane.add(txtPeso);
+		txtPeso.setColumns(10);
+		
+		JLabel lblPeso = new JLabel("Peso");
+		lblPeso.setBounds(152, 141, 46, 14);
+		contentPane.add(lblPeso);
+		
+		JLabel lblKg = new JLabel("Kg");
+		lblKg.setBounds(203, 173, 22, 14);
+		contentPane.add(lblKg);
+		
+		txtVolume = new JTextField();
+		txtVolume.setEditable(false);
+		txtVolume.setBounds(220, 160, 53, 27);
+		contentPane.add(txtVolume);
+		txtVolume.setColumns(10);
+		
+		JLabel lblVolume = new JLabel("Volume");
+		lblVolume.setBounds(220, 141, 46, 14);
+		contentPane.add(lblVolume);
+		
+		JLabel lblM = new JLabel("m³");
+		lblM.setBounds(276, 172, 22, 14);
+		contentPane.add(lblM);
 	}
-
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		new TelaEntrega();
-	}
-	
-	
 }
