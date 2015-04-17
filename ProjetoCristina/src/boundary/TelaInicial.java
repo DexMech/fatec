@@ -49,8 +49,7 @@ public class TelaInicial extends JFrame {
 		btnCadastrarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				try {
-					dispose();
-					new TelaCliente().setLocationRelativeTo(null);
+					new TelaCliente();
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

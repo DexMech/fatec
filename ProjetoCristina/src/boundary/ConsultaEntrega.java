@@ -75,7 +75,8 @@ public class ConsultaEntrega extends JFrame {
 	 */
 	public ConsultaEntrega() {
 		setTitle("Consulta de Entregas");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setBounds(100, 100, 761, 466);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

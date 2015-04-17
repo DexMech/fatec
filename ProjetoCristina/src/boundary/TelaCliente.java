@@ -17,6 +17,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -51,6 +52,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setBounds(100, 100, 437, 434);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -136,7 +138,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JCheckBox chckbxSegunda = new JCheckBox("Segunda");
+		final JCheckBox chckbxSegunda = new JCheckBox("Segunda");
 		chckbxSegunda.setBounds(16, 7, 97, 23);
 		panel.add(chckbxSegunda);
 		
@@ -165,6 +167,15 @@ public class TelaCliente extends JFrame {
 		panel.add(chckbxDomingo);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxSegunda.isSelected()){
+					JOptionPane.showMessageDialog(null, "Segunda");
+				} else {
+					JOptionPane.showMessageDialog(null, "Nada");
+				}
+			}
+		});
 		btnSalvar.setBounds(35, 362, 89, 23);
 		contentPane.add(btnSalvar);
 		
