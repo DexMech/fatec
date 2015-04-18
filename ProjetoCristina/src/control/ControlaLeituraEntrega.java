@@ -24,18 +24,6 @@ public class ControlaLeituraEntrega {
 	private String cliente;
 	
 	
-public void sair(){
-	
-	
-	int resp = 	JOptionPane.showConfirmDialog(null, "deseja mesmo sair","Saindo",JOptionPane.INFORMATION_MESSAGE);
-	if(resp==0){
-		
-		System.exit(0);
-		
-	}
-}
-
-
 public void busca(String cliente,String data,JTable tabela){
 	
 	

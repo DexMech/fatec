@@ -84,7 +84,7 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(51, 109, 637, 246);
+		scrollPane.setBounds(20, 109, 637, 246);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -97,17 +97,6 @@ public class ConsultaEntrega extends JFrame {
 				));
 		scrollPane.setViewportView(table);
 
-		JButton btnSair = new JButton("Sair");
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				control.sair();
-
-			}
-		});
-		btnSair.setBounds(572, 385, 117, 25);
-		contentPane.add(btnSair);
-
 		JButton btnExportarCvs = new JButton("Exportar cvs");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -116,11 +105,11 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(54, 385, 117, 25);
+		btnExportarCvs.setBounds(20, 385, 117, 25);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
-		labelCliente.setBounds(51, 38, 57, 50);
+		labelCliente.setBounds(20, 38, 57, 50);
 		contentPane.add(labelCliente);
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -131,17 +120,18 @@ public class ConsultaEntrega extends JFrame {
 		}
 
 		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(398, 50, 122, 27);
+		txtdata.setBounds(368, 50, 122, 27);
 		contentPane.add(txtdata);
 
 		JLabel labelData = new JLabel("Data");
-		labelData.setBounds(356, 38, 39, 50);
+		labelData.setBounds(326, 38, 39, 50);
 		contentPane.add(labelData);
 		labelControl = new JLabel("");
 		labelControl.setFont(new Font("Arial", Font.BOLD, 9));
 		labelControl.setForeground(Color.RED);
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
+		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -169,13 +159,13 @@ public class ConsultaEntrega extends JFrame {
 
 			}
 		});
-		btnBuscar.setBounds(572, 51, 117, 25);
+		btnBuscar.setBounds(542, 51, 117, 25);
 		contentPane.add(btnBuscar);
 
 
 
 		txtCliente = new JTextField();
-		txtCliente.setBounds(110, 50, 122, 27);
+		txtCliente.setBounds(80, 50, 122, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
@@ -185,7 +175,7 @@ public class ConsultaEntrega extends JFrame {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(296, 385, 117, 25);
+		btnLimpar.setBounds(540, 385, 117, 25);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -194,20 +184,12 @@ public class ConsultaEntrega extends JFrame {
 		labelgrava.setBounds(204, 390, 157, 15);
 		contentPane.add(labelgrava);
 
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new TelaInicial();
-			}
-		});
-		btnVoltar.setBounds(435, 385, 117, 25);
-		contentPane.add(btnVoltar);
+		
 		JTextPane textPane = new JTextPane();
-		textPane.setBounds(51, 89, 637, 33);
+		textPane.setBounds(20, 89, 637, 20);
 		contentPane.add(textPane);
-		JButton btnNewButton = new JButton("+");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnConsultaDetalhada = new JButton("+");
+		btnConsultaDetalhada.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object[] objeto = new Object[4];
 				int a = 0;
@@ -223,9 +205,9 @@ public class ConsultaEntrega extends JFrame {
 				new ConsultaEntregaDetalhada(objeto);
 			}
 		});
-		btnNewButton.setForeground(Color.GREEN);
-		btnNewButton.setBounds(700, 109, 49, 25);
-		contentPane.add(btnNewButton);
+		btnConsultaDetalhada.setForeground(Color.GREEN);
+		btnConsultaDetalhada.setBounds(680, 109, 45, 25);
+		contentPane.add(btnConsultaDetalhada);
 		
 		
 
