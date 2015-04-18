@@ -52,8 +52,9 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(437, 434);
+		setResizable(false);
 		setLocationRelativeTo(null);
-		setBounds(100, 100, 437, 434);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

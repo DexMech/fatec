@@ -48,7 +48,7 @@ public class TelaEntrega extends JFrame {
 	public TelaEntrega() {
 		setTitle("Cadastro de Entrega");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 300, 300);
+		setSize(300, 300);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
