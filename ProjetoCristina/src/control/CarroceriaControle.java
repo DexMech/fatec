@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import entity.Carroceria;
 
-public class CarroceriaControle extends Carroceria{
+public class CarroceriaControle extends Carroceria implements CRUD{
 
 	public void InstanciarCarroceriaControle(String nome){
 		setNome(nome);
@@ -38,5 +38,23 @@ public class CarroceriaControle extends Carroceria{
 		} catch(IOException ioe){
 			ioe.printStackTrace();
 		}
+	}
+
+	@Override
+	public void deletar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ler() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }

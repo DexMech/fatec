@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import entity.Caminhao;
 
-public class CaminhaoControle extends Caminhao{
+public class CaminhaoControle extends Caminhao implements CRUD{
 
 	public void InstanciarCaminhaoControle(String tipoCaminhao, String numeroPlaca, String cidade, String estado){
 		setTipoCaminhao(tipoCaminhao);
@@ -34,5 +34,23 @@ public class CaminhaoControle extends Caminhao{
 		} catch(IOException ioe){
 			ioe.printStackTrace();
 		}
+	}
+
+	@Override
+	public void deletar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ler() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }

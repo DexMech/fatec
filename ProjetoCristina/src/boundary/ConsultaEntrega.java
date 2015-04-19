@@ -1,8 +1,3 @@
-/**
- * @author Alex Carlos
- * 
- * Tela responsável por mostrar e exportar para xls as entregas que serão realizadas*/
-
 package boundary;
 
 import java.awt.BorderLayout;
@@ -75,8 +70,7 @@ public class ConsultaEntrega extends JFrame {
 	 */
 	public ConsultaEntrega() {
 		setTitle("Consulta de Entregas");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 761, 466);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,7 +78,7 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 109, 637, 246);
+		scrollPane.setBounds(51, 109, 637, 246);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -97,6 +91,17 @@ public class ConsultaEntrega extends JFrame {
 				));
 		scrollPane.setViewportView(table);
 
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				control.sair();
+
+			}
+		});
+		btnSair.setBounds(572, 385, 117, 25);
+		contentPane.add(btnSair);
+
 		JButton btnExportarCvs = new JButton("Exportar cvs");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,11 +110,11 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(20, 385, 117, 25);
+		btnExportarCvs.setBounds(54, 385, 117, 25);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
-		labelCliente.setBounds(20, 38, 57, 50);
+		labelCliente.setBounds(51, 38, 57, 50);
 		contentPane.add(labelCliente);
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -120,18 +125,17 @@ public class ConsultaEntrega extends JFrame {
 		}
 
 		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(368, 50, 122, 27);
+		txtdata.setBounds(398, 50, 122, 27);
 		contentPane.add(txtdata);
 
 		JLabel labelData = new JLabel("Data");
-		labelData.setBounds(326, 38, 39, 50);
+		labelData.setBounds(356, 38, 39, 50);
 		contentPane.add(labelData);
 		labelControl = new JLabel("");
 		labelControl.setFont(new Font("Arial", Font.BOLD, 9));
 		labelControl.setForeground(Color.RED);
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
-		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -159,13 +163,13 @@ public class ConsultaEntrega extends JFrame {
 
 			}
 		});
-		btnBuscar.setBounds(542, 51, 117, 25);
+		btnBuscar.setBounds(572, 51, 117, 25);
 		contentPane.add(btnBuscar);
 
 
 
 		txtCliente = new JTextField();
-		txtCliente.setBounds(80, 50, 122, 27);
+		txtCliente.setBounds(110, 50, 122, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
@@ -175,7 +179,7 @@ public class ConsultaEntrega extends JFrame {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(540, 385, 117, 25);
+		btnLimpar.setBounds(296, 385, 117, 25);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -184,32 +188,37 @@ public class ConsultaEntrega extends JFrame {
 		labelgrava.setBounds(204, 390, 157, 15);
 		contentPane.add(labelgrava);
 
-		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(20, 89, 637, 20);
-		contentPane.add(textPane);
-		JButton btnConsultaDetalhada = new JButton("+");
-		btnConsultaDetalhada.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				new TelaInicial();
+			}
+		});
+		btnVoltar.setBounds(435, 385, 117, 25);
+		contentPane.add(btnVoltar);
+		JButton btnNewButton = new JButton("+");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object[] objeto = new Object[4];
 				int a = 0;
 				int recebe = table.getSelectedRow();
 				while( a<4){
-					
-				 objeto[a]=  table.getValueAt(recebe, a);
+
+					objeto[a]=  table.getValueAt(recebe, a);
 					a++;
-					
-					
-					
+
+
+
 				}
 				new ConsultaEntregaDetalhada(objeto);
 			}
 		});
-		btnConsultaDetalhada.setForeground(Color.GREEN);
-		btnConsultaDetalhada.setBounds(680, 109, 45, 25);
-		contentPane.add(btnConsultaDetalhada);
-		
-		
+		btnNewButton.setForeground(Color.GREEN);
+		btnNewButton.setBounds(700, 109, 49, 25);
+		contentPane.add(btnNewButton);
+
+
 
 
 		setVisible(true);

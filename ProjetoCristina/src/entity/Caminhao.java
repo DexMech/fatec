@@ -42,9 +42,9 @@ public abstract class Caminhao {
 			this.capacidadeCarga = 23000;
 		else if (text.equals("Carreta 2 Eixos"))
 			this.capacidadeCarga = 33000;
-		else if (text.equals("Carreta Baú") || text.equals("Carreta 3 Eixos"))
+		else if (text.equals("Carreta Baï¿½") || text.equals("Carreta 3 Eixos"))
 			this.capacidadeCarga = 41500;			
-		else if (text.equals("Carreta Cavalo Truckado") || text.equals("Carreta Cavalo Truckado Baú"))
+		else if (text.equals("Carreta Cavalo Truckado") || text.equals("Carreta Cavalo Truckado Baï¿½"))
 			this.capacidadeCarga = 45000;			
 		else
 			this.capacidadeCarga = 57000;

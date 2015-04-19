@@ -1,13 +1,15 @@
 package entity;
 
-public class Cliente {
+public abstract class  Cliente {
 	
 	private String Nome;
 	private int N;
 	private String telefone;
 	private String bairro;
-	private int cep;
+	private String cep;
 	private String identificacao;
+	private String diasDaSemana;
+	
 	public String getNome() {
 		return Nome;
 	}
@@ -32,10 +34,10 @@ public class Cliente {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public int getCep() {
+	public String getCep() {
 		return cep;
 	}
-	public void setCep(int cep) {
+	public void setCep(String cep) {
 		this.cep = cep;
 	}
 	public String getIdentificacao() {
@@ -44,5 +46,10 @@ public class Cliente {
 	public void setIdentificacao(String identificacao) {
 		this.identificacao = identificacao;
 	}
-	
+	public String getDiasDaSemana() {
+		return diasDaSemana;
+	}
+	public void setDiasDaSemana(String diasDasemana) {
+		this.diasDaSemana = diasDasemana;
+	}
 }

@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 
 import control.ControlaLeituraDetalhada;
 import javax.swing.JTextArea;
+import javax.swing.JPasswordField;
+import java.awt.Color;
 
 public class ConsultaEntregaDetalhada extends JFrame {
 
@@ -28,21 +30,27 @@ private Object[] objeto;
 
 
 	public ConsultaEntregaDetalhada(Object[] objetos) {
+		setTitle("Detalhes do Pedido");
 	this.objeto =objetos;
+	setVisible(true);
 	setResizable(false);
 	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 38, 426, 209);
+		contentPane.add(scrollPane);
+		
 		textArea = new JTextArea();
+		textArea.setBackground(Color.BLACK);
+		textArea.setForeground(Color.WHITE);
+		scrollPane.setViewportView(textArea);
 		textArea.setEditable(false);
-		textArea.setBounds(12, 38, 426, 250);
-		contentPane.add(textArea);
 		this.addWindowListener(new WindowListener() {
 			
 			@Override
@@ -87,6 +95,5 @@ private Object[] objeto;
 				
 			}
 		});
-		setVisible(true);
 	}
 }

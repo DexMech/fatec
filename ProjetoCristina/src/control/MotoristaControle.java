@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 import entity.Motorista;
 
-public class MotoristaControle extends Motorista {
+public class MotoristaControle extends Motorista implements CRUD{
 
 	public void InstanciarMotoristaControle(String nome, String cnh, String validadeInicio, String validadeFim, String telefone1, String telefone2){
 		setNome(nome);
@@ -41,6 +41,13 @@ public class MotoristaControle extends Motorista {
 			e1.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Ocorreu um erro de grava��o. Tente novamente mais tarde.", "ERRO",  JOptionPane.ERROR_MESSAGE);
 		}
-	
 	}
+	
+	public void ler() throws IOException{}
+
+	@Override
+	public void deletar() throws IOException {}
+
+	@Override
+	public void atualizar() throws IOException {}
 }

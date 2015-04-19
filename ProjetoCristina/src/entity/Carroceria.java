@@ -14,9 +14,9 @@ public abstract class Carroceria {
 	}
 	
 	public void setPeso(String text){
-		if (text.equals("Carroceria tipo baú(4.000 kg)"))
+		if (text.equals("Carroceria tipo baï¿½(4.000 kg)"))
 			this.peso = 4000;
-		else if (text.equals("Carroceria tipo baú(6.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(6.000 kg)"))
 			this.peso = 6000;
 		else if (text.equals("Dry Van(20)") || text.equals("Bulk(20)") || text.equals("Ventilated"))
 			this.peso = 28100;
@@ -47,13 +47,13 @@ public abstract class Carroceria {
 	}
 	
 	public void setAltura(String text){
-		if (text.equals("Carroceria tipo sider tamanho padrão") || text.equals("Carroceria tipo sider semi reboque "))
+		if (text.equals("Carroceria tipo sider tamanho padrï¿½o") || text.equals("Carroceria tipo sider semi reboque "))
 			this.altura = 3;
-		else if (text.equals("Carroceria tipo baú(4.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(4.000 kg)"))
 			this.altura = 2.2;
-		else if (text.equals("Carroceria tipo baú(6.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(6.000 kg)"))
 			this.altura = 2.63;
-		else if (text.equals("Carroceria tipo baú semi reboque"))
+		else if (text.equals("Carroceria tipo baï¿½ semi reboque"))
 			this.altura = 2.73;
 		else if (text.equals("Dry Van(20)") || text.equals("Bulk(20)") || text.equals("Ventilated"))
 			this.altura = 2.4;
@@ -80,13 +80,13 @@ public abstract class Carroceria {
 	}
 	
 	public void setLargura(String text){
-		if (text.equals("Carroceria tipo sider tamanho padrão"))  
+		if (text.equals("Carroceria tipo sider tamanho padrï¿½o"))  
 			this.largura = 2.46;
 		else if (text.equals("Carroceria tipo sider semi reboque "))
 			this.largura = 2.51;
-		else if (text.equals("Carroceria tipo baú(4.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(4.000 kg)"))
 			this.largura = 2.08;
-		else if (text.equals("Carroceria tipo baú(6.000 kg)") || text.equals("Carroceria tipo baú semi reboque"))
+		else if (text.equals("Carroceria tipo baï¿½(6.000 kg)") || text.equals("Carroceria tipo baï¿½ semi reboque"))
 			this.largura = 2.48;
 		else if (text.equals("Dry Van(20)") || text.equals("Bulk(20)") || text.equals("Ventilated") || text.equals("Open Top(20)") ||
 				text.equals("Dry Van(40)") || text.equals("Bulk(40)") || text.equals("Dry High Cube"))
@@ -108,15 +108,15 @@ public abstract class Carroceria {
 	}
 	
 	public void setComprimento(String text){
-		if (text.equals("Carroceria tipo sider tamanho padrão")) 
+		if (text.equals("Carroceria tipo sider tamanho padrï¿½o")) 
 			this.comprimento = 7.65;
 		else if (text.equals("Carroceria tipo sider semi reboque "))
 			this.comprimento = 14.86;
-		else if (text.equals("Carroceria tipo baú(4.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(4.000 kg)"))
 			this.comprimento = 5.32;
-		else if (text.equals("Carroceria tipo baú(6.000 kg)"))
+		else if (text.equals("Carroceria tipo baï¿½(6.000 kg)"))
 			this.comprimento = 7.32;
-		else if (text.equals("Carroceria tipo baú semi reboque"))
+		else if (text.equals("Carroceria tipo baï¿½ semi reboque"))
 			this.comprimento = 14.94;
 		else if (text.equals("Dry Van(20)") || text.equals("Bulk(20)") || text.equals("Ventilated"))
 			this.comprimento = 5.89;
