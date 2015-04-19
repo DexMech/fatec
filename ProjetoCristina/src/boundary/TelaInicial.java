@@ -18,7 +18,7 @@ import javax.swing.SwingConstants;
 public class TelaInicial extends JFrame {
 
 	public TelaInicial(){
-		setSize(334,345);
+		setSize(334,363);
 		setTitle("");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,7 +36,7 @@ public class TelaInicial extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(86, 93, 154, 29);
+		btnNewButton.setBounds(86, 52, 154, 29);
 		getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Programa que funciona");
@@ -55,7 +55,7 @@ public class TelaInicial extends JFrame {
 				}
 			}
 		});
-		btnCadastrarCliente.setBounds(86, 133, 154, 29);
+		btnCadastrarCliente.setBounds(86, 99, 154, 29);
 		getContentPane().add(btnCadastrarCliente);
 		
 		JButton btnVerEntregas = new JButton("Ver Entregas");
@@ -64,7 +64,7 @@ public class TelaInicial extends JFrame {
 				new ConsultaEntrega();
 			}
 		});
-		btnVerEntregas.setBounds(86, 213, 154, 29);
+		btnVerEntregas.setBounds(86, 195, 154, 29);
 		getContentPane().add(btnVerEntregas);
 		
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
@@ -72,7 +72,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAbrirExcel.setBounds(86, 253, 154, 29);
+		btnAbrirExcel.setBounds(86, 277, 154, 29);
 		getContentPane().add(btnAbrirExcel);
 		
 		JButton btnCadastrarEntregas = new JButton("Cadastrar Entregas");
@@ -81,8 +81,17 @@ public class TelaInicial extends JFrame {
 				new TelaEntrega();
 			}
 		});
-		btnCadastrarEntregas.setBounds(86, 173, 154, 29);
+		btnCadastrarEntregas.setBounds(86, 143, 154, 29);
 		getContentPane().add(btnCadastrarEntregas);
+		
+		JButton btnNewButton_1 = new JButton("Backup e Restauração");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TelaBackup().setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(86, 236, 154, 29);
+		getContentPane().add(btnNewButton_1);
 		setVisible(true);
 	}
 	
