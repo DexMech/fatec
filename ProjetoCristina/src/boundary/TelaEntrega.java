@@ -1,9 +1,3 @@
-/**
- * @author Marcio Augusto
- * @author Danilo Santos
- * 
- * Tela responsável por ligar cliente aos seus produtos a serem entregues*/
-
 package boundary;
 
 import java.awt.BorderLayout;
@@ -29,18 +23,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.text.ParseException;
+import javax.swing.SwingConstants;
 
 
 public class TelaEntrega extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtCliente;
-	private JTextField txtProduto;
 	private MaskFormatter mascara;
 	private JFormattedTextField txtdata;
 	private JTextField textField;
-	private JTextField txtPeso;
-	private JTextField txtVolume;
+	private JComboBox cbCliente, cbProduto;
 
 	/**
 	 * Create the frame.
@@ -62,35 +54,9 @@ public class TelaEntrega extends JFrame {
 		
 		Icon iconbuscar = new ImageIcon("images\\buscar.png");
 		
-		JButton btnBuscarCliente = new JButton(iconbuscar);
-		btnBuscarCliente.setBounds(220, 42, 22, 22);
-		contentPane.add(btnBuscarCliente);
-		
-		txtCliente = new JTextField();
-		txtCliente.setBounds(20, 40, 180, 27);
-		txtCliente.setEnabled(false);
-		txtCliente.setEditable(false);
-		contentPane.add(txtCliente);
-		txtCliente.setColumns(10);
-		
 		JLabel lblProduto = new JLabel("Produto");
 		lblProduto.setBounds(20, 80, 56, 16);
 		contentPane.add(lblProduto);
-		
-		txtProduto = new JTextField();
-		txtProduto.setBounds(20, 100, 180, 27);
-		txtProduto.setEditable(false);
-		txtProduto.setEnabled(false);
-		contentPane.add(txtProduto);
-		txtProduto.setColumns(10);
-		
-		JButton btnBuscarProduto = new JButton(iconbuscar);
-		btnBuscarProduto.setBounds(220, 102, 22, 22);
-		btnBuscarProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		contentPane.add(btnBuscarProduto);
 		
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -113,10 +79,9 @@ public class TelaEntrega extends JFrame {
 		btnLimpar.setBounds(152, 220, 90, 23);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtProduto.setText("");
-				txtCliente.setText("");
+//				Falta adicionar limpar JComboBox
 				txtdata.setValue("");
-							}
+			}
 		});
 		getContentPane().add(btnLimpar);
 		
@@ -137,25 +102,13 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		txtPeso = new JTextField();
-		txtPeso.setEditable(false);
-		txtPeso.setBounds(152, 160, 48, 27);
-		contentPane.add(txtPeso);
-		txtPeso.setColumns(10);
-		
 		JLabel lblPeso = new JLabel("Peso");
-		lblPeso.setBounds(152, 141, 46, 14);
+		lblPeso.setBounds(171, 141, 46, 14);
 		contentPane.add(lblPeso);
 		
 		JLabel lblKg = new JLabel("Kg");
 		lblKg.setBounds(203, 173, 22, 14);
 		contentPane.add(lblKg);
-		
-		txtVolume = new JTextField();
-		txtVolume.setEditable(false);
-		txtVolume.setBounds(220, 160, 53, 27);
-		contentPane.add(txtVolume);
-		txtVolume.setColumns(10);
 		
 		JLabel lblVolume = new JLabel("Volume");
 		lblVolume.setBounds(220, 141, 46, 14);
@@ -164,5 +117,23 @@ public class TelaEntrega extends JFrame {
 		JLabel lblM = new JLabel("m³");
 		lblM.setBounds(276, 172, 22, 14);
 		contentPane.add(lblM);
+		
+		JLabel lblPes = new JLabel("0");
+		lblPes.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblPes.setBounds(165, 173, 33, 14);
+		contentPane.add(lblPes);
+		
+		JLabel lblVol = new JLabel("0");
+		lblVol.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblVol.setBounds(231, 173, 41, 14);
+		contentPane.add(lblVol);
+		
+		cbCliente = new JComboBox();
+		cbCliente.setBounds(20, 47, 180, 20);
+		contentPane.add(cbCliente);
+		
+		cbProduto = new JComboBox();
+		cbProduto.setBounds(20, 109, 180, 20);
+		contentPane.add(cbProduto);
 	}
 }

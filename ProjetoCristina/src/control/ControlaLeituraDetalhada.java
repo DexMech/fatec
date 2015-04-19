@@ -18,29 +18,32 @@ public class ControlaLeituraDetalhada {
 
 	public ControlaLeituraDetalhada( Object[] objeto,JTextArea text) {
 
-        this.text =text;
+		this.text =text;
 		this.objeto = objeto;
 
 	}
 	public void preenche(){
-		String linha = "";
+		String[] items ={"Produto","Nome do Cliente","Regiao","caminhao","Data da Compra"};
 		
+		String linha = "";
+
 
 		try {
 			BufferedReader le = new BufferedReader(new FileReader("testeProdutosComprados.txt"));
-			while(linha!=null){
+			while(linha != null){
 				linha = le.readLine();
-	           if(linha.contains(objeto[1].toString())&&linha.contains(objeto[3].toString())){
-				 recebe = linha.split(";");
-					
-				 for(String ve:recebe){
-
+				if(linha.contains(objeto[1].toString())&&linha.contains(objeto[3].toString())){
+					recebe = linha.split(";");
+					int pos = 0;
+					for(String ve:recebe){
+						text.append(items[pos]+"\n");
 						text.append(ve+"\n");
-
+						text.append("------------------------------------------------------------------------------------------------------\n");
+						pos++;
 					}
 				}
-	           
-				
+
+
 			}
 			le.close();
 
@@ -49,7 +52,7 @@ public class ControlaLeituraDetalhada {
 			e.printStackTrace();
 		}
 		catch (NullPointerException e) {
-			
+
 		}
 
 
