@@ -3,6 +3,7 @@ package boundary;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
 import control.ControlaBackup;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -46,7 +48,7 @@ public class TelaBackup extends JFrame {
 	 */
 	public TelaBackup() {
 		setTitle("Tela de Backups e Restauração");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 606, 531);
 	contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -54,13 +56,15 @@ public class TelaBackup extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnSalvarBackup = new JButton("Salvar Backup");
+		btnSalvarBackup.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnSalvarBackup.setIcon(new ImageIcon(TelaBackup.class.getResource("/images/save.png")));
 		btnSalvarBackup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
 			backup.salvar();
 			}
 		});
-		btnSalvarBackup.setBounds(417, 12, 157, 25);
+		btnSalvarBackup.setBounds(417, 6, 157, 36);
 		contentPane.add(btnSalvarBackup);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -71,38 +75,42 @@ public class TelaBackup extends JFrame {
 		scrollPane.setColumnHeaderView(textAreaBackup);
 		
 		 labelBackup = new JLabel("");
-		 labelBackup.setFont(new Font("Arial", Font.BOLD, 9));
-		 labelBackup.setForeground(Color.RED);
-		labelBackup.setBounds(45, 428, 200, 50);
+		 labelBackup.setIcon(new ImageIcon(""));
+		 labelBackup.setFont(new Font("Arial", Font.BOLD, 11));
+		 labelBackup.setForeground(Color.BLACK);
+		labelBackup.setBounds(45, 451, 281, 27);
 		contentPane.add(labelBackup);
 		btnRecuperar = new JButton("Escolher Arquivos");
+		btnRecuperar.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
 				backup.escolher();
 			}
 		});
-		btnRecuperar.setBounds(35, 12, 157, 25);
+		btnRecuperar.setBounds(35, 6, 157, 36);
 		contentPane.add(btnRecuperar);
 		
 		JButton btnRecuperar_1 = new JButton("Recuperar");
+		btnRecuperar_1.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnRecuperar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
 				backup.recuperar();	
 			}
 		});
-		btnRecuperar_1.setBounds(224, 11, 157, 27);
+		btnRecuperar_1.setBounds(224, 6, 157, 36);
 		contentPane.add(btnRecuperar_1);
 		
 		btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Arial", Font.PLAIN, 13));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
 				backup.limpar();
 			}
 		});
-		btnLimpar.setBounds(480, 472, 100, 27);
+		btnLimpar.setBounds(480, 463, 100, 36);
 		contentPane.add(btnLimpar);
 	}
 }

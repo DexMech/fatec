@@ -36,19 +36,19 @@ private Object[] objeto;
 	setResizable(false);
 	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 555, 408);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 38, 426, 209);
+		scrollPane.setBounds(12, 38, 525, 291);
 		contentPane.add(scrollPane);
 		
 		textArea = new JTextArea();
-		textArea.setBackground(Color.BLACK);
-		textArea.setForeground(Color.WHITE);
+		textArea.setBackground(new Color(240, 248, 255));
+		textArea.setForeground(Color.BLACK);
 		scrollPane.setViewportView(textArea);
 		textArea.setEditable(false);
 		this.addWindowListener(new WindowListener() {

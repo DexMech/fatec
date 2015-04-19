@@ -14,7 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import control.ControlaLeituraEntrega;
+import control.ControlaConsultaEntrega;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,6 +30,7 @@ import java.awt.Font;
 import java.text.ParseException;
 
 import javax.swing.JTextPane;
+import javax.swing.ImageIcon;
 
 public class ConsultaEntrega extends JFrame {
 	private JLabel labelgrava;
@@ -51,7 +52,7 @@ public class ConsultaEntrega extends JFrame {
 		return txtdata;
 	}
 
-	private ControlaLeituraEntrega control = new ControlaLeituraEntrega();
+	private ControlaConsultaEntrega control = new ControlaConsultaEntrega();
 	public JTextField getTxtCliente() {
 		return txtCliente;
 	}
@@ -70,7 +71,7 @@ public class ConsultaEntrega extends JFrame {
 	 */
 	public ConsultaEntrega() {
 		setTitle("Consulta de Entregas");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 761, 466);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -137,6 +138,7 @@ public class ConsultaEntrega extends JFrame {
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(txtCliente.getText().isEmpty()||txtdata.getText().isEmpty()){
@@ -163,7 +165,7 @@ public class ConsultaEntrega extends JFrame {
 
 			}
 		});
-		btnBuscar.setBounds(572, 51, 117, 25);
+		btnBuscar.setBounds(572, 44, 117, 32);
 		contentPane.add(btnBuscar);
 
 
@@ -183,9 +185,10 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
-		labelgrava.setFont(new Font("Arial", Font.PLAIN, 9));
-		labelgrava.setForeground(Color.RED);
-		labelgrava.setBounds(204, 390, 157, 15);
+		labelgrava.setIcon(new ImageIcon(""));
+		labelgrava.setFont(new Font("Arial", Font.PLAIN, 11));
+		labelgrava.setForeground(Color.BLACK);
+		labelgrava.setBounds(61, 358, 213, 25);
 		contentPane.add(labelgrava);
 
 		JButton btnVoltar = new JButton("Voltar");

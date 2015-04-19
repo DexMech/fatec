@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -115,8 +116,9 @@ public class ControlaBackup {
 			for(String cont:linha){
 			Process processoLinha = Runtime.getRuntime().exec("cp "+cont+" /home/dex/git/fatec/ProjetoCristina");
 			}
-			text.setForeground(Color.GREEN);
-		label.setText("Arquivos Recuperados com Sucesso");
+			text.setForeground(Color.green);
+			label.setText("Arquivos Recuperados com Sucesso ");
+			label.setIcon(new ImageIcon("/images/check.png"));
 			} catch (IOException e) {
 			
 			e.printStackTrace();

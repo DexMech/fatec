@@ -51,13 +51,13 @@ public class TelaInicial extends JFrame {
 		btnCadastrarCliente.setBounds(10, 153, 154, 29);
 		getContentPane().add(btnCadastrarCliente);
 		
-		JButton btnVerEntregas = new JButton("Ver Entregas");
+		JButton btnVerEntregas = new JButton("Visualizar  Entregas");
 		btnVerEntregas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
 				new ConsultaEntrega();
 			}
 		});
-		btnVerEntregas.setBounds(10, 453, 154, 29);
+		btnVerEntregas.setBounds(10, 453, 192, 29);
 		getContentPane().add(btnVerEntregas);
 		
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
