@@ -85,6 +85,15 @@ public class TelaInicial extends JFrame {
 		});
 		btnCadastrarProduto.setBounds(10, 253, 154, 29);
 		getContentPane().add(btnCadastrarProduto);
+		
+		JButton btnNewButton_1 = new JButton("Backup e Restauração");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new TelaBackup().setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(237, 55, 192, 29);
+		getContentPane().add(btnNewButton_1);
 		setVisible(true);
 	}
 	
