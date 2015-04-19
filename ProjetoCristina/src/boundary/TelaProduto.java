@@ -24,6 +24,7 @@ import control.ProdutoControle;
 import javax.swing.JScrollPane;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.ImageIcon;
 
 public class TelaProduto extends JFrame {
 
@@ -131,7 +132,8 @@ public class TelaProduto extends JFrame {
 		contentPane.add(lblMeCubico);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(10, 343, 89, 23);
+		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
+		btnSalvar.setBounds(10, 343, 89, 32);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ProdutoControle pc = new ProdutoControle();
@@ -152,7 +154,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(367, 343, 89, 23);
+		btnLimpar.setBounds(367, 343, 89, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

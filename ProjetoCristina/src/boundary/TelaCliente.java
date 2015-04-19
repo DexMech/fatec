@@ -27,6 +27,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import control.ClienteControle;
+import javax.swing.ImageIcon;
 
 public class TelaCliente extends JFrame {
 	
@@ -203,6 +204,7 @@ public class TelaCliente extends JFrame {
 		panel.add(chckbxDomingo);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClienteControle cc = new ClienteControle();
@@ -265,7 +267,7 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnSalvar.setBounds(35, 362, 89, 23);
+		btnSalvar.setBounds(35, 362, 103, 32);
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -284,7 +286,7 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnLimpar.setBounds(304, 362, 89, 23);
+		btnLimpar.setBounds(265, 362, 89, 32);
 		contentPane.add(btnLimpar);
 		
 		

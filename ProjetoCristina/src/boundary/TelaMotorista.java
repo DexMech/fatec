@@ -28,6 +28,7 @@ import control.MotoristaControle;
 import control.ValidarData;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import javax.swing.ImageIcon;
 
 public class TelaMotorista extends JFrame{
 	CaminhaoControle cam = new CaminhaoControle();
@@ -302,6 +303,7 @@ public class TelaMotorista extends JFrame{
 		textPlaca.setColumns(10);
 		
 		JButton btnGravar = new JButton("Gravar");
+		btnGravar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/save.png")));
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
@@ -358,7 +360,7 @@ public class TelaMotorista extends JFrame{
 				}
 			}
 		});
-		btnGravar.setBounds(10, 569, 89, 23);
+		btnGravar.setBounds(10, 560, 89, 32);
 		getContentPane().add(btnGravar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -383,7 +385,7 @@ public class TelaMotorista extends JFrame{
 				textVolume.setText(Double.toString(56.457));
 			}
 		});
-		btnLimpar.setBounds(269, 569, 89, 23);
+		btnLimpar.setBounds(269, 560, 89, 32);
 		getContentPane().add(btnLimpar);
 		
 		textValidadeFim = new JFormattedTextField(data);

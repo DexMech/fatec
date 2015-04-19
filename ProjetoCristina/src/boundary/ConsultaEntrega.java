@@ -92,7 +92,7 @@ public class ConsultaEntrega extends JFrame {
 				));
 		scrollPane.setViewportView(table);
 
-		JButton btnExportarCvs = new JButton("Exportar xls");
+		JButton btnExportarCvs = new JButton("Exportar para Excel");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
@@ -206,7 +206,7 @@ public class ConsultaEntrega extends JFrame {
 				new ConsultaEntregaDetalhada(objeto);
 			}
 		});
-		btnNewButton.setForeground(Color.GREEN);
+		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.setBounds(673, 109, 101, 25);
 		contentPane.add(btnNewButton);
 

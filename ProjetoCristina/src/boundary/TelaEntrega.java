@@ -40,7 +40,7 @@ public class TelaEntrega extends JFrame {
 	public TelaEntrega() {
 		setTitle("Cadastro de Entrega");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setSize(300, 300);
+		setSize(306, 300);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
@@ -76,7 +76,7 @@ public class TelaEntrega extends JFrame {
 		setVisible(true);
 		
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(152, 220, 90, 23);
+		btnLimpar.setBounds(152, 211, 90, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				Falta adicionar limpar JComboBox
@@ -86,7 +86,8 @@ public class TelaEntrega extends JFrame {
 		getContentPane().add(btnLimpar);
 		
 		JButton btnGravar = new JButton("Gravar");
-		btnGravar.setBounds(20, 220, 81, 23);
+		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
+		btnGravar.setBounds(20, 211, 90, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				}

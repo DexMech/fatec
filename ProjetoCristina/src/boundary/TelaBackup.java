@@ -56,7 +56,7 @@ public class TelaBackup extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnSalvarBackup = new JButton("Salvar Backup");
-		btnSalvarBackup.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnSalvarBackup.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnSalvarBackup.setIcon(new ImageIcon(TelaBackup.class.getResource("/images/save.png")));
 		btnSalvarBackup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +81,7 @@ public class TelaBackup extends JFrame {
 		labelBackup.setBounds(45, 451, 281, 27);
 		contentPane.add(labelBackup);
 		btnRecuperar = new JButton("Escolher Arquivos");
-		btnRecuperar.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnRecuperar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
@@ -92,7 +92,7 @@ public class TelaBackup extends JFrame {
 		contentPane.add(btnRecuperar);
 		
 		JButton btnRecuperar_1 = new JButton("Recuperar");
-		btnRecuperar_1.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnRecuperar_1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnRecuperar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
@@ -103,7 +103,7 @@ public class TelaBackup extends JFrame {
 		contentPane.add(btnRecuperar_1);
 		
 		btnLimpar = new JButton("Limpar");
-		btnLimpar.setFont(new Font("Arial", Font.PLAIN, 13));
+		btnLimpar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
