@@ -72,14 +72,14 @@ public class ConsultaEntrega extends JFrame {
 	public ConsultaEntrega() {
 		setTitle("Consulta de Entregas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 761, 466);
+		setBounds(100, 100, 811, 466);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(51, 109, 637, 246);
+		scrollPane.setBounds(24, 113, 637, 246);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -104,7 +104,7 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
-		labelCliente.setBounds(51, 38, 57, 50);
+		labelCliente.setBounds(24, 38, 57, 50);
 		contentPane.add(labelCliente);
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -160,7 +160,7 @@ public class ConsultaEntrega extends JFrame {
 
 
 		txtCliente = new JTextField();
-		txtCliente.setBounds(110, 50, 122, 27);
+		txtCliente.setBounds(85, 50, 177, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
@@ -189,7 +189,7 @@ public class ConsultaEntrega extends JFrame {
 		});
 		btnVoltar.setBounds(571, 385, 117, 25);
 		contentPane.add(btnVoltar);
-		JButton btnNewButton = new JButton("+");
+		JButton btnNewButton = new JButton("Detalhe");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object[] objeto = new Object[4];
@@ -207,7 +207,7 @@ public class ConsultaEntrega extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.GREEN);
-		btnNewButton.setBounds(700, 109, 49, 25);
+		btnNewButton.setBounds(673, 109, 101, 25);
 		contentPane.add(btnNewButton);
 
 
