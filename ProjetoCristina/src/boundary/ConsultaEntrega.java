@@ -189,7 +189,7 @@ public class ConsultaEntrega extends JFrame {
 		});
 		btnVoltar.setBounds(571, 385, 117, 25);
 		contentPane.add(btnVoltar);
-		JButton btnNewButton = new JButton("Detalhe");
+		JButton btnNewButton = new JButton("Detalhes");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object[] objeto = new Object[4];
