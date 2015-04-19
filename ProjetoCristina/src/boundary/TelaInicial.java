@@ -13,8 +13,8 @@ import javax.swing.SwingConstants;
 public class TelaInicial extends JFrame {
 
 	public TelaInicial(){
-		setSize(1000,630);
-		setTitle("");
+		setSize(440,467);
+		setTitle("RotaMax - Roteirização");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -30,13 +30,8 @@ public class TelaInicial extends JFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(10, 53, 154, 29);
+		btnNewButton.setBounds(10, 53, 154, 56);
 		getContentPane().add(btnNewButton);
-		
-		JLabel lblNewLabel = new JLabel("Programa que funciona");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		lblNewLabel.setBounds(10, 11, 304, 29);
-		getContentPane().add(lblNewLabel);
 		
 		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
 		btnCadastrarCliente.addActionListener(new ActionListener() {
@@ -48,7 +43,7 @@ public class TelaInicial extends JFrame {
 				}
 			}
 		});
-		btnCadastrarCliente.setBounds(10, 153, 154, 29);
+		btnCadastrarCliente.setBounds(270, 53, 154, 56);
 		getContentPane().add(btnCadastrarCliente);
 		
 		JButton btnVerEntregas = new JButton("Visualizar Entregas");
@@ -57,7 +52,7 @@ public class TelaInicial extends JFrame {
 				new ConsultaEntrega().setLocationRelativeTo(null);
 			}
 		});
-		btnVerEntregas.setBounds(10, 453, 154, 29);
+		btnVerEntregas.setBounds(10, 272, 154, 56);
 		getContentPane().add(btnVerEntregas);
 		
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
@@ -65,7 +60,7 @@ public class TelaInicial extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnAbrirExcel.setBounds(10, 553, 154, 29);
+		btnAbrirExcel.setBounds(10, 372, 154, 45);
 		getContentPane().add(btnAbrirExcel);
 		
 		JButton btnCadastrarEntregas = new JButton("Cadastrar Entregas");
@@ -74,7 +69,7 @@ public class TelaInicial extends JFrame {
 				new TelaEntrega();
 			}
 		});
-		btnCadastrarEntregas.setBounds(10, 353, 154, 29);
+		btnCadastrarEntregas.setBounds(270, 164, 154, 56);
 		getContentPane().add(btnCadastrarEntregas);
 		
 		JButton btnCadastrarProduto = new JButton("Cadastrar Produto");
@@ -83,7 +78,7 @@ public class TelaInicial extends JFrame {
 				new TelaProduto();
 			}
 		});
-		btnCadastrarProduto.setBounds(10, 253, 154, 29);
+		btnCadastrarProduto.setBounds(10, 164, 154, 56);
 		getContentPane().add(btnCadastrarProduto);
 		
 		JButton btnNewButton_1 = new JButton("Backup e Restauração");
@@ -94,7 +89,7 @@ public class TelaInicial extends JFrame {
 				tela.setLocationRelativeTo(null);
 			}
 		});
-		btnNewButton_1.setBounds(237, 55, 192, 29);
+		btnNewButton_1.setBounds(270, 273, 154, 55);
 		getContentPane().add(btnNewButton_1);
 		setVisible(true);
 	}
