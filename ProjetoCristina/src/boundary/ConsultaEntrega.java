@@ -92,7 +92,7 @@ public class ConsultaEntrega extends JFrame {
 				));
 		scrollPane.setViewportView(table);
 
-		JButton btnExportarCvs = new JButton("Exportar cvs");
+		JButton btnExportarCvs = new JButton("Exportar xls");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
@@ -100,7 +100,7 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(51, 385, 117, 25);
+		btnExportarCvs.setBounds(271, 385, 159, 25);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
