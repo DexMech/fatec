@@ -110,7 +110,7 @@ public class ControlaConsultaEntrega {
 		}
 
 		label.setText("Gravado com sucesso");
-		label.setIcon(new ImageIcon("/Users/Thiago/Git/fatec/ProjetoCristina/images/check.png"));
+		label.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 	}
 
 

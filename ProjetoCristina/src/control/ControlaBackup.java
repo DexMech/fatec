@@ -118,7 +118,7 @@ public class ControlaBackup {
 			}
 			text.setForeground(Color.green);
 			label.setText("Arquivos Recuperados com Sucesso ");
-			label.setIcon(new ImageIcon("/Users/Thiago/Git/fatec/ProjetoCristina/images/check.png"));
+			label.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 			} catch (IOException e) {
 			
 			e.printStackTrace();
