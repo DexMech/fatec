@@ -92,17 +92,6 @@ public class ConsultaEntrega extends JFrame {
 				));
 		scrollPane.setViewportView(table);
 
-		JButton btnSair = new JButton("Sair");
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				control.sair();
-
-			}
-		});
-		btnSair.setBounds(572, 385, 117, 25);
-		contentPane.add(btnSair);
-
 		JButton btnExportarCvs = new JButton("Exportar cvs");
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,7 +100,7 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(54, 385, 117, 25);
+		btnExportarCvs.setBounds(51, 385, 117, 25);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
@@ -181,7 +170,7 @@ public class ConsultaEntrega extends JFrame {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(296, 385, 117, 25);
+		btnLimpar.setBounds(442, 385, 117, 25);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -198,7 +187,7 @@ public class ConsultaEntrega extends JFrame {
 				new TelaInicial();
 			}
 		});
-		btnVoltar.setBounds(435, 385, 117, 25);
+		btnVoltar.setBounds(571, 385, 117, 25);
 		contentPane.add(btnVoltar);
 		JButton btnNewButton = new JButton("+");
 		btnNewButton.addActionListener(new ActionListener() {

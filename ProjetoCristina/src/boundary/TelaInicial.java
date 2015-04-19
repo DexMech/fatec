@@ -54,7 +54,7 @@ public class TelaInicial extends JFrame {
 		JButton btnVerEntregas = new JButton("Visualizar Entregas");
 		btnVerEntregas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
-				new ConsultaEntrega();
+				new ConsultaEntrega().setLocationRelativeTo(null);
 			}
 		});
 		btnVerEntregas.setBounds(10, 453, 154, 29);
@@ -89,7 +89,9 @@ public class TelaInicial extends JFrame {
 		JButton btnNewButton_1 = new JButton("Backup e Restauração");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TelaBackup().setVisible(true);
+				TelaBackup tela = new TelaBackup();
+				tela.setVisible(true);
+				tela.setLocationRelativeTo(null);
 			}
 		});
 		btnNewButton_1.setBounds(237, 55, 192, 29);
