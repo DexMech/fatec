@@ -303,7 +303,7 @@ public class TelaMotorista extends JFrame{
 		textPlaca.setColumns(10);
 		
 		JButton btnGravar = new JButton("Gravar");
-		btnGravar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/save.png")));
+		btnGravar.setIcon(new ImageIcon("src/images/save.png"));
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
