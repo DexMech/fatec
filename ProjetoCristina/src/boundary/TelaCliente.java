@@ -28,6 +28,8 @@ import javax.swing.text.MaskFormatter;
 
 import control.ClienteControle;
 import javax.swing.ImageIcon;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class TelaCliente extends JFrame {
 	
@@ -72,6 +74,8 @@ public class TelaCliente extends JFrame {
 	JRadioButton rdbtnCpf = new JRadioButton("CPF");
 	JRadioButton rdbtnCnpj = new JRadioButton("CNPJ");
 
+	JLabel lblAvisoDia;
+	
 	/**
 	 * Create the frame.
 	 * @throws ParseException 
@@ -89,7 +93,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(437, 434);
+		setSize(437, 459);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -102,6 +106,12 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
+		txtNome.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtNome.setBackground(Color.white);
+			}
+		});
 		txtNome.setBounds(66, 8, 342, 20);
 		txtNome.setText("");
 		contentPane.add(txtNome);
@@ -116,12 +126,24 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblCep);
 		
 		txtTelefone = new JFormattedTextField(tel);
+		txtTelefone.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtTelefone.setBackground(Color.white);
+			}
+		});
 		txtTelefone.setBounds(66, 52, 94, 20);
 		txtTelefone.setValue("");
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
+		txtCEP.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtCEP.setBackground(Color.white);
+			}
+		});
 		txtCEP.setBounds(322, 101, 86, 20);
 		txtCEP.setValue("");
 		contentPane.add(txtCEP);
@@ -132,6 +154,12 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblBairro);
 		
 		txtBairro = new JTextField();
+		txtBairro.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtBairro.setBackground(Color.white);
+			}
+		});
 		txtBairro.setBounds(66, 98, 166, 20);
 		txtBairro.setText("");
 		contentPane.add(txtBairro);
@@ -154,11 +182,23 @@ public class TelaCliente extends JFrame {
                 }
 			}
 		});
+		txtNumero.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtNumero.setBackground(Color.white);
+			}
+		});
 		txtNumero.setBounds(281, 52, 127, 20);
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
 		
 		txtCPF = new JFormattedTextField(cpf);
+		txtCPF.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtCPF.setBackground(Color.white);
+			}
+		});
 		txtCPF.setBounds(241, 146, 166, 20);
 		txtCPF.setValue("");
 		txtCPF.setColumns(10);
@@ -166,6 +206,12 @@ public class TelaCliente extends JFrame {
 		txtCPF.setVisible(true);
 		
 		txtCNPJ = new JFormattedTextField(cnpj);
+		txtCNPJ.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtCNPJ.setBackground(Color.white);
+			}
+		});
 		txtCNPJ.setBounds(241, 146, 166, 20);
 		txtCNPJ.setValue("");
 		txtCNPJ.setColumns(10);
@@ -173,33 +219,74 @@ public class TelaCliente extends JFrame {
 		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
-		lblJanelaDeEntrega.setBounds(10, 197, 103, 14);
+		lblJanelaDeEntrega.setBounds(10, 193, 103, 14);
 		contentPane.add(lblJanelaDeEntrega);
 		
 		
-		panel.setBounds(66, 221, 263, 120);
+		panel.setBounds(65, 238, 263, 120);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		
+		chckbxSegunda.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxSegunda.setBounds(16, 7, 97, 23);
 		panel.add(chckbxSegunda);
-				
+			
+		chckbxTerca.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxTerca.setBounds(16, 31, 97, 23);
 		panel.add(chckbxTerca);
 				
+		chckbxQuarta.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxQuarta.setBounds(16, 57, 97, 23);
 		panel.add(chckbxQuarta);
-				
+			
+		chckbxQuinta.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxQuinta.setBounds(16, 83, 97, 23);
 		panel.add(chckbxQuinta);
-				
+			
+		chckbxSexta.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxSexta.setBounds(164, 7, 97, 23);
 		panel.add(chckbxSexta);
-				
+			
+		chckbxSabado.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxSabado.setBounds(164, 31, 97, 23);
 		panel.add(chckbxSabado);
-				
+			
+		chckbxDomingo.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoDia.setVisible(false);
+			}
+		});
 		chckbxDomingo.setBounds(164, 57, 97, 23);
 		panel.add(chckbxDomingo);
 		
@@ -208,7 +295,7 @@ public class TelaCliente extends JFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ClienteControle cc = new ClienteControle();
-				if(validar() == true){ // chama o metodo validador
+				if(validar()){ // chama o metodo validador
 					if(chckbxSegunda.isSelected()){
 						buffer.append("Segunda;");
 					}else {
@@ -267,7 +354,7 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnSalvar.setBounds(35, 362, 103, 32);
+		btnSalvar.setBounds(34, 379, 103, 32);
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -286,7 +373,7 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnLimpar.setBounds(265, 362, 89, 32);
+		btnLimpar.setBounds(264, 379, 89, 32);
 		contentPane.add(btnLimpar);
 		
 		
@@ -314,6 +401,12 @@ public class TelaCliente extends JFrame {
 		rdbtnCnpj.setBounds(105, 144, 86, 25);
 		contentPane.add(rdbtnCnpj);
 		
+		lblAvisoDia = new JLabel("Selecione ao menos um dia da semana");
+		lblAvisoDia.setForeground(Color.RED);
+		lblAvisoDia.setBounds(66, 209, 287, 16);
+		lblAvisoDia.setVisible(false);
+		contentPane.add(lblAvisoDia);
+		
 		setVisible(true);
 	}
 	
@@ -321,47 +414,48 @@ public class TelaCliente extends JFrame {
 	 * Metodo validador
 	 */
 	public boolean validar(){
-		boolean tudocerto = false;
+		boolean tudocerto = true;
 		
 		if(txtNome.getText().isEmpty()){
 			
-			txtNome.setBackground(Color.yellow);
+			txtNome.setBackground(new Color(255,250,205));
 			lblNome.setForeground(new Color(255,69,0));
+			tudocerto = false;
+		}
+
+		if(txtTelefone.getValue().toString().isEmpty()){
 			
-		}else if(txtTelefone.getValue().toString().isEmpty()){
-			
-			txtTelefone.setBackground(Color.yellow);
+			txtTelefone.setBackground(new Color(255,250,205));
 			lblTelefone.setForeground(new Color(255,69,0));			
-		
-		}else if(txtNumero.getText().isEmpty()){
+			tudocerto = false;
+		}
+
+		if(txtNumero.getText().isEmpty()){
 				
-			txtNumero.setBackground(Color.yellow);
+			txtNumero.setBackground(new Color(255,250,205));
 			lblN.setForeground(new Color(255,69,0));
+			tudocerto = false;
+		}
+
+		if(txtBairro.getText().isEmpty()){
 			
-		}else if(txtBairro.getText().isEmpty()){
-			
-			txtBairro.setBackground(Color.yellow);
+			txtBairro.setBackground(new Color(255,250,205));
 			lblBairro.setForeground(new Color(255,69,0));
+			tudocerto = false;
+		}
+
+		if(txtCEP.getValue().toString().isEmpty()){
 			
-		}else if(txtCEP.getValue().toString().isEmpty()){
-			
-			txtCEP.setBackground(Color.yellow);
+			txtCEP.setBackground(new Color(255,250,205));
 			lblCep.setForeground(new Color(255,69,0));
-			
-		}else if(chckbxDomingo.isSelected()==false && chckbxQuarta.isSelected()==false && chckbxQuinta.isSelected()==false && chckbxSabado.isSelected()==false 
+			tudocerto = false;
+		}
+
+		if(chckbxDomingo.isSelected()==false && chckbxQuarta.isSelected()==false && chckbxQuinta.isSelected()==false && chckbxSabado.isSelected()==false 
 				 && chckbxSegunda.isSelected()==false && chckbxSexta.isSelected()==false && chckbxTerca.isSelected()==false){
+			lblAvisoDia.setVisible(true);
+			tudocerto = false;
 			
-			panel.setBackground(new Color(255,69,0));
-			chckbxDomingo.setBackground(new Color(255,69,0));
-			chckbxSegunda.setBackground(new Color(255,69,0));
-			chckbxTerca.setBackground(new Color(255,69,0));
-			chckbxQuarta.setBackground(new Color(255,69,0));
-			chckbxQuinta.setBackground(new Color(255,69,0));
-			chckbxSexta.setBackground(new Color(255,69,0));
-			chckbxSabado.setBackground(new Color(255,69,0));
-			
-		}else{
-			tudocerto = true;
 		}
 		
 		return tudocerto;

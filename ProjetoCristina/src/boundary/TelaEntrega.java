@@ -22,6 +22,8 @@ import control.ValidarData;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.BufferedReader;
@@ -40,7 +42,7 @@ public class TelaEntrega extends JFrame {
 	private JPanel contentPane;
 	private MaskFormatter mascara;
 	private JComboBox cbCliente, cbProduto;
-	private JFormattedTextField formattedTextField;
+	private JFormattedTextField txtData;
 	
 	public JComboBox getCbProduto() {
 		return cbProduto;
@@ -48,7 +50,7 @@ public class TelaEntrega extends JFrame {
 
 	private ControleTelaEntregas con=new ControleTelaEntregas(getCbCliente(), getCbProduto(), getTable(),getTextField(),getFormattedTextField());
 	private JTable table;
-	private JTextField textField;
+	private JTextField txtQuantidade;
 
 	public JTable getTable() {
 		return table;
@@ -105,7 +107,7 @@ public class TelaEntrega extends JFrame {
 		});
 		setTitle("Cadastro de Entrega");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setSize(565, 487);
+		setSize(646, 487);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
@@ -134,7 +136,7 @@ public class TelaEntrega extends JFrame {
 		setVisible(true);
 
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(435, 391, 107, 32);
+		btnLimpar.setBounds(513, 391, 107, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
@@ -145,7 +147,7 @@ public class TelaEntrega extends JFrame {
 
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
-		btnGravar.setBounds(261, 391, 132, 32);
+		btnGravar.setBounds(20, 391, 132, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -162,7 +164,7 @@ public class TelaEntrega extends JFrame {
 		
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 144, 533, 211);
+		scrollPane.setBounds(20, 144, 600, 211);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -170,47 +172,58 @@ public class TelaEntrega extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Nome do Produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade"
+				"Produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "Volume", "Data", "Quantidade"
 			}
 		));
 		scrollPane.setViewportView(table);
 		
-		JButton btnBuscar = new JButton("Adicionar");
-		btnBuscar.addActionListener(new ActionListener() {
+		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
 				con.preencher();
 			}
 		});
-		btnBuscar.setBounds(221, 107, 117, 25);
-		contentPane.add(btnBuscar);
+		btnAdicionar.setBounds(503, 107, 117, 25);
+		contentPane.add(btnAdicionar);
 		
-		 formattedTextField = new JFormattedTextField(mascara);
-		formattedTextField.setBounds(233, 48, 147, 19);
-		contentPane.add(formattedTextField);
+		 txtData = new JFormattedTextField(mascara);
+		txtData.setBounds(232, 109, 70, 19);
+		contentPane.add(txtData);
 		
-		textField = new JTextField();
-		textField.setBounds(422, 48, 114, 19);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtQuantidade = new JTextField();
+		txtQuantidade.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar();
+				if(!Character.isDigit(c) || (c==KeyEvent.VK_BACK_SPACE) || (c==KeyEvent.VK_DELETE))
+                {
+                    getToolkit().beep();
+                    e.consume();
+                }
+			}
+		});
+		txtQuantidade.setBounds(365, 109, 70, 19);
+		contentPane.add(txtQuantidade);
+		txtQuantidade.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Data");
-		lblNewLabel.setBounds(232, 21, 70, 15);
-		contentPane.add(lblNewLabel);
+		JLabel lblData = new JLabel("Data de entrega");
+		lblData.setBounds(233, 81, 107, 15);
+		contentPane.add(lblData);
 		
-		JLabel lblNewLabel_1 = new JLabel("Quantidade");
-		lblNewLabel_1.setBounds(422, 21, 120, 15);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblQuantidade = new JLabel("Quantidade");
+		lblQuantidade.setBounds(365, 81, 120, 15);
+		contentPane.add(lblQuantidade);
 
 
 	}
 
 	public JFormattedTextField getFormattedTextField() {
-		return formattedTextField;
+		return txtData;
 	}
 
 	public JTextField getTextField() {
-		return textField;
+		return txtQuantidade;
 	}
 
 	public JComboBox getCbCliente() {

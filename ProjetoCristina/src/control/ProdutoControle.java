@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 import entity.Produto;
 
-public class ProdutoControle extends Produto{
+public class ProdutoControle extends Produto implements CRUD{
 	
 	public void InstanciaProdutoControle(String nome, String fabricante, String descritivo, float kg, float metros){
 		
@@ -46,5 +46,23 @@ public class ProdutoControle extends Produto{
 			s.printStackTrace();
 			JOptionPane.showMessageDialog(null,"Ocorreu um erro de Gravação, tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	@Override
+	public void deletar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar() throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ler() throws IOException {
+		// TODO Auto-generated method stub
+		
 	}
 }
