@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
 import boundary.TelaEntrega;
 
 
-public class ControleTelaEntregas implements CRUD{
+public class ControleTelaEntregas {
 
 	private JLabel local;
 	private JComboBox  cbCliente;
@@ -156,7 +156,7 @@ public class ControleTelaEntregas implements CRUD{
 
 	}
 
-	@Override
+	
 	public void gravar() {
 
 		try {
@@ -196,16 +196,6 @@ public class ControleTelaEntregas implements CRUD{
 
 	}
 
-	@Override
-	public void deletar() throws IOException {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void atualizar() throws IOException {
-		// TODO Auto-generated method stub
-
-	}
 
 }

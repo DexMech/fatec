@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
 import javax.swing.SwingConstants;
+import javax.swing.JMenuBar;
 
 public class TelaInicial extends JFrame {
 
@@ -91,6 +92,10 @@ public class TelaInicial extends JFrame {
 		});
 		btnNewButton_1.setBounds(270, 273, 154, 55);
 		getContentPane().add(btnNewButton_1);
+		
+		JMenuBar barraMenu = new JMenuBar();
+		barraMenu.setBounds(12, 23, 129, 21);
+		getContentPane().add(barraMenu);
 		setVisible(true);
 	}
 	
