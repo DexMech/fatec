@@ -160,7 +160,7 @@ public class ConsultaEntrega extends JFrame {
 
 
 		txtCliente = new JTextField();
-		txtCliente.setEditable(false);
+		txtCliente.setEditable(true);
 		txtCliente.setBounds(85, 50, 177, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);

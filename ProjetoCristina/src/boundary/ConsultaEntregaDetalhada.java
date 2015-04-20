@@ -1,25 +1,21 @@
 package boundary;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
 
 import control.ControlaLeituraDetalhada;
-import javax.swing.JTextArea;
-import javax.swing.JPasswordField;
-import java.awt.Color;
 
 public class ConsultaEntregaDetalhada extends JFrame {
 
 	private JTextArea textArea;
-private Object[] objeto;
+	private Object[] objeto;
 	private JPanel contentPane;
 	
 

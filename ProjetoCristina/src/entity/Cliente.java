@@ -2,8 +2,8 @@ package entity;
 
 public abstract class  Cliente {
 	
-	private String Nome;
-	private int N;
+	private String nome;
+	private int numero;
 	private String telefone;
 	private String bairro;
 	private String cep;
@@ -11,16 +11,16 @@ public abstract class  Cliente {
 	private String diasDaSemana;
 	
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 	public void setNome(String nome) {
-		Nome = nome;
+		nome = nome;
 	}
-	public int getN() {
-		return N;
+	public int getNumero() {
+		return numero;
 	}
-	public void setN(int n) {
-		N = n;
+	public void setNumero(int numero) {
+		numero = numero;
 	}
 	public String getTelefone() {
 		return telefone;

@@ -17,7 +17,7 @@ public class ClienteControle extends Cliente implements CRUD{
 
 	public void InstanciarCliente(String nome, int numero, String telefone, String bairro, String cep, String indentificacao, String diasDaSemana){
 		setNome(nome);
-		setN(numero);
+		setNumero(numero);
 		setTelefone(telefone);
 		setBairro(bairro);
 		setCep(cep);
@@ -31,7 +31,7 @@ public class ClienteControle extends Cliente implements CRUD{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
 			escrever.write(getNome());
 			escrever.write(";");
-			escrever.write(getN());
+			escrever.write(getNumero());
 			escrever.write(";");
 			escrever.write(getTelefone());
 			escrever.write(";");

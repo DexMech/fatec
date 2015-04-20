@@ -23,7 +23,7 @@ public class ProdutoControle extends Produto implements CRUD{
 	}
 	
 	public void gravar() throws IOException{
-		String filename = "produtos.txt";
+		String filename = "Produtos.txt";
 		
 		try{
 			BufferedWriter write = new BufferedWriter(new FileWriter(filename, true));

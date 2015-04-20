@@ -83,13 +83,13 @@ public class ControlaConsultaEntrega {
 		for(int i = 0; i< tabela.getRowCount(); i++){  
 			b = new StringBuilder();  
 			for(int j = 0; j < tabela.getColumnCount(); j++){  
-				b.append(tabela.getValueAt(i,j)).append(";");  
+				b.append(tabela.getValueAt(i,j)).append("\t");  
 			}  
 			linhas.add(b);  
 		} 
 		BufferedWriter escreve = null;
 		try {
-			escreve = new BufferedWriter(new FileWriter(".xls",true));
+			escreve = new BufferedWriter(new FileWriter("Cliente.xls",true));
 		} catch (IOException e1) {
 
 			e1.printStackTrace();
