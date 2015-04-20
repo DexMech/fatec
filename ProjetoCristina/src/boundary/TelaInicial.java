@@ -124,7 +124,7 @@ public class TelaInicial extends JFrame {
 		getContentPane().add(barraMenu);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/images/trans.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/images/ola.jpg")));
 		lblNewLabel.setBounds(0, 28, 800, 613);
 		getContentPane().add(lblNewLabel);
 		setVisible(true);
