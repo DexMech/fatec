@@ -40,13 +40,15 @@ public class TelaEntrega extends JFrame {
 	private JPanel contentPane;
 	private MaskFormatter mascara;
 	private JComboBox cbCliente, cbProduto;
+	private JFormattedTextField formattedTextField;
 	
 	public JComboBox getCbProduto() {
 		return cbProduto;
 	}
 
-	private ControleTelaEntregas con;
+	private ControleTelaEntregas con=new ControleTelaEntregas(getCbCliente(), getCbProduto(), getTable(),getTextField(),getFormattedTextField());
 	private JTable table;
+	private JTextField textField;
 
 	public JTable getTable() {
 		return table;
@@ -60,7 +62,7 @@ public class TelaEntrega extends JFrame {
 
 			@Override
 			public void windowOpened(WindowEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(),getCbProduto(),getTable());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
 				con.ler();
 
 			}
@@ -118,7 +120,7 @@ public class TelaEntrega extends JFrame {
 		Icon iconbuscar = new ImageIcon("images\\buscar.png");
 
 		JLabel lblProduto = new JLabel("Produto");
-		lblProduto.setBounds(20, 80, 56, 16);
+		lblProduto.setBounds(20, 80, 126, 16);
 		contentPane.add(lblProduto);
 
 		try {
@@ -135,7 +137,8 @@ public class TelaEntrega extends JFrame {
 		btnLimpar.setBounds(435, 391, 107, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//				
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con.limpar(); 		
 			}
 		});
 		getContentPane().add(btnLimpar);
@@ -164,26 +167,50 @@ public class TelaEntrega extends JFrame {
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"Fabricante", "Data", "Quantidade", "Peso", "Volume", "Descri\u00E7\u00E3o"
-				}
-				));
+			new Object[][] {
+			},
+			new String[] {
+				"Nome do Produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade"
+			}
+		));
 		scrollPane.setViewportView(table);
 		
-		JButton btnBuscar = new JButton("Buscar");
+		JButton btnBuscar = new JButton("Adicionar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
 				con.preencher();
 			}
 		});
-		btnBuscar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.setBounds(221, 107, 117, 25);
 		contentPane.add(btnBuscar);
+		
+		 formattedTextField = new JFormattedTextField(mascara);
+		formattedTextField.setBounds(233, 48, 147, 19);
+		contentPane.add(formattedTextField);
+		
+		textField = new JTextField();
+		textField.setBounds(422, 48, 114, 19);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Data");
+		lblNewLabel.setBounds(232, 21, 70, 15);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Quantidade");
+		lblNewLabel_1.setBounds(422, 21, 120, 15);
+		contentPane.add(lblNewLabel_1);
 
 
+	}
+
+	public JFormattedTextField getFormattedTextField() {
+		return formattedTextField;
+	}
+
+	public JTextField getTextField() {
+		return textField;
 	}
 
 	public JComboBox getCbCliente() {
