@@ -26,7 +26,7 @@ public class TelaInicial extends JFrame {
 
 	
 		barraMenu = new JMenuBar();
-		barraMenu.setBounds(0, 9, 900, 21);
+		barraMenu.setBounds(0, 18, 936, 21);
 		JMenu menu = new JMenu("Menu");
 		
 		JMenuItem menu0 = new JMenuItem("Backup e Restauração");
