@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -13,6 +14,7 @@ import boundary.TelaEntrega;
 
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -23,21 +25,21 @@ import boundary.TelaEntrega;
 
 public class ControleTelaEntregas implements CRUD{
 
-	
+private JLabel local;
 	private JComboBox  cbCliente;
 	private JComboBox  cbProduto;
 	private JTable tabela;
 	private DefaultTableModel modelo ;
 	private JTextField texto;
 	private JFormattedTextField forma;
-	
+private TelaEntrega tela;
 	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField texto,JFormattedTextField forma){
 		this.cbCliente = cbCliente;
 		this.cbProduto = cbProduto;
 		this.tabela = tabela;
 		this.forma = forma;
 		this.texto = texto;
-		
+
 	}
 
 	// le arquivo com dados do cliente
@@ -77,7 +79,7 @@ public class ControleTelaEntregas implements CRUD{
 		modelo  = (DefaultTableModel) tabela.getModel();
 
 		String arquivo =cbProduto.getSelectedItem().toString();
-		
+
 		String linha;
 
 		try {
@@ -92,12 +94,12 @@ public class ControleTelaEntregas implements CRUD{
 					objeto[6]=texto.getText();
 					recipiente = linha.split(";");
 					for(int i=0;i<5;i++){
-						
+
 						objeto[i] = recipiente[j];
 						j++;
 					}
-					
-				//	
+
+					//	
 					modelo.addRow(objeto);
 				}
 			}
@@ -109,24 +111,57 @@ public class ControleTelaEntregas implements CRUD{
 		}
 	}
 
-public void limpar(){
-	modelo  = (DefaultTableModel) tabela.getModel();
-	int i=0;
+	public void limpar(){
+		modelo  = (DefaultTableModel) tabela.getModel();
+		int i=0;
 
 
-	
-	while(tabela.getRowCount()>0){
-		modelo.removeRow(i);
-		i++;
+
+		while(tabela.getRowCount()>0){
+			modelo.removeRow(i);
+			i++;
+
+		}
 
 	}
-	
-}
 
 	@Override
-	public void gravar() throws IOException {
-		// TODO Auto-generated method stub
+	public void gravar() {
 
+		try {
+			BufferedWriter escrita = new BufferedWriter(new FileWriter("entrega.txt"));
+			ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
+			StringBuilder b = new StringBuilder();
+			for(int i = 0; i< tabela.getRowCount(); i++){  
+				b = new StringBuilder();  
+				b.append(cbCliente.getSelectedItem().toString()+";");
+				for(int j = 0; j < tabela.getColumnCount(); j++){  
+					b.append(tabela.getValueAt(i,j)).append(";");  
+				}  
+				linhas.add(b); 
+			}
+			for(StringBuilder b1: linhas){  
+
+				escrita.write(b1.toString()+"\n");
+		}
+			
+			
+			
+			escrita.close();	
+		} 
+		catch(IOException e){
+
+
+		}
+
+
+
+	}
+	public String retornaString(){
+		
+		
+		return "Gravado com sucesso";
+		
 	}
 
 	@Override

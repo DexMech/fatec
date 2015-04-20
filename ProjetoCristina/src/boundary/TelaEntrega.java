@@ -43,7 +43,11 @@ public class TelaEntrega extends JFrame {
 	private MaskFormatter mascara;
 	private JComboBox cbCliente, cbProduto;
 	private JFormattedTextField txtData;
-	
+	public void setLblcontrol(String lblcontrol) {
+		this.lblcontrol.setText(lblcontrol);
+	}
+
+	private JLabel lblcontrol;
 	public JComboBox getCbProduto() {
 		return cbProduto;
 	}
@@ -150,6 +154,15 @@ public class TelaEntrega extends JFrame {
 		btnGravar.setBounds(20, 391, 132, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(txtData.getText().equals("")||txtQuantidade.getText().equals("")){
+					lblcontrol.setText("Preencha os campos");
+					
+				}else{
+					lblcontrol.setText("");
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con.gravar();
+				lblcontrol.setText(con.retornaString());
+				}
 			}
 		});
 		getContentPane().add(btnGravar);
@@ -214,6 +227,10 @@ public class TelaEntrega extends JFrame {
 		JLabel lblQuantidade = new JLabel("Quantidade");
 		lblQuantidade.setBounds(365, 81, 120, 15);
 		contentPane.add(lblQuantidade);
+		
+		 lblcontrol = new JLabel("");
+		lblcontrol.setBounds(190, 400, 150, 15);
+		contentPane.add(lblcontrol);
 
 
 	}

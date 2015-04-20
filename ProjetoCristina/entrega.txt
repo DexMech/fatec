@@ -1,4 +1,7 @@
-são paulo;alex;f100;16/11/1992
-são paulo;alex;f100;16/11/1992
-rio;joao;f900;13/04/2000
-
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
+alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;20;
