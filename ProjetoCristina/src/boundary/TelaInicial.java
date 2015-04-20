@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 public class TelaInicial extends JFrame {
 	private JMenuBar barraMenu;
 	public TelaInicial(){
-		setSize(812,668);
+		setSize(800,635);
 		setTitle("RotaMax - Roteirização");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -125,7 +125,7 @@ public class TelaInicial extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/images/trans.jpg")));
-		lblNewLabel.setBounds(0, 28, 809, 613);
+		lblNewLabel.setBounds(0, 28, 800, 613);
 		getContentPane().add(lblNewLabel);
 		setVisible(true);
 	}
