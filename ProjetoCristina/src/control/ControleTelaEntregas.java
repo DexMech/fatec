@@ -27,7 +27,7 @@ import boundary.TelaEntrega;
 
 public class ControleTelaEntregas implements CRUD{
 
-private JLabel local;
+	private JLabel local;
 	private JComboBox  cbCliente;
 	private JComboBox  cbProduto;
 	private JTable tabela;
@@ -35,7 +35,7 @@ private JLabel local;
 	private JTextField texto;
 	private JFormattedTextField forma;
 	private JTextField nomeCli;
-private TelaEntrega tela;
+	private TelaEntrega tela;
 	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField texto,JFormattedTextField forma,JTextField nomeCli){
 		this.cbCliente = cbCliente;
 		this.cbProduto = cbProduto;
@@ -46,7 +46,7 @@ private TelaEntrega tela;
 
 	}
 
-	
+
 	public void ler() {
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
@@ -57,22 +57,22 @@ private TelaEntrega tela;
 
 				cbCliente.addItem(recebe[0]);
 				cbCliente.addActionListener(new ActionListener() {
-					
+
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						try {
 							BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
 
-				String linha;
+							String linha;
 							while(entrada.ready()){
 								linha =entrada.readLine();
 								String[] recebe = linha.split(";");
 
 								if(linha.contains(cbCliente.getSelectedItem().toString())){
-									
+
 									nomeCli.setText(recebe[3]);
 								}
-								
+
 
 
 
@@ -80,10 +80,10 @@ private TelaEntrega tela;
 							entrada.close();
 						}catch (Exception b) {
 						}
-						
+
 					}
 				});
-				
+
 
 
 
@@ -91,7 +91,7 @@ private TelaEntrega tela;
 			entrada.close();
 		}catch (Exception e) {
 		}
-		
+
 
 		try {
 			BufferedReader entrada2 = new BufferedReader(new FileReader("produtos.txt"));
@@ -106,7 +106,7 @@ private TelaEntrega tela;
 
 			}
 		}catch (Exception e) {
-			
+
 		}
 
 	}
@@ -175,10 +175,10 @@ private TelaEntrega tela;
 			for(StringBuilder b1: linhas){  
 
 				escrita.write(b1.toString()+"\n");
-		}
-			
-			
-			
+			}
+
+
+
 			escrita.close();	
 		} 
 		catch(IOException e){
@@ -190,10 +190,10 @@ private TelaEntrega tela;
 
 	}
 	public String retornaString(){
-		
-		
+
+
 		return "Gravado com sucesso";
-		
+
 	}
 
 	@Override
