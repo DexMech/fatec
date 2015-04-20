@@ -23,13 +23,13 @@ public class ControlaLeituraDetalhada {
 
 	}
 	public void preenche(){
-		String[] items ={"Produto","Nome do Cliente","Regiao","caminhao","Data da Compra"};
+		String[] items ={"Região","Nome do Cliente","Produto","Fabricante","Descrição","Peso","Volume","Data","Quantidade"};
 		
 		String linha = "";
 
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("testeProdutosComprados.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
 			while(linha != null){
 				linha = le.readLine();
 				if(linha.contains(objeto[1].toString())&&linha.contains(objeto[3].toString())){
