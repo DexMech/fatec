@@ -13,11 +13,12 @@ import java.text.ParseException;
 
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
+import javax.swing.ImageIcon;
 
 public class TelaInicial extends JFrame {
 	private JMenuBar barraMenu;
 	public TelaInicial(){
-		setSize(948,489);
+		setSize(812,668);
 		setTitle("RotaMax - Roteirização");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,7 +27,7 @@ public class TelaInicial extends JFrame {
 
 	
 		barraMenu = new JMenuBar();
-		barraMenu.setBounds(0, 18, 936, 21);
+		barraMenu.setBounds(0, 9, 809, 21);
 		JMenu menu = new JMenu("Menu");
 		
 		JMenuItem menu0 = new JMenuItem("Backup e Restauração");
@@ -121,6 +122,11 @@ public class TelaInicial extends JFrame {
 		
 		//JMenu menu = new JMenu("Backup e restauração");
 		getContentPane().add(barraMenu);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(TelaInicial.class.getResource("/images/trans.jpg")));
+		lblNewLabel.setBounds(0, 28, 809, 613);
+		getContentPane().add(lblNewLabel);
 		setVisible(true);
 	}
 
