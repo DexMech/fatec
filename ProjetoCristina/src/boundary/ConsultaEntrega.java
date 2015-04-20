@@ -84,12 +84,14 @@ public class ConsultaEntrega extends JFrame {
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"Regi\u00E3o", "Cliente", "Caminh\u00E3o", "Data"
-				}
-				));
+			new Object[][] {
+			},
+			new String[] {
+				"Regi\u00E3o", "Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade"
+			}
+		));
+		table.getColumnModel().getColumn(2).setPreferredWidth(185);
+		table.getColumnModel().getColumn(3).setPreferredWidth(111);
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
@@ -97,6 +99,9 @@ public class ConsultaEntrega extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
 					control.exporta(getTable(),getLabelgrava());
+					
+						labelgrava.setText(control.retornaString());
+						
 				}
 			}
 		});
@@ -149,7 +154,7 @@ public class ConsultaEntrega extends JFrame {
 				else{
 
 					control.busca(txtCliente.getText(),txtdata.getText(),getTable());
-
+					
 				}
 
 			}

@@ -52,9 +52,10 @@ public class TelaEntrega extends JFrame {
 		return cbProduto;
 	}
 
-	private ControleTelaEntregas con=new ControleTelaEntregas(getCbCliente(), getCbProduto(), getTable(),getTextField(),getFormattedTextField());
+	private ControleTelaEntregas con=new ControleTelaEntregas(getCbCliente(), getCbProduto(), getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 	private JTable table;
 	private JTextField txtQuantidade;
+	private JTextField textFieldRegiao;
 
 	public JTable getTable() {
 		return table;
@@ -68,7 +69,7 @@ public class TelaEntrega extends JFrame {
 
 			@Override
 			public void windowOpened(WindowEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.ler();
 
 			}
@@ -143,7 +144,7 @@ public class TelaEntrega extends JFrame {
 		btnLimpar.setBounds(513, 391, 107, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.limpar(); 		
 			}
 		});
@@ -159,7 +160,7 @@ public class TelaEntrega extends JFrame {
 					
 				}else{
 					lblcontrol.setText("");
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.gravar();
 				lblcontrol.setText(con.retornaString());
 				}
@@ -193,7 +194,7 @@ public class TelaEntrega extends JFrame {
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField());
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.preencher();
 			}
 		});
@@ -231,8 +232,17 @@ public class TelaEntrega extends JFrame {
 		 lblcontrol = new JLabel("");
 		lblcontrol.setBounds(190, 400, 150, 15);
 		contentPane.add(lblcontrol);
+		
+		textFieldRegiao = new JTextField();
+		textFieldRegiao.setBounds(232, 48, 318, 19);
+		contentPane.add(textFieldRegiao);
+		textFieldRegiao.setColumns(10);
 
 
+	}
+
+	public JTextField getTextFieldRegiao() {
+		return textFieldRegiao;
 	}
 
 	public JFormattedTextField getFormattedTextField() {

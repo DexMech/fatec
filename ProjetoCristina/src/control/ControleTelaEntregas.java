@@ -1,5 +1,7 @@
 package control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -32,17 +34,19 @@ private JLabel local;
 	private DefaultTableModel modelo ;
 	private JTextField texto;
 	private JFormattedTextField forma;
+	private JTextField nomeCli;
 private TelaEntrega tela;
-	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField texto,JFormattedTextField forma){
+	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField texto,JFormattedTextField forma,JTextField nomeCli){
 		this.cbCliente = cbCliente;
 		this.cbProduto = cbProduto;
 		this.tabela = tabela;
 		this.forma = forma;
 		this.texto = texto;
+		this.nomeCli = nomeCli;
 
 	}
 
-	// le arquivo com dados do cliente
+	
 	public void ler() {
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
@@ -52,12 +56,42 @@ private TelaEntrega tela;
 				String[] recebe = entrada.readLine().split(";");
 
 				cbCliente.addItem(recebe[0]);
+				cbCliente.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						try {
+							BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
+
+				String linha;
+							while(entrada.ready()){
+								linha =entrada.readLine();
+								String[] recebe = linha.split(";");
+
+								if(linha.contains(cbCliente.getSelectedItem().toString())){
+									
+									nomeCli.setText(recebe[3]);
+								}
+								
+
+
+
+							}
+							entrada.close();
+						}catch (Exception b) {
+						}
+						
+					}
+				});
+				
 
 
 
 			}
+			entrada.close();
 		}catch (Exception e) {
 		}
+		
 
 		try {
 			BufferedReader entrada2 = new BufferedReader(new FileReader("produtos.txt"));
@@ -72,6 +106,7 @@ private TelaEntrega tela;
 
 			}
 		}catch (Exception e) {
+			
 		}
 
 	}
@@ -112,14 +147,10 @@ private TelaEntrega tela;
 	}
 
 	public void limpar(){
-		modelo  = (DefaultTableModel) tabela.getModel();
 		int i=0;
-
-
-
+		modelo = (DefaultTableModel) tabela.getModel();
 		while(tabela.getRowCount()>0){
 			modelo.removeRow(i);
-			i++;
 
 		}
 
@@ -134,6 +165,7 @@ private TelaEntrega tela;
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  
 				b = new StringBuilder();  
+				b.append(nomeCli.getText()+";");
 				b.append(cbCliente.getSelectedItem().toString()+";");
 				for(int j = 0; j < tabela.getColumnCount(); j++){  
 					b.append(tabela.getValueAt(i,j)).append(";");  

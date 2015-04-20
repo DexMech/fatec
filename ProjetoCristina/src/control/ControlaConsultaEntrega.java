@@ -46,14 +46,18 @@ public class ControlaConsultaEntrega {
 
 		try {
 			BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
+			
 			while(le.ready()){
 				linha = le.readLine();
-				if(linha.contains(cliente) && (linha.contains(data))){
+				if(linha.contains(cliente) || (linha.contains(data))){
 					Object[] objeto = linha.split(";");
 					modelo.addRow(objeto);
 				}
+					
+					
+				}
 
-			}
+			
 			le.close();
 		} catch (IOException e1) {
 
@@ -74,7 +78,14 @@ public class ControlaConsultaEntrega {
 		label.setText("");
 		cliente.setText("");
 		data.setText("");
+		
 
+	}
+public String retornaString(){
+		
+		
+		return "Gravado com sucesso";
+		
 	}
 
 	public void exporta(JTable tabela,JLabel label){
@@ -83,33 +94,28 @@ public class ControlaConsultaEntrega {
 		for(int i = 0; i< tabela.getRowCount(); i++){  
 			b = new StringBuilder();  
 			for(int j = 0; j < tabela.getColumnCount(); j++){  
-				b.append(tabela.getValueAt(i,j)).append("\t");  
+				b.append(tabela.getValueAt(i,j)).append(";");  
 			}  
 			linhas.add(b);  
 		} 
 		BufferedWriter escreve = null;
 		try {
-			escreve = new BufferedWriter(new FileWriter("Cliente.xls",true));
+			escreve = new BufferedWriter(new FileWriter("Cliente.xls"));
+			for(StringBuilder b1: linhas){  
+				
+					escreve.write(b1.toString()+"\n");
+				}
+			escreve.close();
 		} catch (IOException e1) {
 
 			e1.printStackTrace();
 		}
-		for(StringBuilder b1: linhas){  
-			try {
-				escreve.write(b1.toString()+"\n");
-			} catch (IOException e) {
+		 
+		
+			
+		
 
-				e.printStackTrace();
-			}  
-		} 
-		try {
-			escreve.close();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		label.setText("Gravado com sucesso");
+		
 		label.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 	}
 
