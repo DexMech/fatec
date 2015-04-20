@@ -61,6 +61,14 @@ public class TelaMotorista extends JFrame{
 	private JTextField textComprimento;
 	private JTextField textPeso;
 	private JTextField textVolume;
+	private JLabel lblAvisoNome;
+	private JLabel lblAvisoCNH;
+	private JLabel lblAvisoData;
+	private JLabel lblAvisoData_2;
+	private JLabel lblAvisoTelefone;
+	private JLabel lblAvisoPlaca;
+	private JLabel lblAvisoCidade;
+	private JLabel lblAvisoEstado;
 	/**
 	 * @wbp.nonvisual location=283,714
 	 */
@@ -77,59 +85,60 @@ public class TelaMotorista extends JFrame{
 		data.setValidCharacters("0123456789");
 		placa.setValidCharacters("0123456789ASDFGHJKLZXCVBNMQWERTYUIOP");
 		
-		setSize(384,640);
+		setSize(494,640);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("Cadastro de Motorista");
 		setLocationRelativeTo(null);
 		setResizable(false);
 		getContentPane().setLayout(null);
-		final JLabel lblContainer = new JLabel("Carroceria:");
+		
+		JLabel lblContainer = new JLabel("Carroceria:");
 		lblContainer.setBounds(10, 305, 152, 14);
 		getContentPane().add(lblContainer);
 		
-		final JLabel lblAvisoNome = new JLabel("Preencha o campo \"Nome\"");
+		lblAvisoNome = new JLabel("Preencha o campo \"Nome\"");
 		lblAvisoNome.setForeground(Color.RED);
 		lblAvisoNome.setBounds(10, 49, 348, 16);
 		lblAvisoNome.setVisible(false);
 		getContentPane().add(lblAvisoNome);
 		
-		final JLabel lblAvisoCNH = new JLabel("Preencha o campo \"CNH\"");
+		lblAvisoCNH = new JLabel("Preencha o campo \"CNH\"");
 		lblAvisoCNH.setForeground(Color.RED);
 		lblAvisoCNH.setBounds(10, 118, 152, 16);
 		lblAvisoCNH.setVisible(false);
 		getContentPane().add(lblAvisoCNH);
 		
-		final JLabel lblAvisoData = new JLabel("Preencha o campo \"data\"");
+		lblAvisoData = new JLabel("Preencha o campo \"data\"");
 		lblAvisoData.setForeground(Color.RED);
 		lblAvisoData.setBounds(188, 118, 170, 16);
 		lblAvisoData.setVisible(false);
 		getContentPane().add(lblAvisoData);
 		
-		final JLabel lblAvisoData_2 = new JLabel("Validade da CNH incoerente");
+		lblAvisoData_2 = new JLabel("Validade da CNH incoerente");
 		lblAvisoData_2.setForeground(Color.RED);
 		lblAvisoData_2.setBounds(188, 118, 170, 16);
 		lblAvisoData_2.setVisible(false);
 		getContentPane().add(lblAvisoData_2);
 		
-		final JLabel lblAvisoTelefone = new JLabel("Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
+		lblAvisoTelefone = new JLabel("Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
 		lblAvisoTelefone.setForeground(Color.RED);
 		lblAvisoTelefone.setBounds(10, 188, 362, 16);
 		lblAvisoTelefone.setVisible(false);
 		getContentPane().add(lblAvisoTelefone);
 		
-		final JLabel lblAvisoPlaca = new JLabel("Preencha o campo \"N\u00FAmero da Placa\"");
+		lblAvisoPlaca = new JLabel("Preencha o campo \"N\u00FAmero da Placa\"");
 		lblAvisoPlaca.setForeground(Color.RED);
 		lblAvisoPlaca.setBounds(126, 437, 240, 16);
 		lblAvisoPlaca.setVisible(false);
 		getContentPane().add(lblAvisoPlaca);
 		
-		final JLabel lblAvisoCidade = new JLabel("Preencha o campo \"Cidade\"");
+		lblAvisoCidade = new JLabel("Preencha o campo \"Cidade\"");
 		lblAvisoCidade.setForeground(Color.RED);
 		lblAvisoCidade.setBounds(126, 476, 256, 16);
 		lblAvisoCidade.setVisible(false);
 		getContentPane().add(lblAvisoCidade);
 		
-		final JLabel lblAvisoEstado = new JLabel("Preencha o campo \"Estado\"");
+		lblAvisoEstado = new JLabel("Preencha o campo \"Estado\"");
 		lblAvisoEstado.setForeground(Color.RED);
 		lblAvisoEstado.setBounds(126, 522, 256, 16);
 		lblAvisoEstado.setVisible(false);
@@ -307,36 +316,8 @@ public class TelaMotorista extends JFrame{
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
-				ValidarData vd = new ValidarData();
-				if(textNome.getText().isEmpty())
-					lblAvisoNome.setVisible(true);
-				
-				if (textCNH.getValue().toString().isEmpty())
-					lblAvisoCNH.setVisible(true);
-				
-				if (textValidadeInicio.getValue().toString().isEmpty() || textValidadeFim.getValue().toString().isEmpty())
-					lblAvisoData.setVisible(true);				
-				else  if (vd.isDataInsertedValid(textValidadeInicio.getValue().toString(), textValidadeFim.getValue().toString())){
-					lblAvisoData.setVisible(false);
-					lblAvisoData_2.setVisible(true);
-				}
-				
-				if (textTelefone.getValue().toString().isEmpty() || textCelular.getValue().toString().isEmpty())
-					lblAvisoTelefone.setVisible(true);
-
-				if (textPlaca.getValue().toString().isEmpty())
-					lblAvisoPlaca.setVisible(true);
-
-				if (textEstado.getText().isEmpty())
-					lblAvisoEstado.setVisible(true);
-				
-				if (textCidade.getText().isEmpty())
-					lblAvisoCidade.setVisible(true);
-				
-				if (!textNome.getText().isEmpty() && !textCNH.getValue().toString().isEmpty() && !textValidadeInicio.getText().isEmpty() &&
-						!textValidadeFim.getText().isEmpty() && !textTelefone.getValue().toString().isEmpty() && 
-						!textCelular.getValue().toString().isEmpty() && !textPlaca.getText().isEmpty() && !textEstado.getText().isEmpty() &&
-						!textCidade.getText().isEmpty() && !vd.isDataInsertedValid(textValidadeInicio.getValue().toString(), textValidadeFim.getValue().toString())){
+								
+				if (validar()){
 					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), textValidadeInicio.getText(), textValidadeFim.getText(), 
 							textTelefone.getValue().toString(), textCelular.getValue().toString());
 					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem().toString(), textPlaca.getText(), 
@@ -346,21 +327,14 @@ public class TelaMotorista extends JFrame{
 						mc.gravar();
 						cam.gravar();
 						car.gravar();
+						
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					
-					lblAvisoNome.setVisible(false);
-					lblAvisoCNH.setVisible(false);
-					lblAvisoData.setVisible(false);
-					lblAvisoTelefone.setVisible(false);
-					lblAvisoPlaca.setVisible(false);
-					lblAvisoEstado.setVisible(false);
-					lblAvisoCidade.setVisible(false);
 				}
 			}
 		});
-		btnGravar.setBounds(10, 560, 89, 32);
+		btnGravar.setBounds(10, 560, 104, 32);
 		getContentPane().add(btnGravar);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -507,6 +481,96 @@ public class TelaMotorista extends JFrame{
 		lblM_1.setBounds(347, 363, 46, 14);
 		getContentPane().add(lblM_1);
 		
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MotoristaControle mc = new MotoristaControle();
+				
+				if (validar()){
+					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), textValidadeInicio.getText(), textValidadeFim.getText(), 
+							textTelefone.getValue().toString(), textCelular.getValue().toString());
+					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem().toString(), textPlaca.getText(), 
+							textEstado.getText(), textCidade.getText());
+					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
+					
+					try {
+						car.atualizar(textNome.getText());
+						cam.atualizar(textNome.getText());
+						mc.atualizar(textNome.getText());
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		btnAtualizar.setBounds(148, 560, 89, 32);
+		getContentPane().add(btnAtualizar);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(370, 25, 89, 32);
+		getContentPane().add(btnBuscar);
+		
+		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MotoristaControle mc = new MotoristaControle();
+				
+				try {
+					mc.deletar(textNome.getText());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnDeletar.setBounds(387, 560, 89, 32);
+		getContentPane().add(btnDeletar);
+		
 		setVisible(true);
+	}
+	
+	public boolean validar(){
+		boolean confirm = true;
+		ValidarData vd = new ValidarData();
+		
+		if(textNome.getText().isEmpty()){
+			lblAvisoNome.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textCNH.getValue().toString().isEmpty()){
+			lblAvisoCNH.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textValidadeInicio.getValue().toString().isEmpty() || textValidadeFim.getValue().toString().isEmpty()){
+			lblAvisoData.setVisible(true);
+			confirm = false;
+		} else  if (vd.isDataInsertedValid(textValidadeInicio.getValue().toString(), textValidadeFim.getValue().toString())){
+			lblAvisoData.setVisible(false);
+			lblAvisoData_2.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textTelefone.getValue().toString().isEmpty() || textCelular.getValue().toString().isEmpty()) {
+			lblAvisoTelefone.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textPlaca.getValue().toString().isEmpty()){
+			lblAvisoPlaca.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textEstado.getText().isEmpty()){
+			lblAvisoEstado.setVisible(true);
+			confirm = false;
+		}
+		
+		if (textCidade.getText().isEmpty()){
+			lblAvisoCidade.setVisible(true);
+			confirm = false;
+		}
+		
+		return confirm;
 	}
 }

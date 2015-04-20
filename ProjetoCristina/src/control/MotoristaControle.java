@@ -61,7 +61,40 @@ public class MotoristaControle extends Motorista implements CRUD{
 
 	@Override
 	public void deletar(String nome) throws IOException {
+		String [] motorista = ler();
+		String fileName = "Motoristas.txt";
+		int i = 0;
+		int index = 0;
+		BufferedReader ler = new BufferedReader(new FileReader(fileName));
+		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
+		while (ler.ready()){
+			String [] contador = ler.readLine().split(";");
+			i ++;
+		}
+		
+		ler.close();
+		
+		i *= 17;
+		
+		for (int j = 0; j < i; j ++){
+			if (nome.equals(motorista[j])){
+				index = j;
+			}
+		}
+		
+		for (int j = index; j < motorista.length; j ++){
+			motorista[j] = motorista[j+17];
+		}
+		
+		i -= 17;
+		
+		for (int j = 0; j < i; j ++){
+			escreve.write(motorista[j]);
+			escreve.write(";");
+		}
+		
+		escreve.close();
 	}
 
 	@Override
