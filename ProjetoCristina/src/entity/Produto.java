@@ -1,13 +1,15 @@
-// @author Stefanie
+/**
+ * @author Stefanie
+ * */
 
 package entity;
 
 public abstract class Produto {
 	
 	private String nome;
-	private String Fabricante;
-	private String Descritivo;
-	private float kg;
+	private String fabricante;
+	private String descritivo;
+	private float peso;
 	private float metros;
 	
 	
@@ -18,22 +20,22 @@ public abstract class Produto {
 		this.nome = nome;
 	}
 	public String getFabricante() {
-		return Fabricante;
+		return fabricante;
 	}
 	public void setFabricante(String fabricante) {
-		Fabricante = fabricante;
+		fabricante = fabricante;
 	}
 	public String getDescritivo() {
-		return Descritivo;
+		return descritivo;
 	}
 	public void setDescritivo(String descritivo) {
-		Descritivo = descritivo;
+		descritivo = descritivo;
 	}
 	public float getKg() {
-		return kg;
+		return peso;
 	}
-	public void setKg(float kg) {
-		this.kg = kg;
+	public void setKg(float peso) {
+		this.peso = peso;
 	}
 	public float getMetros() {
 		return metros;
