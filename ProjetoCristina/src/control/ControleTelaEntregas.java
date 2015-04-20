@@ -160,7 +160,7 @@ public class ControleTelaEntregas implements CRUD{
 	public void gravar() {
 
 		try {
-			BufferedWriter escrita = new BufferedWriter(new FileWriter("entrega.txt"));
+			BufferedWriter escrita = new BufferedWriter(new FileWriter("Entrega.txt"));
 			ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  

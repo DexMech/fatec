@@ -5,7 +5,9 @@
 
 package control;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -54,21 +56,19 @@ public class ClienteControle extends Cliente implements CRUD{
 	}
 
 	@Override
-	public void deletar() throws IOException {
+	public void deletar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void atualizar() throws IOException {
+	public void atualizar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void ler() throws IOException {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }

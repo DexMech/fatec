@@ -49,13 +49,13 @@ public class ProdutoControle extends Produto implements CRUD{
 	}
 
 	@Override
-	public void deletar() throws IOException {
+	public void deletar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void atualizar() throws IOException {
+	public void atualizar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
