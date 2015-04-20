@@ -3,16 +3,18 @@ package boundary;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.text.ParseException;
+
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 
 public class TelaInicial extends JFrame {
-
+	private JMenuBar barraMenu;
 	public TelaInicial(){
 		setSize(440,467);
 		setTitle("RotaMax - Roteirização");
@@ -20,7 +22,7 @@ public class TelaInicial extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
-		
+
 		JButton btnNewButton = new JButton("Cadastrar \nMotorista");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,7 +35,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnNewButton.setBounds(10, 53, 154, 56);
 		getContentPane().add(btnNewButton);
-		
+
 		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
 		btnCadastrarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
@@ -46,7 +48,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnCadastrarCliente.setBounds(270, 53, 154, 56);
 		getContentPane().add(btnCadastrarCliente);
-		
+
 		JButton btnVerEntregas = new JButton("Visualizar Entregas");
 		btnVerEntregas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
@@ -55,7 +57,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnVerEntregas.setBounds(10, 272, 154, 56);
 		getContentPane().add(btnVerEntregas);
-		
+
 		JButton btnAbrirExcel = new JButton("Abrir Excel");
 		btnAbrirExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,7 +65,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnAbrirExcel.setBounds(10, 372, 154, 45);
 		getContentPane().add(btnAbrirExcel);
-		
+
 		JButton btnCadastrarEntregas = new JButton("Cadastrar Entregas");
 		btnCadastrarEntregas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,7 +74,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnCadastrarEntregas.setBounds(270, 164, 154, 56);
 		getContentPane().add(btnCadastrarEntregas);
-		
+
 		JButton btnCadastrarProduto = new JButton("Cadastrar Produto");
 		btnCadastrarProduto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -81,7 +83,7 @@ public class TelaInicial extends JFrame {
 		});
 		btnCadastrarProduto.setBounds(10, 164, 154, 56);
 		getContentPane().add(btnCadastrarProduto);
-		
+
 		JButton btnNewButton_1 = new JButton("Backup e Restauração");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,13 +94,15 @@ public class TelaInicial extends JFrame {
 		});
 		btnNewButton_1.setBounds(270, 273, 154, 55);
 		getContentPane().add(btnNewButton_1);
-		
-		JMenuBar barraMenu = new JMenuBar();
+
+		barraMenu = new JMenuBar();
 		barraMenu.setBounds(12, 23, 129, 21);
+		JMenu menu = new JMenu("Backup e restauração");
+		//JMenu menu = new JMenu("Backup e restauração");
 		getContentPane().add(barraMenu);
 		setVisible(true);
 	}
-	
+
 	public static void main(String[] args) {
 		new TelaInicial();
 	}
