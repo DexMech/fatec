@@ -2,7 +2,9 @@
 
 package control;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -61,8 +63,17 @@ public class ProdutoControle extends Produto implements CRUD{
 	}
 
 	@Override
-	public void ler() throws IOException {
-		// TODO Auto-generated method stub
+	public String[] ler() throws IOException{
+		String [] produto = null;
+		String fileName = "Produtos.txt";
+		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
+		while(ler.ready()){
+			produto = ler.readLine().split(";");
+		}
+		
+		ler.close();
+		
+		return produto;
 	}
 }

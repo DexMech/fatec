@@ -1,6 +1,8 @@
 package control;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -41,10 +43,19 @@ public class CaminhaoControle extends Caminhao implements CRUD{
 		
 	}
 
-	public void ler() throws IOException {
-		// TODO Auto-generated method stub
+	public String[] ler() throws IOException{
+		String [] motorista = null;
+		String fileName = "Motoristas.txt";
+		BufferedReader ler = new BufferedReader(new FileReader(fileName));
+		
+		while(ler.ready()){
+			motorista = ler.readLine().split(";");
+		}
+		
+		ler.close();
+		
+		return motorista;
 	}
-
 	@Override
 	public void deletar(String nome) throws IOException {
 		// TODO Auto-generated method stub

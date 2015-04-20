@@ -45,22 +45,61 @@ public class MotoristaControle extends Motorista implements CRUD{
 		}
 	}
 	
-	public void ler() throws IOException{
+	public String[] ler() throws IOException{
+		String [] motorista = null;
 		String fileName = "Motoristas.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
-			String[] motorista = ler.readLine().split(";");
+			motorista = ler.readLine().split(";");
 		}
+		
+		ler.close();
+		
+		return motorista;
 	}
 
 	@Override
-	public void deletar(String name) throws IOException {
+	public void deletar(String nome) throws IOException {
 		
 	}
 
 	@Override
 	public void atualizar(String nome) throws IOException {
+		String [] motorista = ler();
+		String fileName = "Motoristas.txt";
+		int i = 0;
+		int index = 0;
+		BufferedReader ler = new BufferedReader(new FileReader(fileName));
+		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
+		while (ler.ready()){
+			String [] contador = ler.readLine().split(";");
+			i ++;
+		}
+		
+		ler.close();
+		
+		i *= 17;
+		
+		for (int j = 0; j < i; j ++){
+			if (nome.equals(motorista[j])){
+				index = j;
+			}
+		}
+		
+		motorista[index] = getNome();
+		motorista[index + 1] = getCnh();
+		motorista[index + 2] = getValidadeInicio();
+		motorista[index + 3] = getValidadeFim();
+		motorista[index + 4] = getTelefone1();
+		motorista[index + 5] = getTelefone2();
+		
+		for (int j = 0; j < i; j ++){
+			escreve.write(motorista[j]);
+			escreve.write(";");
+		}
+		
+		escreve.close();
 	}
 }
