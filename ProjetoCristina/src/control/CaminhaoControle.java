@@ -90,7 +90,6 @@ public class CaminhaoControle extends Caminhao implements CRUD{
 	}
 	@Override
 	public void deletar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
+		//sem função até pensarmos em algo melhor...
 	}
 }
