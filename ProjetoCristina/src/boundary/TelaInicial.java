@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JMenuItem;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -16,88 +17,108 @@ import javax.swing.JMenuBar;
 public class TelaInicial extends JFrame {
 	private JMenuBar barraMenu;
 	public TelaInicial(){
-		setSize(440,467);
+		setSize(948,489);
 		setTitle("RotaMax - Roteirização");
 		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		JButton btnNewButton = new JButton("Cadastrar \nMotorista");
-		btnNewButton.addActionListener(new ActionListener() {
+	
+		barraMenu = new JMenuBar();
+		barraMenu.setBounds(0, 9, 900, 21);
+		JMenu menu = new JMenu("Menu");
+		
+		JMenuItem menu0 = new JMenuItem("Backup e Restauração");
+
+		JMenuItem menu1 = new JMenuItem("Cadastro de Clientes");
+		JMenuItem menu2= new JMenuItem("Cadastro de Produtos");
+		JMenuItem menu3 = new JMenuItem("Cadastro de Motoristas");
+		JMenuItem menu41 = new JMenuItem("Cadastro de Entregas");
+		JMenuItem menu4 = new JMenuItem("Visualizar Entregas");
+		JMenuItem menu5 = new JMenuItem("Sair");
+		
+		menu5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+				
+			}
+		});
+		
+		
+		
+		menu41.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TelaEntrega();
+				
+			}
+		});
+		menu0.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TelaBackup tela = new TelaBackup();
+				tela.setVisible(true);
+				tela.setLocationRelativeTo(null);
+
+			}
+		});
+		menu1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new TelaCliente();
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		menu2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TelaProduto();
+
+			}
+		});
+		menu3.addActionListener(new ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				try {
 					new TelaMotorista();
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
+
 			}
 		});
-		btnNewButton.setBounds(10, 53, 154, 56);
-		getContentPane().add(btnNewButton);
+		menu4.addActionListener(new ActionListener() {
 
-		JButton btnCadastrarCliente = new JButton("Cadastrar Cliente");
-		btnCadastrarCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				try {
-					new TelaCliente();
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnCadastrarCliente.setBounds(270, 53, 154, 56);
-		getContentPane().add(btnCadastrarCliente);
-
-		JButton btnVerEntregas = new JButton("Visualizar Entregas");
-		btnVerEntregas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				new ConsultaEntrega().setLocationRelativeTo(null);
+
 			}
 		});
-		btnVerEntregas.setBounds(10, 272, 154, 56);
-		getContentPane().add(btnVerEntregas);
+	
 
-		JButton btnAbrirExcel = new JButton("Abrir Excel");
-		btnAbrirExcel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnAbrirExcel.setBounds(10, 372, 154, 45);
-		getContentPane().add(btnAbrirExcel);
+		menu.add(menu0);
+		menu.add(menu1);
+		menu.add(menu2);
+		menu.add(menu3);
+		menu.add(menu41);
+		menu.add(menu4);
+		menu.add(menu5);
 
-		JButton btnCadastrarEntregas = new JButton("Cadastrar Entregas");
-		btnCadastrarEntregas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new TelaEntrega();
-			}
-		});
-		btnCadastrarEntregas.setBounds(270, 164, 154, 56);
-		getContentPane().add(btnCadastrarEntregas);
-
-		JButton btnCadastrarProduto = new JButton("Cadastrar Produto");
-		btnCadastrarProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				new TelaProduto();
-			}
-		});
-		btnCadastrarProduto.setBounds(10, 164, 154, 56);
-		getContentPane().add(btnCadastrarProduto);
-
-		JButton btnNewButton_1 = new JButton("Backup e Restauração");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TelaBackup tela = new TelaBackup();
-				tela.setVisible(true);
-				tela.setLocationRelativeTo(null);
-			}
-		});
-		btnNewButton_1.setBounds(270, 273, 154, 55);
-		getContentPane().add(btnNewButton_1);
-
-		barraMenu = new JMenuBar();
-		barraMenu.setBounds(12, 23, 129, 21);
-		JMenu menu = new JMenu("Backup e restauração");
+		barraMenu.add(menu);
+		
 		//JMenu menu = new JMenu("Backup e restauração");
 		getContentPane().add(barraMenu);
 		setVisible(true);
