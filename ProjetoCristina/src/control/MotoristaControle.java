@@ -1,6 +1,8 @@
 package control;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -43,11 +45,22 @@ public class MotoristaControle extends Motorista implements CRUD{
 		}
 	}
 	
-	public void ler() throws IOException{}
+	public void ler() throws IOException{
+		String fileName = "Motoristas.txt";
+		BufferedReader ler = new BufferedReader(new FileReader(fileName));
+		
+		while(ler.ready()){
+			String[] motorista = ler.readLine().split(";");
+		}
+	}
 
 	@Override
-	public void deletar() throws IOException {}
+	public void deletar(String name) throws IOException {
+		
+	}
 
 	@Override
-	public void atualizar() throws IOException {}
+	public void atualizar(String nome) throws IOException {
+		
+	}
 }

@@ -36,20 +36,17 @@ public class CaminhaoControle extends Caminhao implements CRUD{
 		}
 	}
 
-	@Override
-	public void deletar() throws IOException {
+	public void atualizar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void atualizar() throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void ler() throws IOException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void deletar(String nome) throws IOException {
 		// TODO Auto-generated method stub
 		
 	}
