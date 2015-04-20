@@ -16,48 +16,111 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
+import control.ControleTelaEntregas;
 import control.MotoristaControle;
 import control.ValidarData;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+
 import javax.swing.SwingConstants;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class TelaEntrega extends JFrame {
 
 	private JPanel contentPane;
 	private MaskFormatter mascara;
-	private JFormattedTextField txtdata;
-	private JTextField textField;
 	private JComboBox cbCliente, cbProduto;
+	
+	public JComboBox getCbProduto() {
+		return cbProduto;
+	}
+
+	private ControleTelaEntregas con;
+	private JTable table;
+
+	public JTable getTable() {
+		return table;
+	}
 
 	/**
 	 * Create the frame.
 	 */
 	public TelaEntrega() {
+		this.addWindowListener(new WindowListener() {
+
+			@Override
+			public void windowOpened(WindowEvent e) {
+				con = new ControleTelaEntregas(getCbCliente(),getCbProduto(),getTable());
+				con.ler();
+
+			}
+
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
 		setTitle("Cadastro de Entrega");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setSize(306, 300);
+		setSize(565, 487);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblCliente = new JLabel("Cliente");
 		lblCliente.setBounds(20, 20, 56, 16);
 		contentPane.add(lblCliente);
-		
+
 		Icon iconbuscar = new ImageIcon("images\\buscar.png");
-		
+
 		JLabel lblProduto = new JLabel("Produto");
 		lblProduto.setBounds(20, 80, 56, 16);
 		contentPane.add(lblProduto);
-		
+
 		try {
 			mascara = new MaskFormatter("##/##/####");
 			mascara.setValidCharacters("0123456789");
@@ -65,76 +128,65 @@ public class TelaEntrega extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(20, 160, 56, 27);
-		contentPane.add(txtdata);
-		
-		JLabel lblData = new JLabel("Data");
-		lblData.setBounds(20, 140, 56, 16);
-		contentPane.add(lblData);
-		
+
 		setVisible(true);
-		
+
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(152, 211, 90, 32);
+		btnLimpar.setBounds(435, 391, 107, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				Falta adicionar limpar JComboBox
-				txtdata.setValue("");
+				//				
 			}
 		});
 		getContentPane().add(btnLimpar);
-		
+
 		JButton btnGravar = new JButton("Gravar");
 		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
-		btnGravar.setBounds(20, 211, 90, 32);
+		btnGravar.setBounds(261, 391, 132, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				}
+			}
 		});
 		getContentPane().add(btnGravar);
-		
-		JLabel lblQuantidade = new JLabel("Quantidade");
-		lblQuantidade.setBounds(80, 141, 63, 14);
-		contentPane.add(lblQuantidade);
-		
-		textField = new JTextField();
-		textField.setBounds(84, 160, 63, 27);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		JLabel lblPeso = new JLabel("Peso");
-		lblPeso.setBounds(171, 141, 46, 14);
-		contentPane.add(lblPeso);
-		
-		JLabel lblKg = new JLabel("Kg");
-		lblKg.setBounds(203, 173, 22, 14);
-		contentPane.add(lblKg);
-		
-		JLabel lblVolume = new JLabel("Volume");
-		lblVolume.setBounds(220, 141, 46, 14);
-		contentPane.add(lblVolume);
-		
-		JLabel lblM = new JLabel("m³");
-		lblM.setBounds(276, 172, 22, 14);
-		contentPane.add(lblM);
-		
-		JLabel lblPes = new JLabel("0");
-		lblPes.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblPes.setBounds(165, 173, 33, 14);
-		contentPane.add(lblPes);
-		
-		JLabel lblVol = new JLabel("0");
-		lblVol.setHorizontalAlignment(SwingConstants.TRAILING);
-		lblVol.setBounds(231, 173, 41, 14);
-		contentPane.add(lblVol);
-		
+
 		cbCliente = new JComboBox();
 		cbCliente.setBounds(20, 47, 180, 20);
 		contentPane.add(cbCliente);
-		
+
 		cbProduto = new JComboBox();
 		cbProduto.setBounds(20, 109, 180, 20);
 		contentPane.add(cbProduto);
+		
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 144, 533, 211);
+		contentPane.add(scrollPane);
+
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+						"Fabricante", "Data", "Quantidade", "Peso", "Volume", "Descri\u00E7\u00E3o"
+				}
+				));
+		scrollPane.setViewportView(table);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable());
+				con.preencher();
+			}
+		});
+		btnBuscar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/busca.png")));
+		btnBuscar.setBounds(221, 107, 117, 25);
+		contentPane.add(btnBuscar);
+
+
+	}
+
+	public JComboBox getCbCliente() {
+		return cbCliente;
 	}
 }

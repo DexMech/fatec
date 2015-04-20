@@ -10,69 +10,100 @@ import boundary.TelaEntrega;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import boundary.TelaEntrega;
 
 
 public class ControleTelaEntregas implements CRUD{
-	
-	private String [] name, number, state, zipCode, segunda, terca, quarta, quinta, sexta, sabado, domingo;
-	private JComboBox cbCliente;
-	
-	public ControleTelaEntregas(JComboBox cbCliente){
+
+	private DefaultTableModel modelo;
+	private JComboBox  cbCliente;
+	private JComboBox  cbProduto;
+	private JTable tabela;
+
+	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela){
 		this.cbCliente = cbCliente;
+		this.cbProduto = cbProduto;
+		this.tabela = tabela;
 	}
-	
+
 	// le arquivo com dados do cliente
-	public void ler() throws IOException{
-		int i = 0;
+	public void ler() {
 		try {
-			Scanner entrada = new Scanner(new FileReader("C:\\Users\\home\\Documents\\Clientes"));
-			while(entrada.hasNext()){
-				name[i] = entrada.nextLine();
-				number[i] = entrada.nextLine();
-				state[i] = entrada.nextLine();
-				zipCode[i] = entrada.nextLine();
-				segunda[i] = entrada.nextLine();
-				terca[i] = entrada.nextLine();
-				quarta[i] = entrada.nextLine();
-				quinta[i] = entrada.nextLine();
-				sexta[i] = entrada.nextLine();
-				sabado[i] = entrada.nextLine();
-				domingo[i] = entrada.nextLine();
-				cbCliente.addItem(name[i]);
-				i++;
+			BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
+
+
+			while(entrada.ready()){
+				String[] recebe = entrada.readLine().split(";");
+
+				cbCliente.addItem(recebe[0]);
+
+
+
 			}
-			entrada.close();
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, "Arquivo não encontrado", null, JOptionPane.ERROR_MESSAGE, null);
+		}catch (Exception e) {
 		}
-		
+
+		try {
+			BufferedReader entrada2 = new BufferedReader(new FileReader("produtos.txt"));
+
+
+			while(entrada2.ready()){
+				String[] recebe2 = entrada2.readLine().split(";");
+
+				cbProduto.addItem(recebe2[0]);
+
+
+
+			}
+		}catch (Exception e) {
+		}
+
 	}
-	
+	public void preencher(){
+
+
+		String arquivo =cbProduto.getSelectedItem().toString();
+		modelo = (DefaultTableModel) tabela.getModel();
+		String linha;
+
+		try {
+			BufferedReader le = new BufferedReader(new FileReader("produtos.txt"));
+			while(le.ready()){
+				linha = le.readLine();
+				if(linha.contains(arquivo)){
+					Object[] objeto = linha.split(";");
+					modelo.addRow(objeto);
+				}
+			}
+		}catch(IOException e1){
+
+		}
+	}
+
 	// Verifica quais dias estão habilitados para entrega
 	public void habilitaDia(){
-		
+
 	}
 
 	@Override
 	public void gravar() throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deletar() throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void atualizar() throws IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

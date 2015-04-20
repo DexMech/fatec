@@ -28,7 +28,7 @@ public class ProdutoControle extends Produto{
 		try{
 			BufferedWriter write = new BufferedWriter(new FileWriter(filename, true));
 			write.write(getNome());
-			write.write("");
+			write.write(";");
 			write.write(getFabricante());
 			write.write(";");
 			write.write(getDescritivo());

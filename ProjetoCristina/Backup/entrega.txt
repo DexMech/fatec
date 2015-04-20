@@ -1,0 +1,4 @@
+são paulo;alex;f100;16/11/1992
+são paulo;alex;f100;16/11/1992
+rio;joao;f900;13/04/2000
+
