@@ -49,7 +49,7 @@ public class ControleTelaEntregas {
 
 	public void ler() {
 		try {
-			BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
+			BufferedReader entrada = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
 
 
 			while(entrada.ready()){
@@ -61,7 +61,7 @@ public class ControleTelaEntregas {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						try {
-							BufferedReader entrada = new BufferedReader(new FileReader("Clientes.txt"));
+							BufferedReader entrada = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
 
 							String linha;
 							while(entrada.ready()){
@@ -94,7 +94,7 @@ public class ControleTelaEntregas {
 
 
 		try {
-			BufferedReader entrada2 = new BufferedReader(new FileReader("Produtos.txt"));
+			BufferedReader entrada2 = new BufferedReader(new FileReader("src/BD/Produtos.txt"));
 
 
 			while(entrada2.ready()){
@@ -118,7 +118,7 @@ public class ControleTelaEntregas {
 		String linha;
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("Produtos.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("src/BD/Produtos.txt"));
 			while(le.ready()){
 				linha = le.readLine();
 				int j =0;
@@ -160,7 +160,7 @@ public class ControleTelaEntregas {
 	public void gravar() {
 
 		try {
-			BufferedWriter escrita = new BufferedWriter(new FileWriter("Entrega.txt"));
+			BufferedWriter escrita = new BufferedWriter(new FileWriter("src/BD/Entrega.txt"));
 			ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  

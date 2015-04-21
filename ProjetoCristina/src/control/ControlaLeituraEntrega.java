@@ -44,7 +44,7 @@ public class ControlaLeituraEntrega {
 		String linha;
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 			while(le.ready()){
 				linha = le.readLine();
 				if(linha.contains(cliente) && (linha.contains(data))){
@@ -89,7 +89,7 @@ public class ControlaLeituraEntrega {
 		} 
 		BufferedWriter escreve = null;
 		try {
-			escreve = new BufferedWriter(new FileWriter("Cliente.xls",true));
+			escreve = new BufferedWriter(new FileWriter("src/BD/Cliente.xls",true));
 		} catch (IOException e1) {
 
 			e1.printStackTrace();

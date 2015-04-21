@@ -28,7 +28,7 @@ public class ClienteControle extends Cliente implements CRUD{
 	}
 	
 	public void gravar() throws IOException{
-		String filename = "Clientes.txt";
+		String filename = "src/BD/Clientes.txt";
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
 			escrever.write(getNome());
@@ -70,7 +70,7 @@ public class ClienteControle extends Cliente implements CRUD{
 	@Override
 	public int ler() throws IOException{
 		int cta = 0;
-		String fileName = "Clientes.txt";
+		String fileName = "src/BD/Clientes.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){

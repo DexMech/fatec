@@ -25,7 +25,7 @@ public class ProdutoControle extends Produto implements CRUD{
 	}
 	
 	public void gravar() {
-		String filename = "Produtos.txt";
+		String filename = "src/BD/Produtos.txt";
 		
 		try{
 			BufferedWriter write = new BufferedWriter(new FileWriter(filename, true));
@@ -65,7 +65,7 @@ public class ProdutoControle extends Produto implements CRUD{
 	@Override
 	public int ler() throws IOException{
 		int cta = 0;
-		String fileName = "Produtos.txt";
+		String fileName = "src/BD/Produtos.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){

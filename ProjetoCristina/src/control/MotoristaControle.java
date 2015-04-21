@@ -22,7 +22,7 @@ public class MotoristaControle extends Motorista implements CRUD{
 	}
 	
 	public void gravar() throws IOException{
-		String fileName = "Motoristas.txt";
+		String fileName = "src/BD/Motoristas.txt";
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			bw.write(getNome());
@@ -38,16 +38,16 @@ public class MotoristaControle extends Motorista implements CRUD{
 			bw.write(getTelefone2());
 			bw.write(";");
 			bw.close();
-			JOptionPane.showMessageDialog(null, "Grava��o conclu�da com sucesso.", "Sucesso",  JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Gravação concluída com sucesso.", "Sucesso",  JOptionPane.INFORMATION_MESSAGE);
 		} catch (IOException e1) {
 			e1.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Ocorreu um erro de grava��o. Tente novamente mais tarde.", "ERRO",  JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Ocorreu um erro de gravação. Tente novamente mais tarde.", "ERRO",  JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
 	public int ler() throws IOException{
 		int cta = 0;
-		String fileName = "Motoristas.txt";
+		String fileName = "src/BD/Motoristas.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
