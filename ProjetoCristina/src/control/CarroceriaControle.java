@@ -35,7 +35,7 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 			bw.write(Double.toString(getComprimento()));
 			bw.write(";");
 			bw.write(Double.toString(getVolume()));
-			bw.newLine();
+			bw.write(";");
 			bw.close();
 		} catch(IOException ioe){
 			ioe.printStackTrace();
@@ -49,55 +49,22 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 
 	@Override
 	public void atualizar(String nome) throws IOException {
-		String [] motorista = ler();
-		String fileName = "Motoristas.txt";
-		int i = 0;
-		int index = 0;
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
-		while (ler.ready()){
-			String [] contador = ler.readLine().split(";");
-			i ++;
-		}
-		
-		ler.close();
-		
-		i *= 17;
-		
-		for (int j = 0; j < i; j ++){
-			if (nome.equals(motorista[j])){
-				index = j;
-			}
-		}
-		
-		motorista[index + 11] = getNome();
-		motorista[index + 12] = Double.toString(getAltura());
-		motorista[index + 13] = Double.toString(getLargura());
-		motorista[index + 14] = Double.toString(getComprimento());
-		motorista[index + 15] = Double.toString(getPeso());
-		motorista[index + 16] = Double.toString(getVolume());
-		
-		for (int j = 0; j < i; j ++){
-			escreve.write(motorista[j]);
-			escreve.write(";");
-		}
-		
-		escreve.close();
 	}
 
 	@Override
-	public String[] ler() throws IOException{
-		String [] motorista = null;
+	public int ler() throws IOException{
+		int cta = 0;
 		String fileName = "Motoristas.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
-			motorista = ler.readLine().split(";");
+			String [] motorista = ler.readLine().split(";");
+			cta ++;
 		}
 		
 		ler.close();
 		
-		return motorista;
+		return cta * 17;
 	}
 }

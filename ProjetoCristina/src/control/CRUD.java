@@ -7,5 +7,5 @@ public interface CRUD {
 	public void gravar() throws IOException;
 	public void deletar(String nome) throws IOException;
 	public void atualizar(String nome) throws IOException;
-	public String[] ler() throws IOException;
+	public int ler() throws IOException;
 }

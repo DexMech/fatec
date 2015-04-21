@@ -285,7 +285,7 @@ public class TelaMotorista extends JFrame{
 				textPesoCaminhao.setText(Integer.toString(cam.getCapacidadeCarga()));
 			}
 		});
-		cbCaminhao.setBounds(163, 214, 195, 20);
+		cbCaminhao.setBounds(165, 217, 195, 20);
 		getContentPane().add(cbCaminhao);
 		
 		JLabel lblCapacidadeDeCarga = new JLabel("Capacidade de carga:");

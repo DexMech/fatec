@@ -63,17 +63,18 @@ public class ProdutoControle extends Produto implements CRUD{
 	}
 
 	@Override
-	public String[] ler() throws IOException{
-		String [] produto = null;
+	public int ler() throws IOException{
+		int cta = 0;
 		String fileName = "Produtos.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
-			produto = ler.readLine().split(";");
+			String [] produto = ler.readLine().split(";");
+			cta ++;
 		}
 		
 		ler.close();
 		
-		return produto;
+		return cta * 17;
 	}
 }
