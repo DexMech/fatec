@@ -141,7 +141,8 @@ public class TelaEntrega extends JFrame {
 		setVisible(true);
 
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(513, 391, 107, 32);
+		btnLimpar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/limpar.png")));
+		btnLimpar.setBounds(503, 391, 110, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
@@ -150,9 +151,9 @@ public class TelaEntrega extends JFrame {
 		});
 		getContentPane().add(btnLimpar);
 
-		JButton btnGravar = new JButton("Gravar");
+		JButton btnGravar = new JButton("Salvar");
 		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
-		btnGravar.setBounds(20, 391, 132, 32);
+		btnGravar.setBounds(42, 391, 110, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(txtData.getText().equals("")||txtQuantidade.getText().equals("")){
@@ -192,13 +193,14 @@ public class TelaEntrega extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/adicionar.png")));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.preencher();
 			}
 		});
-		btnAdicionar.setBounds(503, 107, 117, 25);
+		btnAdicionar.setBounds(503, 104, 117, 28);
 		contentPane.add(btnAdicionar);
 		
 		 txtData = new JFormattedTextField(mascara);

@@ -30,6 +30,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class TelaProduto extends JFrame {
 
@@ -101,7 +102,7 @@ public class TelaProduto extends JFrame {
 		tfFabricante.setColumns(10);
 		
 		lblDescritivo = new JLabel("Descritivo");
-		lblDescritivo.setBounds(10, 106, 61, 20);
+		lblDescritivo.setBounds(10, 106, 89, 20);
 		contentPane.add(lblDescritivo);
 		
 		scrollPane = new JScrollPane();
@@ -120,7 +121,7 @@ public class TelaProduto extends JFrame {
 		taDescritivo.setText("");
 		taDescritivo.setLineWrap(true);
 		
-		lblPeso = new JLabel("Peso (n\u00E3o pode ultrapassar 2 t)");
+		lblPeso = new JLabel("Peso (não ultrapassar 2 t)");
 		lblPeso.setBounds(10, 265, 200, 20);
 		contentPane.add(lblPeso);
 		
@@ -196,7 +197,7 @@ public class TelaProduto extends JFrame {
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
-		btnSalvar.setBounds(10, 343, 123, 32);
+		btnSalvar.setBounds(20, 343, 123, 32);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ProdutoControle pc = new ProdutoControle();
@@ -217,6 +218,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
 		btnLimpar.setBounds(333, 343, 123, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -225,6 +227,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnLimpar);
 		
 		lblAvisoProduto = new JLabel("Produto está acima de 2t");
+		lblAvisoProduto.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoProduto.setForeground(Color.RED);
 		lblAvisoProduto.setBounds(10, 314, 200, 16);
 		lblAvisoProduto.setVisible(false);

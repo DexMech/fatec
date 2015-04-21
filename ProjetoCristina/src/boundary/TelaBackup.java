@@ -103,6 +103,7 @@ public class TelaBackup extends JFrame {
 		contentPane.add(btnRecuperar_1);
 
 		btnLimpar = new JButton("Limpar");
+		btnLimpar.setIcon(new ImageIcon(TelaBackup.class.getResource("/images/limpar.png")));
 		btnLimpar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

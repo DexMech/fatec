@@ -95,6 +95,7 @@ public class ConsultaEntrega extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
+		btnExportarCvs.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/excel.png")));
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
@@ -105,7 +106,7 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(271, 385, 159, 25);
+		btnExportarCvs.setBounds(271, 378, 159, 32);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente");
@@ -171,12 +172,13 @@ public class ConsultaEntrega extends JFrame {
 		txtCliente.setColumns(10);
 
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(442, 385, 117, 25);
+		btnLimpar.setBounds(458, 378, 101, 32);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -187,13 +189,14 @@ public class ConsultaEntrega extends JFrame {
 		contentPane.add(labelgrava);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/voltar.png")));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				new TelaInicial();
 			}
 		});
-		btnVoltar.setBounds(571, 385, 117, 25);
+		btnVoltar.setBounds(571, 378, 101, 32);
 		contentPane.add(btnVoltar);
 		JButton btnNewButton = new JButton("Detalhes");
 		btnNewButton.addActionListener(new ActionListener() {

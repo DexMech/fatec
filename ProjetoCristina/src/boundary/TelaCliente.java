@@ -30,6 +30,8 @@ import control.ClienteControle;
 import javax.swing.ImageIcon;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.Font;
+import javax.swing.border.BevelBorder;
 
 public class TelaCliente extends JFrame {
 	
@@ -219,11 +221,12 @@ public class TelaCliente extends JFrame {
 		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
-		lblJanelaDeEntrega.setBounds(10, 193, 103, 14);
+		lblJanelaDeEntrega.setBounds(144, 212, 119, 14);
 		contentPane.add(lblJanelaDeEntrega);
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		
 		
-		panel.setBounds(65, 238, 263, 120);
+		panel.setBounds(65, 238, 263, 130);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -289,6 +292,13 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxDomingo.setBounds(164, 57, 97, 23);
 		panel.add(chckbxDomingo);
+		
+		lblAvisoDia = new JLabel("Selecione ao menos um dia da semana");
+		lblAvisoDia.setBounds(38, 108, 206, 16);
+		panel.add(lblAvisoDia);
+		lblAvisoDia.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoDia.setForeground(Color.RED);
+		lblAvisoDia.setVisible(false);
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
@@ -358,6 +368,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -373,7 +384,7 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnLimpar.setBounds(264, 379, 89, 32);
+		btnLimpar.setBounds(281, 380, 103, 32);
 		contentPane.add(btnLimpar);
 		
 		
@@ -400,12 +411,6 @@ public class TelaCliente extends JFrame {
 		buttonGroup.add(rdbtnCnpj);
 		rdbtnCnpj.setBounds(105, 144, 86, 25);
 		contentPane.add(rdbtnCnpj);
-		
-		lblAvisoDia = new JLabel("Selecione ao menos um dia da semana");
-		lblAvisoDia.setForeground(Color.RED);
-		lblAvisoDia.setBounds(66, 209, 287, 16);
-		lblAvisoDia.setVisible(false);
-		contentPane.add(lblAvisoDia);
 		
 		setVisible(true);
 	}

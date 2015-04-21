@@ -97,48 +97,56 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(lblContainer);
 		
 		lblAvisoNome = new JLabel("Preencha o campo \"Nome\"");
+		lblAvisoNome.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoNome.setForeground(Color.RED);
 		lblAvisoNome.setBounds(10, 49, 348, 16);
 		lblAvisoNome.setVisible(false);
 		getContentPane().add(lblAvisoNome);
 		
 		lblAvisoCNH = new JLabel("Preencha o campo \"CNH\"");
+		lblAvisoCNH.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoCNH.setForeground(Color.RED);
 		lblAvisoCNH.setBounds(10, 118, 152, 16);
 		lblAvisoCNH.setVisible(false);
 		getContentPane().add(lblAvisoCNH);
 		
 		lblAvisoData = new JLabel("Preencha o campo \"data\"");
+		lblAvisoData.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoData.setForeground(Color.RED);
-		lblAvisoData.setBounds(188, 118, 170, 16);
+		lblAvisoData.setBounds(193, 118, 170, 16);
 		lblAvisoData.setVisible(false);
 		getContentPane().add(lblAvisoData);
 		
 		lblAvisoData_2 = new JLabel("Validade da CNH incoerente");
+		lblAvisoData_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoData_2.setForeground(Color.RED);
-		lblAvisoData_2.setBounds(188, 118, 170, 16);
+		lblAvisoData_2.setBounds(165, 118, 170, 16);
 		lblAvisoData_2.setVisible(false);
 		getContentPane().add(lblAvisoData_2);
 		
 		lblAvisoTelefone = new JLabel("Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
+		lblAvisoTelefone.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoTelefone.setForeground(Color.RED);
 		lblAvisoTelefone.setBounds(10, 188, 362, 16);
 		lblAvisoTelefone.setVisible(false);
 		getContentPane().add(lblAvisoTelefone);
 		
 		lblAvisoPlaca = new JLabel("Preencha o campo \"N\u00FAmero da Placa\"");
+		lblAvisoPlaca.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoPlaca.setForeground(Color.RED);
 		lblAvisoPlaca.setBounds(126, 437, 240, 16);
 		lblAvisoPlaca.setVisible(false);
 		getContentPane().add(lblAvisoPlaca);
 		
 		lblAvisoCidade = new JLabel("Preencha o campo \"Cidade\"");
+		lblAvisoCidade.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoCidade.setForeground(Color.RED);
 		lblAvisoCidade.setBounds(126, 476, 256, 16);
 		lblAvisoCidade.setVisible(false);
 		getContentPane().add(lblAvisoCidade);
 		
 		lblAvisoEstado = new JLabel("Preencha o campo \"Estado\"");
+		lblAvisoEstado.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoEstado.setForeground(Color.RED);
 		lblAvisoEstado.setBounds(126, 522, 256, 16);
 		lblAvisoEstado.setVisible(false);
@@ -311,8 +319,8 @@ public class TelaMotorista extends JFrame{
 		textPlaca.setValue("");
 		textPlaca.setColumns(10);
 		
-		JButton btnGravar = new JButton("Gravar");
-		btnGravar.setIcon(new ImageIcon("src/images/save.png"));
+		JButton btnGravar = new JButton("Salvar");
+		btnGravar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/save.png")));
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
@@ -334,10 +342,11 @@ public class TelaMotorista extends JFrame{
 				}
 			}
 		});
-		btnGravar.setBounds(10, 560, 104, 32);
+		btnGravar.setBounds(10, 560, 94, 32);
 		getContentPane().add(btnGravar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textNome.setText("");
@@ -359,7 +368,7 @@ public class TelaMotorista extends JFrame{
 				textVolume.setText(Double.toString(56.457));
 			}
 		});
-		btnLimpar.setBounds(269, 560, 89, 32);
+		btnLimpar.setBounds(269, 560, 94, 32);
 		getContentPane().add(btnLimpar);
 		
 		textValidadeFim = new JFormattedTextField(data);
@@ -482,6 +491,7 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(lblM_1);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MotoristaControle mc = new MotoristaControle();
@@ -503,14 +513,16 @@ public class TelaMotorista extends JFrame{
 				}
 			}
 		});
-		btnAtualizar.setBounds(148, 560, 89, 32);
+		btnAtualizar.setBounds(143, 560, 94, 32);
 		getContentPane().add(btnAtualizar);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/busca.png")));
 		btnBuscar.setBounds(370, 25, 89, 32);
 		getContentPane().add(btnBuscar);
 		
 		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/lixo.png")));
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
@@ -522,7 +534,7 @@ public class TelaMotorista extends JFrame{
 				}
 			}
 		});
-		btnDeletar.setBounds(387, 560, 89, 32);
+		btnDeletar.setBounds(394, 560, 94, 32);
 		getContentPane().add(btnDeletar);
 		
 		setVisible(true);
