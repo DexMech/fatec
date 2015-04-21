@@ -1,6 +1,7 @@
 package boundary;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -157,10 +158,14 @@ public class TelaEntrega extends JFrame {
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(txtData.getText().equals("")||txtQuantidade.getText().equals("")){
+					lblcontrol.setForeground(Color.red);
 					lblcontrol.setText("Preencha os campos");
+					lblcontrol.setIcon(new ImageIcon(this.getClass().getResource("/images/atencao.gif")));
 					
 				}else{
+					lblcontrol.setForeground(Color.black);
 					lblcontrol.setText("");
+					lblcontrol.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.gravar();
 				lblcontrol.setText(con.retornaString());
@@ -232,7 +237,7 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(lblQuantidade);
 		
 		 lblcontrol = new JLabel("");
-		lblcontrol.setBounds(190, 400, 150, 15);
+		lblcontrol.setBounds(190, 400, 200, 15);
 		contentPane.add(lblcontrol);
 		
 		textFieldRegiao = new JTextField();
