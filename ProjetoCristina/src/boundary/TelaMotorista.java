@@ -85,7 +85,7 @@ public class TelaMotorista extends JFrame{
 		data.setValidCharacters("0123456789");
 		placa.setValidCharacters("0123456789ASDFGHJKLZXCVBNMQWERTYUIOP");
 		
-		setSize(494,640);
+		setSize(388,640);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("Cadastro de Motorista");
 		setLocationRelativeTo(null);
@@ -489,53 +489,6 @@ public class TelaMotorista extends JFrame{
 		JLabel lblM_1 = new JLabel("m\u00B3");
 		lblM_1.setBounds(347, 363, 46, 14);
 		getContentPane().add(lblM_1);
-		
-		JButton btnAtualizar = new JButton("Atualizar");
-		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
-		btnAtualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				MotoristaControle mc = new MotoristaControle();
-				
-				if (validar()){
-					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), textValidadeInicio.getText(), textValidadeFim.getText(), 
-							textTelefone.getValue().toString(), textCelular.getValue().toString());
-					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem().toString(), textPlaca.getText(), 
-							textEstado.getText(), textCidade.getText());
-					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
-					
-					try {
-						car.atualizar(textNome.getText());
-						cam.atualizar(textNome.getText());
-						mc.atualizar(textNome.getText());
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-				}
-			}
-		});
-		btnAtualizar.setBounds(143, 560, 94, 32);
-		getContentPane().add(btnAtualizar);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/busca.png")));
-		btnBuscar.setBounds(370, 25, 89, 32);
-		getContentPane().add(btnBuscar);
-		
-		JButton btnDeletar = new JButton("Deletar");
-		btnDeletar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/lixo.png")));
-		btnDeletar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MotoristaControle mc = new MotoristaControle();
-				
-				try {
-					mc.deletar(textNome.getText());
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}
-		});
-		btnDeletar.setBounds(394, 560, 94, 32);
-		getContentPane().add(btnDeletar);
 		
 		setVisible(true);
 	}
