@@ -67,7 +67,7 @@ public class TelaProduto extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		
-		final JLabel lblNome = new JLabel("Nome");
+		lblNome = new JLabel("Nome");
 		lblNome.setBounds(10, 13, 45, 20);
 		contentPane.add(lblNome);
 		
@@ -76,7 +76,7 @@ public class TelaProduto extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				tfNome.setBackground(Color.white);
-				lblNome.setForeground(Color.white);
+				lblNome.setForeground(Color.black);
 			}
 		});
 		tfNome.setBounds(88, 13, 368, 20);
@@ -93,7 +93,7 @@ public class TelaProduto extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				tfFabricante.setBackground(Color.white);
-				lblFabricante.setForeground(Color.white);
+				lblFabricante.setForeground(Color.black);
 			}
 		});
 		tfFabricante.setBounds(88, 54, 368, 20);
@@ -114,7 +114,7 @@ public class TelaProduto extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				taDescritivo.setBackground(Color.white);
-				lblDescritivo.setForeground(Color.white);
+				lblDescritivo.setForeground(Color.black);
 			}
 		});
 		scrollPane.setViewportView(taDescritivo);
@@ -130,10 +130,12 @@ public class TelaProduto extends JFrame {
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent arg0) {
-				if (Float.parseFloat(tfKg.getText()) > 2000.0)
-					lblAvisoProduto.setVisible(true);
-				else
-					lblAvisoProduto.setVisible(false);
+				if (!tfKg.getText().isEmpty()){
+					if (Float.parseFloat(tfKg.getText()) > 2000.0)
+						lblAvisoProduto.setVisible(true);
+					else
+						lblAvisoProduto.setVisible(false);
+				}
 			}
 		});
 		tfKg.addKeyListener(new KeyAdapter() {
@@ -151,7 +153,7 @@ public class TelaProduto extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				tfKg.setBackground(Color.white);
-				lblKg.setForeground(Color.white);
+				lblKg.setForeground(Color.black);
 				lblAvisoProduto.setVisible(false);
 			}
 		});
@@ -179,7 +181,7 @@ public class TelaProduto extends JFrame {
 			@Override
 			public void focusGained(FocusEvent e) {
 				tfVolume.setBackground(Color.white);
-				lblVolume.setForeground(Color.white);
+				lblVolume.setForeground(Color.black);
 			}
 		});
 		tfVolume.setText("");
@@ -188,7 +190,7 @@ public class TelaProduto extends JFrame {
 		tfVolume.setColumns(10);
 		
 		lblVolume = new JLabel("Volume");
-		lblVolume.setBounds(264, 184, 46, 20);
+		lblVolume.setBounds(283, 267, 46, 20);
 		contentPane.add(lblVolume);
 		
 		lblMeCubico = new JLabel("m\u00B3");
@@ -202,7 +204,7 @@ public class TelaProduto extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				ProdutoControle pc = new ProdutoControle();
 				
-				if(valido() == true){
+				if(valido()){
 					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
@@ -263,8 +265,8 @@ public class TelaProduto extends JFrame {
 		if(tfKg.getText().isEmpty()){
 		
 			
-			lblNome.setForeground(new Color(255,69,0));
-			tfNome.setBackground(new Color(255,250,205));
+			lblPeso.setForeground(new Color(255,69,0));
+			tfKg.setBackground(new Color(255,250,205));
 			valido = false;
 		} else if (Float.parseFloat(tfKg.getText()) > 2000.0){
 			valido = false;
@@ -273,7 +275,7 @@ public class TelaProduto extends JFrame {
 		if(tfVolume.getText().isEmpty()){
 			
 			lblVolume.setForeground(new Color(255,69,0));
-			tfVolume.setBackground(Color.yellow);						
+			tfVolume.setBackground(new Color(255, 250, 205));						
 			valido = false;
 		}
 		
