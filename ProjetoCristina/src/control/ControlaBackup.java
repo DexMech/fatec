@@ -32,7 +32,7 @@ public class ControlaBackup {
 		InputStreamReader lefluxo ;
 		InputStream fluxo;
 		String get = System.getProperty("os.name");
-		System.out.println(get);
+		
 		if(get.contains("Linux")){
 		try {
 			Process processo = Runtime.getRuntime().exec("ls");
@@ -81,7 +81,7 @@ public class ControlaBackup {
 			InputStream lendo = null;
 			InputStreamReader le;
 			String gett = System.getProperty("os.name");
-			System.out.println(get);
+			
 			if(get.contains("windows")){
 			try {
 				Process processo = Runtime.getRuntime().exec("dir");
