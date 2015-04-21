@@ -45,39 +45,36 @@ public class MotoristaControle extends Motorista implements CRUD{
 		}
 	}
 	
-	public String[] ler() throws IOException{
-		String [] motorista = null;
+	public int ler() throws IOException{
+		int cta = 0;
 		String fileName = "Motoristas.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
-			motorista = ler.readLine().split(";");
+			String [] motorista = ler.readLine().split(";");
+			cta ++;
 		}
 		
 		ler.close();
 		
-		return motorista;
+		return cta * 17;
 	}
 
 	@Override
 	public void deletar(String nome) throws IOException {
-		String [] motorista = ler();
+		String [] motorista = new String[ler()];
 		String fileName = "Motoristas.txt";
-		int i = 0;
 		int index = 0;
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
 		while (ler.ready()){
-			String [] contador = ler.readLine().split(";");
-			i ++;
+			motorista = ler.readLine().split(";");
 		}
 		
 		ler.close();
 		
-		i *= 17;
-		
-		for (int j = 0; j < i; j ++){
+		for (int j = 0; j < motorista.length; j ++){
 			if (nome.equals(motorista[j])){
 				index = j;
 			}
@@ -87,9 +84,7 @@ public class MotoristaControle extends Motorista implements CRUD{
 			motorista[j] = motorista[j+17];
 		}
 		
-		i -= 17;
-		
-		for (int j = 0; j < i; j ++){
+		for (int j = 0; j < motorista.length - 17; j ++){
 			escreve.write(motorista[j]);
 			escreve.write(";");
 		}
@@ -99,23 +94,19 @@ public class MotoristaControle extends Motorista implements CRUD{
 
 	@Override
 	public void atualizar(String nome) throws IOException {
-		String [] motorista = ler();
+		String [] motorista = new String[ler()];
 		String fileName = "Motoristas.txt";
-		int i = 0;
 		int index = 0;
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
 		while (ler.ready()){
-			String [] contador = ler.readLine().split(";");
-			i ++;
+			motorista = ler.readLine().split(";");
 		}
 		
 		ler.close();
 		
-		i *= 17;
-		
-		for (int j = 0; j < i; j ++){
+		for (int j = 0; j < motorista.length; j ++){
 			if (nome.equals(motorista[j])){
 				index = j;
 			}
@@ -128,7 +119,7 @@ public class MotoristaControle extends Motorista implements CRUD{
 		motorista[index + 4] = getTelefone1();
 		motorista[index + 5] = getTelefone2();
 		
-		for (int j = 0; j < i; j ++){
+		for (int j = 0; j < motorista.length; j ++){
 			escreve.write(motorista[j]);
 			escreve.write(";");
 		}
