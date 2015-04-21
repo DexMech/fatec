@@ -75,12 +75,20 @@ public class ControlaBackup {
 		}
 		else if(get.contains("windows")){
 			
+			label.setText("");
+			int conferindo = 0;
+			  
+			InputStream lendo = null;
+			InputStreamReader le;
+			String gett = System.getProperty("os.name");
+			System.out.println(get);
+			if(get.contains("windows")){
 			try {
 				Process processo = Runtime.getRuntime().exec("dir");
 				fluxo = processo.getInputStream();
-				lefluxo = new InputStreamReader(fluxo);
+					le = new InputStreamReader(lendo);
 
-			BufferedReader leitura = new BufferedReader(lefluxo);
+			BufferedReader leitura = new BufferedReader(le);
 				String linha = "";
 
 				while(linha!=null)
@@ -91,11 +99,29 @@ public class ControlaBackup {
 
 						confere++;
 					}
+				
 				}
-			} catch (IOException e) {
+			} 
+			catch (IOException e) {
 				e.printStackTrace();
 			} 
-			
+			catch(NullPointerException e){
+				
+				if(confere==4){
+					
+					try {
+						Process processo = Runtime.getRuntime().exec("cp Clientes.txt entrega.txt Motoristas.txt produtos.txt src/Backup");
+					label.setText("Salvo com Sucesso");
+					} catch (IOException e1) {
+					
+						e1.printStackTrace();
+					}
+					
+					
+				}
+				
+			}
+			}
 		}
 	
 	}
