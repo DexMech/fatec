@@ -23,13 +23,13 @@ public abstract class Produto {
 		return fabricante;
 	}
 	public void setFabricante(String fabricante) {
-		fabricante = fabricante;
+		this.fabricante = fabricante;
 	}
 	public String getDescritivo() {
 		return descritivo;
 	}
 	public void setDescritivo(String descritivo) {
-		descritivo = descritivo;
+		this.descritivo = descritivo;
 	}
 	public float getKg() {
 		return peso;

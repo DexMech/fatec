@@ -46,7 +46,7 @@ public class ControlaBackup {
 			{
 				linha = leitura.readLine();
 				
-				if(linha.contains("Clientes.txt")||linha.contains("entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("produtos.txt")){
+				if(linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")){
 
 					confere++;
 				}
@@ -61,7 +61,7 @@ public class ControlaBackup {
 			if(confere==4){
 				
 				try {
-					Process processo = Runtime.getRuntime().exec("cp Clientes.txt entrega.txt Motoristas.txt produtos.txt src/Backup");
+					Process processo = Runtime.getRuntime().exec("cp Clientes.txt Entrega.txt Motoristas.txt Produtos.txt src/Backup");
 				label.setText("Salvo com Sucesso");
 				} catch (IOException e1) {
 				
@@ -95,7 +95,7 @@ public class ControlaBackup {
 				{
 					linha = leitura.readLine();
 					
-					if(linha.contains("Clientes.txt")||linha.contains("entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("produtos.txt")){
+					if(linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")){
 
 						confere++;
 					}
@@ -110,7 +110,7 @@ public class ControlaBackup {
 				if(confere==4){
 					
 					try {
-						Process processo = Runtime.getRuntime().exec("cp Clientes.txt entrega.txt Motoristas.txt produtos.txt src/Backup");
+						Process processo = Runtime.getRuntime().exec("cp Clientes.txt Entrega.txt Motoristas.txt Produtos.txt src/Backup");
 					label.setText("Salvo com Sucesso");
 					} catch (IOException e1) {
 					

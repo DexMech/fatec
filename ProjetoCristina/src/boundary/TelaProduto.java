@@ -208,11 +208,7 @@ public class TelaProduto extends JFrame {
 					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
-					try{
-						pc.gravar();
-					}catch(IOException s2){
-						s2.printStackTrace();
-					}
+					pc.gravar();
 					
 				}
 			}

@@ -24,7 +24,7 @@ public class ProdutoControle extends Produto implements CRUD{
 		
 	}
 	
-	public void gravar() throws IOException{
+	public void gravar() {
 		String filename = "Produtos.txt";
 		
 		try{

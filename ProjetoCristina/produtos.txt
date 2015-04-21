@@ -1,2 +1,0 @@
-alex;coimbra;produto ruim;10.0;10.0;
-bom bril;china palmito ne;coisa que faz coisas;10.0;10.0;

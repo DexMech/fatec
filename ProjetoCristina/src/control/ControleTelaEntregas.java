@@ -94,7 +94,7 @@ public class ControleTelaEntregas {
 
 
 		try {
-			BufferedReader entrada2 = new BufferedReader(new FileReader("produtos.txt"));
+			BufferedReader entrada2 = new BufferedReader(new FileReader("Produtos.txt"));
 
 
 			while(entrada2.ready()){
@@ -118,7 +118,7 @@ public class ControleTelaEntregas {
 		String linha;
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("produtos.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("Produtos.txt"));
 			while(le.ready()){
 				linha = le.readLine();
 				int j =0;

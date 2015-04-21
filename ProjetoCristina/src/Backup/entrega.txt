@@ -1,9 +1,0 @@
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
-vila silvia;alex carlos da silva;alex;coimbra;produto ruim;10.0;10.0;16/11/1992;10;
