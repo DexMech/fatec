@@ -134,7 +134,7 @@ public class TelaCliente extends JFrame {
 				txtTelefone.setBackground(Color.white);
 			}
 		});
-		txtTelefone.setBounds(66, 52, 94, 20);
+		txtTelefone.setBounds(85, 53, 94, 20);
 		txtTelefone.setValue("");
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
