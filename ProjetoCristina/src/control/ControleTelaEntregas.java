@@ -1,7 +1,10 @@
 package control;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -27,27 +30,86 @@ import boundary.TelaEntrega;
 
 public class ControleTelaEntregas {
 
-	private JLabel local;
+
 	private JComboBox  cbCliente;
 	private JComboBox  cbProduto;
 	private JTable tabela;
 	private DefaultTableModel modelo ;
-	private JTextField texto;
-	private JFormattedTextField forma;
-	private JTextField nomeCli;
+	private JTextField quantidade;
+	private JFormattedTextField data;
+	private JTextField regiao;
 	private TelaEntrega tela;
-	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField texto,JFormattedTextField forma,JTextField nomeCli){
+	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField quantidade,JFormattedTextField data,JTextField regiao){
 		this.cbCliente = cbCliente;
 		this.cbProduto = cbProduto;
 		this.tabela = tabela;
-		this.forma = forma;
-		this.texto = texto;
-		this.nomeCli = nomeCli;
+		this.data = data;
+		this.quantidade = quantidade;
+		this.regiao = regiao;
 
 	}
 
 
 	public void ler() {
+
+		data.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				data.setBackground(Color.WHITE);
+
+			}
+		});
+		quantidade.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				quantidade.setBackground(Color.WHITE);
+
+			}
+		});
+		cbCliente.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				cbCliente.setBackground(Color.WHITE);
+				regiao.setBackground(Color.WHITE);
+
+			}
+		});	cbProduto.addFocusListener(new FocusListener() {
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusGained(FocusEvent e) {
+				cbProduto.setBackground(Color.WHITE);
+
+			}
+		});
+		cbCliente.addItem("");
+		cbProduto.addItem("");
 		try {
 			BufferedReader entrada = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
 
@@ -67,12 +129,16 @@ public class ControleTelaEntregas {
 							while(entrada.ready()){
 								linha =entrada.readLine();
 								String[] recebe = linha.split(";");
+								if(cbCliente.getSelectedItem()!=""){
+									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-								if(linha.contains(cbCliente.getSelectedItem().toString())){
-
-									nomeCli.setText(recebe[3]);
+										regiao.setText(recebe[3]);
+									}
 								}
+								else{
 
+									regiao.setText("");
+								}
 
 
 
@@ -111,41 +177,66 @@ public class ControleTelaEntregas {
 
 	}
 	public void preencher(){
-		modelo  = (DefaultTableModel) tabela.getModel();
 
-		String arquivo =cbProduto.getSelectedItem().toString();
+		if(valida()){}
+		else{
 
-		String linha;
+			modelo  = (DefaultTableModel) tabela.getModel();
 
-		try {
-			BufferedReader le = new BufferedReader(new FileReader("src/BD/Produtos.txt"));
-			while(le.ready()){
-				linha = le.readLine();
-				int j =0;
-				if(linha.contains(arquivo)){
-					Object[] objeto = new Object[7];
-					Object[] recipiente = new Object[2];
-					objeto[5] =forma.getText();
-					objeto[6]=texto.getText();
-					recipiente = linha.split(";");
-					for(int i=0;i<5;i++){
+			String arquivo = cbProduto.getSelectedItem().toString();
 
-						objeto[i] = recipiente[j];
-						j++;
+			String linha;
+
+			try {
+				BufferedReader le = new BufferedReader(new FileReader("src/BD/Produtos.txt"));
+				while(le.ready()){
+					linha = le.readLine();
+					int j = 0;
+					if(linha.contains(arquivo)){
+						Object[] objeto = new Object[7];
+
+						objeto[5] = data.getText();
+						objeto[6] = quantidade.getText();
+						Object[] recipiente = linha.split(";");
+
+						for(int i=0;i<5;i++){
+
+							objeto[i] = recipiente[j];
+							j++;
+						}
+
+						//	
+						modelo.addRow(objeto);
 					}
-
-					//	
-					modelo.addRow(objeto);
 				}
+
+				le.close();
+
+			}catch(IOException e1){
+
 			}
-
-			le.close();
-
-		}catch(IOException e1){
-
 		}
 	}
+	private boolean valida(){
+		boolean resposta = false;
+		if(cbCliente.getSelectedItem()==""){
+			cbCliente.setBackground(new Color(255,250,205));
+			resposta = true;
+		} if(cbProduto.getSelectedItem()==""){
+			cbProduto.setBackground(new Color(255,250,205));
+			resposta = true;
+		} if(regiao.getText().equals("")){
+			regiao.setBackground(new Color(255,250,205));
+			resposta = true;
+		} if(quantidade.getText().equals("")){
+			quantidade.setBackground(new Color(255,250,205));
+			resposta = true;
 
+		}
+
+
+		return resposta;
+	}
 	public void limpar(){
 		int i=0;
 		modelo = (DefaultTableModel) tabela.getModel();
@@ -156,7 +247,7 @@ public class ControleTelaEntregas {
 
 	}
 
-	
+
 	public void gravar() {
 
 		try {
@@ -165,7 +256,7 @@ public class ControleTelaEntregas {
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  
 				b = new StringBuilder();  
-				b.append(nomeCli.getText()+";");
+				b.append(regiao.getText()+";");
 				b.append(cbCliente.getSelectedItem().toString()+";");
 				for(int j = 0; j < tabela.getColumnCount(); j++){  
 					b.append(tabela.getValueAt(i,j)).append(";");  

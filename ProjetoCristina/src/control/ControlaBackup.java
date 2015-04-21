@@ -61,7 +61,10 @@ public class ControlaBackup {
 				if(confere==4){
 
 					try {
-						Process processo = Runtime.getRuntime().exec("cp src/BD/Clientes.txt Entrega.txt Motoristas.txt Produtos.txt  src/Backup");
+						Process processo = Runtime.getRuntime().exec("cp src/BD/Clientes.txt   src/Backup");
+						Process processo1 = Runtime.getRuntime().exec("cp src/BD/Entrega.txt   src/Backup");
+						Process processo2 = Runtime.getRuntime().exec("cp src/BD/Motoristas.txt   src/Backup");
+						Process processo3 = Runtime.getRuntime().exec("cp src/BD/Produtos.txt  src/Backup");
 						label.setText("Salvo com Sucesso");
 					} catch (IOException e1) {
 
@@ -108,7 +111,10 @@ public class ControlaBackup {
 					if(confere==4){
 
 						try {
-							Process processo = Runtime.getRuntime().exec("copy src/BD/Clientes.txt Entrega.txt Motoristas.txt Produtos.txt  src/Backup");
+							Process processo = Runtime.getRuntime().exec("copy src/BD/Clientes.txt   src/Backup");
+							Process processo1 = Runtime.getRuntime().exec("copy src/BD/Entrega.txt   src/Backup");
+							Process processo2 = Runtime.getRuntime().exec("copy src/BD/Motoristas.txt   src/Backup");
+							Process processo3 = Runtime.getRuntime().exec("copy src/BD/Produtos.txt  src/Backup");
 							label.setText("Salvo com Sucesso");
 						} catch (IOException e1) {
 
@@ -124,7 +130,10 @@ public class ControlaBackup {
 
 	}
 
-	/*public void escolher(){
+	
+	
+	
+	public void escolher(){
 		label.setText("");
 		text.setForeground(Color.BLACK);
 
@@ -195,5 +204,5 @@ public class ControlaBackup {
 
 
 	}
-*/
+
 }

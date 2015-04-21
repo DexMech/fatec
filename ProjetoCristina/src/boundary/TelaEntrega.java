@@ -146,6 +146,9 @@ public class TelaEntrega extends JFrame {
 		btnLimpar.setBounds(503, 391, 110, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				txtData.setText("");
+				textFieldRegiao.setText("");
+				txtQuantidade.setText("");
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.limpar(); 		
 			}
@@ -241,9 +244,14 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(lblcontrol);
 		
 		textFieldRegiao = new JTextField();
+		textFieldRegiao.setEditable(false);
 		textFieldRegiao.setBounds(232, 48, 318, 19);
 		contentPane.add(textFieldRegiao);
 		textFieldRegiao.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Região");
+		lblNewLabel.setBounds(232, 21, 70, 15);
+		contentPane.add(lblNewLabel);
 
 
 	}
