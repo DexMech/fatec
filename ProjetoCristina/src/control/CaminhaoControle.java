@@ -39,36 +39,7 @@ public class CaminhaoControle extends Caminhao implements CRUD{
 	}
 
 	public void atualizar(String nome) throws IOException {
-		String [] motorista = new String[ler()];
-		String fileName = "Motoristas.txt";
-		int index = 0;
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
-		while (ler.ready()){
-			motorista = ler.readLine().split(";");
-		}
-		
-		ler.close();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			if (nome.equals(motorista[j])){
-				index = j;
-			}
-		}
-		
-		motorista[index + 6] = getTipoCaminhao();
-		motorista[index + 7] = Integer.toString(getCapacidadeCarga());
-		motorista[index + 8] = getNumeroPlaca();
-		motorista[index + 9] = getCidade();
-		motorista[index + 10] = getEstado();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			escreve.write(motorista[j]);
-			escreve.write(";");
-		}
-		
-		escreve.close();
 	}
 
 	public int ler() throws IOException{

@@ -62,68 +62,11 @@ public class MotoristaControle extends Motorista implements CRUD{
 
 	@Override
 	public void deletar(String nome) throws IOException {
-		String [] motorista = new String[ler()];
-		String fileName = "Motoristas.txt";
-		int index = 0;
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
-		while (ler.ready()){
-			motorista = ler.readLine().split(";");
-		}
-		
-		ler.close();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			if (nome.equals(motorista[j])){
-				index = j;
-			}
-		}
-		
-		for (int j = index; j < motorista.length; j ++){
-			motorista[j] = motorista[j+17];
-		}
-		
-		for (int j = 0; j < motorista.length - 17; j ++){
-			escreve.write(motorista[j]);
-			escreve.write(";");
-		}
-		
-		escreve.close();
 	}
 
 	@Override
 	public void atualizar(String nome) throws IOException {
-		String [] motorista = new String[ler()];
-		String fileName = "Motoristas.txt";
-		int index = 0;
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
-		while (ler.ready()){
-			motorista = ler.readLine().split(";");
-		}
-		
-		ler.close();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			if (nome.equals(motorista[j])){
-				index = j;
-			}
-		}
-		
-		motorista[index] = getNome();
-		motorista[index + 1] = getCnh();
-		motorista[index + 2] = getValidadeInicio();
-		motorista[index + 3] = getValidadeFim();
-		motorista[index + 4] = getTelefone1();
-		motorista[index + 5] = getTelefone2();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			escreve.write(motorista[j]);
-			escreve.write(";");
-		}
-		
-		escreve.close();
 	}
 }

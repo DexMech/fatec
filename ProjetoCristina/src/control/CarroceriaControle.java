@@ -49,37 +49,7 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 
 	@Override
 	public void atualizar(String nome) throws IOException {
-		String [] motorista = new String[ler()];
-		String fileName = "Motoristas.txt";
-		int index = 0;
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		BufferedWriter escreve = new BufferedWriter(new FileWriter(fileName));
 		
-		while (ler.ready()){
-			motorista = ler.readLine().split(";");
-		}
-		
-		ler.close();
-		
-		for (int j = 0; j < motorista.length; j ++){
-			if (nome.equals(motorista[j])){
-				index = j;
-			}
-		}
-		
-		motorista[index + 11] = getNome();
-		motorista[index + 12] = Double.toString(getAltura());
-		motorista[index + 13] = Double.toString(getLargura());
-		motorista[index + 14] = Double.toString(getComprimento());
-		motorista[index + 15] = Double.toString(getPeso());
-		motorista[index + 16] = Double.toString(getVolume());
-		
-		for (int j = 0; j < motorista.length; j ++){
-			escreve.write(motorista[j]);
-			escreve.write(";");
-		}
-		
-		escreve.close();
 	}
 
 	@Override
