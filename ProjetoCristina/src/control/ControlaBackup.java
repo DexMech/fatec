@@ -29,67 +29,81 @@ public class ControlaBackup {
 	public void salvar(){
 		label.setText("");
 		int confere = 0;
-		InputStreamReader lefluxo = null;
+		InputStreamReader lefluxo ;
 		InputStream fluxo;
-		BufferedReader leitura = null;
+		String get = System.getProperty("os.name");
+		System.out.println(get);
+		if(get.contains("Linux")){
 		try {
 			Process processo = Runtime.getRuntime().exec("ls");
 			fluxo = processo.getInputStream();
 			lefluxo = new InputStreamReader(fluxo);
 
-		leitura = new BufferedReader(lefluxo);
+		BufferedReader leitura = new BufferedReader(lefluxo);
 			String linha = "";
 
 			while(linha!=null)
 			{
 				linha = leitura.readLine();
-				if(linha.contains("alex.txt")||linha.contains("entrega.txt")||linha.contains("motoristas.txt")||linha.contains("alex.txt")||linha.contains("testeProdutosComprados.txt")){
+				
+				if(linha.contains("Clientes.txt")||linha.contains("entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("produtos.txt")){
 
 					confere++;
 				}
+			
 			}
-		} catch (FileNotFoundException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		catch (NullPointerException e) {
-
+		} 
+		catch(NullPointerException e){
+			
 			if(confere==4){
-
+				
 				try {
-					Process processo2 = Runtime.getRuntime().exec("cp alex.txt entrega.txt motoristas.txt testeProdutosComprados.txt Backup");
-					label.setText("Backup Salvo com Sucesso");
+					Process processo = Runtime.getRuntime().exec("cp Clientes.txt entrega.txt Motoristas.txt produtos.txt src/Backup");
+				label.setText("Salvo com Sucesso");
 				} catch (IOException e1) {
-
+				
 					e1.printStackTrace();
 				}
+				
+				
 			}
-			else{
-				label.setText("Nenhum Arquivo a Salvar");
-
-			}
-			try {
-				leitura.close();
-			} catch (IOException e2) {
-
-				e2.printStackTrace();
-			}
-			try {
-				lefluxo.close();
-			} catch (IOException e1) {
-
-				e1.printStackTrace();
-			}
+			
 		}
+		}
+		else if(get.contains("windows")){
+			
+			try {
+				Process processo = Runtime.getRuntime().exec("dir");
+				fluxo = processo.getInputStream();
+				lefluxo = new InputStreamReader(fluxo);
 
+			BufferedReader leitura = new BufferedReader(lefluxo);
+				String linha = "";
 
+				while(linha!=null)
+				{
+					linha = leitura.readLine();
+					
+					if(linha.contains("Clientes.txt")||linha.contains("entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("produtos.txt")){
+
+						confere++;
+					}
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+			
+		}
+	
 	}
 
 	public void escolher(){
 		label.setText("");
 
-		JFileChooser chooserArquivo = new JFileChooser("/home/dex/git/fatec/ProjetoCristina/Backup");
+		JFileChooser chooserArquivo = new JFileChooser("src/Backup");
 
 		int escolha = chooserArquivo.showOpenDialog(chooserArquivo);
 		if (escolha==1){
