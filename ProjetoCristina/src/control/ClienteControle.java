@@ -68,18 +68,19 @@ public class ClienteControle extends Cliente implements CRUD{
 	}
 
 	@Override
-	public String[] ler() throws IOException{
-		String [] cliente = null;
+	public int ler() throws IOException{
+		int cta = 0;
 		String fileName = "Clientes.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
-			cliente = ler.readLine().split(";");
+			String [] cliente = ler.readLine().split(";");
+			cta ++;
 		}
 		
 		ler.close();
 		
-		return cliente;
+		return cta * 17;
 	}
 	
 }
