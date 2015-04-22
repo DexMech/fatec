@@ -44,6 +44,7 @@ public class TelaCliente extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField txtNome;
+	private JTextField txtEndereco;
 	private JFormattedTextField txtTelefone;
 	private JFormattedTextField txtCEP;
 	private JTextField txtBairro;
@@ -62,6 +63,7 @@ public class TelaCliente extends JFrame {
 	JLabel lblCep = new JLabel("CEP");
 	JLabel lblBairro = new JLabel("Bairro");
 	JLabel lblN = new JLabel("N°");
+	JLabel lblEndereco = new JLabel("Endereço");
 	
 	final JCheckBox chckbxSegunda = new JCheckBox("Segunda");
 	final JCheckBox chckbxTerca = new JCheckBox("Terça");
@@ -76,7 +78,7 @@ public class TelaCliente extends JFrame {
 	JRadioButton rdbtnCpf = new JRadioButton("CPF");
 	JRadioButton rdbtnCnpj = new JRadioButton("CNPJ");
 
-	JLabel lblAvisoDia;
+	JLabel lblAvisoDia;	
 	
 	/**
 	 * Create the frame.
@@ -95,83 +97,89 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(437, 459);
+		setSize(447, 506);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
 		lblNome.setBounds(10, 11, 46, 14);
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
+		txtNome.setBounds(66, 8, 365, 20);
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtNome.setBackground(Color.white);
 			}
 		});
-		txtNome.setBounds(66, 8, 342, 20);
 		txtNome.setText("");
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
-		
-		
-		lblTelefone.setBounds(10, 55, 86, 14);
+		lblTelefone.setBounds(10, 94, 86, 14);
 		contentPane.add(lblTelefone);
-		
-		
-		lblCep.setBounds(283, 104, 46, 14);
+		lblCep.setBounds(281, 94, 46, 14);
 		contentPane.add(lblCep);
 		
+		txtEndereco = new JTextField();
+		txtEndereco.setBounds(66, 48, 263, 20);
+		txtEndereco.setText("");
+		contentPane.add(txtEndereco);
+		txtEndereco.setColumns(10);
+		txtEndereco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				txtEndereco.setBackground(Color.white);
+			}
+		});
+		
 		txtTelefone = new JFormattedTextField(tel);
+		txtTelefone.setBounds(66, 91, 94, 20);
 		txtTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtTelefone.setBackground(Color.white);
+				lblTelefone.setBackground(Color.black);
 			}
 		});
-		txtTelefone.setBounds(85, 53, 94, 20);
 		txtTelefone.setValue("");
 		contentPane.add(txtTelefone);
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
+		txtCEP.setBounds(322, 91, 86, 20);
 		txtCEP.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtCEP.setBackground(Color.white);
+				lblCep.setBackground(Color.black);
 			}
 		});
-		txtCEP.setBounds(322, 101, 86, 20);
 		txtCEP.setValue("");
 		contentPane.add(txtCEP);
 		txtCEP.setColumns(10);
-		
-		
-		lblBairro.setBounds(10, 101, 46, 14);
+		lblBairro.setBounds(10, 140, 46, 14);
 		contentPane.add(lblBairro);
 		
 		txtBairro = new JTextField();
+		txtBairro.setBounds(66, 137, 166, 20);
 		txtBairro.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtBairro.setBackground(Color.white);
+				lblBairro.setForeground(Color.black);
 			}
 		});
-		txtBairro.setBounds(66, 98, 166, 20);
 		txtBairro.setText("");
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
-		
-		
-		lblN.setBounds(259, 55, 46, 14);
+		lblN.setBounds(339, 48, 17, 14);
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
+		txtNumero.setBounds(369, 48, 62, 20);
 		txtNumero.setText("");
 		txtNumero.addKeyListener(new KeyAdapter() {
 			@Override
@@ -188,45 +196,45 @@ public class TelaCliente extends JFrame {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtNumero.setBackground(Color.white);
+				lblN.setForeground(Color.black);
 			}
 		});
-		txtNumero.setBounds(281, 52, 127, 20);
 		contentPane.add(txtNumero);
 		txtNumero.setColumns(10);
 		
 		txtCPF = new JFormattedTextField(cpf);
+		txtCPF.setBounds(241, 185, 166, 20);
 		txtCPF.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtCPF.setBackground(Color.white);
+				rdbtnCnpj.setForeground(Color.black);
+				rdbtnCpf.setForeground(Color.black);
 			}
 		});
-		txtCPF.setBounds(241, 146, 166, 20);
 		txtCPF.setValue("");
 		txtCPF.setColumns(10);
 		contentPane.add(txtCPF);
 		txtCPF.setVisible(true);
 		
 		txtCNPJ = new JFormattedTextField(cnpj);
+		txtCNPJ.setBounds(241, 185, 166, 20);
 		txtCNPJ.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtCNPJ.setBackground(Color.white);
 			}
 		});
-		txtCNPJ.setBounds(241, 146, 166, 20);
 		txtCNPJ.setValue("");
 		txtCNPJ.setColumns(10);
 		contentPane.add(txtCNPJ);
 		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
-		lblJanelaDeEntrega.setBounds(144, 212, 119, 14);
+		lblJanelaDeEntrega.setBounds(157, 231, 119, 14);
 		contentPane.add(lblJanelaDeEntrega);
+		panel.setBounds(78, 257, 263, 130);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		
-		
-		panel.setBounds(65, 238, 263, 130);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -301,6 +309,7 @@ public class TelaCliente extends JFrame {
 		lblAvisoDia.setVisible(false);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setBounds(34, 418, 103, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -350,11 +359,13 @@ public class TelaCliente extends JFrame {
 						indent = txtCPF.getValue().toString();
 					}
 					
-					cc.InstanciarCliente(txtNome.getText(), Integer.parseInt(txtNumero.getText()), txtTelefone.getValue().toString(), 
+					cc.InstanciarCliente(txtNome.getText(),txtEndereco.getText(), Integer.parseInt(txtNumero.getText()), txtTelefone.getValue().toString(), 
 							txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
 					
 					try{
 						cc.gravar();
+						limpar();
+						LimpaFormatacao();
 					}catch(IOException f){
 						f.printStackTrace();
 					}
@@ -364,10 +375,10 @@ public class TelaCliente extends JFrame {
 				
 			}
 		});
-		btnSalvar.setBounds(34, 379, 103, 32);
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(281, 419, 103, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -375,8 +386,8 @@ public class TelaCliente extends JFrame {
 				limpar();
 			}
 		});
-		btnLimpar.setBounds(281, 380, 103, 32);
 		contentPane.add(btnLimpar);
+		rdbtnCpf.setBounds(10, 185, 77, 25);
 		
 		
 		rdbtnCpf.addActionListener(new ActionListener() {
@@ -387,9 +398,9 @@ public class TelaCliente extends JFrame {
 			}
 		});
 		buttonGroup.add(rdbtnCpf);
-		rdbtnCpf.setBounds(10, 144, 77, 25);
 		rdbtnCpf.setSelected(true);
 		contentPane.add(rdbtnCpf);
+		rdbtnCnpj.setBounds(105, 185, 86, 25);
 		
 		
 		rdbtnCnpj.addActionListener(new ActionListener() {
@@ -400,8 +411,13 @@ public class TelaCliente extends JFrame {
 			}
 		});
 		buttonGroup.add(rdbtnCnpj);
-		rdbtnCnpj.setBounds(105, 144, 86, 25);
 		contentPane.add(rdbtnCnpj);
+		
+		
+		lblEndereco.setBounds(10, 51, 56, 14);
+		contentPane.add(lblEndereco);
+		
+		
 		
 		setVisible(true);
 	}
@@ -418,7 +434,14 @@ public class TelaCliente extends JFrame {
 			lblNome.setForeground(new Color(255,69,0));
 			tudocerto = false;
 		}
-
+		
+		if(txtEndereco.getText().isEmpty()){
+			
+			txtEndereco.setBackground(new Color(255,250,205));
+			lblEndereco.setForeground(new Color(255,69,0));
+			tudocerto = false;
+		}
+		
 		if(txtTelefone.getValue().toString().isEmpty()){
 			
 			txtTelefone.setBackground(new Color(255,250,205));
@@ -446,6 +469,15 @@ public class TelaCliente extends JFrame {
 			lblCep.setForeground(new Color(255,69,0));
 			tudocerto = false;
 		}
+		
+		if(txtCNPJ.getValue().toString().isEmpty() && txtCPF.getValue().toString().isEmpty()){
+			
+			txtCPF.setBackground(new Color(255,250,205));
+			rdbtnCpf.setForeground(new Color(255,69,0));
+			txtCNPJ.setBackground(new Color(255,250,205));
+			rdbtnCnpj.setForeground(new Color(255,69,0));
+			tudocerto = false;
+		}
 
 		if(chckbxDomingo.isSelected()==false && chckbxQuarta.isSelected()==false && chckbxQuinta.isSelected()==false && chckbxSabado.isSelected()==false 
 				 && chckbxSegunda.isSelected()==false && chckbxSexta.isSelected()==false && chckbxTerca.isSelected()==false){
@@ -464,11 +496,16 @@ public class TelaCliente extends JFrame {
 		txtBairro.setBackground(Color.white);				
 		lblBairro.setForeground(Color.black);
 		
+		txtEndereco.setBackground(Color.white);				
+		lblEndereco.setForeground(Color.black);
+		
 		txtCEP.setBackground(Color.white);
 		lblCep.setForeground(Color.black);
 		
 		txtCNPJ.setBackground(Color.white);
+		rdbtnCnpj.setForeground(Color.black);
 		txtCPF.setBackground(Color.white);
+		rdbtnCpf.setForeground(Color.BLACK);
 		
 		txtNumero.setBackground(Color.white);
 		lblN.setForeground(Color.black);
@@ -480,7 +517,8 @@ public class TelaCliente extends JFrame {
 	
 	public void limpar(){
 		txtTelefone.setValue("");
-		txtBairro.setText(" ");
+		txtEndereco.setText("");
+		txtBairro.setText("");
 		txtCEP.setValue("");
 		txtCNPJ.setValue("");							
 		txtCPF.setValue("");				
@@ -493,5 +531,6 @@ public class TelaCliente extends JFrame {
 		chckbxSexta.setSelected(false);
 		chckbxSabado.setSelected(false);
 		chckbxDomingo.setSelected(false);
+		lblAvisoDia.setVisible(false);
 	}
 }

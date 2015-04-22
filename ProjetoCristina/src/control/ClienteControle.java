@@ -17,8 +17,9 @@ import entity.Cliente;
 
 public class ClienteControle extends Cliente implements CRUD{
 
-	public void InstanciarCliente(String nome, int numero, String telefone, String bairro, String cep, String indentificacao, String diasDaSemana){
+	public void InstanciarCliente(String nome, String endereco, int numero, String telefone, String bairro, String cep, String indentificacao, String diasDaSemana){
 		setNome(nome);
+		setEndereco(endereco);
 		setNumero(numero);
 		setTelefone(telefone);
 		setBairro(bairro);
@@ -33,6 +34,8 @@ public class ClienteControle extends Cliente implements CRUD{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
 			escrever.write(getNome());
 			escrever.write(";");
+			escrever.write(getEndereco());
+			escrever.write(";");			
 			escrever.write(getNumero());
 			escrever.write(";");
 			escrever.write(getTelefone());
