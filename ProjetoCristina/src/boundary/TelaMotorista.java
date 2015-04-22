@@ -30,7 +30,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.ImageIcon;
 
-public class TelaMotorista extends JFrame{
+public class TelaMotorista extends JFrame {
 	CaminhaoControle cam = new CaminhaoControle();
 	CarroceriaControle car = new CarroceriaControle();
 	private JTextField textNome;
@@ -38,19 +38,23 @@ public class TelaMotorista extends JFrame{
 	private JFormattedTextField textValidadeInicio;
 	private JFormattedTextField textTelefone;
 	private JFormattedTextField textCelular;
-	private final String veiculo [] = {"Toco", "Truck", "Carreta 2 Eixos", "Carreta Baú", "Carreta 3 Eixos", "Carreta Cavalo Truckado", "Carreta Cavalo Truckado Baú",
-										"Bi-trem(Treminhão) - 7 eixos"};
-	private final String carroceria[] = {"Carroceria tipo sider tamanho padrão", "Carroceria tipo sider semi reboque ", 
-										"Carroceria tipo baú(4.000 kg)", "Carroceria tipo baú(6.000 kg)", 
-										"Carroceria tipo baú semi reboque", "Dry Van(20)", "Bulk(20)", "Ventilated", 
-										"Open Top(20)", "Reefer(20)", "Platform(20)", "Dry Van(40)", "Bulk(40)", 
-										"Dry High Cube", "Open Top(40)", "Reefer(40)", "Port Hole", "Platform(40)", "Flat Track"};
+	private final String veiculo[] = { "Toco", "Truck", "Carreta 2 Eixos",
+			"Carreta Baú", "Carreta 3 Eixos", "Carreta Cavalo Truckado",
+			"Carreta Cavalo Truckado Baú", "Bi-trem(Treminhão) - 7 eixos" };
+	private final String carroceria[] = {
+			"Carroceria tipo sider tamanho padrão",
+			"Carroceria tipo sider semi reboque ",
+			"Carroceria tipo baú(4.000 kg)", "Carroceria tipo baú(6.000 kg)",
+			"Carroceria tipo baú semi reboque", "Dry Van(20)", "Bulk(20)",
+			"Ventilated", "Open Top(20)", "Reefer(20)", "Platform(20)",
+			"Dry Van(40)", "Bulk(40)", "Dry High Cube", "Open Top(40)",
+			"Reefer(40)", "Port Hole", "Platform(40)", "Flat Track" };
 	private JTextField textPesoCaminhao;
 	private JFormattedTextField textPlaca;
 	private JFormattedTextField textValidadeFim;
 	private JTextField textCidade;
 	private JTextField textEstado;
-	
+
 	private MaskFormatter tel;
 	private MaskFormatter cel;
 	private MaskFormatter data;
@@ -69,90 +73,94 @@ public class TelaMotorista extends JFrame{
 	private JLabel lblAvisoPlaca;
 	private JLabel lblAvisoCidade;
 	private JLabel lblAvisoEstado;
+	private final JComboBox cbCaminhao;
+	private final JComboBox cbCarroceria;
+
 	/**
 	 * @wbp.nonvisual location=283,714
 	 */
-	
-	public TelaMotorista() throws ParseException{
+
+	public TelaMotorista() throws ParseException {
 		tel = new MaskFormatter("(##)####-####");
 		cel = new MaskFormatter("(##)#####-####");
 		data = new MaskFormatter("##/##/####");
 		placa = new MaskFormatter("UUU-####");
 		cnh = new MaskFormatter("###########");
-		
+
 		tel.setValidCharacters("0123456789");
 		cel.setValidCharacters("0123456789");
 		data.setValidCharacters("0123456789");
 		placa.setValidCharacters("0123456789ASDFGHJKLZXCVBNMQWERTYUIOP");
-		
-		setSize(388,640);
+
+		setSize(388, 640);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("Cadastro de Motorista");
 		setLocationRelativeTo(null);
 		setResizable(false);
 		getContentPane().setLayout(null);
-		
+
 		JLabel lblContainer = new JLabel("Carroceria:");
 		lblContainer.setBounds(10, 305, 152, 14);
 		getContentPane().add(lblContainer);
-		
+
 		lblAvisoNome = new JLabel("Preencha o campo \"Nome\"");
 		lblAvisoNome.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoNome.setForeground(Color.RED);
 		lblAvisoNome.setBounds(10, 49, 348, 16);
 		lblAvisoNome.setVisible(false);
 		getContentPane().add(lblAvisoNome);
-		
+
 		lblAvisoCNH = new JLabel("Preencha o campo \"CNH\"");
 		lblAvisoCNH.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoCNH.setForeground(Color.RED);
 		lblAvisoCNH.setBounds(10, 118, 152, 16);
 		lblAvisoCNH.setVisible(false);
 		getContentPane().add(lblAvisoCNH);
-		
+
 		lblAvisoData = new JLabel("Preencha o campo \"data\"");
 		lblAvisoData.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoData.setForeground(Color.RED);
 		lblAvisoData.setBounds(193, 118, 170, 16);
 		lblAvisoData.setVisible(false);
 		getContentPane().add(lblAvisoData);
-		
+
 		lblAvisoData_2 = new JLabel("Validade da CNH incoerente");
 		lblAvisoData_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoData_2.setForeground(Color.RED);
 		lblAvisoData_2.setBounds(165, 118, 170, 16);
 		lblAvisoData_2.setVisible(false);
 		getContentPane().add(lblAvisoData_2);
-		
-		lblAvisoTelefone = new JLabel("Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
+
+		lblAvisoTelefone = new JLabel(
+				"Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
 		lblAvisoTelefone.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoTelefone.setForeground(Color.RED);
 		lblAvisoTelefone.setBounds(10, 188, 362, 16);
 		lblAvisoTelefone.setVisible(false);
 		getContentPane().add(lblAvisoTelefone);
-		
+
 		lblAvisoPlaca = new JLabel("Preencha o campo \"N\u00FAmero da Placa\"");
 		lblAvisoPlaca.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoPlaca.setForeground(Color.RED);
 		lblAvisoPlaca.setBounds(126, 437, 240, 16);
 		lblAvisoPlaca.setVisible(false);
 		getContentPane().add(lblAvisoPlaca);
-		
+
 		lblAvisoCidade = new JLabel("Preencha o campo \"Cidade\"");
 		lblAvisoCidade.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoCidade.setForeground(Color.RED);
 		lblAvisoCidade.setBounds(126, 476, 256, 16);
 		lblAvisoCidade.setVisible(false);
 		getContentPane().add(lblAvisoCidade);
-		
+
 		lblAvisoEstado = new JLabel("Preencha o campo \"Estado\"");
 		lblAvisoEstado.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoEstado.setForeground(Color.RED);
 		lblAvisoEstado.setBounds(126, 522, 256, 16);
 		lblAvisoEstado.setVisible(false);
 		getContentPane().add(lblAvisoEstado);
-		
-		final JComboBox cbCarroceria = new JComboBox(carroceria);
+
+		cbCarroceria = new JComboBox(carroceria);
 		cbCarroceria.setBounds(84, 302, 274, 20);
 		cbCarroceria.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
@@ -161,39 +169,40 @@ public class TelaMotorista extends JFrame{
 				car.setAltura(cbCarroceria.getSelectedItem().toString());
 				car.setComprimento(cbCarroceria.getSelectedItem().toString());
 				car.setVolume();
-				
+
 				if (car.getPeso() == 0)
 					textPeso.setText("Sem peso");
 				else
 					textPeso.setText(Integer.toString(car.getPeso()));
-				
+
 				if (car.getLargura() == 0)
 					textLargura.setText(" - ");
-				else 
+				else
 					textLargura.setText(Double.toString(car.getLargura()));
-					
-				if(car.getAltura() == 0)
+
+				if (car.getAltura() == 0)
 					textAltura.setText(" - ");
 				else
 					textAltura.setText(Double.toString(car.getAltura()));
-				
-				if(car.getComprimento() == 0)
+
+				if (car.getComprimento() == 0)
 					textComprimento.setText(" - ");
 				else
-					textComprimento.setText(Double.toString(car.getComprimento()));
-				
-				if(car.getVolume() == 0)
+					textComprimento.setText(Double.toString(car
+							.getComprimento()));
+
+				if (car.getVolume() == 0)
 					textVolume.setText(" - ");
 				else
 					textVolume.setText(Double.toString(car.getVolume()));
 			}
 		});
 		getContentPane().add(cbCarroceria);
-		
+
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(10, 11, 46, 14);
 		getContentPane().add(lblNome);
-		
+
 		textNome = new JTextField();
 		textNome.addFocusListener(new FocusAdapter() {
 			@Override
@@ -204,11 +213,11 @@ public class TelaMotorista extends JFrame{
 		textNome.setBounds(10, 31, 348, 20);
 		getContentPane().add(textNome);
 		textNome.setColumns(10);
-		
+
 		JLabel lblCnh = new JLabel("CNH:");
 		lblCnh.setBounds(10, 78, 46, 14);
 		getContentPane().add(lblCnh);
-		
+
 		textCNH = new JFormattedTextField(cnh);
 		textCNH.addFocusListener(new FocusAdapter() {
 			@Override
@@ -220,11 +229,11 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(textCNH);
 		textCNH.setValue("");
 		textCNH.setColumns(10);
-		
+
 		JLabel lblValidade = new JLabel("Validade:");
 		lblValidade.setBounds(165, 78, 64, 14);
 		getContentPane().add(lblValidade);
-		
+
 		textValidadeInicio = new JFormattedTextField(data);
 		textValidadeInicio.addFocusListener(new FocusAdapter() {
 			@Override
@@ -237,15 +246,15 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(textValidadeInicio);
 		textValidadeInicio.setValue("");
 		textValidadeInicio.setColumns(10);
-		
+
 		JLabel lblAte = new JLabel("   at\u00E9");
 		lblAte.setBounds(237, 101, 56, 14);
 		getContentPane().add(lblAte);
-		
+
 		JLabel lblTelefone_1 = new JLabel("Telefone 1:");
 		lblTelefone_1.setBounds(10, 147, 71, 14);
 		getContentPane().add(lblTelefone_1);
-		
+
 		textTelefone = new JFormattedTextField(tel);
 		textTelefone.addFocusListener(new FocusAdapter() {
 			@Override
@@ -257,11 +266,11 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(textTelefone);
 		textTelefone.setValue("");
 		textTelefone.setColumns(10);
-		
+
 		JLabel lblTelefone_2 = new JLabel("Celular:");
 		lblTelefone_2.setBounds(254, 147, 71, 14);
 		getContentPane().add(lblTelefone_2);
-		
+
 		textCelular = new JFormattedTextField(cel);
 		textCelular.addFocusListener(new FocusAdapter() {
 			@Override
@@ -273,40 +282,41 @@ public class TelaMotorista extends JFrame{
 		textCelular.setBounds(237, 165, 104, 20);
 		textCelular.setValue("");
 		getContentPane().add(textCelular);
-		
+
 		JLabel lblTipoDeVeculo = new JLabel("Tipo de Caminh\u00E3o:");
 		lblTipoDeVeculo.setBounds(10, 217, 134, 14);
 		getContentPane().add(lblTipoDeVeculo);
-		
-		final JComboBox cbCaminhao = new JComboBox(veiculo);
+
+		cbCaminhao = new JComboBox(veiculo);
 		cbCaminhao.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				cam.setCapacidadeCarga(cbCaminhao.getSelectedItem().toString());
-				textPesoCaminhao.setText(Integer.toString(cam.getCapacidadeCarga()));
+				textPesoCaminhao.setText(Integer.toString(cam
+						.getCapacidadeCarga()));
 			}
 		});
 		cbCaminhao.setBounds(165, 217, 195, 20);
 		getContentPane().add(cbCaminhao);
-		
+
 		JLabel lblCapacidadeDeCarga = new JLabel("Capacidade de carga:");
 		lblCapacidadeDeCarga.setBounds(10, 260, 134, 14);
 		getContentPane().add(lblCapacidadeDeCarga);
-		
+
 		textPesoCaminhao = new JTextField();
 		textPesoCaminhao.setEditable(false);
 		textPesoCaminhao.setBounds(156, 257, 64, 20);
 		getContentPane().add(textPesoCaminhao);
 		textPesoCaminhao.setColumns(10);
 		textPesoCaminhao.setText(Integer.toString(16000));
-		
+
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setBounds(233, 260, 21, 14);
 		getContentPane().add(lblKg);
-		
+
 		JLabel lblNumeroDaPlaca = new JLabel("Numero da placa:");
 		lblNumeroDaPlaca.setBounds(10, 421, 104, 14);
 		getContentPane().add(lblNumeroDaPlaca);
-		
+
 		textPlaca = new JFormattedTextField(placa);
 		textPlaca.addFocusListener(new FocusAdapter() {
 			@Override
@@ -318,59 +328,50 @@ public class TelaMotorista extends JFrame{
 		getContentPane().add(textPlaca);
 		textPlaca.setValue("");
 		textPlaca.setColumns(10);
-		
+
 		JButton btnGravar = new JButton("Salvar");
-		btnGravar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/save.png")));
+		btnGravar.setIcon(new ImageIcon(TelaMotorista.class
+				.getResource("/images/save.png")));
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MotoristaControle mc = new MotoristaControle();
-								
-				if (validar()){
-					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), textValidadeInicio.getText(), textValidadeFim.getText(), 
-							textTelefone.getValue().toString(), textCelular.getValue().toString());
-					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem().toString(), textPlaca.getText(), 
-							textEstado.getText(), textCidade.getText());
-					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
+
+				if (validar()) {
+					mc.InstanciarMotoristaControle(textNome.getText(), textCNH
+							.getValue().toString(), textValidadeInicio
+							.getText(), textValidadeFim.getText(), textTelefone
+							.getValue().toString(), textCelular.getValue()
+							.toString());
+					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem()
+							.toString(), textPlaca.getText(), textEstado
+							.getText(), textCidade.getText());
+					car.InstanciarCarroceriaControle(cbCarroceria
+							.getSelectedItem().toString());
 					try {
 						mc.gravar();
 						cam.gravar();
 						car.gravar();
-						
+						limpar();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
 				}
 			}
 		});
-		btnGravar.setBounds(10, 560, 94, 32);
+		btnGravar.setBounds(10, 560, 100, 32);
 		getContentPane().add(btnGravar);
-		
+
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/limpar.png")));
+		btnLimpar.setIcon(new ImageIcon(TelaMotorista.class
+				.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textNome.setText("");
-				textCNH.setValue("");
-				textValidadeInicio.setValue("");
-				textValidadeFim.setValue("");
-				textTelefone.setValue("");
-				textCelular.setValue("");
-				textPesoCaminhao.setText(Integer.toString(16000));
-				cbCaminhao.setSelectedIndex(0);
-				cbCarroceria.setSelectedIndex(0);
-				textPlaca.setText("");
-				textEstado.setText("");
-				textCidade.setText("");
-				textLargura.setText(Double.toString(2.46));
-				textAltura.setText(Double.toString(3));
-				textComprimento.setText(Double.toString(7.65));
-				textPeso.setText("Sem peso");
-				textVolume.setText(Double.toString(56.457));
+					limpar();
 			}
 		});
-		btnLimpar.setBounds(269, 560, 94, 32);
+		btnLimpar.setBounds(269, 560, 100, 32);
 		getContentPane().add(btnLimpar);
-		
+
 		textValidadeFim = new JFormattedTextField(data);
 		textValidadeFim.addFocusListener(new FocusAdapter() {
 			@Override
@@ -383,15 +384,15 @@ public class TelaMotorista extends JFrame{
 		textValidadeFim.setBounds(282, 98, 76, 20);
 		textValidadeFim.setValue("");
 		getContentPane().add(textValidadeFim);
-		
+
 		JLabel lblCidade = new JLabel("Cidade:");
 		lblCidade.setBounds(10, 458, 46, 14);
 		getContentPane().add(lblCidade);
-		
+
 		JLabel lblEstado = new JLabel("Estado:");
 		lblEstado.setBounds(10, 502, 46, 14);
 		getContentPane().add(lblEstado);
-		
+
 		textCidade = new JTextField();
 		textCidade.addFocusListener(new FocusAdapter() {
 			@Override
@@ -402,7 +403,7 @@ public class TelaMotorista extends JFrame{
 		textCidade.setBounds(126, 455, 128, 20);
 		getContentPane().add(textCidade);
 		textCidade.setColumns(10);
-		
+
 		textEstado = new JTextField();
 		textEstado.addFocusListener(new FocusAdapter() {
 			@Override
@@ -413,27 +414,27 @@ public class TelaMotorista extends JFrame{
 		textEstado.setBounds(126, 499, 128, 20);
 		getContentPane().add(textEstado);
 		textEstado.setColumns(10);
-		
+
 		JLabel lblLargura = new JLabel("Largura:");
 		lblLargura.setBounds(10, 338, 71, 14);
 		getContentPane().add(lblLargura);
-		
+
 		JLabel lblAltura = new JLabel("Altura:");
 		lblAltura.setBounds(10, 363, 46, 14);
 		getContentPane().add(lblAltura);
-		
+
 		JLabel lblComprimento = new JLabel("Comprimento:");
 		lblComprimento.setBounds(10, 391, 87, 14);
 		getContentPane().add(lblComprimento);
-		
+
 		JLabel lblVolume = new JLabel("Volume:");
 		lblVolume.setBounds(193, 363, 74, 14);
 		getContentPane().add(lblVolume);
-		
+
 		JLabel lblPeso = new JLabel("Peso:");
 		lblPeso.setBounds(193, 341, 46, 14);
 		getContentPane().add(lblPeso);
-		
+
 		textLargura = new JTextField();
 		textLargura.setEditable(false);
 		textLargura.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -441,101 +442,125 @@ public class TelaMotorista extends JFrame{
 		textLargura.setText(Double.toString(2.46));
 		getContentPane().add(textLargura);
 		textLargura.setColumns(10);
-		
+
 		textAltura = new JTextField();
 		textAltura.setEditable(false);
 		textAltura.setColumns(10);
 		textAltura.setBounds(94, 360, 58, 20);
 		textAltura.setText(Double.toString(3));
 		getContentPane().add(textAltura);
-		
+
 		textComprimento = new JTextField();
 		textComprimento.setEditable(false);
 		textComprimento.setColumns(10);
 		textComprimento.setBounds(94, 388, 58, 20);
 		textComprimento.setText(Double.toString(7.65));
 		getContentPane().add(textComprimento);
-		
+
 		JLabel lblMm = new JLabel("m");
 		lblMm.setBounds(162, 341, 46, 14);
 		getContentPane().add(lblMm);
-		
+
 		JLabel lblM = new JLabel("m");
 		lblM.setBounds(162, 363, 46, 14);
 		getContentPane().add(lblM);
-		
+
 		JLabel lblKg_1 = new JLabel("kg");
 		lblKg_1.setBounds(347, 338, 46, 14);
 		getContentPane().add(lblKg_1);
-		
+
 		textPeso = new JTextField();
 		textPeso.setEditable(false);
 		textPeso.setBounds(252, 335, 85, 20);
 		getContentPane().add(textPeso);
 		textPeso.setText("Sem peso");
 		textPeso.setColumns(10);
-		
+
 		JLabel label = new JLabel("m");
 		label.setBounds(162, 391, 46, 14);
 		getContentPane().add(label);
-		
+
 		textVolume = new JTextField();
 		textVolume.setEditable(false);
 		textVolume.setColumns(10);
 		textVolume.setBounds(252, 363, 85, 20);
 		textVolume.setText(Double.toString(56.457));
 		getContentPane().add(textVolume);
-		
+
 		JLabel lblM_1 = new JLabel("m\u00B3");
 		lblM_1.setBounds(347, 363, 46, 14);
 		getContentPane().add(lblM_1);
-		
+
 		setVisible(true);
 	}
-	
-	public boolean validar(){
+
+	public boolean validar() {
 		boolean confirm = true;
 		ValidarData vd = new ValidarData();
-		
-		if(textNome.getText().isEmpty()){
+
+		if (textNome.getText().isEmpty()) {
 			lblAvisoNome.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textCNH.getValue().toString().isEmpty()){
+
+		if (textCNH.getValue().toString().isEmpty()) {
 			lblAvisoCNH.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textValidadeInicio.getValue().toString().isEmpty() || textValidadeFim.getValue().toString().isEmpty()){
+
+		if (textValidadeInicio.getValue().toString().isEmpty()
+				|| textValidadeFim.getValue().toString().isEmpty()) {
 			lblAvisoData.setVisible(true);
 			confirm = false;
-		} else  if (vd.isDataInsertedValid(textValidadeInicio.getValue().toString(), textValidadeFim.getValue().toString())){
+		} else if (vd.isDataInsertedValid(textValidadeInicio.getValue()
+				.toString(), textValidadeFim.getValue().toString())) {
 			lblAvisoData.setVisible(false);
 			lblAvisoData_2.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textTelefone.getValue().toString().isEmpty() || textCelular.getValue().toString().isEmpty()) {
+
+		if (textTelefone.getValue().toString().isEmpty()
+				|| textCelular.getValue().toString().isEmpty()) {
 			lblAvisoTelefone.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textPlaca.getValue().toString().isEmpty()){
+
+		if (textPlaca.getValue().toString().isEmpty()) {
 			lblAvisoPlaca.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textEstado.getText().isEmpty()){
+
+		if (textEstado.getText().isEmpty()) {
 			lblAvisoEstado.setVisible(true);
 			confirm = false;
 		}
-		
-		if (textCidade.getText().isEmpty()){
+
+		if (textCidade.getText().isEmpty()) {
 			lblAvisoCidade.setVisible(true);
 			confirm = false;
 		}
-		
+
 		return confirm;
 	}
+	
+	public void limpar(){
+		textNome.setText("");
+		textCNH.setValue("");
+		textValidadeInicio.setValue("");
+		textValidadeFim.setValue("");
+		textTelefone.setValue("");
+		textCelular.setValue("");
+		textPesoCaminhao.setText(Integer.toString(16000));
+		cbCaminhao.setSelectedIndex(0);
+		cbCarroceria.setSelectedIndex(0);
+		textPlaca.setText("");
+		textEstado.setText("");
+		textCidade.setText("");
+		textLargura.setText(Double.toString(2.46));
+		textAltura.setText(Double.toString(3));
+		textComprimento.setText(Double.toString(7.65));
+		textPeso.setText("Sem peso");
+		textVolume.setText(Double.toString(56.457));
+	}
+
 }

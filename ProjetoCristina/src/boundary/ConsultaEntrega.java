@@ -189,16 +189,6 @@ public class ConsultaEntrega extends JFrame {
 		labelgrava.setBounds(61, 358, 213, 25);
 		contentPane.add(labelgrava);
 
-		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/voltar.png")));
-		btnVoltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				new TelaInicial();
-			}
-		});
-		btnVoltar.setBounds(571, 378, 101, 32);
-		contentPane.add(btnVoltar);
 		JButton btnNewButton = new JButton("Detalhes");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

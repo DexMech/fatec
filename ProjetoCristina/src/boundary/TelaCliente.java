@@ -371,17 +371,8 @@ public class TelaCliente extends JFrame {
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				LimpaFormatacao();
-				
-				txtTelefone.setValue("");
-				txtBairro.setText(" ");
-				txtCEP.setValue("");
-				txtCNPJ.setValue("");							
-				txtCPF.setValue("");				
-				txtNome.setText("");
-				txtNumero.setText("");
-				
+				limpar();
 			}
 		});
 		btnLimpar.setBounds(281, 380, 103, 32);
@@ -485,5 +476,22 @@ public class TelaCliente extends JFrame {
 		txtNome.setBackground(Color.white);
 		lblNome.setForeground(Color.black);
 		
+	}
+	
+	public void limpar(){
+		txtTelefone.setValue("");
+		txtBairro.setText(" ");
+		txtCEP.setValue("");
+		txtCNPJ.setValue("");							
+		txtCPF.setValue("");				
+		txtNome.setText("");
+		txtNumero.setText("");
+		chckbxSegunda.setSelected(false);
+		chckbxTerca.setSelected(false);
+		chckbxQuarta.setSelected(false);
+		chckbxQuinta.setSelected(false);
+		chckbxSexta.setSelected(false);
+		chckbxSabado.setSelected(false);
+		chckbxDomingo.setSelected(false);
 	}
 }

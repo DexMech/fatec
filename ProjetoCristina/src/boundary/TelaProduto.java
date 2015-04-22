@@ -209,7 +209,7 @@ public class TelaProduto extends JFrame {
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
 					pc.gravar();
-					
+					limpar();
 				}
 			}
 		});
@@ -220,6 +220,7 @@ public class TelaProduto extends JFrame {
 		btnLimpar.setBounds(333, 343, 123, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				limpar();
 			}
 		});
 		contentPane.add(btnLimpar);
@@ -276,5 +277,13 @@ public class TelaProduto extends JFrame {
 		}
 		
 		return valido;
+	}
+	
+	public void limpar(){
+		tfNome.setText("");
+		tfFabricante.setText("");
+		tfKg.setText("");
+		tfVolume.setText("");
+		taDescritivo.setText("");
 	}
 }
