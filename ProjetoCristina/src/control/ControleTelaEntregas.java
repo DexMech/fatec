@@ -132,7 +132,7 @@ public class ControleTelaEntregas {
 								if(cbCliente.getSelectedItem()!=""){
 									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-										regiao.setText(recebe[3]);
+										regiao.setText(recebe[2]);
 									}
 								}
 								else{

@@ -1,3 +1,3 @@
-
-asdasdasd;asdasd;;(00)0000-0000;suhuahduhas;15151-515;613.151.351-35;Segunda;Terca;Quarta;Nada;Nada;Nada;Nada;
-tiago;rua xana;Ɣ;(11)9602-2222;quiga gue;03199-999;454.545.454-54;Nada;Nada;Nada;Nada;Sexta;Sabado;Nada;
+﻿alex;16111992;
+;(16)1119-9999;vila;03821-020;087.464.584-09;Segunda;Nada;Nada;Nada;Sexta;Nada;Nada;
+arthur;rua das araucarias,198,vila camargo;(11)1111-1111;03821-020;087.464.584-09;Segunda;Terca;Quarta;Quinta;Sexta;Sabado;Domingo;
