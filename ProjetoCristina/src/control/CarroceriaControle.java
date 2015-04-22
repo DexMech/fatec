@@ -20,7 +20,7 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 	}
 	
 	public void gravar() throws IOException{
-		String fileName = "Motoristas.txt";
+		String fileName = "src/BD/Motoristas.txt";
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 
@@ -55,7 +55,7 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 	@Override
 	public int ler() throws IOException{
 		int cta = 0;
-		String fileName = "Motoristas.txt";
+		String fileName = "src/BD/Motoristas.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
 		
 		while(ler.ready()){
