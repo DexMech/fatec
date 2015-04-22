@@ -97,7 +97,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(460, 506);
+		setSize(465, 506);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -108,7 +108,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(70, 17, 365, 20);
+		txtNome.setBounds(75, 17, 365, 20);
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -125,7 +125,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblCep);
 		
 		txtEndereco = new JTextField();
-		txtEndereco.setBounds(70, 57, 263, 20);
+		txtEndereco.setBounds(75, 57, 263, 20);
 		txtEndereco.setText("");
 		contentPane.add(txtEndereco);
 		txtEndereco.setColumns(10);
@@ -138,7 +138,7 @@ public class TelaCliente extends JFrame {
 		});
 		
 		txtTelefone = new JFormattedTextField(tel);
-		txtTelefone.setBounds(70, 137, 116, 20);
+		txtTelefone.setBounds(75, 137, 116, 20);
 		txtTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -151,7 +151,7 @@ public class TelaCliente extends JFrame {
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
-		txtCEP.setBounds(349, 97, 86, 20);
+		txtCEP.setBounds(354, 97, 86, 20);
 		txtCEP.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -166,7 +166,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblBairro);
 		
 		txtBairro = new JTextField();
-		txtBairro.setBounds(70, 97, 210, 20);
+		txtBairro.setBounds(75, 97, 210, 20);
 		txtBairro.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -177,11 +177,11 @@ public class TelaCliente extends JFrame {
 		txtBairro.setText("");
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
-		lblN.setBounds(350, 60, 17, 14);
+		lblN.setBounds(353, 60, 17, 14);
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
-		txtNumero.setBounds(373, 57, 62, 20);
+		txtNumero.setBounds(378, 57, 62, 20);
 		txtNumero.setText("");
 		txtNumero.addKeyListener(new KeyAdapter() {
 			@Override

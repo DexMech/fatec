@@ -264,17 +264,13 @@ public class ControleTelaEntregas {
 				linhas.add(b); 
 			}
 			for(StringBuilder b1: linhas){  
-
 				escrita.write(b1.toString()+"\n");
 			}
-
-
-
+			JOptionPane.showMessageDialog(null,"Gravação concluida com sucesso." , "Sucesso" , JOptionPane.INFORMATION_MESSAGE);
 			escrita.close();	
 		} 
 		catch(IOException e){
-
-
+			JOptionPane.showMessageDialog(null,"Ocorreu um erro de gravação. Tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 
 
