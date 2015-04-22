@@ -32,7 +32,7 @@ import java.text.ParseException;
 import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 
-public class ConsultaEntrega extends JFrame {
+public class TelaConsultaEntrega extends JFrame {
 	private JLabel labelgrava;
 
 
@@ -69,7 +69,7 @@ public class ConsultaEntrega extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConsultaEntrega() {
+	public TelaConsultaEntrega() {
 		setTitle("Consulta de Entregas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 811, 466);
@@ -84,18 +84,19 @@ public class ConsultaEntrega extends JFrame {
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"Regi\u00E3o", "Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade"
-				}
-				));
-		table.getColumnModel().getColumn(2).setPreferredWidth(185);
-		table.getColumnModel().getColumn(3).setPreferredWidth(111);
+			new Object[][] {
+			},
+			new String[] {
+				"Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade", "Regi\u00E3o"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(185);
+		table.getColumnModel().getColumn(1).setPreferredWidth(111);
+		table.getColumnModel().getColumn(2).setPreferredWidth(111);
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
-		btnExportarCvs.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/excel.png")));
+		btnExportarCvs.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/excel.png")));
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
@@ -133,16 +134,12 @@ public class ConsultaEntrega extends JFrame {
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/busca.png")));
+		btnBuscar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				labelgrava.setText("");
-				if(txtCliente.getText().isEmpty()||txtdata.getText().isEmpty()){
-
-					labelControl.setText("*preencha os campos");
-
-				}
-				else if(table.getRowCount()>0){
+				
+				 if(table.getRowCount()>0){
 					int j = 1;
 					for(int i = 0;i<table.getRowCount()-1;i++){  
 
@@ -173,7 +170,7 @@ public class ConsultaEntrega extends JFrame {
 		txtCliente.setColumns(10);
 
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/limpar.png")));
+		btnLimpar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
@@ -201,7 +198,7 @@ public class ConsultaEntrega extends JFrame {
 					objeto[a]=  table.getValueAt(recebe, a);
 					a++;
 					}
-				new ConsultaEntregaDetalhada(objeto);
+				new TelaConsultaEntregaDetalhada(objeto);
 			}
 			catch(ArrayIndexOutOfBoundsException e1){
 				labelgrava.setText("Selecione um registro");

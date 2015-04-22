@@ -12,7 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 import control.ControlaLeituraDetalhada;
 
-public class ConsultaEntregaDetalhada extends JFrame {
+public class TelaConsultaEntregaDetalhada extends JFrame {
 
 	private JTextArea textArea;
 	private Object[] objeto;
@@ -25,7 +25,7 @@ public class ConsultaEntregaDetalhada extends JFrame {
 	}
 
 
-	public ConsultaEntregaDetalhada(Object[] objetos) {
+	public TelaConsultaEntregaDetalhada(Object[] objetos) {
 		setTitle("Detalhes do Pedido");
 	this.objeto =objetos;
 	setVisible(true);

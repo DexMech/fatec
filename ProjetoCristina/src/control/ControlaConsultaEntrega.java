@@ -18,11 +18,11 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Cliente;
-import boundary.ConsultaEntrega;
+import boundary.TelaConsultaEntrega;
 
 public class ControlaConsultaEntrega {
 	DefaultTableModel modelo;
-	public ConsultaEntrega con ;
+	public TelaConsultaEntrega con ;
 	private String cliente;
 
 
