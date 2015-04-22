@@ -111,7 +111,7 @@ public class TelaBackup extends JFrame {
 				backup.limpar();
 			}
 		});
-		btnLimpar.setBounds(471, 451, 100, 36);
+		btnLimpar.setBounds(454, 451, 117, 36);
 		contentPane.add(btnLimpar);
 	}
 }
