@@ -113,6 +113,7 @@ public class TelaCliente extends JFrame {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtNome.setBackground(Color.white);
+				lblNome.setForeground(Color.black);
 			}
 		});
 		txtNome.setText("");
@@ -132,6 +133,7 @@ public class TelaCliente extends JFrame {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtEndereco.setBackground(Color.white);
+				lblEndereco.setForeground(Color.black);
 			}
 		});
 		
@@ -141,7 +143,7 @@ public class TelaCliente extends JFrame {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtTelefone.setBackground(Color.white);
-				lblTelefone.setBackground(Color.black);
+				lblTelefone.setForeground(Color.black);
 			}
 		});
 		txtTelefone.setValue("");
@@ -154,7 +156,7 @@ public class TelaCliente extends JFrame {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				txtCEP.setBackground(Color.white);
-				lblCep.setBackground(Color.black);
+				lblCep.setForeground(Color.black);
 			}
 		});
 		txtCEP.setValue("");

@@ -129,7 +129,7 @@ public class TelaProduto extends JFrame {
 		tfKg.setText("");
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
-			public void focusLost(FocusEvent arg0) {
+			public void focusLost(FocusEvent arg0) {							
 				if (!tfKg.getText().isEmpty()){
 					if (Float.parseFloat(tfKg.getText()) > 2000.0)
 						lblAvisoProduto.setVisible(true);
@@ -155,6 +155,7 @@ public class TelaProduto extends JFrame {
 				tfKg.setBackground(Color.white);
 				lblKg.setForeground(Color.black);
 				lblAvisoProduto.setVisible(false);
+				lblPeso.setForeground(Color.black);
 			}
 		});
 		tfKg.setBounds(10, 292, 71, 20);
@@ -210,6 +211,7 @@ public class TelaProduto extends JFrame {
 					
 					pc.gravar();
 					limpar();
+					limpaFormatacao();
 				}
 			}
 		});
@@ -221,6 +223,7 @@ public class TelaProduto extends JFrame {
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				limpar();
+				limpaFormatacao();
 			}
 		});
 		contentPane.add(btnLimpar);
@@ -285,5 +288,26 @@ public class TelaProduto extends JFrame {
 		tfKg.setText("");
 		tfVolume.setText("");
 		taDescritivo.setText("");
+	}
+	
+	public void limpaFormatacao(){
+		
+		tfNome.setBackground(Color.white);
+		lblNome.setForeground(Color.black);
+		
+		tfFabricante.setBackground(Color.white);
+		lblFabricante.setForeground(Color.black);
+		
+		taDescritivo.setBackground(Color.white);
+		lblDescritivo.setForeground(Color.black);
+
+		tfKg.setBackground(Color.white);
+		lblKg.setForeground(Color.black);
+		
+		tfVolume.setBackground(Color.white);
+		lblVolume.setForeground(Color.black);
+		
+		lblAvisoProduto.setVisible(false);
+		lblPeso.setForeground(Color.black);
 	}
 }
