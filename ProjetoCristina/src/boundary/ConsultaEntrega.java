@@ -179,7 +179,7 @@ public class ConsultaEntrega extends JFrame {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(458, 378, 101, 32);
+		btnLimpar.setBounds(458, 378, 122, 32);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
