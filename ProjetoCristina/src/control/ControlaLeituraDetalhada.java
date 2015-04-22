@@ -29,7 +29,7 @@ public class ControlaLeituraDetalhada {
 
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 			while(linha != null){
 				linha = le.readLine();
 				if(linha.contains(objeto[1].toString())&&linha.contains(objeto[3].toString())){

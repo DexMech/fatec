@@ -45,7 +45,7 @@ public class ControlaConsultaEntrega {
 		String linha;
 
 		try {
-			BufferedReader le = new BufferedReader(new FileReader("entrega.txt"));
+			BufferedReader le = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 			
 			while(le.ready()){
 				linha = le.readLine();
