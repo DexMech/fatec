@@ -155,7 +155,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				if (car.getPeso() == 0)
 					textPeso.setText("Sem peso");
 				else
-					textPeso.setText(Integer.toString(car.getPeso()));
+					textPeso.setText(""+car.getPeso());
 
 				if (car.getLargura() == 0)
 					textLargura.setText(" - ");

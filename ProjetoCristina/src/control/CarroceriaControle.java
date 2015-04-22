@@ -26,16 +26,17 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 
 			bw.write(getNome());
 			bw.write(";");
-			bw.write(Integer.toString(getPeso()));
+			bw.write(""+getPeso());
 			bw.write(";");
-			bw.write(Double.toString(getAltura()));
+			bw.write(""+getAltura());
 			bw.write(";");
-			bw.write(Double.toString(getLargura()));
+			bw.write(""+getLargura());
 			bw.write(";");
-			bw.write(Double.toString(getComprimento()));
+			bw.write(""+getComprimento());
 			bw.write(";");
-			bw.write(Double.toString(getVolume()));
+			bw.write(""+getVolume());
 			bw.write(";");
+			bw.newLine();
 			bw.close();
 		} catch(IOException ioe){
 			ioe.printStackTrace();
