@@ -136,6 +136,7 @@ public class ConsultaEntrega extends JFrame {
 		btnBuscar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				labelgrava.setText("");
 				if(txtCliente.getText().isEmpty()||txtdata.getText().isEmpty()){
 
 					labelControl.setText("*preencha os campos");
@@ -201,6 +202,7 @@ public class ConsultaEntrega extends JFrame {
 		JButton btnNewButton = new JButton("Detalhes");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try{
 				Object[] objeto = new Object[4];
 				int a = 0;
 				int recebe = table.getSelectedRow();
@@ -208,11 +210,13 @@ public class ConsultaEntrega extends JFrame {
 
 					objeto[a]=  table.getValueAt(recebe, a);
 					a++;
-
-
-
-				}
+					}
 				new ConsultaEntregaDetalhada(objeto);
+			}
+			catch(ArrayIndexOutOfBoundsException e1){
+				labelgrava.setText("Selecione um registro");
+				
+			}
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
