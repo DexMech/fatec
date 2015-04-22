@@ -1,3 +1,1 @@
-﻿alex;16111992;
-;(16)1119-9999;vila;03821-020;087.464.584-09;Segunda;Nada;Nada;Nada;Sexta;Nada;Nada;
-arthur;rua das araucarias,198,vila camargo;(11)1111-1111;03821-020;087.464.584-09;Segunda;Terca;Quarta;Quinta;Sexta;Sabado;Domingo;
+﻿alex;rua colonia leopoldina,198,vila silvia;(11)9873-6390;03821-020;087.464.584-09;Segunda;Terca;Nada;Nada;Nada;Nada;Nada;

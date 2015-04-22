@@ -132,7 +132,7 @@ public class ControleTelaEntregas {
 								if(cbCliente.getSelectedItem()!=""){
 									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-										regiao.setText(recebe[2]);
+										regiao.setText(recebe[1]);
 									}
 								}
 								else{
@@ -256,11 +256,13 @@ public class ControleTelaEntregas {
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  
 				b = new StringBuilder();  
-				b.append(regiao.getText()+";");
+				
 				b.append(cbCliente.getSelectedItem().toString()+";");
 				for(int j = 0; j < tabela.getColumnCount(); j++){  
 					b.append(tabela.getValueAt(i,j)).append(";");  
 				}  
+				b.append(regiao.getText());
+			
 				linhas.add(b); 
 			}
 			for(StringBuilder b1: linhas){  
