@@ -101,7 +101,7 @@ public class ControlaConsultaEntrega {
 		} 
 		BufferedWriter escreve = null;
 		try {
-			escreve = new BufferedWriter(new FileWriter("src/BD/"+cliente+".xls",true));
+			escreve = new BufferedWriter(new FileWriter("src/xls/"+cliente+".xls",true));
 			
 			escreve.write(getHora());
 			escreve.write(";");
