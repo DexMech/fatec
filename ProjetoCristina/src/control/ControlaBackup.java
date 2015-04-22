@@ -65,6 +65,7 @@ public class ControlaBackup {
 						Process processo1 = Runtime.getRuntime().exec("cp src/BD/Entrega.txt   src/Backup");
 						Process processo2 = Runtime.getRuntime().exec("cp src/BD/Motoristas.txt   src/Backup");
 						Process processo3 = Runtime.getRuntime().exec("cp src/BD/Produtos.txt  src/Backup");
+						Process processo4 = Runtime.getRuntime().exec("cp src/BD/*.xls  src/Backup");
 						label.setText("Salvo com Sucesso");
 					} catch (IOException e1) {
 

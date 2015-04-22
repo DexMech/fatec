@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
@@ -39,25 +40,25 @@ public class ControlaConsultaEntrega {
 
 	public void busca(String cliente,String data,JTable tabela){
 
-
+		this.cliente =cliente;
 
 		modelo = (DefaultTableModel) tabela.getModel();
 		String linha;
 
 		try {
 			BufferedReader le = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
-			
+
 			while(le.ready()){
 				linha = le.readLine();
 				if(linha.contains(cliente) || (linha.contains(data))){
 					Object[] objeto = linha.split(";");
 					modelo.addRow(objeto);
 				}
-					
-					
-				}
 
-			
+
+			}
+
+
 			le.close();
 		} catch (IOException e1) {
 
@@ -78,14 +79,14 @@ public class ControlaConsultaEntrega {
 		label.setText("");
 		cliente.setText("");
 		data.setText("");
-		
+
 
 	}
-public String retornaString(){
-		
-		
+	public String retornaString(){
+
+
 		return "Gravado com sucesso";
-		
+
 	}
 
 	public void exporta(JTable tabela,JLabel label){
@@ -100,26 +101,47 @@ public String retornaString(){
 		} 
 		BufferedWriter escreve = null;
 		try {
-			escreve = new BufferedWriter(new FileWriter("Cliente.xls"));
+			escreve = new BufferedWriter(new FileWriter("src/BD/"+cliente+".xls",true));
+			
+			escreve.write(getHora());
+			escreve.write(";");
 			for(StringBuilder b1: linhas){  
-				
-					escreve.write(b1.toString()+"\n");
-				}
+
+				escreve.write(b1.toString()+"\n");
+			}
 			escreve.close();
 		} catch (IOException e1) {
 
 			e1.printStackTrace();
 		}
-		 
-		
-			
-		
 
-		
+
+
+
+
+
 		label.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 	}
 
-
+    public String getHora() {  
+        
+        // cria um StringBuilder  
+        StringBuilder sb = new StringBuilder();  
+      
+        // cria um GregorianCalendar que vai conter a hora atual  
+        GregorianCalendar d = new GregorianCalendar();  
+          
+        // anexa do StringBuilder os dados da hora  
+        sb.append( d.get( GregorianCalendar.HOUR_OF_DAY ) );  
+        sb.append( ":" );  
+        sb.append( d.get( GregorianCalendar.MINUTE ) );  
+        sb.append( ":" );  
+        sb.append( d.get( GregorianCalendar.SECOND ) );  
+          
+        // retorna a String do StringBuilder  
+        return sb.toString();  
+          
+    }  
 
 
 
