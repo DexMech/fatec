@@ -1,1 +1,4 @@
-vila silvia;alex carlos da silva;aa;aa;aa;aa;1.0;16/11/1992;20;
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua colonia leopoldina,198,vila silvia

@@ -231,6 +231,16 @@ public class TelaEntrega extends JFrame {
 		JLabel lblNewLabel = new JLabel("Região");
 		lblNewLabel.setBounds(232, 21, 70, 15);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Separa");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
+				con.separa();
+			}
+		});
+		btnNewButton.setBounds(180, 391, 117, 32);
+		contentPane.add(btnNewButton);
 
 
 	}

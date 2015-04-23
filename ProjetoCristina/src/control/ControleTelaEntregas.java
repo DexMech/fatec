@@ -1,6 +1,7 @@
 package control;
 
 import java.awt.Color;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -205,7 +206,7 @@ public class ControleTelaEntregas {
 							j++;
 						}
 
-						//	
+						
 						modelo.addRow(objeto);
 					}
 				}
@@ -266,63 +267,150 @@ public class ControleTelaEntregas {
 				linhas.add(b); 
 			}
 			for(StringBuilder b1: linhas){  
-				escrita.write(b1.toString()+"\n");
+				escrita.write(b1.toString());
+				escrita.newLine();
 			}
+		
 			JOptionPane.showMessageDialog(null,"Gravação concluida com sucesso." , "Sucesso" , JOptionPane.INFORMATION_MESSAGE);
-			escrita.newLine();
+		
 			escrita.close();	
 		} 
 		catch(IOException e){
 			JOptionPane.showMessageDialog(null,"Ocorreu um erro de gravação. Tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 
+
+
+	}
+	public void separa(){
+
+
+int num = verifica();
+num=num - 1;
+
+	
+		List temp = new List();
 		try {
-			Double calc = 0.0;
+			double calc = 0.0;
+			double recebe=0.0;
 			BufferedReader mot = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
 			BufferedReader entrega = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
-			BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/Entregamot.txt",true));
-			String a[] = mot.readLine().split(";");
-			String b[] = entrega.readLine().split(";");
+			BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/EntregaMot.txt",true));
+			List listaEntrega = new List();
+			List listaMotorista = new List();
+			String linha;
+			String mota = mot.readLine();
+			
+			for(String cont:mota.split(";")){
+				listaMotorista.add(cont);
 
-			while(entrega.ready()){
-				calc = Double.parseDouble(b[4])*Double.parseDouble(b[7]);
-				b = entrega.readLine().split(";");
+			}
+			recebe = Double.parseDouble(listaMotorista.getItem(7));
 
 
-				Double recebe = Double.parseDouble(a[7]);
-				if(calc>recebe){
-					a = mot.readLine().split(";");
+
+			while((linha=entrega.readLine())!=null &&num>0){
+				
+				listaEntrega.delItems(0, listaEntrega.getItemCount()-1);
+
+				for(String cont:linha.split(";")){
+					listaEntrega.add(cont);
+
 				}
-				else{
-				while(recebe>1){
+				
+				calc = Double.parseDouble(listaEntrega.getItem(4))*Double.parseDouble(listaEntrega.getItem(7));
 
-					recebe-=calc;
-					System.out.println(recebe);
-					System.out.println("oi");
+
+
+				recebe = recebe - calc;
+
+				if(recebe<0){
+					listaMotorista.delItems(0, listaMotorista.getItemCount()-1);
+					mota=mot.readLine();
+					for(String cont:mota.split(";")){
+						listaMotorista.add(cont);
+
+					}
+					recebe = Double.parseDouble(listaMotorista.getItem(7));
 				}
-				a = mot.readLine().split(";");
 
-				escrita.write(a[6]);
-				escrita.append(";");
-				for(String cont:b){
 
-					escrita.write(cont);
-					escrita.write("");
+				
+				escrita.write(listaMotorista.getItem(6));
+				escrita.write(";");
+				for(int i=0;i<listaEntrega.getItemCount();i++){
+					escrita.write(listaEntrega.getItem(i));
+					escrita.write(";");
 				}
 				escrita.newLine();
-			}
+			num = num - 1;
+
+
 			}
 			mot.close();
 			entrega.close();
 			escrita.close();
-			//entregamot.close();
+		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+	
 			e.printStackTrace();
+		}catch(NullPointerException e){
+
+
 		}
 
-
 	}
+
+
+
+
+
+	
+	
+	
+	
+	
+	private int verifica(){
+	
+	
+	
+	
+	int num = 1;
+	
+	
+	Scanner in;
+	try {
+		in = new Scanner(new FileReader("src/BD/Entrega.txt"));
+		while (in.hasNextLine()) {
+num++;
+		    String line = in.nextLine();
+		
+		}
+	} catch (FileNotFoundException e) {
+		
+		e.printStackTrace();
+	}
+	
+	
+	return num;
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
 	public String retornaString(){
 
 
