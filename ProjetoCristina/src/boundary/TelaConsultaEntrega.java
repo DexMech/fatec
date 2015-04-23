@@ -72,14 +72,14 @@ public class TelaConsultaEntrega extends JFrame {
 	public TelaConsultaEntrega() {
 		setTitle("Consulta de Entregas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 811, 466);
+		setBounds(100, 100, 693, 441);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(24, 113, 637, 246);
+		scrollPane.setBounds(20, 80, 637, 246);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -107,11 +107,11 @@ public class TelaConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(271, 378, 159, 32);
+		btnExportarCvs.setBounds(40, 350, 159, 32);
 		contentPane.add(btnExportarCvs);
 
-		JLabel labelCliente = new JLabel("Cliente");
-		labelCliente.setBounds(24, 38, 57, 50);
+		JLabel labelCliente = new JLabel("Cliente:");
+		labelCliente.setBounds(20, 20, 57, 27);
 		contentPane.add(labelCliente);
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -122,11 +122,11 @@ public class TelaConsultaEntrega extends JFrame {
 		}
 
 		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(398, 50, 122, 27);
+		txtdata.setBounds(370, 20, 122, 27);
 		contentPane.add(txtdata);
 
-		JLabel labelData = new JLabel("Data");
-		labelData.setBounds(356, 38, 39, 50);
+		JLabel labelData = new JLabel("Data:");
+		labelData.setBounds(320, 20, 39, 27);
 		contentPane.add(labelData);
 		labelControl = new JLabel("");
 		labelControl.setFont(new Font("Arial", Font.BOLD, 9));
@@ -158,14 +158,14 @@ public class TelaConsultaEntrega extends JFrame {
 
 			}
 		});
-		btnBuscar.setBounds(572, 44, 117, 32);
+		btnBuscar.setBounds(520, 17, 117, 32);
 		contentPane.add(btnBuscar);
 
 
 
 		txtCliente = new JTextField();
 		txtCliente.setEditable(true);
-		txtCliente.setBounds(85, 50, 177, 27);
+		txtCliente.setBounds(80, 20, 177, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
@@ -176,7 +176,7 @@ public class TelaConsultaEntrega extends JFrame {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(458, 378, 122, 32);
+		btnLimpar.setBounds(237, 350, 122, 32);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -207,7 +207,7 @@ public class TelaConsultaEntrega extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(673, 109, 101, 25);
+		btnNewButton.setBounds(536, 350, 101, 32);
 		contentPane.add(btnNewButton);
 
 

@@ -138,7 +138,7 @@ public class TelaEntrega extends JFrame {
 
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/limpar.png")));
-		btnLimpar.setBounds(485, 391, 110, 32);
+		btnLimpar.setBounds(490, 391, 110, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limpar();
@@ -148,7 +148,7 @@ public class TelaEntrega extends JFrame {
 
 		JButton btnGravar = new JButton("Salvar");
 		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
-		btnGravar.setBounds(42, 391, 110, 32);
+		btnGravar.setBounds(40, 391, 110, 32);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!txtData.getText().equals("")&&!txtQuantidade.getText().equals("")){
@@ -161,11 +161,11 @@ public class TelaEntrega extends JFrame {
 		getContentPane().add(btnGravar);
 
 		cbCliente = new JComboBox();
-		cbCliente.setBounds(20, 47, 180, 20);
+		cbCliente.setBounds(20, 40, 180, 20);
 		contentPane.add(cbCliente);
 
 		cbProduto = new JComboBox();
-		cbProduto.setBounds(20, 109, 180, 20);
+		cbProduto.setBounds(20, 100, 180, 20);
 		contentPane.add(cbProduto);
 		
 
@@ -191,11 +191,11 @@ public class TelaEntrega extends JFrame {
 				con.preencher();
 			}
 		});
-		btnAdicionar.setBounds(503, 104, 117, 28);
+		btnAdicionar.setBounds(483, 95, 117, 28);
 		contentPane.add(btnAdicionar);
 		
 		 txtData = new JFormattedTextField(mascara);
-		txtData.setBounds(232, 109, 70, 19);
+		txtData.setBounds(232, 100, 70, 20);
 		contentPane.add(txtData);
 		
 		txtQuantidade = new JTextField();
@@ -210,26 +210,26 @@ public class TelaEntrega extends JFrame {
                 }
 			}
 		});
-		txtQuantidade.setBounds(365, 109, 70, 19);
+		txtQuantidade.setBounds(365, 100, 70, 20);
 		contentPane.add(txtQuantidade);
 		txtQuantidade.setColumns(10);
 		
 		JLabel lblData = new JLabel("Data de entrega");
-		lblData.setBounds(233, 81, 107, 15);
+		lblData.setBounds(233, 80, 107, 15);
 		contentPane.add(lblData);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade");
-		lblQuantidade.setBounds(365, 81, 120, 15);
+		lblQuantidade.setBounds(365, 80, 120, 15);
 		contentPane.add(lblQuantidade);
 		
 		textFieldRegiao = new JTextField();
 		textFieldRegiao.setEditable(false);
-		textFieldRegiao.setBounds(232, 48, 318, 19);
+		textFieldRegiao.setBounds(232, 40, 318, 19);
 		contentPane.add(textFieldRegiao);
 		textFieldRegiao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Região");
-		lblNewLabel.setBounds(232, 21, 70, 15);
+		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
 
 
