@@ -326,8 +326,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 							.toString());
 					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem()
 							.toString(), textPlaca.getText(), cbEstado.getSelectedItem().toString(), textCidade.getText());
-					car.InstanciarCarroceriaControle(cbCarroceria
-							.getSelectedItem().toString(),textAltura.getText(),textLargura.getText(),textComprimento.getText(),textPeso.getText(),textVolume.getText());
+					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
 					try {
 						mc.gravar();
 						cam.gravar();

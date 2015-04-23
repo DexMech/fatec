@@ -10,12 +10,12 @@ import entity.Carroceria;
 
 public class CarroceriaControle extends Carroceria implements CRUD{
 
-	public void InstanciarCarroceriaControle(String nome,String altura,String largura,String comprimento,String peso, String volume){
+	public void InstanciarCarroceriaControle(String nome){
 		setNome(nome);
-		setAltura(altura);
-		setLargura(largura);
-		setComprimento(comprimento);
-		setPeso(peso);
+		setAltura(nome);
+		setLargura(nome);
+		setComprimento(nome);
+		setPeso(nome);
 		setVolume();
 	}
 	
@@ -26,15 +26,15 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 
 			bw.write(getNome());
 			bw.write(";");
-			bw.write(""+Double.toString(getPeso()));
+			bw.write(Double.toString(getPeso()));
 			bw.write(";");
-			bw.write(""+Double.toString(getAltura()));
+			bw.write(Double.toString(getAltura()));
 			bw.write(";");
-			bw.write(""+Double.toString(getLargura()));
+			bw.write(Double.toString(getLargura()));
 			bw.write(";");
-			bw.write(""+Double.toString(getComprimento()));
+			bw.write(Double.toString(getComprimento()));
 			bw.write(";");
-			bw.write(""+Double.toString(getVolume()));
+			bw.write(Double.toString(getVolume()));
 			bw.write(";");
 			bw.newLine();
 			bw.close();
