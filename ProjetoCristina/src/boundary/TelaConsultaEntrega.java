@@ -87,12 +87,12 @@ public class TelaConsultaEntrega extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade", "Regi\u00E3o"
+				"Caminh\u00E3o", "Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade", "Regi\u00E3o"
 			}
 		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(185);
-		table.getColumnModel().getColumn(1).setPreferredWidth(111);
+		table.getColumnModel().getColumn(1).setPreferredWidth(185);
 		table.getColumnModel().getColumn(2).setPreferredWidth(111);
+		table.getColumnModel().getColumn(3).setPreferredWidth(111);
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
