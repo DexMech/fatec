@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 
 public class TelaInicial extends JFrame {
 	private JMenuBar barraMenu;
+	
 	public TelaInicial(){
 		setSize(791,633);
 		setTitle("RotaMax - Roteirização");
