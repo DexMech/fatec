@@ -29,18 +29,17 @@ public class ClienteControle extends Cliente implements CRUD{
 	}
 	
 	public void gravar() throws IOException{
+		
 		String filename = "src/BD/Clientes.txt";
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
 			escrever.write(getNome());
 			escrever.write(";");
-			escrever.write(getEndereco());
-			escrever.write(";");			
-			escrever.write(getNumero());
+			escrever.write(getEndereco()+","+getNumero()+","+getBairro());
+						
+			
 			escrever.write(";");
 			escrever.write(getTelefone());
-			escrever.write(";");
-			escrever.write(getBairro());
 			escrever.write(";");
 			escrever.write(getCep());
 			escrever.write(";");

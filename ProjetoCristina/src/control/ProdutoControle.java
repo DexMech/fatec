@@ -33,7 +33,7 @@ public class ProdutoControle extends Produto implements CRUD{
 			write.write(";");
 			write.write(getFabricante());
 			write.write(";");
-			write.write(getDescritivo());
+			write.write(getDescritivo().trim());
 			write.write(";");
 			write.write(Float.toString(getKg()));
 			write.write(";");

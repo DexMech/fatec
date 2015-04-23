@@ -132,7 +132,7 @@ public class ControleTelaEntregas {
 								if(cbCliente.getSelectedItem()!=""){
 									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-										regiao.setText(recebe[3]);
+										regiao.setText(recebe[1]);
 									}
 								}
 								else{
@@ -251,32 +251,75 @@ public class ControleTelaEntregas {
 	public void gravar() {
 
 		try {
-			BufferedWriter escrita = new BufferedWriter(new FileWriter("src/BD/Entrega.txt"));
+			BufferedWriter escrita = new BufferedWriter(new FileWriter("src/BD/Entrega.txt",true));
 			ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 			StringBuilder b = new StringBuilder();
 			for(int i = 0; i< tabela.getRowCount(); i++){  
 				b = new StringBuilder();  
-				b.append(regiao.getText()+";");
+
 				b.append(cbCliente.getSelectedItem().toString()+";");
 				for(int j = 0; j < tabela.getColumnCount(); j++){  
 					b.append(tabela.getValueAt(i,j)).append(";");  
 				}  
+				b.append(regiao.getText());
+
 				linhas.add(b); 
 			}
 			for(StringBuilder b1: linhas){  
-
 				escrita.write(b1.toString()+"\n");
 			}
-
-
-
+			JOptionPane.showMessageDialog(null,"Gravação concluida com sucesso." , "Sucesso" , JOptionPane.INFORMATION_MESSAGE);
+			escrita.newLine();
 			escrita.close();	
 		} 
 		catch(IOException e){
-
-
+			JOptionPane.showMessageDialog(null,"Ocorreu um erro de gravação. Tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 
+		try {
+			Double calc = 0.0;
+			BufferedReader mot = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
+			BufferedReader entrega = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
+			BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/Entregamot.txt",true));
+			String a[] = mot.readLine().split(";");
+			String b[] = entrega.readLine().split(";");
+
+			while(entrega.ready()){
+				calc = Double.parseDouble(b[4])*Double.parseDouble(b[7]);
+				b = entrega.readLine().split(";");
+
+
+				Double recebe = Double.parseDouble(a[7]);
+				if(calc>recebe){
+					a = mot.readLine().split(";");
+				}
+				else{
+				while(recebe>1){
+
+					recebe-=calc;
+					System.out.println(recebe);
+					System.out.println("oi");
+				}
+				a = mot.readLine().split(";");
+
+				escrita.write(a[6]);
+				escrita.append(";");
+				for(String cont:b){
+
+					escrita.write(cont);
+					escrita.write("");
+				}
+				escrita.newLine();
+			}
+			}
+			mot.close();
+			entrega.close();
+			escrita.close();
+			//entregamot.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 
 	}

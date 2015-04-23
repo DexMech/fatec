@@ -58,12 +58,12 @@ public class TelaCliente extends JFrame {
 	private MaskFormatter cnpj;
 	private MaskFormatter tel;
 	
-	JLabel lblNome = new JLabel("Nome");
-	JLabel lblTelefone = new JLabel("Telefone");
-	JLabel lblCep = new JLabel("CEP");
-	JLabel lblBairro = new JLabel("Bairro");
+	JLabel lblNome = new JLabel("Nome:");
+	JLabel lblTelefone = new JLabel("Telefone:");
+	JLabel lblCep = new JLabel("CEP:");
+	JLabel lblBairro = new JLabel("Bairro:");
 	JLabel lblN = new JLabel("N°");
-	JLabel lblEndereco = new JLabel("Endereço");
+	JLabel lblEndereco = new JLabel("Endereço:");
 	
 	final JCheckBox chckbxSegunda = new JCheckBox("Segunda");
 	final JCheckBox chckbxTerca = new JCheckBox("Terça");
@@ -97,7 +97,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(460, 506);
+		setSize(470, 506);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -108,7 +108,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(70, 17, 365, 20);
+		txtNome.setBounds(80, 17, 365, 20);
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -125,7 +125,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblCep);
 		
 		txtEndereco = new JTextField();
-		txtEndereco.setBounds(70, 57, 263, 20);
+		txtEndereco.setBounds(80, 57, 263, 20);
 		txtEndereco.setText("");
 		contentPane.add(txtEndereco);
 		txtEndereco.setColumns(10);
@@ -138,7 +138,7 @@ public class TelaCliente extends JFrame {
 		});
 		
 		txtTelefone = new JFormattedTextField(tel);
-		txtTelefone.setBounds(70, 137, 116, 20);
+		txtTelefone.setBounds(80, 137, 116, 20);
 		txtTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -151,7 +151,7 @@ public class TelaCliente extends JFrame {
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
-		txtCEP.setBounds(349, 97, 86, 20);
+		txtCEP.setBounds(359, 97, 86, 20);
 		txtCEP.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -166,7 +166,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblBairro);
 		
 		txtBairro = new JTextField();
-		txtBairro.setBounds(70, 97, 210, 20);
+		txtBairro.setBounds(80, 97, 210, 20);
 		txtBairro.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -177,11 +177,11 @@ public class TelaCliente extends JFrame {
 		txtBairro.setText("");
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
-		lblN.setBounds(350, 60, 17, 14);
+		lblN.setBounds(355, 60, 17, 14);
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
-		txtNumero.setBounds(373, 57, 62, 20);
+		txtNumero.setBounds(383, 57, 62, 20);
 		txtNumero.setText("");
 		txtNumero.addKeyListener(new KeyAdapter() {
 			@Override
@@ -205,7 +205,7 @@ public class TelaCliente extends JFrame {
 		txtNumero.setColumns(10);
 		
 		txtCPF = new JFormattedTextField(cpf);
-		txtCPF.setBounds(241, 185, 127, 20);
+		txtCPF.setBounds(246, 185, 127, 20);
 		txtCPF.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -220,7 +220,7 @@ public class TelaCliente extends JFrame {
 		txtCPF.setVisible(true);
 		
 		txtCNPJ = new JFormattedTextField(cnpj);
-		txtCNPJ.setBounds(241, 185, 127, 20);
+		txtCNPJ.setBounds(246, 185, 127, 20);
 		txtCNPJ.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -233,9 +233,9 @@ public class TelaCliente extends JFrame {
 		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
-		lblJanelaDeEntrega.setBounds(173, 231, 103, 14);
+		lblJanelaDeEntrega.setBounds(178, 231, 103, 14);
 		contentPane.add(lblJanelaDeEntrega);
-		panel.setBounds(88, 256, 263, 130);
+		panel.setBounds(93, 256, 263, 130);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -380,7 +380,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setBounds(281, 419, 103, 32);
+		btnLimpar.setBounds(286, 419, 103, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -416,7 +416,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(rdbtnCnpj);
 		
 		
-		lblEndereco.setBounds(20, 60, 56, 14);
+		lblEndereco.setBounds(20, 60, 77, 14);
 		contentPane.add(lblEndereco);
 		
 		

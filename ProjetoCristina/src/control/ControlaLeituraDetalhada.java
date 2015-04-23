@@ -23,7 +23,7 @@ public class ControlaLeituraDetalhada {
 
 	}
 	public void preenche(){
-		String[] items ={"Região","Nome do Cliente","Produto","Fabricante","Descrição","Peso","Volume","Data","Quantidade"};
+		String[] items ={"Nome do Cliente","Produto","Fabricante","Descrição","Peso","Volume","Data","Quantidade","Região"};
 		
 		String linha = "";
 

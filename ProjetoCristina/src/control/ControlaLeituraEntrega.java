@@ -16,25 +16,12 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import entity.Cliente;
-import boundary.ConsultaEntrega;
+import boundary.TelaConsultaEntrega;
 
 public class ControlaLeituraEntrega {
 	DefaultTableModel modelo;
-	public ConsultaEntrega con ;
+	public TelaConsultaEntrega con ;
 	private String cliente;
-
-
-	public void sair(){
-
-
-		int resp = 	JOptionPane.showConfirmDialog(null, "deseja mesmo sair","Saindo",JOptionPane.INFORMATION_MESSAGE);
-		if(resp==0){
-
-			System.exit(0);
-
-		}
-	}
-
 
 	public void busca(String cliente,String data,JTable tabela){
 

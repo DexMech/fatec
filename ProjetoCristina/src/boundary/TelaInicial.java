@@ -105,7 +105,7 @@ public class TelaInicial extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new ConsultaEntrega().setLocationRelativeTo(null);
+				new TelaConsultaEntrega().setLocationRelativeTo(null);
 
 			}
 		});

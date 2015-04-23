@@ -25,6 +25,7 @@ public class MotoristaControle extends Motorista implements CRUD{
 		String fileName = "src/BD/Motoristas.txt";
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
+			
 			bw.write(getNome());
 			bw.write(";");
 			bw.write(getCnh());

@@ -59,19 +59,20 @@ public class TelaProduto extends JFrame {
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(482, 416);
+		setSize(494, 423);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		contentPane.setLayout(null);
 		
-		lblNome = new JLabel("Nome");
-		lblNome.setBounds(10, 13, 45, 20);
+		lblNome = new JLabel("Nome:");
+		lblNome.setBounds(20, 20, 45, 20);
 		contentPane.add(lblNome);
 		
 		tfNome = new JTextField();
+		tfNome.setBounds(88, 20, 378, 20);
 		tfNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -79,16 +80,16 @@ public class TelaProduto extends JFrame {
 				lblNome.setForeground(Color.black);
 			}
 		});
-		tfNome.setBounds(88, 13, 368, 20);
 		tfNome.setText("");
 		contentPane.add(tfNome);
 		tfNome.setColumns(10);
 		
-		lblFabricante = new JLabel("Fabricante");
-		lblFabricante.setBounds(10, 54, 68, 20);
+		lblFabricante = new JLabel("Fabricante:");
+		lblFabricante.setBounds(20, 60, 68, 20);
 		contentPane.add(lblFabricante);
 		
 		tfFabricante = new JTextField();
+		tfFabricante.setBounds(88, 60, 378, 20);
 		tfFabricante.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -96,20 +97,20 @@ public class TelaProduto extends JFrame {
 				lblFabricante.setForeground(Color.black);
 			}
 		});
-		tfFabricante.setBounds(88, 54, 368, 20);
 		tfFabricante.setText("");
 		contentPane.add(tfFabricante);
 		tfFabricante.setColumns(10);
 		
 		lblDescritivo = new JLabel("Descritivo");
-		lblDescritivo.setBounds(10, 106, 89, 20);
+		lblDescritivo.setBounds(20, 100, 89, 20);
 		contentPane.add(lblDescritivo);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 125, 446, 129);
+		scrollPane.setBounds(20, 125, 446, 129);
 		contentPane.add(scrollPane);
 		
 		taDescritivo = new JTextArea();
+		scrollPane.setViewportView(taDescritivo);
 		taDescritivo.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -117,15 +118,15 @@ public class TelaProduto extends JFrame {
 				lblDescritivo.setForeground(Color.black);
 			}
 		});
-		scrollPane.setViewportView(taDescritivo);
 		taDescritivo.setText("");
 		taDescritivo.setLineWrap(true);
 		
 		lblPeso = new JLabel("Peso (não ultrapassar 2 t)");
-		lblPeso.setBounds(10, 265, 200, 20);
+		lblPeso.setBounds(20, 270, 200, 20);
 		contentPane.add(lblPeso);
 		
 		tfKg = new JTextField();
+		tfKg.setBounds(20, 290, 71, 20);
 		tfKg.setText("");
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
@@ -158,15 +159,15 @@ public class TelaProduto extends JFrame {
 				lblPeso.setForeground(Color.black);
 			}
 		});
-		tfKg.setBounds(10, 292, 71, 20);
 		contentPane.add(tfKg);
 		tfKg.setColumns(10);
 		
 		lblKg = new JLabel("Kg");
-		lblKg.setBounds(88, 292, 45, 20);
+		lblKg.setBounds(98, 290, 45, 20);
 		contentPane.add(lblKg);
 		
 		tfVolume = new JTextField();
+		tfVolume.setBounds(284, 290, 71, 20);
 		tfVolume.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -186,21 +187,20 @@ public class TelaProduto extends JFrame {
 			}
 		});
 		tfVolume.setText("");
-		tfVolume.setBounds(283, 292, 71, 20);
 		contentPane.add(tfVolume);
 		tfVolume.setColumns(10);
 		
 		lblVolume = new JLabel("Volume");
-		lblVolume.setBounds(283, 267, 46, 20);
+		lblVolume.setBounds(284, 270, 46, 20);
 		contentPane.add(lblVolume);
 		
 		lblMeCubico = new JLabel("m\u00B3");
-		lblMeCubico.setBounds(366, 292, 24, 20);
+		lblMeCubico.setBounds(365, 290, 24, 20);
 		contentPane.add(lblMeCubico);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setBounds(40, 343, 123, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
-		btnSalvar.setBounds(20, 343, 123, 32);
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ProdutoControle pc = new ProdutoControle();
@@ -218,8 +218,8 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(323, 343, 123, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
-		btnLimpar.setBounds(333, 343, 123, 32);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				limpar();
@@ -229,9 +229,9 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnLimpar);
 		
 		lblAvisoProduto = new JLabel("Produto está acima de 2t");
+		lblAvisoProduto.setBounds(20, 314, 200, 16);
 		lblAvisoProduto.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblAvisoProduto.setForeground(Color.RED);
-		lblAvisoProduto.setBounds(10, 314, 200, 16);
 		lblAvisoProduto.setVisible(false);
 		contentPane.add(lblAvisoProduto);
 		

@@ -32,7 +32,7 @@ import java.text.ParseException;
 import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 
-public class ConsultaEntrega extends JFrame {
+public class TelaConsultaEntrega extends JFrame {
 	private JLabel labelgrava;
 
 
@@ -69,33 +69,34 @@ public class ConsultaEntrega extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConsultaEntrega() {
+	public TelaConsultaEntrega() {
 		setTitle("Consulta de Entregas");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 811, 466);
+		setBounds(100, 100, 693, 441);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(24, 113, 637, 246);
+		scrollPane.setBounds(20, 80, 637, 246);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-				new Object[][] {
-				},
-				new String[] {
-						"Regi\u00E3o", "Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade"
-				}
-				));
-		table.getColumnModel().getColumn(2).setPreferredWidth(185);
-		table.getColumnModel().getColumn(3).setPreferredWidth(111);
+			new Object[][] {
+			},
+			new String[] {
+				"Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade", "Regi\u00E3o"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(185);
+		table.getColumnModel().getColumn(1).setPreferredWidth(111);
+		table.getColumnModel().getColumn(2).setPreferredWidth(111);
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
-		btnExportarCvs.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/excel.png")));
+		btnExportarCvs.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/excel.png")));
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(table.getRowCount()>0){
@@ -106,11 +107,11 @@ public class ConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(271, 378, 159, 32);
+		btnExportarCvs.setBounds(40, 350, 159, 32);
 		contentPane.add(btnExportarCvs);
 
-		JLabel labelCliente = new JLabel("Cliente");
-		labelCliente.setBounds(24, 38, 57, 50);
+		JLabel labelCliente = new JLabel("Cliente:");
+		labelCliente.setBounds(20, 20, 57, 27);
 		contentPane.add(labelCliente);
 		try {
 			mascara = new MaskFormatter("##/##/####");
@@ -121,11 +122,11 @@ public class ConsultaEntrega extends JFrame {
 		}
 
 		txtdata = new JFormattedTextField(mascara);
-		txtdata.setBounds(398, 50, 122, 27);
+		txtdata.setBounds(370, 20, 122, 27);
 		contentPane.add(txtdata);
 
-		JLabel labelData = new JLabel("Data");
-		labelData.setBounds(356, 38, 39, 50);
+		JLabel labelData = new JLabel("Data:");
+		labelData.setBounds(320, 20, 39, 27);
 		contentPane.add(labelData);
 		labelControl = new JLabel("");
 		labelControl.setFont(new Font("Arial", Font.BOLD, 9));
@@ -133,16 +134,12 @@ public class ConsultaEntrega extends JFrame {
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/busca.png")));
+		btnBuscar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				labelgrava.setText("");
-				if(txtCliente.getText().isEmpty()||txtdata.getText().isEmpty()){
-
-					labelControl.setText("*preencha os campos");
-
-				}
-				else if(table.getRowCount()>0){
+				
+				 if(table.getRowCount()>0){
 					int j = 1;
 					for(int i = 0;i<table.getRowCount()-1;i++){  
 
@@ -161,25 +158,25 @@ public class ConsultaEntrega extends JFrame {
 
 			}
 		});
-		btnBuscar.setBounds(572, 44, 117, 32);
+		btnBuscar.setBounds(520, 17, 117, 32);
 		contentPane.add(btnBuscar);
 
 
 
 		txtCliente = new JTextField();
 		txtCliente.setEditable(true);
-		txtCliente.setBounds(85, 50, 177, 27);
+		txtCliente.setBounds(80, 20, 177, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
 		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.setIcon(new ImageIcon(ConsultaEntrega.class.getResource("/images/limpar.png")));
+		btnLimpar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(458, 378, 122, 32);
+		btnLimpar.setBounds(237, 350, 122, 32);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -201,7 +198,7 @@ public class ConsultaEntrega extends JFrame {
 					objeto[a]=  table.getValueAt(recebe, a);
 					a++;
 					}
-				new ConsultaEntregaDetalhada(objeto);
+				new TelaConsultaEntregaDetalhada(objeto);
 			}
 			catch(ArrayIndexOutOfBoundsException e1){
 				labelgrava.setText("Selecione um registro");
@@ -210,7 +207,7 @@ public class ConsultaEntrega extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(673, 109, 101, 25);
+		btnNewButton.setBounds(536, 350, 101, 32);
 		contentPane.add(btnNewButton);
 
 

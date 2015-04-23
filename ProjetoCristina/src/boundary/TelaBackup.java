@@ -49,7 +49,7 @@ public class TelaBackup extends JFrame {
 	public TelaBackup() {
 		setTitle("Tela de Backups e Restauração");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 606, 531);
+		setBounds(100, 100, 627, 567);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,11 +64,11 @@ public class TelaBackup extends JFrame {
 				backup.salvar();
 			}
 		});
-		btnSalvarBackup.setBounds(417, 6, 157, 36);
+		btnSalvarBackup.setBounds(417, 20, 157, 36);
 		contentPane.add(btnSalvarBackup);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(35, 67, 539, 380);
+		scrollPane.setBounds(35, 75, 539, 380);
 		contentPane.add(scrollPane);
 
 		textAreaBackup = new JTextArea();
@@ -88,7 +88,7 @@ public class TelaBackup extends JFrame {
 				backup.escolher();
 			}
 		});
-		btnRecuperar.setBounds(35, 6, 157, 36);
+		btnRecuperar.setBounds(35, 20, 157, 36);
 		contentPane.add(btnRecuperar);
 
 		JButton btnRecuperar_1 = new JButton("Recuperar");
@@ -99,7 +99,7 @@ public class TelaBackup extends JFrame {
 				backup.recuperar();	
 			}
 		});
-		btnRecuperar_1.setBounds(224, 6, 157, 36);
+		btnRecuperar_1.setBounds(224, 20, 157, 36);
 		contentPane.add(btnRecuperar_1);
 
 		btnLimpar = new JButton("Limpar");
@@ -111,7 +111,7 @@ public class TelaBackup extends JFrame {
 				backup.limpar();
 			}
 		});
-		btnLimpar.setBounds(454, 451, 117, 36);
+		btnLimpar.setBounds(454, 470, 117, 36);
 		contentPane.add(btnLimpar);
 	}
 }

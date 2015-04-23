@@ -1,16 +1,16 @@
 package entity;
 
 public abstract class  Cliente {
-	
+
 	private String nome;
-	private String Endereco;	
+	private String endereco;	
 	private int numero;
 	private String telefone;
 	private String bairro;
 	private String cep;
 	private String identificacao;
 	private String diasDaSemana;
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -18,10 +18,10 @@ public abstract class  Cliente {
 		this.nome = nome;
 	}
 	public String getEndereco() {
-		return Endereco;
+		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		Endereco = endereco;
+		this.endereco = endereco;
 	}
 	public int getNumero() {
 		return numero;

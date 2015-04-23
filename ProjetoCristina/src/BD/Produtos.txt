@@ -1,4 +1,1 @@
-aa;aa;aa;aa;1.0;1.0;
-
-Produto01;Fabricante01;Descrição;1231.0;1.24214129E10;
-Humanos enlatados;golf & finhos;humanos enlatados, conservar abaixo de 08°;1500.0;30.0;
+forno;china ne;forno que caiu na giovanna;10.0;10.0;
