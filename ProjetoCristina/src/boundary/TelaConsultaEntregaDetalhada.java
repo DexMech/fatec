@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import control.ControlaLeituraDetalhada;
+import java.awt.Font;
 
 public class TelaConsultaEntregaDetalhada extends JFrame {
 
@@ -43,6 +44,7 @@ public class TelaConsultaEntregaDetalhada extends JFrame {
 		contentPane.add(scrollPane);
 		
 		textArea = new JTextArea();
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		textArea.setBackground(new Color(240, 248, 255));
 		textArea.setForeground(Color.BLACK);
 		scrollPane.setViewportView(textArea);

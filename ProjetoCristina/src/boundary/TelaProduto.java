@@ -68,11 +68,13 @@ public class TelaProduto extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblNome = new JLabel("Nome:");
-		lblNome.setBounds(20, 20, 45, 20);
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNome.setBounds(10, 20, 45, 20);
 		contentPane.add(lblNome);
 		
 		tfNome = new JTextField();
-		tfNome.setBounds(88, 20, 378, 20);
+		tfNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfNome.setBounds(88, 20, 378, 23);
 		tfNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -85,11 +87,13 @@ public class TelaProduto extends JFrame {
 		tfNome.setColumns(10);
 		
 		lblFabricante = new JLabel("Fabricante:");
-		lblFabricante.setBounds(20, 60, 68, 20);
+		lblFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblFabricante.setBounds(10, 60, 68, 20);
 		contentPane.add(lblFabricante);
 		
 		tfFabricante = new JTextField();
-		tfFabricante.setBounds(88, 60, 378, 20);
+		tfFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfFabricante.setBounds(88, 60, 378, 23);
 		tfFabricante.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -102,6 +106,7 @@ public class TelaProduto extends JFrame {
 		tfFabricante.setColumns(10);
 		
 		lblDescritivo = new JLabel("Descritivo");
+		lblDescritivo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDescritivo.setBounds(20, 100, 89, 20);
 		contentPane.add(lblDescritivo);
 		
@@ -110,6 +115,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(scrollPane);
 		
 		taDescritivo = new JTextArea();
+		taDescritivo.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		scrollPane.setViewportView(taDescritivo);
 		taDescritivo.addFocusListener(new FocusAdapter() {
 			@Override
@@ -122,11 +128,13 @@ public class TelaProduto extends JFrame {
 		taDescritivo.setLineWrap(true);
 		
 		lblPeso = new JLabel("Peso (não ultrapassar 2 t)");
+		lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblPeso.setBounds(20, 270, 200, 20);
 		contentPane.add(lblPeso);
 		
 		tfKg = new JTextField();
-		tfKg.setBounds(20, 290, 71, 20);
+		tfKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfKg.setBounds(20, 290, 71, 23);
 		tfKg.setText("");
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
@@ -163,11 +171,13 @@ public class TelaProduto extends JFrame {
 		tfKg.setColumns(10);
 		
 		lblKg = new JLabel("Kg");
+		lblKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblKg.setBounds(98, 290, 45, 20);
 		contentPane.add(lblKg);
 		
 		tfVolume = new JTextField();
-		tfVolume.setBounds(284, 290, 71, 20);
+		tfVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfVolume.setBounds(284, 290, 71, 23);
 		tfVolume.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -191,14 +201,17 @@ public class TelaProduto extends JFrame {
 		tfVolume.setColumns(10);
 		
 		lblVolume = new JLabel("Volume");
+		lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblVolume.setBounds(284, 270, 46, 20);
 		contentPane.add(lblVolume);
 		
 		lblMeCubico = new JLabel("m\u00B3");
+		lblMeCubico.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblMeCubico.setBounds(365, 290, 24, 20);
 		contentPane.add(lblMeCubico);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.setBounds(40, 343, 123, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
@@ -218,6 +231,7 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimpar.setBounds(323, 343, 123, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
@@ -230,7 +244,7 @@ public class TelaProduto extends JFrame {
 		
 		lblAvisoProduto = new JLabel("Produto está acima de 2t");
 		lblAvisoProduto.setBounds(20, 314, 200, 16);
-		lblAvisoProduto.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoProduto.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoProduto.setForeground(Color.RED);
 		lblAvisoProduto.setVisible(false);
 		contentPane.add(lblAvisoProduto);

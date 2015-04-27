@@ -29,16 +29,16 @@ import control.CaminhaoControle;
 import control.CarroceriaControle;
 import control.ComboBoxItens;
 import control.MotoristaControle;
-import control.ValidarData;
 
 public class TelaMotorista extends JFrame implements ComboBoxItens{
 	CaminhaoControle cam = new CaminhaoControle();
 	CarroceriaControle car = new CarroceriaControle();
 	private JTextField textNome;
 	private JFormattedTextField textCNH;
-	private JFormattedTextField textValidadeInicio;
 	private JFormattedTextField textTelefone;
 	private JFormattedTextField textCelular;
+	private JFormattedTextField textRg;
+	private JFormattedTextField textCpf;
 	private JTextField textPesoCaminhao;
 	private JFormattedTextField textPlaca;
 	private JFormattedTextField textValidadeFim;
@@ -49,6 +49,8 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 	private MaskFormatter data;
 	private MaskFormatter placa;
 	private MaskFormatter cnh;
+	private MaskFormatter rg;
+	private MaskFormatter cpf;
 	private JTextField textLargura;
 	private JTextField textAltura;
 	private JTextField textComprimento;
@@ -57,10 +59,11 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 	private JLabel lblAvisoNome;
 	private JLabel lblAvisoCNH;
 	private JLabel lblAvisoData;
-	private JLabel lblAvisoData_2;
-	private JLabel lblAvisoTelefone;
+	private JLabel lblAvisoTelefones;
 	private JLabel lblAvisoPlaca;
 	private JLabel lblAvisoCidade;
+	private JLabel lblAvisoRg;
+	private JLabel lblAvisoCpf;
 	private final JComboBox cbCaminhao;
 	private final JComboBox cbCarroceria;
 	private final JComboBox cbEstado;
@@ -75,13 +78,17 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		data = new MaskFormatter("##/##/####");
 		placa = new MaskFormatter("UUU-####");
 		cnh = new MaskFormatter("###########");
-
+		rg = new MaskFormatter("##.###.###-#");
+		cpf = new MaskFormatter("###.###.###-##");
+		
 		tel.setValidCharacters("0123456789");
 		cel.setValidCharacters("0123456789");
 		data.setValidCharacters("0123456789");
 		placa.setValidCharacters("0123456789ASDFGHJKLZXCVBNMQWERTYUIOP");
+		rg.setValidCharacters("0123456789");
+		cpf.setValidCharacters("0123456789");
 
-		setSize(388, 676);
+		setSize(448, 730);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setTitle("Cadastro de Motorista");
 		setLocationRelativeTo(null);
@@ -89,61 +96,55 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		getContentPane().setLayout(null);
 
 		JLabel lblContainer = new JLabel("Carroceria:");
-		lblContainer.setBounds(20, 305, 152, 14);
+		lblContainer.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblContainer.setBounds(14, 400, 152, 14);
 		getContentPane().add(lblContainer);
 
 		lblAvisoNome = new JLabel("Preencha o campo \"Nome\"");
-		lblAvisoNome.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoNome.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoNome.setForeground(Color.RED);
-		lblAvisoNome.setBounds(20, 60, 348, 16);
+		lblAvisoNome.setBounds(14, 65, 348, 16);
 		lblAvisoNome.setVisible(false);
 		getContentPane().add(lblAvisoNome);
 
 		lblAvisoCNH = new JLabel("Preencha o campo \"CNH\"");
-		lblAvisoCNH.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoCNH.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoCNH.setForeground(Color.RED);
-		lblAvisoCNH.setBounds(20, 120, 152, 16);
+		lblAvisoCNH.setBounds(14, 220, 152, 16);
 		lblAvisoCNH.setVisible(false);
 		getContentPane().add(lblAvisoCNH);
 
 		lblAvisoData = new JLabel("Preencha o campo \"data\"");
-		lblAvisoData.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoData.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoData.setForeground(Color.RED);
-		lblAvisoData.setBounds(193, 120, 170, 16);
+		lblAvisoData.setBounds(262, 220, 170, 16);
 		lblAvisoData.setVisible(false);
 		getContentPane().add(lblAvisoData);
 
-		lblAvisoData_2 = new JLabel("Validade da CNH incoerente");
-		lblAvisoData_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblAvisoData_2.setForeground(Color.RED);
-		lblAvisoData_2.setBounds(165, 120, 170, 16);
-		lblAvisoData_2.setVisible(false);
-		getContentPane().add(lblAvisoData_2);
-
-		lblAvisoTelefone = new JLabel(
-				"Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
-		lblAvisoTelefone.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		lblAvisoTelefone.setForeground(Color.RED);
-		lblAvisoTelefone.setBounds(20, 180, 362, 16);
-		lblAvisoTelefone.setVisible(false);
-		getContentPane().add(lblAvisoTelefone);
+		lblAvisoTelefones = new JLabel("Preencha ambos os campos \"Telefone 1\" e \"Celular\"");
+		lblAvisoTelefones.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblAvisoTelefones.setForeground(Color.RED);
+		lblAvisoTelefones.setBounds(14, 306, 362, 16);
+		lblAvisoTelefones.setVisible(false);
+		getContentPane().add(lblAvisoTelefones);
 
 		lblAvisoPlaca = new JLabel("Preencha o campo \"N\u00FAmero da Placa\"");
-		lblAvisoPlaca.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoPlaca.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoPlaca.setForeground(Color.RED);
-		lblAvisoPlaca.setBounds(126, 437, 240, 16);
+		lblAvisoPlaca.setBounds(120, 546, 240, 16);
 		lblAvisoPlaca.setVisible(false);
 		getContentPane().add(lblAvisoPlaca);
 
 		lblAvisoCidade = new JLabel("Preencha o campo \"Cidade\"");
-		lblAvisoCidade.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoCidade.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoCidade.setForeground(Color.RED);
-		lblAvisoCidade.setBounds(126, 476, 256, 16);
+		lblAvisoCidade.setBounds(120, 597, 256, 16);
 		lblAvisoCidade.setVisible(false);
 		getContentPane().add(lblAvisoCidade);
 
 		cbCarroceria = new JComboBox(CARROCERIA);
-		cbCarroceria.setBounds(90, 302, 270, 20);
+		cbCarroceria.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbCarroceria.setBounds(129, 396, 270, 23);
 		cbCarroceria.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				car.setPeso(cbCarroceria.getSelectedItem().toString());
@@ -182,94 +183,88 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		getContentPane().add(cbCarroceria);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(20, 20, 46, 14);
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNome.setBounds(14, 11, 46, 14);
 		getContentPane().add(lblNome);
 
 		textNome = new JTextField();
+		textNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
 				lblAvisoNome.setVisible(false);
 			}
 		});
-		textNome.setBounds(20, 40, 340, 20);
+		textNome.setBounds(14, 31, 385, 23);
 		getContentPane().add(textNome);
 		textNome.setColumns(10);
 
 		JLabel lblCnh = new JLabel("CNH:");
-		lblCnh.setBounds(20, 80, 46, 14);
+		lblCnh.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCnh.setBounds(14, 166, 46, 14);
 		getContentPane().add(lblCnh);
 
 		textCNH = new JFormattedTextField(cnh);
+		textCNH.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textCNH.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				lblAvisoCNH.setVisible(false);
 			}
 		});
-		textCNH.setBounds(20, 100, 86, 20);
+		textCNH.setBounds(14, 186, 86, 23);
 		getContentPane().add(textCNH);
 		textCNH.setValue("");
 		textCNH.setColumns(10);
 
 		JLabel lblValidade = new JLabel("Validade:");
-		lblValidade.setBounds(165, 80, 64, 14);
+		lblValidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblValidade.setBounds(283, 166, 64, 14);
 		getContentPane().add(lblValidade);
 
-		textValidadeInicio = new JFormattedTextField(data);
-		textValidadeInicio.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				lblAvisoData.setVisible(false);
-				lblAvisoData_2.setVisible(false);
-			}
-		});
-		textValidadeInicio.setBounds(165, 100, 74, 20);
-		getContentPane().add(textValidadeInicio);
-		textValidadeInicio.setValue("");
-		textValidadeInicio.setColumns(10);
-
-		JLabel lblAte = new JLabel("   at\u00E9");
-		lblAte.setBounds(242, 103, 56, 14);
-		getContentPane().add(lblAte);
-
 		JLabel lblTelefone_1 = new JLabel("Telefone 1:");
-		lblTelefone_1.setBounds(20, 140, 71, 14);
+		lblTelefone_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTelefone_1.setBounds(14, 247, 71, 23);
 		getContentPane().add(lblTelefone_1);
 
 		textTelefone = new JFormattedTextField(tel);
+		textTelefone.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				lblAvisoTelefone.setVisible(false);
+				lblAvisoTelefones.setVisible(false);
 			}
 		});
-		textTelefone.setBounds(20, 160, 120, 20);
+		textTelefone.setBounds(14, 272, 120, 23);
 		getContentPane().add(textTelefone);
 		textTelefone.setValue("");
 		textTelefone.setColumns(10);
 
-		JLabel lblTelefone_2 = new JLabel("Celular:");
-		lblTelefone_2.setBounds(238, 140, 71, 14);
-		getContentPane().add(lblTelefone_2);
+		JLabel lblCelular = new JLabel("Celular:");
+		lblCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCelular.setBounds(283, 247, 71, 23);
+		getContentPane().add(lblCelular);
 
 		textCelular = new JFormattedTextField(cel);
+		textCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textCelular.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				lblAvisoTelefone.setVisible(false);
+				lblAvisoTelefones.setVisible(false);
 			}
 		});
 		textCelular.setColumns(10);
-		textCelular.setBounds(238, 160, 120, 20);
+		textCelular.setBounds(283, 272, 120, 23);
 		textCelular.setValue("");
 		getContentPane().add(textCelular);
 
 		JLabel lblTipoDeVeculo = new JLabel("Tipo de Caminh\u00E3o:");
-		lblTipoDeVeculo.setBounds(20, 220, 134, 14);
+		lblTipoDeVeculo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTipoDeVeculo.setBounds(14, 333, 134, 17);
 		getContentPane().add(lblTipoDeVeculo);
 
 		cbCaminhao = new JComboBox(VEICULO);
+		cbCaminhao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cbCaminhao.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				cam.setCapacidadeCarga(cbCaminhao.getSelectedItem().toString());
@@ -277,41 +272,47 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 						.getCapacidadeCarga()));
 			}
 		});
-		cbCaminhao.setBounds(165, 217, 195, 20);
+		cbCaminhao.setBounds(158, 330, 241, 23);
 		getContentPane().add(cbCaminhao);
 
 		JLabel lblCapacidadeDeCarga = new JLabel("Capacidade de carga:");
-		lblCapacidadeDeCarga.setBounds(20, 260, 134, 14);
+		lblCapacidadeDeCarga.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCapacidadeDeCarga.setBounds(14, 364, 134, 20);
 		getContentPane().add(lblCapacidadeDeCarga);
 
 		textPesoCaminhao = new JTextField();
+		textPesoCaminhao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textPesoCaminhao.setEditable(false);
-		textPesoCaminhao.setBounds(165, 257, 64, 20);
+		textPesoCaminhao.setBounds(159, 363, 64, 23);
 		getContentPane().add(textPesoCaminhao);
 		textPesoCaminhao.setColumns(10);
 		textPesoCaminhao.setText(Integer.toString(16000));
 
 		JLabel lblKg = new JLabel("kg");
-		lblKg.setBounds(242, 260, 21, 14);
+		lblKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblKg.setBounds(232, 364, 21, 23);
 		getContentPane().add(lblKg);
 
 		JLabel lblNumeroDaPlaca = new JLabel("Numero da placa:");
-		lblNumeroDaPlaca.setBounds(20, 421, 104, 14);
+		lblNumeroDaPlaca.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNumeroDaPlaca.setBounds(14, 527, 134, 17);
 		getContentPane().add(lblNumeroDaPlaca);
 
 		textPlaca = new JFormattedTextField(placa);
+		textPlaca.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textPlaca.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				lblAvisoPlaca.setVisible(false);
 			}
 		});
-		textPlaca.setBounds(126, 418, 64, 20);
+		textPlaca.setBounds(136, 522, 64, 23);
 		getContentPane().add(textPlaca);
 		textPlaca.setValue("");
 		textPlaca.setColumns(10);
 
 		JButton btnGravar = new JButton("Salvar");
+		btnGravar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnGravar.setIcon(new ImageIcon(TelaMotorista.class
 				.getResource("/images/save.png")));
 		btnGravar.addActionListener(new ActionListener() {
@@ -319,11 +320,9 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				MotoristaControle mc = new MotoristaControle();
 
 				if (validar()) {
-					mc.InstanciarMotoristaControle(textNome.getText(), textCNH
-							.getValue().toString(), textValidadeInicio
-							.getText(), textValidadeFim.getText(), textTelefone
-							.getValue().toString(), textCelular.getValue()
-							.toString());
+					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), 
+							textValidadeFim.getText(), textTelefone.getValue().toString(), textCelular.getValue().toString(),
+							textRg.getValue().toString(), textCpf.getValue().toString());
 					cam.InstanciarCaminhaoControle(cbCaminhao.getSelectedItem()
 							.toString(), textPlaca.getText(), cbEstado.getSelectedItem().toString(), textCidade.getText());
 					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
@@ -338,10 +337,11 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				}
 			}
 		});
-		btnGravar.setBounds(40, 560, 100, 32);
+		btnGravar.setBounds(34, 653, 100, 32);
 		getContentPane().add(btnGravar);
 
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimpar.setIcon(new ImageIcon(TelaMotorista.class
 				.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
@@ -349,127 +349,194 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 					limpar();
 			}
 		});
-		btnLimpar.setBounds(241, 560, 100, 32);
+		btnLimpar.setBounds(236, 653, 111, 32);
 		getContentPane().add(btnLimpar);
 
 		textValidadeFim = new JFormattedTextField(data);
+		textValidadeFim.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textValidadeFim.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				lblAvisoData.setVisible(false);
-				lblAvisoData_2.setVisible(false);
 			}
 		});
 		textValidadeFim.setColumns(10);
-		textValidadeFim.setBounds(284, 100, 76, 20);
+		textValidadeFim.setBounds(283, 186, 76, 23);
 		textValidadeFim.setValue("");
 		getContentPane().add(textValidadeFim);
 
 		JLabel lblCidade = new JLabel("Cidade:");
-		lblCidade.setBounds(20, 458, 46, 14);
+		lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCidade.setBounds(14, 579, 46, 14);
 		getContentPane().add(lblCidade);
 
 		JLabel lblEstado = new JLabel("Estado:");
-		lblEstado.setBounds(20, 502, 46, 14);
+		lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblEstado.setBounds(14, 623, 71, 14);
 		getContentPane().add(lblEstado);
 
 		textCidade = new JTextField();
+		textCidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textCidade.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
 				lblAvisoCidade.setVisible(false);
 			}
 		});
-		textCidade.setBounds(126, 455, 128, 20);
+		textCidade.setBounds(136, 573, 128, 23);
 		getContentPane().add(textCidade);
 		textCidade.setColumns(10);
 
 		JLabel lblLargura = new JLabel("Largura:");
-		lblLargura.setBounds(20, 340, 71, 14);
+		lblLargura.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLargura.setBounds(14, 431, 71, 23);
 		getContentPane().add(lblLargura);
 
 		JLabel lblAltura = new JLabel("Altura:");
-		lblAltura.setBounds(20, 365, 46, 14);
+		lblAltura.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblAltura.setBounds(14, 467, 46, 18);
 		getContentPane().add(lblAltura);
 
 		JLabel lblComprimento = new JLabel("Comprimento:");
-		lblComprimento.setBounds(20, 390, 87, 14);
+		lblComprimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblComprimento.setBounds(14, 495, 112, 19);
 		getContentPane().add(lblComprimento);
 
 		JLabel lblVolume = new JLabel("Volume:");
-		lblVolume.setBounds(193, 365, 74, 14);
+		lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblVolume.setBounds(232, 466, 74, 14);
 		getContentPane().add(lblVolume);
 
 		JLabel lblPeso = new JLabel("Peso:");
-		lblPeso.setBounds(193, 340, 46, 14);
+		lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPeso.setBounds(232, 437, 46, 14);
 		getContentPane().add(lblPeso);
 
 		textLargura = new JTextField();
 		textLargura.setEditable(false);
-		textLargura.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		textLargura.setBounds(103, 337, 58, 20);
+		textLargura.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textLargura.setBounds(136, 433, 58, 23);
 		textLargura.setText(Double.toString(2.46));
 		getContentPane().add(textLargura);
 		textLargura.setColumns(10);
 
 		textAltura = new JTextField();
+		textAltura.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textAltura.setEditable(false);
 		textAltura.setColumns(10);
-		textAltura.setBounds(103, 362, 58, 20);
+		textAltura.setBounds(136, 465, 58, 23);
 		textAltura.setText(Double.toString(3));
 		getContentPane().add(textAltura);
 
 		textComprimento = new JTextField();
+		textComprimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textComprimento.setEditable(false);
 		textComprimento.setColumns(10);
-		textComprimento.setBounds(103, 387, 58, 20);
+		textComprimento.setBounds(136, 493, 58, 23);
 		textComprimento.setText(Double.toString(7.65));
 		getContentPane().add(textComprimento);
 
 		JLabel lblMm = new JLabel("m");
-		lblMm.setBounds(168, 340, 46, 14);
+		lblMm.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMm.setBounds(201, 435, 46, 14);
 		getContentPane().add(lblMm);
 
 		JLabel lblM = new JLabel("m");
-		lblM.setBounds(168, 365, 46, 14);
+		lblM.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblM.setBounds(201, 471, 46, 14);
 		getContentPane().add(lblM);
 
 		JLabel lblKg_1 = new JLabel("kg");
-		lblKg_1.setBounds(347, 340, 46, 14);
+		lblKg_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblKg_1.setBounds(386, 435, 46, 19);
 		getContentPane().add(lblKg_1);
 
 		textPeso = new JTextField();
+		textPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textPeso.setEditable(false);
-		textPeso.setBounds(252, 337, 85, 20);
+		textPeso.setBounds(291, 434, 85, 21);
 		getContentPane().add(textPeso);
 		textPeso.setText("Sem peso");
 		textPeso.setColumns(10);
 
 		JLabel label = new JLabel("m");
-		label.setBounds(168, 390, 46, 14);
+		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		label.setBounds(201, 499, 46, 14);
 		getContentPane().add(label);
 
 		textVolume = new JTextField();
+		textVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textVolume.setEditable(false);
 		textVolume.setColumns(10);
-		textVolume.setBounds(252, 362, 85, 20);
+		textVolume.setBounds(291, 462, 85, 23);
 		textVolume.setText(Double.toString(56.457));
 		getContentPane().add(textVolume);
 
 		JLabel lblM_1 = new JLabel("m\u00B3");
-		lblM_1.setBounds(347, 365, 46, 14);
+		lblM_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblM_1.setBounds(386, 469, 46, 14);
 		getContentPane().add(lblM_1);
 		
 		cbEstado = new JComboBox(ESTADOS);
-		cbEstado.setBounds(126, 498, 209, 22);
+		cbEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbEstado.setBounds(120, 619, 209, 23);
 		getContentPane().add(cbEstado);
+		
+		JLabel lblRg = new JLabel("RG:");
+		lblRg.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblRg.setBounds(14, 92, 46, 14);
+		getContentPane().add(lblRg);
+		
+		textRg = new JFormattedTextField(rg);
+		textRg.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoRg.setVisible(false);
+			}
+		});
+		textRg.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textRg.setValue("");
+		textRg.setColumns(10);
+		textRg.setBounds(14, 114, 120, 23);
+		getContentPane().add(textRg);
+		
+		textCpf = new JFormattedTextField(cpf);
+		textCpf.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lblAvisoCpf.setVisible(false);
+			}
+		});
+		textCpf.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		textCpf.setValue("");
+		textCpf.setColumns(10);
+		textCpf.setBounds(283, 114, 120, 23);
+		getContentPane().add(textCpf);
+		
+		JLabel lblCpf = new JLabel("CPF:");
+		lblCpf.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCpf.setBounds(283, 92, 46, 14);
+		getContentPane().add(lblCpf);
+		
+		lblAvisoRg = new JLabel("Preencha o campo RG");
+		lblAvisoRg.setForeground(Color.RED);
+		lblAvisoRg.setVisible(false);
+		lblAvisoRg.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblAvisoRg.setBounds(14, 141, 170, 14);
+		getContentPane().add(lblAvisoRg);
+		
+		lblAvisoCpf = new JLabel("Preencha o campo CPF");
+		lblAvisoCpf.setForeground(Color.RED);
+		lblAvisoCpf.setVisible(false);
+		lblAvisoCpf.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblAvisoCpf.setBounds(280, 142, 170, 14);
+		getContentPane().add(lblAvisoCpf);
 
 		setVisible(true);
 	}
 
 	public boolean validar() {
 		boolean confirm = true;
-		ValidarData vd = new ValidarData();
 
 		if (textNome.getText().isEmpty()) {
 			lblAvisoNome.setVisible(true);
@@ -481,20 +548,14 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 			confirm = false;
 		}
 
-		if (textValidadeInicio.getValue().toString().isEmpty()
-				|| textValidadeFim.getValue().toString().isEmpty()) {
+		if (textValidadeFim.getValue().toString().isEmpty()) {
 			lblAvisoData.setVisible(true);
-			confirm = false;
-		} else if (vd.isDataInsertedValid(textValidadeInicio.getValue()
-				.toString(), textValidadeFim.getValue().toString())) {
-			lblAvisoData.setVisible(false);
-			lblAvisoData_2.setVisible(true);
 			confirm = false;
 		}
 
 		if (textTelefone.getValue().toString().isEmpty()
 				|| textCelular.getValue().toString().isEmpty()) {
-			lblAvisoTelefone.setVisible(true);
+			lblAvisoTelefones.setVisible(true);
 			confirm = false;
 		}
 
@@ -507,6 +568,16 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 			lblAvisoCidade.setVisible(true);
 			confirm = false;
 		}
+		
+		if(textRg.getValue().toString().isEmpty()){
+			lblAvisoRg.setVisible(true);
+			confirm = false;
+		}
+		
+		if(textCpf.getValue().toString().isEmpty()){
+			lblAvisoCpf.setVisible(true);
+			confirm = false;
+		}
 
 		return confirm;
 	}
@@ -514,7 +585,6 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 	public void limpar(){
 		textNome.setText("");
 		textCNH.setValue("");
-		textValidadeInicio.setValue("");
 		textValidadeFim.setValue("");
 		textTelefone.setValue("");
 		textCelular.setValue("");
@@ -529,5 +599,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		textComprimento.setText(Double.toString(7.65));
 		textPeso.setText("Sem peso");
 		textVolume.setText(Double.toString(56.457));
+		textRg.setValue("");
+		textCpf.setValue("");
 	}
 }

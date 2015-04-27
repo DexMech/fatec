@@ -80,7 +80,7 @@ public abstract class Carroceria {
 	}
 	
 	public void setLargura(String text){
-		if (text.equals("Carroceria tipo sider tamanho padr�o"))  
+		if (text.equals("Carroceria tipo sider tamanho padrão"))  
 			this.largura = 2.46;
 		else if (text.equals("Carroceria tipo sider semi reboque "))
 			this.largura = 2.51;

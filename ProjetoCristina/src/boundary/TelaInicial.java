@@ -28,17 +28,26 @@ public class TelaInicial extends JFrame {
 
 	
 		barraMenu = new JMenuBar();
+		barraMenu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		barraMenu.setBounds(0, 9, 809, 21);
 		JMenu menu = new JMenu("Menu");
+		menu.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		
 		JMenuItem menu0 = new JMenuItem("Backup e Restauração");
+		menu0.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 
 		JMenuItem menu1 = new JMenuItem("Cadastro de Clientes");
+		menu1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu2= new JMenuItem("Cadastro de Produtos");
+		menu2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu3 = new JMenuItem("Cadastro de Motoristas");
+		menu3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu41 = new JMenuItem("Cadastro de Entregas");
+		menu41.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu4 = new JMenuItem("Visualizar Entregas");
+		menu4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu5 = new JMenuItem("Sair");
+		menu5.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		
 		menu5.addActionListener(new ActionListener() {
 			

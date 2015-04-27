@@ -104,11 +104,13 @@ public class TelaCliente extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		lblNome.setBounds(20, 20, 46, 14);
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNome.setBounds(10, 20, 46, 14);
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
-		txtNome.setBounds(80, 17, 365, 20);
+		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtNome.setBounds(80, 17, 365, 25);
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -119,13 +121,16 @@ public class TelaCliente extends JFrame {
 		txtNome.setText("");
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
-		lblTelefone.setBounds(20, 140, 86, 14);
+		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTelefone.setBounds(10, 141, 86, 17);
 		contentPane.add(lblTelefone);
-		lblCep.setBounds(318, 100, 46, 14);
+		lblCep.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCep.setBounds(318, 100, 46, 22);
 		contentPane.add(lblCep);
 		
 		txtEndereco = new JTextField();
-		txtEndereco.setBounds(80, 57, 263, 20);
+		txtEndereco.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtEndereco.setBounds(80, 57, 263, 25);
 		txtEndereco.setText("");
 		contentPane.add(txtEndereco);
 		txtEndereco.setColumns(10);
@@ -138,7 +143,8 @@ public class TelaCliente extends JFrame {
 		});
 		
 		txtTelefone = new JFormattedTextField(tel);
-		txtTelefone.setBounds(80, 137, 116, 20);
+		txtTelefone.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtTelefone.setBounds(80, 137, 116, 25);
 		txtTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -151,7 +157,7 @@ public class TelaCliente extends JFrame {
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
-		txtCEP.setBounds(359, 97, 86, 20);
+		txtCEP.setBounds(359, 97, 86, 25);
 		txtCEP.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -162,11 +168,13 @@ public class TelaCliente extends JFrame {
 		txtCEP.setValue("");
 		contentPane.add(txtCEP);
 		txtCEP.setColumns(10);
-		lblBairro.setBounds(20, 100, 46, 14);
+		lblBairro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblBairro.setBounds(10, 98, 46, 14);
 		contentPane.add(lblBairro);
 		
 		txtBairro = new JTextField();
-		txtBairro.setBounds(80, 97, 210, 20);
+		txtBairro.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtBairro.setBounds(80, 97, 210, 25);
 		txtBairro.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -177,11 +185,13 @@ public class TelaCliente extends JFrame {
 		txtBairro.setText("");
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
-		lblN.setBounds(355, 60, 17, 14);
+		lblN.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblN.setBounds(356, 53, 17, 29);
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
-		txtNumero.setBounds(383, 57, 62, 20);
+		txtNumero.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtNumero.setBounds(383, 57, 62, 25);
 		txtNumero.setText("");
 		txtNumero.addKeyListener(new KeyAdapter() {
 			@Override
@@ -205,7 +215,8 @@ public class TelaCliente extends JFrame {
 		txtNumero.setColumns(10);
 		
 		txtCPF = new JFormattedTextField(cpf);
-		txtCPF.setBounds(246, 185, 127, 20);
+		txtCPF.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCPF.setBounds(246, 185, 127, 25);
 		txtCPF.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -239,6 +250,7 @@ public class TelaCliente extends JFrame {
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		contentPane.add(panel);
 		panel.setLayout(null);
+		chckbxSegunda.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		chckbxSegunda.addFocusListener(new FocusAdapter() {
 			@Override
@@ -248,6 +260,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxSegunda.setBounds(16, 7, 97, 23);
 		panel.add(chckbxSegunda);
+		chckbxTerca.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
 		chckbxTerca.addFocusListener(new FocusAdapter() {
 			@Override
@@ -257,6 +270,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxTerca.setBounds(16, 31, 97, 23);
 		panel.add(chckbxTerca);
+		chckbxQuarta.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				
 		chckbxQuarta.addFocusListener(new FocusAdapter() {
 			@Override
@@ -266,6 +280,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxQuarta.setBounds(16, 57, 97, 23);
 		panel.add(chckbxQuarta);
+		chckbxQuinta.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
 		chckbxQuinta.addFocusListener(new FocusAdapter() {
 			@Override
@@ -275,6 +290,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxQuinta.setBounds(16, 83, 97, 23);
 		panel.add(chckbxQuinta);
+		chckbxSexta.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
 		chckbxSexta.addFocusListener(new FocusAdapter() {
 			@Override
@@ -284,6 +300,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxSexta.setBounds(164, 7, 97, 23);
 		panel.add(chckbxSexta);
+		chckbxSabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
 		chckbxSabado.addFocusListener(new FocusAdapter() {
 			@Override
@@ -293,6 +310,7 @@ public class TelaCliente extends JFrame {
 		});
 		chckbxSabado.setBounds(164, 31, 97, 23);
 		panel.add(chckbxSabado);
+		chckbxDomingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
 		chckbxDomingo.addFocusListener(new FocusAdapter() {
 			@Override
@@ -304,13 +322,14 @@ public class TelaCliente extends JFrame {
 		panel.add(chckbxDomingo);
 		
 		lblAvisoDia = new JLabel("Selecione ao menos um dia da semana");
-		lblAvisoDia.setBounds(38, 108, 206, 16);
+		lblAvisoDia.setBounds(10, 108, 251, 16);
 		panel.add(lblAvisoDia);
-		lblAvisoDia.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		lblAvisoDia.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoDia.setForeground(Color.RED);
 		lblAvisoDia.setVisible(false);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnSalvar.setBounds(57, 419, 103, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
@@ -380,6 +399,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(btnSalvar);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimpar.setBounds(286, 419, 103, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
@@ -389,6 +409,7 @@ public class TelaCliente extends JFrame {
 			}
 		});
 		contentPane.add(btnLimpar);
+		rdbtnCpf.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbtnCpf.setBounds(60, 183, 77, 25);
 		
 		
@@ -402,6 +423,7 @@ public class TelaCliente extends JFrame {
 		buttonGroup.add(rdbtnCpf);
 		rdbtnCpf.setSelected(true);
 		contentPane.add(rdbtnCpf);
+		rdbtnCnpj.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		rdbtnCnpj.setBounds(146, 183, 86, 25);
 		
 		
@@ -414,9 +436,10 @@ public class TelaCliente extends JFrame {
 		});
 		buttonGroup.add(rdbtnCnpj);
 		contentPane.add(rdbtnCnpj);
+		lblEndereco.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
 		
-		lblEndereco.setBounds(20, 60, 77, 14);
+		lblEndereco.setBounds(10, 60, 77, 17);
 		contentPane.add(lblEndereco);
 		
 		

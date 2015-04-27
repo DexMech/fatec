@@ -12,13 +12,14 @@ import entity.Motorista;
 
 public class MotoristaControle extends Motorista implements CRUD{
 
-	public void InstanciarMotoristaControle(String nome, String cnh, String validadeInicio, String validadeFim, String telefone1, String telefone2){
+	public void InstanciarMotoristaControle(String nome, String cnh, String validade, String telefone1, String telefone2, String rg, String cpf){
 		setNome(nome);
 		setCnh(cnh);
-		setValidadeInicio(validadeInicio);
-		setValidadeFim(validadeFim);
+		setValidade(validade);
 		setTelefone1(telefone1);
 		setTelefone2(telefone2);
+		setRg(rg);
+		setCpf(cpf);
 	}
 	
 	public void gravar() throws IOException{
@@ -28,11 +29,13 @@ public class MotoristaControle extends Motorista implements CRUD{
 			
 			bw.write(getNome());
 			bw.write(";");
+			bw.write(getRg());
+			bw.write(";");
+			bw.write(getCpf());
+			bw.write(";");
 			bw.write(getCnh());
 			bw.write(";");
-			bw.write(getValidadeInicio());
-			bw.write(";");
-			bw.write(getValidadeFim());
+			bw.write(getValidade());
 			bw.write(";");
 			bw.write(getTelefone1());
 			bw.write(";");

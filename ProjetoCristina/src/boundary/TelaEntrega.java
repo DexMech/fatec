@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 
 import control.ControleTelaEntregas;
 import control.MotoristaControle;
-import control.ValidarData;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -36,6 +35,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
 
 
 public class TelaEntrega extends JFrame {
@@ -117,12 +117,14 @@ public class TelaEntrega extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblCliente = new JLabel("Cliente");
+		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCliente.setBounds(20, 20, 56, 16);
 		contentPane.add(lblCliente);
 
 		Icon iconbuscar = new ImageIcon("images\\buscar.png");
 
 		JLabel lblProduto = new JLabel("Produto");
+		lblProduto.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProduto.setBounds(20, 80, 126, 16);
 		contentPane.add(lblProduto);
 
@@ -137,8 +139,9 @@ public class TelaEntrega extends JFrame {
 		setVisible(true);
 
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimpar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/limpar.png")));
-		btnLimpar.setBounds(490, 391, 110, 32);
+		btnLimpar.setBounds(490, 391, 110, 33);
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				limpar();
@@ -147,8 +150,9 @@ public class TelaEntrega extends JFrame {
 		getContentPane().add(btnLimpar);
 
 		JButton btnGravar = new JButton("Salvar");
+		btnGravar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnGravar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/save.png")));
-		btnGravar.setBounds(40, 391, 110, 32);
+		btnGravar.setBounds(40, 391, 110, 33);
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!txtData.getText().equals("")&&!txtQuantidade.getText().equals("")){
@@ -161,11 +165,13 @@ public class TelaEntrega extends JFrame {
 		getContentPane().add(btnGravar);
 
 		cbCliente = new JComboBox();
-		cbCliente.setBounds(20, 40, 180, 20);
+		cbCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbCliente.setBounds(20, 40, 180, 28);
 		contentPane.add(cbCliente);
 
 		cbProduto = new JComboBox();
-		cbProduto.setBounds(20, 100, 180, 20);
+		cbProduto.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		cbProduto.setBounds(20, 100, 180, 28);
 		contentPane.add(cbProduto);
 		
 
@@ -174,6 +180,7 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(scrollPane);
 
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -184,6 +191,7 @@ public class TelaEntrega extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAdicionar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/adicionar.png")));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -191,14 +199,16 @@ public class TelaEntrega extends JFrame {
 				con.preencher();
 			}
 		});
-		btnAdicionar.setBounds(483, 95, 117, 28);
+		btnAdicionar.setBounds(483, 95, 117, 33);
 		contentPane.add(btnAdicionar);
 		
 		 txtData = new JFormattedTextField(mascara);
-		txtData.setBounds(232, 100, 70, 20);
+		 txtData.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtData.setBounds(232, 100, 70, 28);
 		contentPane.add(txtData);
 		
 		txtQuantidade = new JTextField();
+		txtQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtQuantidade.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -210,36 +220,41 @@ public class TelaEntrega extends JFrame {
                 }
 			}
 		});
-		txtQuantidade.setBounds(365, 100, 70, 20);
+		txtQuantidade.setBounds(365, 100, 70, 28);
 		contentPane.add(txtQuantidade);
 		txtQuantidade.setColumns(10);
 		
 		JLabel lblData = new JLabel("Data de entrega");
-		lblData.setBounds(233, 80, 107, 15);
+		lblData.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblData.setBounds(233, 68, 107, 28);
 		contentPane.add(lblData);
 		
 		JLabel lblQuantidade = new JLabel("Quantidade");
-		lblQuantidade.setBounds(365, 80, 120, 15);
+		lblQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblQuantidade.setBounds(365, 68, 120, 27);
 		contentPane.add(lblQuantidade);
 		
 		textFieldRegiao = new JTextField();
+		textFieldRegiao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textFieldRegiao.setEditable(false);
-		textFieldRegiao.setBounds(232, 40, 318, 19);
+		textFieldRegiao.setBounds(232, 40, 318, 28);
 		contentPane.add(textFieldRegiao);
 		textFieldRegiao.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Região");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("Separa");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.separa();
 			}
 		});
-		btnNewButton.setBounds(180, 391, 117, 32);
+		btnNewButton.setBounds(180, 391, 117, 33);
 		contentPane.add(btnNewButton);
 
 

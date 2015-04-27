@@ -83,6 +83,7 @@ public class TelaConsultaEntrega extends JFrame {
 		contentPane.add(scrollPane);
 
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -96,6 +97,7 @@ public class TelaConsultaEntrega extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JButton btnExportarCvs = new JButton("Exportar para Excel");
+		btnExportarCvs.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnExportarCvs.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/excel.png")));
 		btnExportarCvs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -107,10 +109,11 @@ public class TelaConsultaEntrega extends JFrame {
 				}
 			}
 		});
-		btnExportarCvs.setBounds(40, 350, 159, 32);
+		btnExportarCvs.setBounds(20, 350, 186, 33);
 		contentPane.add(btnExportarCvs);
 
 		JLabel labelCliente = new JLabel("Cliente:");
+		labelCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		labelCliente.setBounds(20, 20, 57, 27);
 		contentPane.add(labelCliente);
 		try {
@@ -122,10 +125,12 @@ public class TelaConsultaEntrega extends JFrame {
 		}
 
 		txtdata = new JFormattedTextField(mascara);
+		txtdata.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtdata.setBounds(370, 20, 122, 27);
 		contentPane.add(txtdata);
 
 		JLabel labelData = new JLabel("Data:");
+		labelData.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		labelData.setBounds(320, 20, 39, 27);
 		contentPane.add(labelData);
 		labelControl = new JLabel("");
@@ -134,6 +139,7 @@ public class TelaConsultaEntrega extends JFrame {
 		labelControl.setBounds(447, 6, 186, 15);
 		contentPane.add(labelControl);
 		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnBuscar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/busca.png")));
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -164,19 +170,21 @@ public class TelaConsultaEntrega extends JFrame {
 
 
 		txtCliente = new JTextField();
+		txtCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtCliente.setEditable(true);
 		txtCliente.setBounds(80, 20, 177, 27);
 		contentPane.add(txtCliente);
 		txtCliente.setColumns(10);
 
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLimpar.setIcon(new ImageIcon(TelaConsultaEntrega.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				control.limpar(getTable(),getLabelgrava(),getTxtCliente(),getTxtdata());
 			}
 		});
-		btnLimpar.setBounds(237, 350, 122, 32);
+		btnLimpar.setBounds(237, 350, 122, 33);
 		contentPane.add(btnLimpar);
 
 		labelgrava = new JLabel();
@@ -187,6 +195,7 @@ public class TelaConsultaEntrega extends JFrame {
 		contentPane.add(labelgrava);
 
 		JButton btnNewButton = new JButton("Detalhes");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
@@ -207,7 +216,7 @@ public class TelaConsultaEntrega extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(536, 350, 101, 32);
+		btnNewButton.setBounds(536, 350, 101, 33);
 		contentPane.add(btnNewButton);
 
 

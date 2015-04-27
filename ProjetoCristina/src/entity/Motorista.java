@@ -4,8 +4,9 @@ public abstract class Motorista {
 
 	private String nome;
 	private String cnh;
-	private String validadeInicio;
-	private String validadeFim;
+	private String rg;
+	private String cpf;
+	private String validade;
 	private String telefone1;
 	private String telefone2;
 	
@@ -21,17 +22,11 @@ public abstract class Motorista {
 	public void setCnh(String cnh) {
 		this.cnh = cnh;
 	}
-	public String getValidadeInicio() {
-		return validadeInicio;
+	public String getValidade() {
+		return validade;
 	}
-	public void setValidadeInicio(String validadeInicio) {
-		this.validadeInicio = validadeInicio;
-	}
-	public String getValidadeFim() {
-		return validadeFim;
-	}
-	public void setValidadeFim(String validadeFim) {
-		this.validadeFim = validadeFim;
+	public void setValidade(String validade) {
+		this.validade = validade;
 	}
 	public String getTelefone1() {
 		return telefone1;
@@ -46,5 +41,16 @@ public abstract class Motorista {
 		this.telefone2 = telefone2;
 	}
 	
-	
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 }
