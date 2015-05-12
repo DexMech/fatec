@@ -1,5 +1,17 @@
 package control;
 
+/**
+ * @author Arthur Gomes
+ * @version 1.2
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 - Criação da classe.</li>
+ * 		<li>1.1 - Implementação da interface CRUD</li>
+ * 		<li>1.2 - Retirada de extends desnecessário</li>
+ * </ul>
+ * 
+ * */
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,15 +20,17 @@ import java.io.IOException;
 
 import entity.Carroceria;
 
-public class CarroceriaControle extends Carroceria implements CRUD{
+public class CarroceriaControle implements CRUD{
 
+	public Carroceria c = new Carroceria();
+	
 	public void InstanciarCarroceriaControle(String nome){
-		setNome(nome);
-		setAltura(nome);
-		setLargura(nome);
-		setComprimento(nome);
-		setPeso(nome);
-		setVolume();
+		c.setNome(nome);
+		c.setAltura(nome);
+		c.setLargura(nome);
+		c.setComprimento(nome);
+		c.setPeso(nome);
+		c.setVolume();
 	}
 	
 	public void gravar() throws IOException{
@@ -24,17 +38,17 @@ public class CarroceriaControle extends Carroceria implements CRUD{
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 
-			bw.write(getNome());
+			bw.write(c.getNome());
 			bw.write(";");
-			bw.write(Double.toString(getPeso()));
+			bw.write(Double.toString(c.getPeso()));
 			bw.write(";");
-			bw.write(Double.toString(getAltura()));
+			bw.write(Double.toString(c.getAltura()));
 			bw.write(";");
-			bw.write(Double.toString(getLargura()));
+			bw.write(Double.toString(c.getLargura()));
 			bw.write(";");
-			bw.write(Double.toString(getComprimento()));
+			bw.write(Double.toString(c.getComprimento()));
 			bw.write(";");
-			bw.write(Double.toString(getVolume()));
+			bw.write(Double.toString(c.getVolume()));
 			bw.write(";");
 			bw.newLine();
 			bw.close();

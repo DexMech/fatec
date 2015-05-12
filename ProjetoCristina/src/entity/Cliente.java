@@ -1,22 +1,26 @@
 package entity;
 
-public abstract class  Cliente {
+/**
+ * @author Tiago Lucas
+ * @version 1.x
+ * 
+ * <ul><h3>Versões:</h3> 
+ * 		<li>1.0 - Criação da classe.</li>
+ * 		<li>1.x - Retirado o tipo <code>abstract</code> da classe.</li>
+ * 		<li>1.x+1 - Adicionado herança. Essa classe agora herda da classe Pessoa.</li>
+ * </ul>
+ *  
+ * Entidade responsável por dados do cliente, que será gravado no Cliente.txt*/
 
-	private String nome;
+public class Cliente extends Pessoa {
+
 	private String endereco;	
 	private int numero;
-	private String telefone;
 	private String bairro;
 	private String cep;
-	private String identificacao;
+	private String identificacao; //referente ao cpf/cnpj que o cliente terá
 	private String diasDaSemana;
 
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	public String getEndereco() {
 		return endereco;
 	}
@@ -28,12 +32,6 @@ public abstract class  Cliente {
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
-	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
 	}
 	public String getBairro() {
 		return bairro;

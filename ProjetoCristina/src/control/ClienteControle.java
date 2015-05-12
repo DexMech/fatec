@@ -1,9 +1,16 @@
+package control;
+
 /**
- * @author Arthur Gomes
+ * @author Tiago Lucas
+ * @version 1.2
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 - Criação da classe.</li>
+ * 		<li>1.1 - Implementação da interface CRUD</li>
+ * 		<li>1.2 - Retirada de extends desnecessário</li>
+ * </ul>
  * 
  * Classe que grava informações do cliente*/
-
-package control;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,37 +22,43 @@ import javax.swing.JOptionPane;
 
 import entity.Cliente;
 
-public class ClienteControle extends Cliente implements CRUD{
+public class ClienteControle implements CRUD{
 
-	public void InstanciarCliente(String nome, String endereco, int numero, String telefone, String bairro, String cep, String indentificacao, String diasDaSemana){
-		setNome(nome);
-		setEndereco(endereco);
-		setNumero(numero);
-		setTelefone(telefone);
-		setBairro(bairro);
-		setCep(cep);
-		setIdentificacao(indentificacao);		
-		setDiasDaSemana(diasDaSemana);
+	Cliente c = new Cliente();
+	
+	public void InstanciarCliente(String nome, String endereco, int numero, String telefone, String celular, String bairro, String cep, String indentificacao, String diasDaSemana){
+		c.setNome(nome);
+		c.setEndereco(endereco);
+		c.setNumero(numero);
+		c.setTelefone(telefone);
+		c.setCelular(celular);
+		c.setBairro(bairro);
+		c.setCep(cep);
+		c.setIdentificacao(indentificacao);		
+		c.setDiasDaSemana(diasDaSemana);
 	}
 	
+	/**
+	 * Método de gravação no txt. O caminho é um package feito para acumular os
+	 * resources gerados pelo programa.*/
 	public void gravar() throws IOException{
 		
 		String filename = "src/BD/Clientes.txt";
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
-			escrever.write(getNome());
+			escrever.write(c.getNome());
 			escrever.write(";");
-			escrever.write(getEndereco()+","+getNumero()+","+getBairro());
-						
-			
+			escrever.write(c.getEndereco()+","+c.getNumero()+","+c.getBairro());
 			escrever.write(";");
-			escrever.write(getTelefone());
+			escrever.write(c.getTelefone());
 			escrever.write(";");
-			escrever.write(getCep());
+			escrever.write(c.getCelular());
 			escrever.write(";");
-			escrever.write(getIdentificacao());
+			escrever.write(c.getCep());
 			escrever.write(";");
-			escrever.write(getDiasDaSemana());
+			escrever.write(c.getIdentificacao());
+			escrever.write(";");
+			escrever.write(c.getDiasDaSemana());
 			escrever.newLine();
 			escrever.close();
 			

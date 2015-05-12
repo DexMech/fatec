@@ -6,32 +6,31 @@
 package boundary;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.ParseException;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import control.ClienteControle;
-import javax.swing.ImageIcon;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.Font;
-import javax.swing.border.BevelBorder;
 
 public class TelaCliente extends JFrame {
 	
@@ -51,12 +50,14 @@ public class TelaCliente extends JFrame {
 	private JTextField txtNumero;
 	private JFormattedTextField txtCPF;
 	private JFormattedTextField txtCNPJ;
+	private JFormattedTextField txtCelular;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
 	private MaskFormatter cpf;
 	private MaskFormatter cep;
 	private MaskFormatter cnpj;
 	private MaskFormatter tel;
+	private MaskFormatter cel;
 	
 	JLabel lblNome = new JLabel("Nome:");
 	JLabel lblTelefone = new JLabel("Telefone:");
@@ -64,6 +65,7 @@ public class TelaCliente extends JFrame {
 	JLabel lblBairro = new JLabel("Bairro:");
 	JLabel lblN = new JLabel("N°");
 	JLabel lblEndereco = new JLabel("Endereço:");
+	JLabel lblCelular = new JLabel("Celular");
 	
 	final JCheckBox chckbxSegunda = new JCheckBox("Segunda");
 	final JCheckBox chckbxTerca = new JCheckBox("Terça");
@@ -89,11 +91,13 @@ public class TelaCliente extends JFrame {
 		cpf = new MaskFormatter("###.###.###-##");
 		cnpj = new MaskFormatter("##.###.###/####-##");
 		tel = new MaskFormatter("(##)####-####");
+		cel = new MaskFormatter("(##)#####-####");
 		
 		cep.setValidCharacters("0123456789");
 		cpf.setValidCharacters("0123456789");
 		cnpj.setValidCharacters("0123456789");
 		tel.setValidCharacters("0123456789");
+		cel.setValidCharacters("0123456789");
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -381,7 +385,7 @@ public class TelaCliente extends JFrame {
 					}
 					
 					cc.InstanciarCliente(txtNome.getText(),txtEndereco.getText(), Integer.parseInt(txtNumero.getText()), txtTelefone.getValue().toString(), 
-							txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
+							txtCelular.getValue().toString(), txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
 					
 					try{
 						cc.gravar();
@@ -442,6 +446,16 @@ public class TelaCliente extends JFrame {
 		lblEndereco.setBounds(10, 60, 77, 17);
 		contentPane.add(lblEndereco);
 		
+		lblCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCelular.setBounds(259, 141, 86, 17);
+		contentPane.add(lblCelular);
+		
+		txtCelular = new JFormattedTextField(cel);
+		txtCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtCelular.setColumns(10);
+		txtCelular.setBounds(329, 137, 116, 25);
+		contentPane.add(txtCelular);
+		
 		
 		
 		setVisible(true);
@@ -471,6 +485,13 @@ public class TelaCliente extends JFrame {
 			
 			txtTelefone.setBackground(new Color(255,250,205));
 			lblTelefone.setForeground(new Color(255,69,0));			
+			tudocerto = false;
+		}
+		
+		if(txtCelular.getValue().toString().isEmpty()){
+			
+			txtCelular.setBackground(new Color(255,250,205));
+			lblCelular.setForeground(new Color(255,69,0));			
 			tudocerto = false;
 		}
 
@@ -518,6 +539,9 @@ public class TelaCliente extends JFrame {
 		txtTelefone.setBackground(Color.WHITE);
 		lblTelefone.setForeground(Color.black);
 		
+		txtCelular.setBackground(Color.WHITE);
+		lblCelular.setForeground(Color.black);
+		
 		txtBairro.setBackground(Color.white);				
 		lblBairro.setForeground(Color.black);
 		
@@ -542,6 +566,7 @@ public class TelaCliente extends JFrame {
 	
 	public void limpar(){
 		txtTelefone.setValue("");
+		txtCelular.setValue("");
 		txtEndereco.setText("");
 		txtBairro.setText("");
 		txtCEP.setValue("");

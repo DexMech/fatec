@@ -1,5 +1,17 @@
 package control;
 
+/**
+ * @author Arthur Gomes
+ * @version 1.2
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 - Criação da classe.</li>
+ * 		<li>1.1 - Implementação da interface CRUD</li>
+ * 		<li>1.2 - Retirada de extends desnecessário</li>
+ * </ul>
+ * 
+ *  Classe criada para controlar os caminhões.*/
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,29 +20,31 @@ import java.io.IOException;
 
 import entity.Caminhao;
 
-public class CaminhaoControle extends Caminhao implements CRUD{
+public class CaminhaoControle implements CRUD{
 
+	public Caminhao c = new Caminhao();
+	
 	public void InstanciarCaminhaoControle(String tipoCaminhao, String numeroPlaca, String cidade, String estado){
-		setTipoCaminhao(tipoCaminhao);
-		setCapacidadeCarga(tipoCaminhao);
-		setNumeroPlaca(numeroPlaca);
-		setCidade(cidade);
-		setEstado(estado);
+		c.setTipoCaminhao(tipoCaminhao);
+		c.setCapacidadeCarga(tipoCaminhao);
+		c.setNumeroPlaca(numeroPlaca);
+		c.setCidade(cidade);
+		c.setEstado(estado);
 	}
 	
 	public void gravar() throws IOException{
 		String fileName = "src/BD/Motoristas.txt";
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
-			bw.write(getTipoCaminhao());
+			bw.write(c.getTipoCaminhao());
 			bw.write(";");
-			bw.write(Integer.toString(getCapacidadeCarga()));
+			bw.write(Integer.toString(c.getCapacidadeCarga()));
 			bw.write(";");
-			bw.write(getNumeroPlaca());
+			bw.write(c.getNumeroPlaca());
 			bw.write(";");
-			bw.write(getCidade());
+			bw.write(c.getCidade());
 			bw.write(";");
-			bw.write(getEstado());
+			bw.write(c.getEstado());
 			bw.write(";");
 			bw.close();
 		} catch(IOException ioe){

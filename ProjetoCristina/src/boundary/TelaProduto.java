@@ -50,16 +50,18 @@ public class TelaProduto extends JFrame {
 	private JLabel lblVolume;
 	private JLabel lblMeCubico;
 	private JLabel lblNome;
+	private JLabel lblFornecedor;
 	
 	private JTextArea taDescritivo;
 	private JScrollPane scrollPane;
 	
 	private JLabel lblAvisoProduto;
+	private JTextField tfFornecedor;
 
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(494, 423);
+		setSize(494, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -107,11 +109,11 @@ public class TelaProduto extends JFrame {
 		
 		lblDescritivo = new JLabel("Descritivo");
 		lblDescritivo.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDescritivo.setBounds(20, 100, 89, 20);
+		lblDescritivo.setBounds(20, 154, 89, 20);
 		contentPane.add(lblDescritivo);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 125, 446, 129);
+		scrollPane.setBounds(20, 179, 446, 129);
 		contentPane.add(scrollPane);
 		
 		taDescritivo = new JTextArea();
@@ -129,12 +131,12 @@ public class TelaProduto extends JFrame {
 		
 		lblPeso = new JLabel("Peso (não ultrapassar 2 t)");
 		lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPeso.setBounds(20, 270, 200, 20);
+		lblPeso.setBounds(20, 324, 200, 20);
 		contentPane.add(lblPeso);
 		
 		tfKg = new JTextField();
 		tfKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfKg.setBounds(20, 290, 71, 23);
+		tfKg.setBounds(20, 344, 71, 23);
 		tfKg.setText("");
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
@@ -172,12 +174,12 @@ public class TelaProduto extends JFrame {
 		
 		lblKg = new JLabel("Kg");
 		lblKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblKg.setBounds(98, 290, 45, 20);
+		lblKg.setBounds(98, 344, 45, 20);
 		contentPane.add(lblKg);
 		
 		tfVolume = new JTextField();
 		tfVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfVolume.setBounds(284, 290, 71, 23);
+		tfVolume.setBounds(284, 344, 71, 23);
 		tfVolume.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -202,24 +204,24 @@ public class TelaProduto extends JFrame {
 		
 		lblVolume = new JLabel("Volume");
 		lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblVolume.setBounds(284, 270, 46, 20);
+		lblVolume.setBounds(284, 324, 46, 20);
 		contentPane.add(lblVolume);
 		
 		lblMeCubico = new JLabel("m\u00B3");
 		lblMeCubico.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMeCubico.setBounds(365, 290, 24, 20);
+		lblMeCubico.setBounds(365, 344, 24, 20);
 		contentPane.add(lblMeCubico);
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSalvar.setBounds(40, 343, 123, 32);
+		btnSalvar.setBounds(40, 397, 123, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ProdutoControle pc = new ProdutoControle();
 				
 				if(valido()){
-					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), taDescritivo.getText(), 
+					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), tfFornecedor.getText(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
 					pc.gravar();
@@ -232,7 +234,7 @@ public class TelaProduto extends JFrame {
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLimpar.setBounds(323, 343, 123, 32);
+		btnLimpar.setBounds(323, 397, 123, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -243,11 +245,23 @@ public class TelaProduto extends JFrame {
 		contentPane.add(btnLimpar);
 		
 		lblAvisoProduto = new JLabel("Produto está acima de 2t");
-		lblAvisoProduto.setBounds(20, 314, 200, 16);
+		lblAvisoProduto.setBounds(20, 368, 200, 16);
 		lblAvisoProduto.setFont(new Font("Dialog", Font.PLAIN, 13));
 		lblAvisoProduto.setForeground(Color.RED);
 		lblAvisoProduto.setVisible(false);
 		contentPane.add(lblAvisoProduto);
+		
+		lblFornecedor = new JLabel("Fornecedor:");
+		lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblFornecedor.setBounds(10, 105, 81, 20);
+		contentPane.add(lblFornecedor);
+		
+		tfFornecedor = new JTextField();
+		tfFornecedor.setText("");
+		tfFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		tfFornecedor.setColumns(10);
+		tfFornecedor.setBounds(88, 105, 378, 23);
+		contentPane.add(tfFornecedor);
 		
 		setVisible(true);
 	}
@@ -266,6 +280,13 @@ public class TelaProduto extends JFrame {
 			
 			lblFabricante.setForeground(new Color(255,69,0));
 			tfFabricante.setBackground(new Color(255,250,205));
+			valido = false;
+		}
+		
+		if(tfFornecedor.getText().isEmpty()){
+			
+			lblFornecedor.setForeground(new Color(255,69,0));
+			tfFornecedor.setBackground(new Color(255,250,205));
 			valido = false;
 		}
 
@@ -299,6 +320,7 @@ public class TelaProduto extends JFrame {
 	public void limpar(){
 		tfNome.setText("");
 		tfFabricante.setText("");
+		tfFornecedor.setText("");
 		tfKg.setText("");
 		tfVolume.setText("");
 		taDescritivo.setText("");
@@ -311,6 +333,9 @@ public class TelaProduto extends JFrame {
 		
 		tfFabricante.setBackground(Color.white);
 		lblFabricante.setForeground(Color.black);
+		
+		tfFornecedor.setBackground(Color.white);
+		lblFornecedor.setForeground(Color.black);
 		
 		taDescritivo.setBackground(Color.white);
 		lblDescritivo.setForeground(Color.black);

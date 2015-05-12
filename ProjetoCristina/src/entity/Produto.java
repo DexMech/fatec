@@ -1,13 +1,22 @@
-/**
- * @author Stefanie
- * */
-
 package entity;
 
-public abstract class Produto {
+/**
+ * @author Stefanie
+ * @version 1.x
+ * 
+ * <ul><h3>Versões:</h3> 
+ * 		<li>1.0 - Criação da classe.</li>
+ * 		<li>1.x - Retirado o tipo <code>abstract</code> da classe.</li>
+ * 		<li>1.x+1 - Adicionado a variável fornecedor, do tipo <code>String</code>.</li>
+ * </ul>
+ *  
+ * Entidade responsável por dados do produto, que será gravado no Produto.txt*/
+
+public class Produto {
 	
 	private String nome;
 	private String fabricante;
+	private String fornecedor;
 	private String descritivo;
 	private float peso;
 	private float metros;
@@ -42,5 +51,11 @@ public abstract class Produto {
 	}
 	public void setMetros(float metros) {
 		this.metros = metros;
+	}
+	public String getFornecedor() {
+		return fornecedor;
+	}
+	public void setFornecedor(String fornecedor) {
+		this.fornecedor = fornecedor;
 	}
 }

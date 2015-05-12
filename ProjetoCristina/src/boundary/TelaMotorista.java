@@ -147,37 +147,36 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		cbCarroceria.setBounds(129, 396, 270, 23);
 		cbCarroceria.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				car.setPeso(cbCarroceria.getSelectedItem().toString());
-				car.setLargura(cbCarroceria.getSelectedItem().toString());
-				car.setAltura(cbCarroceria.getSelectedItem().toString());
-				car.setComprimento(cbCarroceria.getSelectedItem().toString());
-				car.setVolume();
+				car.c.setPeso(cbCarroceria.getSelectedItem().toString());
+				car.c.setLargura(cbCarroceria.getSelectedItem().toString());
+				car.c.setAltura(cbCarroceria.getSelectedItem().toString());
+				car.c.setComprimento(cbCarroceria.getSelectedItem().toString());
+				car.c.setVolume();
 
-				if (car.getPeso() == 0)
+				if (car.c.getPeso() == 0)
 					textPeso.setText("Sem peso");
 				else
-					textPeso.setText(""+car.getPeso());
+					textPeso.setText(""+car.c.getPeso());
 
-				if (car.getLargura() == 0)
+				if (car.c.getLargura() == 0)
 					textLargura.setText(" - ");
 				else
-					textLargura.setText(Double.toString(car.getLargura()));
+					textLargura.setText(Double.toString(car.c.getLargura()));
 
-				if (car.getAltura() == 0)
+				if (car.c.getAltura() == 0)
 					textAltura.setText(" - ");
 				else
-					textAltura.setText(Double.toString(car.getAltura()));
+					textAltura.setText(Double.toString(car.c.getAltura()));
 
-				if (car.getComprimento() == 0)
+				if (car.c.getComprimento() == 0)
 					textComprimento.setText(" - ");
 				else
-					textComprimento.setText(Double.toString(car
-							.getComprimento()));
+					textComprimento.setText(Double.toString(car.c.getComprimento()));
 
-				if (car.getVolume() == 0)
+				if (car.c.getVolume() == 0)
 					textVolume.setText(" - ");
 				else
-					textVolume.setText(Double.toString(car.getVolume()));
+					textVolume.setText(Double.toString(car.c.getVolume()));
 			}
 		});
 		getContentPane().add(cbCarroceria);
@@ -267,9 +266,8 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		cbCaminhao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cbCaminhao.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				cam.setCapacidadeCarga(cbCaminhao.getSelectedItem().toString());
-				textPesoCaminhao.setText(Integer.toString(cam
-						.getCapacidadeCarga()));
+				cam.c.setCapacidadeCarga(cbCaminhao.getSelectedItem().toString());
+				textPesoCaminhao.setText(Integer.toString(cam.c.getCapacidadeCarga()));
 			}
 		});
 		cbCaminhao.setBounds(158, 330, 241, 23);

@@ -1,5 +1,13 @@
 package control;
 
+/**
+ * @author Alex Carlos
+ * @version 1.x
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 Criação da classe.</li>
+ * </ul>*/
+
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,15 +25,12 @@ import javax.swing.JTextArea;
 public class ControlaBackup {
 	private JTextArea text;
 	private JLabel label;
+	
 	public ControlaBackup(JTextArea text,JLabel label){
-
 		this.text = text;
 		this.label = label;
-
-
-
-
 	}
+	
 	public void salvar(){
 		label.setText("");
 		int confere = 0;
@@ -133,9 +138,6 @@ public class ControlaBackup {
 
 	}
 
-	
-	
-	
 	public void escolher(){
 		label.setText("");
 		text.setForeground(Color.BLACK);
@@ -154,6 +156,7 @@ public class ControlaBackup {
 		}
 
 	}
+	
 	public void recuperar(){
 		label.setText("");
 		String get =System.getProperty("os.name");
@@ -201,11 +204,9 @@ public class ControlaBackup {
 			}
 		}
 	}
+	
 	public void limpar(){
-
 		text.setText("");
-
-
 	}
 
 }

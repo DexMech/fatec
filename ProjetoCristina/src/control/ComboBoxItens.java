@@ -1,7 +1,19 @@
 package control;
 
+/**
+ * @author Arthur Gomes
+ * @version 1.0
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 - Criação da classe</li>
+ * </ul>
+ * 
+ * Interface de constantes.*/
+
 public interface ComboBoxItens {
 
+	/**
+	 * Constante para preencher os Estados para as placas de caminhões*/
 	public final String [] ESTADOS = {"Acre - AC", 
 		"Alagoas - AL",
 		"Amapá - AP",
@@ -30,10 +42,14 @@ public interface ComboBoxItens {
 		"Sergipe - SE",
 		"Tocantins - TO"};
 	
+	/**
+	 * Constante para preencher os tipos de caminhão*/
 	public final String VEICULO[] = { "Toco", "Truck", "Carreta 2 Eixos",
 			"Carreta Baú", "Carreta 3 Eixos", "Carreta Cavalo Truckado",
 			"Carreta Cavalo Truckado Baú", "Bi-trem(Treminhão) - 7 eixos" };
 	
+	/**
+	 * Constante para preencher as carrocerias*/
 	public final String CARROCERIA[] = {
 			"Carroceria tipo sider tamanho padrão",
 			"Carroceria tipo sider semi reboque ",

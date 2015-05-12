@@ -1,12 +1,27 @@
 package entity;
 
-public abstract class Caminhao {
+/**
+ * @author Arthur Gomes
+ * @version 1.2
+ * 
+ * 
+ * <ul><h3>Versões:</h3>
+ * 		<li>1.0 - Criação da classe, para tirar as responsabilidades da classe Motorista.</li>
+ * 		<li>1.1 - Retirado o tipo <code>abstract</code> da classe.</li> 
+ * 		<li>1.2 - Adicionado uma instância de pessoa, demonstrando composição</li>
+ * </ul>
+ * 
+ * Classe que corresponde ao caminhão que o motorista irá conduzir. Cada motorista só pode
+ * ter 1 caminhão. Suas informações serão gravadas no arquivo Motorista.txt */
+
+public class Caminhao {
 
 	private String tipoCaminhao;
 	private int capacidadeCarga;
 	private String numeroPlaca;
 	private String cidade;
 	private String estado;
+	Carroceria c = new Carroceria();
 	
 	public String getTipoCaminhao() {
 		return tipoCaminhao;

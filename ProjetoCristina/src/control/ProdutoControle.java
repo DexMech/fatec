@@ -1,6 +1,14 @@
-// @author Stefanie
-
 package control;
+
+/**
+ * @author Stefanie Lima
+ * @version 1.x
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 - Criação da classe</li>
+ * 		<li>1.1 - Implementação da interface CRUD</li>
+ * 		<li>1.2 - Retirada de extends desnecessário</li>
+ * </ul>*/
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,15 +20,18 @@ import javax.swing.JOptionPane;
 
 import entity.Produto;
 
-public class ProdutoControle extends Produto implements CRUD{
+public class ProdutoControle implements CRUD{
 	
-	public void InstanciaProdutoControle(String nome, String fabricante, String descritivo, float kg, float metros){
+	Produto p = new Produto();
+	
+	public void InstanciaProdutoControle(String nome, String fabricante, String fornecedor, String descritivo, float kg, float metros){
 		
-		setNome(nome);
-		setFabricante(fabricante);
-		setDescritivo(descritivo);
-		setKg(kg);
-		setMetros(metros);		
+		p.setNome(nome);
+		p.setFabricante(fabricante);
+		p.setFornecedor(fornecedor);
+		p.setDescritivo(descritivo);
+		p.setKg(kg);
+		p.setMetros(metros);		
 		
 	}
 	
@@ -29,15 +40,17 @@ public class ProdutoControle extends Produto implements CRUD{
 		
 		try{
 			BufferedWriter write = new BufferedWriter(new FileWriter(filename, true));
-			write.write(getNome());
+			write.write(p.getNome());
 			write.write(";");
-			write.write(getFabricante());
+			write.write(p.getFabricante());
 			write.write(";");
-			write.write(getDescritivo().trim());
+			write.write(p.getFornecedor());
 			write.write(";");
-			write.write(Float.toString(getKg()));
+			write.write(p.getDescritivo().trim());
 			write.write(";");
-			write.write(Float.toString(getMetros()));
+			write.write(Float.toString(p.getKg()));
+			write.write(";");
+			write.write(Float.toString(p.getMetros()));
 			write.write(";");
 			write.newLine();
 			write.close();
