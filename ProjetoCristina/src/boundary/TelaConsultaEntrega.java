@@ -1,5 +1,9 @@
 package boundary;
-
+/**
+ * @author Alex Carlos
+ * @version 1.x
+ * 
+ **/
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -37,7 +41,10 @@ public class TelaConsultaEntrega extends JFrame {
 
 
 
-
+/**
+ * M&eacutetodo que retorna o componente LabelGrava
+ * 
+ */
 	public JLabel getLabelgrava() {
 		return labelgrava;
 	}
@@ -51,23 +58,35 @@ public class TelaConsultaEntrega extends JFrame {
 	public JFormattedTextField getTxtdata() {
 		return txtdata;
 	}
-
+/**
+ * criação de uma instância de ControlaConsultaEntrega
+ */
 	private ControlaConsultaEntrega control = new ControlaConsultaEntrega();
+	/**
+	 * M&eacutetodo que retorna o componente getTxtCliente
+	 * @return
+	 */
 	public JTextField getTxtCliente() {
 		return txtCliente;
 	}
-
+/**
+ * M&eacutetodo que retorna o componente Table
+ * @return
+ */
 	public JTable getTable() {
 		return table;
 	}
-
+/**
+ * M&eacutetodo que modifica table
+ * @param table
+ */
 	public void setTable(JTable table) {
 		this.table = table;
 	}
 
 
 	/**
-	 * Create the frame.
+	 * M&eacutetodo Construtor da Classe
 	 */
 	public TelaConsultaEntrega() {
 		setTitle("Consulta de Entregas");

@@ -1,5 +1,9 @@
 package boundary;
-
+/**
+ * @author Alex Carlos
+ * @version 1.x
+ * 
+ **/
 import java.awt.Color;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -20,12 +24,18 @@ public class TelaConsultaEntregaDetalhada extends JFrame {
 	private JPanel contentPane;
 	
 
-
+/**
+ * metodo que retorna o componente textArea
+ * @return
+ */
 	public JTextArea getTextArea() {
 		return textArea;
 	}
 
-
+/**
+ * Método contrutor da classe, que recebe como parâmetro um vetor de objetos
+ * @param objetos
+ */
 	public TelaConsultaEntregaDetalhada(Object[] objetos) {
 		setTitle("Detalhes do Pedido");
 	this.objeto =objetos;
@@ -49,10 +59,17 @@ public class TelaConsultaEntregaDetalhada extends JFrame {
 		textArea.setForeground(Color.BLACK);
 		scrollPane.setViewportView(textArea);
 		textArea.setEditable(false);
+		/**
+		 * método acionado ao abrir a janela
+		 */
 		this.addWindowListener(new WindowListener() {
 			
 			@Override
 			public void windowOpened(WindowEvent e) {
+				/**
+				 * Cria uma novo instancia de ControlaLeituraDetalhada, passando como
+				 * parâmetro um vetor de objetos e um componente TextArea e invocando o método preenche 
+				 */
 				new ControlaLeituraDetalhada(objeto,getTextArea()).preenche();
 				
 			}

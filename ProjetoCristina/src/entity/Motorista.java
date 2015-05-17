@@ -15,13 +15,28 @@ package entity;
  * 
  * Entidade motorista, que será gravada no Motorista.txt juntamente com as classes Caminhão e Carroceria*/
 
-public class Motorista extends Pessoa{
-
+public class Motorista {
+	private String Nome;
 	private String cnh;
+	private String Celular;
+	private String Telefone;
+
+	public String getCelular() {
+		return Celular;
+	}
+	public void setCelular(String celular) {
+		Celular = celular;
+	}
+	public String getTelefone() {
+		return Telefone;
+	}
+	public void setTelefone(String telefone) {
+		Telefone = telefone;
+	}
 	private String rg;
 	private String cpf;
 	private String validade;
-	
+
 	public String getCnh() {
 		return cnh;
 	}
@@ -34,7 +49,7 @@ public class Motorista extends Pessoa{
 	public void setValidade(String validade) {
 		this.validade = validade;
 	}
-	
+
 	public String getRg() {
 		return rg;
 	}
@@ -46,5 +61,11 @@ public class Motorista extends Pessoa{
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public String getNome() {
+		return Nome;
+	}
+	public void setNome(String nome) {
+		Nome = nome;
 	}
 }

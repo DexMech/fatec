@@ -1,5 +1,11 @@
 package control;
-
+/**
+ * @author Alex Carlos
+ * @version 1.x
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 Criação da classe.</li>
+ * </ul>*/
 import java.awt.Color;
 import java.awt.List;
 import java.awt.event.ActionEvent;
