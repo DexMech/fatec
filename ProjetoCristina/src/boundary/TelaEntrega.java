@@ -1,5 +1,11 @@
 package boundary;
-
+/**
+ * @author Alex Carlos e Marcio augusto
+ * @version 1.x
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 Criação da classe.</li>
+ * </ul>*/
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -58,13 +64,20 @@ public class TelaEntrega extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Método Construtor da Classe
 	 */
 	public TelaEntrega() {
+		/**
+		 * WindowListener acionado quando a janela é aberta
+		 */
 		this.addWindowListener(new WindowListener() {
 
 			@Override
 			public void windowOpened(WindowEvent e) {
+				/**
+				 * Criação de uma instacia de ControleTelaEntregas
+				 * @param  getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao()
+				 */
 				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.ler();
 

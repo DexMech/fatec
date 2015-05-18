@@ -12,7 +12,7 @@ package entity;
  *  
  * Entidade responsável por dados do cliente, que será gravado no Cliente.txt*/
 
-public class Cliente extends Pessoa {
+public class Cliente {
 
 	private String endereco;	
 	private int numero;
@@ -20,7 +20,28 @@ public class Cliente extends Pessoa {
 	private String cep;
 	private String identificacao; //referente ao cpf/cnpj que o cliente terá
 	private String diasDaSemana;
+	private String Nome;
+	private String Telefone;
+	private String Celular;
 
+	public String getNome() {
+		return Nome;
+	}
+	public void setNome(String nome) {
+		Nome = nome;
+	}
+	public String getTelefone() {
+		return Telefone;
+	}
+	public void setTelefone(String telefone) {
+		Telefone = telefone;
+	}
+	public String getCelular() {
+		return Celular;
+	}
+	public void setCelular(String celular) {
+		Celular = celular;
+	}
 	public String getEndereco() {
 		return endereco;
 	}

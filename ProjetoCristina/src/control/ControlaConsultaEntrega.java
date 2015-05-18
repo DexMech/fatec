@@ -1,5 +1,11 @@
 package control;
-
+/**
+ * @author Alex Carlos
+ * @version 1.x
+ * 
+ * <ul><h3>Versões</h3>
+ * 		<li>1.0 Criação da classe.</li>
+ * </ul>*/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

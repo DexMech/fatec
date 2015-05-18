@@ -1,5 +1,7 @@
 package boundary;
-
+/**
+ * @author Alex carlos
+ */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,6 +15,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.io.ObjectInputStream.GetField;
 
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
@@ -44,7 +47,7 @@ public class TelaBackup extends JFrame {
 
 
 	/**
-	 * Create the frame.
+	 * Método Construtor da classe
 	 */
 	public TelaBackup() {
 		setTitle("Tela de Backups e Restauração");
