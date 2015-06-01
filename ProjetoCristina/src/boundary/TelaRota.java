@@ -17,6 +17,10 @@ import control.ControlaTelaRota;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.JComboBox;
 
 public class TelaRota extends JFrame {
 
@@ -25,8 +29,16 @@ public class TelaRota extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtmotorista;
+	private JComboBox ComboMot;
 	private JFormattedTextField txtdata;
+	public JComboBox getComboMot() {
+		return ComboMot;
+	}
+
+	public JFormattedTextField getTxtdata() {
+		return txtdata;
+	}
+
 	public JTable getTable() {
 		return table;
 	}
@@ -45,6 +57,50 @@ public class TelaRota extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaRota() {
+		this.addWindowListener(new WindowListener() {
+			
+			@Override
+			public void windowOpened(WindowEvent e) {
+				new ControlaTelaRota().Pegamotorista(getComboMot());
+				
+			}
+			
+			@Override
+			public void windowIconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeiconified(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowDeactivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosing(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowClosed(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void windowActivated(WindowEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		setVisible(true);
 		setTitle("Roteirização");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -54,18 +110,13 @@ public class TelaRota extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtmotorista = new JTextField();
-		txtmotorista.setBounds(30, 119, 140, 25);
-		contentPane.add(txtmotorista);
-		txtmotorista.setColumns(10);
-		
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ControlaTelaRota(getTable(),txtmotorista,txtdata).rota();
+				new ControlaTelaRota().rota(getTable(),ComboMot,getTxtdata());
 			}
 		});
-		btnBuscar.setBounds(179, 119, 117, 28);
+		btnBuscar.setBounds(206, 119, 117, 28);
 		contentPane.add(btnBuscar);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -110,5 +161,9 @@ public class TelaRota extends JFrame {
 		txtdata = new JFormattedTextField(mascara);
 		txtdata.setBounds(30, 66, 140, 25);
 		contentPane.add(txtdata);
+		
+		 ComboMot = new JComboBox();
+		ComboMot.setBounds(40, 121, 140, 24);
+		contentPane.add(ComboMot);
 	}
 }
