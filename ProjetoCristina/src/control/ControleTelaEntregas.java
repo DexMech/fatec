@@ -290,15 +290,20 @@ public class ControleTelaEntregas {
 	}
 	public void separa(){
 
-
+/**
+ * verifica a quantidade de linhas no arquivo Entrega.txt
+ */
 int num = verifica();
-num=num - 1;
-
+num = num - 1;
+System.out.println(num);
 	
 		List temp = new List();
 		try {
 			double calc = 0.0;
 			double recebe=0.0;
+			/**
+			 * abre os arquivos para leitura
+			 */
 			BufferedReader mot = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
 			BufferedReader entrega = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 			BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/EntregaMot.txt",true));

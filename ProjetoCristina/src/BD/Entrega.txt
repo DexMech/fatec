@@ -1,0 +1,27 @@
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;10/11/1992;10;rua colonia leopoldina,198,vila silvia
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;10;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;1;rua da cachaça,1,vila coringa
+joao;forno;china ne;forno que caiu na giovanna;10.0;10.0;  /  /    ;2;rua da cachaça,1,vila coringa

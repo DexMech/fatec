@@ -50,12 +50,13 @@ public class TelaInicial extends JFrame {
 		menu4.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		JMenuItem menu5 = new JMenuItem("Sair");
 		menu5.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		
-		menu5.addActionListener(new ActionListener() {
+		JMenuItem menu6 = new JMenuItem("Roteirizar");
+		menu6.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		menu6.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				new TelaRota().setLocationRelativeTo(null);
 				
 			}
 		});
@@ -128,6 +129,7 @@ public class TelaInicial extends JFrame {
 		menu.add(menu3);
 		menu.add(menu41);
 		menu.add(menu4);
+		menu.add(menu6);
 		menu.add(menu5);
 
 		barraMenu.add(menu);

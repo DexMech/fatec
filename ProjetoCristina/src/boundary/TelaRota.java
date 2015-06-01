@@ -1,9 +1,4 @@
 package boundary;
-/**
- * @author Alex Carlos
- */
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.text.ParseException;
 
 import javax.swing.JFrame;
@@ -18,52 +13,63 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
 
+import control.ControlaTelaRota;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class TelaRota extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtmotorista;
+	private JFormattedTextField txtdata;
+	public JTable getTable() {
+		return table;
+	}
+
 	private JTable table;
 	private MaskFormatter mascara;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TelaRota frame = new TelaRota();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
+				
+		
 
 	/**
 	 * Create the frame.
 	 */
 	public TelaRota() {
+		setVisible(true);
 		setTitle("Roteirização");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 592, 498);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 806, 506);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		txtmotorista = new JTextField();
-		txtmotorista.setBounds(30, 125, 114, 19);
+		txtmotorista.setBounds(30, 119, 140, 25);
 		contentPane.add(txtmotorista);
 		txtmotorista.setColumns(10);
 		
 		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(179, 122, 117, 25);
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ControlaTelaRota(getTable(),txtmotorista,txtdata).rota();
+			}
+		});
+		btnBuscar.setBounds(179, 119, 117, 28);
 		contentPane.add(btnBuscar);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(29, 171, 551, 232);
+		scrollPane.setBounds(29, 171, 752, 232);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -101,8 +107,8 @@ public class TelaRota extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		JFormattedTextField formattedTextField = new JFormattedTextField(mascara);
-		formattedTextField.setBounds(30, 72, 114, 19);
-		contentPane.add(formattedTextField);
+		txtdata = new JFormattedTextField(mascara);
+		txtdata.setBounds(30, 66, 140, 25);
+		contentPane.add(txtdata);
 	}
 }
