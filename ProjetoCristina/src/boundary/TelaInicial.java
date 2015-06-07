@@ -46,11 +46,13 @@ public class TelaInicial extends JFrame {
 		Entregas.add(CadEnt);
 		Entregas.add(View);
 		JMenuItem Back=new JMenuItem("Backup e Restauração");
+		JMenuItem Rota=new JMenuItem("Roteirização");
 		JMenuItem Sair=new JMenuItem("Sair");
 		
 		menu.add(cadastro);
 		menu.add(Entregas);
 		menu.add(Back);
+		menu.add(Rota);
 		menu.add(Sair);
 		barraMenu.add(menu);
 		CadCli.addActionListener(new ActionListener() {
@@ -115,6 +117,14 @@ public class TelaInicial extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
+				
+			}
+		});
+		Rota.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TelaRota().setLocationRelativeTo(null);
 				
 			}
 		});
