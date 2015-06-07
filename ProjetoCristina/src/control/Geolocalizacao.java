@@ -48,7 +48,7 @@ public class Geolocalizacao extends JFrame {
 			
 			
 		
-		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ "03821-020"+"&destinations="+ a.replace(" ", "+") +"&mode=driving&language=pt-BR&sensor=false";
+		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ "03821-020"+"&destinations="+ a.replace(" ", "+") +"&mode=driving&language=pt-BR&region=br&sensor=false";
 		
 	
 		URL url = null;

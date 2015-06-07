@@ -36,6 +36,7 @@ public class ClienteControle implements CRUD{
 		c.setCep(cep);
 		c.setIdentificacao(indentificacao);		
 		c.setDiasDaSemana(diasDaSemana);
+		
 	}
 	
 	/**
@@ -46,6 +47,9 @@ public class ClienteControle implements CRUD{
 		String filename = "src/BD/Clientes.txt";
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
+			Geolocalizacao geo = new Geolocalizacao();
+			escrever.write(geo.pesquisa(c.getCep()));
+			escrever.write(";");
 			escrever.write(c.getNome());
 			escrever.write(";");
 			escrever.write(c.getEndereco()+","+c.getNumero()+","+c.getBairro());

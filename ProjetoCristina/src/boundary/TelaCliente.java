@@ -31,6 +31,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
 import control.ClienteControle;
+import control.Geolocalizacao;
 
 public class TelaCliente extends JFrame {
 	
@@ -65,7 +66,7 @@ public class TelaCliente extends JFrame {
 	JLabel lblBairro = new JLabel("Bairro:");
 	JLabel lblN = new JLabel("N°");
 	JLabel lblEndereco = new JLabel("Endereço:");
-	JLabel lblCelular = new JLabel("Celular");
+	JLabel lblCelular = new JLabel("Celular:");
 	
 	final JCheckBox chckbxSegunda = new JCheckBox("Segunda");
 	final JCheckBox chckbxTerca = new JCheckBox("Terça");
@@ -101,7 +102,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(470, 506);
+		setSize(606, 506);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -114,7 +115,7 @@ public class TelaCliente extends JFrame {
 		
 		txtNome = new JTextField();
 		txtNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNome.setBounds(80, 17, 365, 25);
+		txtNome.setBounds(90, 15, 419, 25);
 		txtNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -129,12 +130,12 @@ public class TelaCliente extends JFrame {
 		lblTelefone.setBounds(10, 141, 86, 17);
 		contentPane.add(lblTelefone);
 		lblCep.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCep.setBounds(318, 100, 46, 22);
+		lblCep.setBounds(354, 100, 46, 22);
 		contentPane.add(lblCep);
 		
 		txtEndereco = new JTextField();
 		txtEndereco.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtEndereco.setBounds(80, 57, 263, 25);
+		txtEndereco.setBounds(90, 54, 310, 25);
 		txtEndereco.setText("");
 		contentPane.add(txtEndereco);
 		txtEndereco.setColumns(10);
@@ -148,7 +149,7 @@ public class TelaCliente extends JFrame {
 		
 		txtTelefone = new JFormattedTextField(tel);
 		txtTelefone.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtTelefone.setBounds(80, 137, 116, 25);
+		txtTelefone.setBounds(90, 137, 116, 25);
 		txtTelefone.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -161,7 +162,7 @@ public class TelaCliente extends JFrame {
 		txtTelefone.setColumns(10);
 		
 		txtCEP = new JFormattedTextField(cep);
-		txtCEP.setBounds(359, 97, 86, 25);
+		txtCEP.setBounds(400, 99, 109, 25);
 		txtCEP.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -178,7 +179,7 @@ public class TelaCliente extends JFrame {
 		
 		txtBairro = new JTextField();
 		txtBairro.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtBairro.setBounds(80, 97, 210, 25);
+		txtBairro.setBounds(90, 99, 210, 25);
 		txtBairro.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent arg0) {
@@ -190,12 +191,12 @@ public class TelaCliente extends JFrame {
 		contentPane.add(txtBairro);
 		txtBairro.setColumns(10);
 		lblN.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblN.setBounds(356, 53, 17, 29);
+		lblN.setBounds(418, 54, 17, 29);
 		contentPane.add(lblN);
 		
 		txtNumero = new JTextField();
 		txtNumero.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		txtNumero.setBounds(383, 57, 62, 25);
+		txtNumero.setBounds(448, 54, 62, 25);
 		txtNumero.setText("");
 		txtNumero.addKeyListener(new KeyAdapter() {
 			@Override
@@ -248,9 +249,9 @@ public class TelaCliente extends JFrame {
 		txtCNPJ.setVisible(false);
 		
 		JLabel lblJanelaDeEntrega = new JLabel("Janela de Entrega");
-		lblJanelaDeEntrega.setBounds(178, 231, 103, 14);
+		lblJanelaDeEntrega.setBounds(178, 231, 143, 14);
 		contentPane.add(lblJanelaDeEntrega);
-		panel.setBounds(93, 256, 263, 130);
+		panel.setBounds(93, 256, 362, 130);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -302,7 +303,7 @@ public class TelaCliente extends JFrame {
 				lblAvisoDia.setVisible(false);
 			}
 		});
-		chckbxSexta.setBounds(164, 7, 97, 23);
+		chckbxSexta.setBounds(257, 7, 97, 23);
 		panel.add(chckbxSexta);
 		chckbxSabado.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
@@ -312,7 +313,7 @@ public class TelaCliente extends JFrame {
 				lblAvisoDia.setVisible(false);
 			}
 		});
-		chckbxSabado.setBounds(164, 31, 97, 23);
+		chckbxSabado.setBounds(257, 31, 97, 23);
 		panel.add(chckbxSabado);
 		chckbxDomingo.setFont(new Font("Tahoma", Font.PLAIN, 14));
 			
@@ -322,7 +323,7 @@ public class TelaCliente extends JFrame {
 				lblAvisoDia.setVisible(false);
 			}
 		});
-		chckbxDomingo.setBounds(164, 57, 97, 23);
+		chckbxDomingo.setBounds(257, 57, 97, 23);
 		panel.add(chckbxDomingo);
 		
 		lblAvisoDia = new JLabel("Selecione ao menos um dia da semana");
@@ -388,6 +389,8 @@ public class TelaCliente extends JFrame {
 							txtCelular.getValue().toString(), txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
 					
 					try{
+						Geolocalizacao geo = new Geolocalizacao();
+						geo.pesquisa(txtCEP.getText());
 						cc.gravar();
 						limpar();
 						LimpaFormatacao();
@@ -404,7 +407,7 @@ public class TelaCliente extends JFrame {
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLimpar.setBounds(286, 419, 103, 32);
+		btnLimpar.setBounds(286, 419, 127, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -447,13 +450,13 @@ public class TelaCliente extends JFrame {
 		contentPane.add(lblEndereco);
 		
 		lblCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCelular.setBounds(259, 141, 86, 17);
+		lblCelular.setBounds(327, 141, 62, 17);
 		contentPane.add(lblCelular);
 		
 		txtCelular = new JFormattedTextField(cel);
 		txtCelular.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		txtCelular.setColumns(10);
-		txtCelular.setBounds(329, 137, 116, 25);
+		txtCelular.setBounds(393, 137, 116, 25);
 		contentPane.add(txtCelular);
 		
 		
