@@ -139,7 +139,7 @@ public class ControleTelaEntregas {
 								if(cbCliente.getSelectedItem()!=""){
 									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-										regiao.setText(recebe[1]);
+										regiao.setText(recebe[1]+","+recebe[4]);
 									}
 								}
 								else{
@@ -316,7 +316,7 @@ System.out.println(num);
 				listaMotorista.add(cont);
 
 			}
-			recebe = Double.parseDouble(listaMotorista.getItem(7));
+			recebe = Double.parseDouble(listaMotorista.getItem(8));
 
 
 
@@ -329,7 +329,7 @@ System.out.println(num);
 
 				}
 				
-				calc = Double.parseDouble(listaEntrega.getItem(4))*Double.parseDouble(listaEntrega.getItem(7));
+				calc = Double.parseDouble(listaEntrega.getItem(7))*Double.parseDouble(listaEntrega.getItem(7));
 
 
 
@@ -342,12 +342,13 @@ System.out.println(num);
 						listaMotorista.add(cont);
 
 					}
-					recebe = Double.parseDouble(listaMotorista.getItem(7));
+					recebe = Double.parseDouble(listaMotorista.getItem(8));
 				}
 
 
-				
-				escrita.write(listaMotorista.getItem(6));
+				escrita.write(listaMotorista.getItem(0));
+				escrita.write(";");
+				escrita.write(listaMotorista.getItem(7));
 				escrita.write(";");
 				for(int i=0;i<listaEntrega.getItemCount();i++){
 					escrita.write(listaEntrega.getItem(i));

@@ -1,2 +1,1 @@
-﻿alex;rua colonia leopoldina,198,vila silvia;(11)9873-6390;03821-020;087.464.584-09;Segunda;Terca;Nada;Nada;Nada;Nada;Nada;
-joao;rua da cachaça,1,vila coringa;(11)9873-6390;(11)98988-9898;03821-020;087.464.584-09;Nada;Nada;Nada;Nada;Sexta;Sabado;Nada;
+﻿alex;rua colonia leopoldina,198,vila silvia;(11)9873-6390;(11)98736-3633;03821-020;087.464.584-09;Segunda;Terca;Quarta;Nada;Nada;Nada;Nada;

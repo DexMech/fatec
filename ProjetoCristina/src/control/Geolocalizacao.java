@@ -42,14 +42,14 @@ public class Geolocalizacao extends JFrame {
 	/**
 	 * pesquisa a distancia entre pontos
 	 */
-	public void pesquisa(ArrayList<String >a){
+	public String pesquisa(String a){
+	String pega = null;
 	
-		for(String as:a){
 			
 			
 		
-		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ "03821-020"+"&destinations="+ as.replaceAll(" ", "+") +"&mode=driving&language=pt-BR&sensor=false";
-		System.out.println(s);
+		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ "03821-020"+"&destinations="+ a.replace(" ", "+") +"&mode=driving&language=pt-BR&sensor=false";
+		
 	
 		URL url = null;
 		try {
@@ -81,16 +81,18 @@ public class Geolocalizacao extends JFrame {
 		JSONObject res = obj.getJSONArray("rows").getJSONObject(0);
 		JSONObject loc = res.getJSONArray("elements").getJSONObject(0);
 		JSONObject d = loc.getJSONObject("distance");
-		System.out.println("distancia: " + d.get("text")+" ou "+d.get("value")+" metros");
+		
+		pega=(String) d.get("text");
 		}catch(JSONException ex){
 			
 			System.out.println("problema com o cep");
 		}
+		return pega;
 		
 		
 			
 			
 		
 		}
-	}
+	
 }
