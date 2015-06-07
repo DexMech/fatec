@@ -127,7 +127,7 @@ public class ControleTelaEntregas {
 			while(entrada.ready()){
 				String[] recebe = entrada.readLine().split(";");
 
-				cbCliente.addItem(recebe[0]);
+				cbCliente.addItem(recebe[1]);
 				cbCliente.addActionListener(new ActionListener() {
 
 					@Override
@@ -142,7 +142,7 @@ public class ControleTelaEntregas {
 								if(cbCliente.getSelectedItem()!=""){
 									if(linha.contains(cbCliente.getSelectedItem().toString())){
 
-										regiao.setText(recebe[1]+","+recebe[4]);
+										regiao.setText(recebe[2]+","+recebe[5]);
 									}
 								}
 								else{
