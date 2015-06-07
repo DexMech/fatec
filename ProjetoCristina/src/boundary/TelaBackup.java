@@ -50,6 +50,7 @@ public class TelaBackup extends JFrame {
 	 * Método Construtor da classe
 	 */
 	public TelaBackup() {
+		setVisible(true);
 		setTitle("Tela de Backups e Restauração");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 627, 567);

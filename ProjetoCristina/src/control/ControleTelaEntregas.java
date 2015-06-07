@@ -46,6 +46,9 @@ public class ControleTelaEntregas {
 	private JFormattedTextField data;
 	private JTextField regiao;
 	private TelaEntrega tela;
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public ControleTelaEntregas(JComboBox cbCliente,JComboBox cbProduto,JTable tabela,JTextField quantidade,JFormattedTextField data,JTextField regiao){
 		this.cbCliente = cbCliente;
 		this.cbProduto = cbProduto;
