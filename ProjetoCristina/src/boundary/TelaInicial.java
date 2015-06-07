@@ -123,15 +123,15 @@ public class TelaInicial extends JFrame {
 		});
 	
 
-		menu.add(menu0);
+		
 		menu.add(menu1);
 		menu.add(menu2);
 		menu.add(menu3);
 		menu.add(menu41);
 		menu.add(menu4);
 		menu.add(menu6);
+		menu.add(menu0);
 		menu.add(menu5);
-
 		barraMenu.add(menu);
 		
 		//JMenu menu = new JMenu("Backup e restauração");

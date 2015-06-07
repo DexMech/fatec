@@ -259,7 +259,7 @@ public class TelaEntrega extends JFrame {
 		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Separa");
+		JButton btnNewButton = new JButton("Separa por Motorista");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -267,7 +267,7 @@ public class TelaEntrega extends JFrame {
 				con.separa();
 			}
 		});
-		btnNewButton.setBounds(180, 391, 117, 33);
+		btnNewButton.setBounds(180, 391, 195, 33);
 		contentPane.add(btnNewButton);
 
 

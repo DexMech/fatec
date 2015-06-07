@@ -5,10 +5,8 @@
 package control;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
@@ -47,29 +45,30 @@ public class ControlaTelaRota {
 
 		modelo  = (DefaultTableModel) tabela.getModel();
 		try {
+			
 			BufferedReader le = new BufferedReader(new FileReader("src/BD/EntregaMot.txt"));
 			VerificaLinhas veri = new VerificaLinhas();
 			int num =veri.verifica("src/BD/EntregaMot.txt");
-			num=num-1;
+			num = num - 1;
 			int i=1;
 			String linha =le.readLine();
 			String[] recebelinha;
+			String[] cep;
+			String cepp;
 			while(i<=num){
 				bu.setLength(0);
 				lala=null;
-
 				recebelinha=null;
-
+				cep=null;
+				cepp=null;
 				if(linha.contains(combo.getSelectedItem().toString())){
-
 					recebelinha = linha.split(";");
-
-
-
+					cep=recebelinha[10].split(",");
+					cepp=cep[3];
 					as = geo.pesquisa(recebelinha[10].replace(",", "+"));
 					bu.append(recebelinha[2]);
 					bu.append(";");
-					bu.append("fap");
+					bu.append(cepp);
 					bu.append(";");
 					bu.append(as);
 					bu.append(";");
@@ -80,12 +79,8 @@ public class ControlaTelaRota {
 
 				}
 
-
-
 				linha=le.readLine();
 				i++;	
-
-
 			}
 
 
@@ -96,14 +91,11 @@ public class ControlaTelaRota {
 		}
 
 
-
-
-
-
-
-
 	}
-
+	/**
+	 * preenche combobox com nome dos motoristas
+	 * @param combo
+	 */
 	public void Pegamotorista(JComboBox combo){
 		try {
 			BufferedReader le = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
