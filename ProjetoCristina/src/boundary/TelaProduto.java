@@ -61,7 +61,7 @@ public class TelaProduto extends JFrame {
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(494, 468);
+		setSize(560, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,12 +71,12 @@ public class TelaProduto extends JFrame {
 		
 		lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNome.setBounds(10, 20, 45, 20);
+		lblNome.setBounds(10, 20, 68, 20);
 		contentPane.add(lblNome);
 		
 		tfNome = new JTextField();
 		tfNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfNome.setBounds(88, 20, 378, 23);
+		tfNome.setBounds(113, 19, 378, 23);
 		tfNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -90,12 +90,12 @@ public class TelaProduto extends JFrame {
 		
 		lblFabricante = new JLabel("Fabricante:");
 		lblFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFabricante.setBounds(10, 60, 68, 20);
+		lblFabricante.setBounds(10, 60, 89, 20);
 		contentPane.add(lblFabricante);
 		
 		tfFabricante = new JTextField();
 		tfFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfFabricante.setBounds(88, 60, 378, 23);
+		tfFabricante.setBounds(113, 59, 378, 23);
 		tfFabricante.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -204,7 +204,7 @@ public class TelaProduto extends JFrame {
 		
 		lblVolume = new JLabel("Volume");
 		lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblVolume.setBounds(284, 324, 46, 20);
+		lblVolume.setBounds(284, 324, 68, 20);
 		contentPane.add(lblVolume);
 		
 		lblMeCubico = new JLabel("m\u00B3");
@@ -234,7 +234,7 @@ public class TelaProduto extends JFrame {
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLimpar.setBounds(323, 397, 123, 32);
+		btnLimpar.setBounds(402, 397, 123, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -253,14 +253,14 @@ public class TelaProduto extends JFrame {
 		
 		lblFornecedor = new JLabel("Fornecedor:");
 		lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFornecedor.setBounds(10, 105, 81, 20);
+		lblFornecedor.setBounds(10, 105, 99, 20);
 		contentPane.add(lblFornecedor);
 		
 		tfFornecedor = new JTextField();
 		tfFornecedor.setText("");
 		tfFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tfFornecedor.setColumns(10);
-		tfFornecedor.setBounds(88, 105, 378, 23);
+		tfFornecedor.setBounds(113, 104, 378, 23);
 		contentPane.add(tfFornecedor);
 		
 		setVisible(true);

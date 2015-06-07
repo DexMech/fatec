@@ -254,7 +254,7 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(textFieldRegiao);
 		textFieldRegiao.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Região");
+		JLabel lblNewLabel = new JLabel("Endereço");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
