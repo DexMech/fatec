@@ -1,2 +1,10 @@
 ﻿0,8 km;alex;1611,11,vila;(11)1111-1111;(11)11111-1111;03821-000;087.464.584-44;Segunda;Terca;Nada;Nada;Nada;Nada;Nada;
-1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;03822-000;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;03694-000;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;08223-355;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;08270-070;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;04101-000;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;03066-065;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;01310-200;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;04263-200;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;04004-001;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;
+1,5 km;alex;rua colonia leopoldina,198,bloco 10 apartamento;(11)1111-1111;(11)11111-1111;04094-030;111.111.111-11;Segunda;Nada;Nada;Nada;Nada;Nada;Nada;

@@ -43,56 +43,46 @@ public class Geolocalizacao extends JFrame {
 	 * pesquisa a distancia entre pontos
 	 */
 	public String pesquisa(String origem, String destino){
-	String pega = null;
-	
-			
-			
+		String pega = null;
+		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origem +"&destinations="+ destino.replace(" ", "+") +"&mode=driving&language=pt-BR&region=BR&sensor=false";
 		
-		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origem +"&destinations="+ destino.replace(" ", "+") +"&mode=driving&language=pt-BR&region=br&sensor=false";
-		
-	
 		URL url = null;
+		
 		try {
 			url = new URL(s);
 		} catch (MalformedURLException es) {
-			// TODO Auto-generated catch block
 			es.printStackTrace();
 		}
 
-		// read from the URL
 		Scanner scan = null;
+
 		try {
 			scan = new Scanner(url.openStream());
 		} catch (IOException es) {
-			
 			es.printStackTrace();
 		}
+		
 		String str = new String();
+		
 		while (scan.hasNext())
 			str += scan.nextLine();
-		scan.close();
+			scan.close();
 
 		// build a JSON object
+		
 		JSONObject obj = new JSONObject(str);
-	;
-
-		
-		try{
-		JSONObject res = obj.getJSONArray("rows").getJSONObject(0);
-		JSONObject loc = res.getJSONArray("elements").getJSONObject(0);
-		JSONObject d = loc.getJSONObject("distance");
-		
-		pega=(String) d.get("text");
-		}catch(JSONException ex){
 			
+		try{
+			JSONObject res = obj.getJSONArray("rows").getJSONObject(0);
+			JSONObject loc = res.getJSONArray("elements").getJSONObject(0);
+			JSONObject d = loc.getJSONObject("distance");
+		
+			pega=(String) d.get("text");
+		}catch(JSONException ex){
 			System.out.println("problema com o cep");
 		}
+		
 		return pega;
-		
-		
-			
-			
-		
-		}
+	}
 	
 }

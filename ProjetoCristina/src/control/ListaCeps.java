@@ -1,0 +1,87 @@
+package control;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ListaCeps {
+
+	public String listaCeps[];
+	private int tamanho;
+	private int inicio;
+	private double distanciaMinima = Double.MAX_VALUE;
+	
+	public ListaCeps() throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
+		int numLinhas = 0;
+		
+		while (br.ready()){
+			br.readLine();
+			numLinhas ++;
+		}
+		
+		listaCeps = new String[numLinhas];
+		tamanho = 0;
+	}
+	
+	public void removeCep(int p){
+		listaCeps[0] = listaCeps[p];
+		
+		for (int i = p; i < tamanho - 1; i ++){
+			listaCeps[i] = listaCeps[i + 1];
+		}
+		
+		tamanho --;
+	}
+	
+	public int getTamanho(){
+		return tamanho;
+	}
+	
+	public void preencherLista() throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
+		
+		for (int i = 0; i < listaCeps.length; i ++){
+			String ceps[] = br.readLine().split(";");
+			
+			listaCeps[i] = ceps[5];
+			tamanho ++;
+		}
+		
+		br.close();
+	}
+	
+	public void calculoDistancias(){
+		
+		try {
+			preencherLista();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		FilaCeps fc = new FilaCeps(tamanho);
+		Roterizacao r = new Roterizacao();
+		double distancia = 0;
+		int posicao = 0;
+		
+		while (tamanho > 1){
+			for (int i = 1; i < tamanho; i ++){
+				distancia = r.roterizar(listaCeps[0], listaCeps[i]);
+				
+				if (distancia < distanciaMinima){
+					distanciaMinima = distancia;
+					posicao = i;
+				}
+			}
+			
+			removeCep(posicao);
+			fc.adicionaCep(distanciaMinima, listaCeps[0]);
+			
+			distanciaMinima = Double.MAX_VALUE;
+		}
+		
+		fc.mostrar();
+		
+		System.out.println("Distancia total percorrida: " + fc.distanciaTotal() + " km");
+	}
+}

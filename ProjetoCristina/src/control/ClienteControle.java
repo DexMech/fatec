@@ -41,7 +41,7 @@ public class ClienteControle implements CRUD{
 	
 	/**
 	 * Método de gravação no txt. O caminho é um package feito para acumular os
-	 * resources gerados pelo programa.*/
+	 * resources gerados pelo programa juntamente ao nome do arquivo.*/
 	public void gravar(String fileName) throws IOException{
 		
 		try{
