@@ -33,8 +33,8 @@ public class CarroceriaControle implements CRUD{
 		c.setVolume();
 	}
 	
-	public void gravar() throws IOException{
-		String fileName = "src/BD/Motoristas.txt";
+	public void gravar(String fileName) throws IOException{
+		
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 

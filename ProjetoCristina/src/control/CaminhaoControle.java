@@ -32,8 +32,7 @@ public class CaminhaoControle implements CRUD{
 		c.setEstado(estado);
 	}
 	
-	public void gravar() throws IOException{
-		String fileName = "src/BD/Motoristas.txt";
+	public void gravar(String fileName) throws IOException{
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			bw.write(c.getTipoCaminhao());

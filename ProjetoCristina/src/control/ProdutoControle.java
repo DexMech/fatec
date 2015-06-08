@@ -35,11 +35,10 @@ public class ProdutoControle implements CRUD{
 		
 	}
 	
-	public void gravar() {
-		String filename = "src/BD/Produtos.txt";
-		
+	public void gravar(String fileName) {
+				
 		try{
-			BufferedWriter write = new BufferedWriter(new FileWriter(filename, true));
+			BufferedWriter write = new BufferedWriter(new FileWriter(fileName, true));
 			write.write(p.getNome());
 			write.write(";");
 			write.write(p.getFabricante());

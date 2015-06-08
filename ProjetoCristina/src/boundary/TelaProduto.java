@@ -224,7 +224,7 @@ public class TelaProduto extends JFrame {
 					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), tfFornecedor.getText(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
-					pc.gravar();
+					pc.gravar("src/BD/Produtos.txt");
 					limpar();
 					limpaFormatacao();
 				}

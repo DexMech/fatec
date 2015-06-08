@@ -391,7 +391,7 @@ public class TelaCliente extends JFrame {
 					try{
 						Geolocalizacao geo = new Geolocalizacao();
 						geo.pesquisa(txtCEP.getText());
-						cc.gravar();
+						cc.gravar("src/BD/Clientes.txt");
 						limpar();
 						LimpaFormatacao();
 					}catch(IOException f){

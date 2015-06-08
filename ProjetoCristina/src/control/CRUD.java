@@ -17,7 +17,7 @@ public interface CRUD {
 	 * Interface responsável por garantir que os controles realizem todos os 
 	 * métodos do CRUD*/
 	
-	public void gravar() throws IOException;
+	public void gravar(String fileName) throws IOException;
 	public void deletar(String nome) throws IOException;
 	public void atualizar(String nome) throws IOException;
 	public int ler() throws IOException;

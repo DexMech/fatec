@@ -42,13 +42,13 @@ public class Geolocalizacao extends JFrame {
 	/**
 	 * pesquisa a distancia entre pontos
 	 */
-	public String pesquisa(String a){
+	public String pesquisa(String origem, String destino){
 	String pega = null;
 	
 			
 			
 		
-		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ "03821-020"+"&destinations="+ a.replace(" ", "+") +"&mode=driving&language=pt-BR&region=br&sensor=false";
+		String s = "http://maps.googleapis.com/maps/api/distancematrix/json?origins="+ origem +"&destinations="+ destino.replace(" ", "+") +"&mode=driving&language=pt-BR&region=br&sensor=false";
 		
 	
 		URL url = null;

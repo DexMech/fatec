@@ -42,11 +42,10 @@ public class ClienteControle implements CRUD{
 	/**
 	 * Método de gravação no txt. O caminho é um package feito para acumular os
 	 * resources gerados pelo programa.*/
-	public void gravar() throws IOException{
+	public void gravar(String fileName) throws IOException{
 		
-		String filename = "src/BD/Clientes.txt";
 		try{
-			BufferedWriter escrever = new BufferedWriter(new FileWriter(filename, true));
+			BufferedWriter escrever = new BufferedWriter(new FileWriter(fileName, true));
 			Geolocalizacao geo = new Geolocalizacao();
 			escrever.write(geo.pesquisa(c.getCep()));
 			escrever.write(";");

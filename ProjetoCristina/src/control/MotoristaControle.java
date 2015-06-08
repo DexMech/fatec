@@ -39,8 +39,8 @@ public class MotoristaControle implements CRUD{
 	/**
 	 * Método de gravação no txt. O caminho é um package feito para acumular os
 	 * resources gerados pelo programa.*/
-	public void gravar() throws IOException{
-		String fileName = "src/BD/Motoristas.txt";
+	public void gravar(String fileName) throws IOException{
+		
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			
