@@ -324,6 +324,8 @@ public class TelaProduto extends JFrame {
 		tfKg.setText("");
 		tfVolume.setText("");
 		taDescritivo.setText("");
+		
+		limpaFormatacao();
 	}
 	
 	public void limpaFormatacao(){
