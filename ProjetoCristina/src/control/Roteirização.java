@@ -31,11 +31,11 @@ public class Roteirização implements CRUD{
 		
 		distance = distancia.pesquisa(pontoInicial, pontoFinal);
 		
-		distance.replace("km", "");
-		distance.trim();
-		distance.replace(",", ".");
+		distance = distance.replace("km", "");
+		distance = distance.trim();
+		distance = distance.replace(",", ".");
 		
-		d = Double.parseDouble(distance);
+		d = Double.parseDouble(distance.trim());
 		
 		return d;
 	}
