@@ -47,7 +47,7 @@ public class ClienteControle implements CRUD{
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(fileName, true));
 			Geolocalizacao geo = new Geolocalizacao();
-			escrever.write(geo.pesquisa(c.getCep()));
+			escrever.write(geo.pesquisa("03821-020",c.getCep()));
 			escrever.write(";");
 			escrever.write(c.getNome());
 			escrever.write(";");
