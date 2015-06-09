@@ -42,12 +42,15 @@ public class ClienteControle implements CRUD{
 	/**
 	 * Método de gravação no txt. O caminho é um package feito para acumular os
 	 * resources gerados pelo programa juntamente ao nome do arquivo.*/
-	public void gravar(String fileName) throws IOException{
+	public void gravar(String fileName){
 		
 		try{
 			BufferedWriter escrever = new BufferedWriter(new FileWriter(fileName, true));
 			Geolocalizacao geo = new Geolocalizacao();
-			escrever.write(geo.pesquisa("03821-020",c.getCep()));
+			
+			String distancia = geo.pesquisa("03821-020", c.getCep());
+			
+			escrever.write(Double.toString(tratamentoLocalizacao(distancia)));
 			escrever.write(";");
 			escrever.write(c.getNome());
 			escrever.write(";");
@@ -72,21 +75,8 @@ public class ClienteControle implements CRUD{
 		}
 		
 	}
-
-	@Override
-	public void deletar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atualizar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int ler() throws IOException{
+	
+	public int numeroLinhas() throws IOException{
 		int cta = 0;
 		String fileName = "src/BD/Clientes.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
@@ -101,4 +91,32 @@ public class ClienteControle implements CRUD{
 		return cta * 17;
 	}
 	
+	public double tratamentoLocalizacao(String distancia){
+	
+		distancia = distancia.replace("km", "");
+		distancia = distancia.trim();
+		distancia = distancia.replace(",", ".");
+		
+		return Double.parseDouble(distancia);
+	}
+
+	@Override
+	public void deletar(String parametro, String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(String parametro, String[] novoConteudo,
+			String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String[] ler(String fileName, String identificador)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

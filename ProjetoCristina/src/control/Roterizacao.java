@@ -6,28 +6,10 @@ public class Roterizacao implements CRUD{
 	
 	@Override
 	public void gravar(String fileName) throws IOException {
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
-	@Override
-	public void deletar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atualizar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int ler() throws IOException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public double roterizar(String pontoInicial, String pontoFinal){
 		double distanciaDouble = 0.0;
 		String distanciaTexto = null;
@@ -43,5 +25,25 @@ public class Roterizacao implements CRUD{
 		distanciaDouble = Double.parseDouble(distanciaTexto.trim());
 		
 		return distanciaDouble;
+	}
+
+	@Override
+	public void deletar(String parametro, String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(String parametro, String[] novoConteudo,
+			String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String[] ler(String fileName, String identificador)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

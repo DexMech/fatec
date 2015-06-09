@@ -387,15 +387,10 @@ public class TelaCliente extends JFrame {
 					
 					cc.InstanciarCliente(txtNome.getText(),txtEndereco.getText(), Integer.parseInt(txtNumero.getText()), txtTelefone.getValue().toString(), 
 							txtCelular.getValue().toString(), txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
-					
-					try{
-						
-						cc.gravar("src/BD/Clientes.txt");
-						limpar();
-						LimpaFormatacao();
-					}catch(IOException f){
-						f.printStackTrace();
-					}
+											
+					cc.gravar("src/BD/Clientes.txt");
+					limpar();
+					LimpaFormatacao();
 									
 				}
 				buffer.delete(0, buffer.length());

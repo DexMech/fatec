@@ -18,7 +18,7 @@ public interface CRUD {
 	 * métodos do CRUD*/
 	
 	public void gravar(String fileName) throws IOException;
-	public void deletar(String nome) throws IOException;
-	public void atualizar(String nome) throws IOException;
-	public int ler() throws IOException;
+	public void deletar(String parametro, String fileName) throws IOException;
+	public void atualizar(String parametro, String[] novoConteudo, String fileName) throws IOException;
+	public String[] ler(String fileName, String identificador) throws IOException;
 }

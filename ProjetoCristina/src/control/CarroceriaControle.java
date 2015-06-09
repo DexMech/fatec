@@ -20,7 +20,7 @@ import java.io.IOException;
 
 import entity.Carroceria;
 
-public class CarroceriaControle implements CRUD{
+public class CarroceriaControle{
 
 	public Carroceria c = new Carroceria();
 	
@@ -36,7 +36,7 @@ public class CarroceriaControle implements CRUD{
 	public void gravar(String fileName) throws IOException{
 		
 		try{
-			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt", true));
 
 			bw.write(c.getNome());
 			bw.write(";");
@@ -55,31 +55,5 @@ public class CarroceriaControle implements CRUD{
 		} catch(IOException ioe){
 			ioe.printStackTrace();
 		}
-	}
-
-	@Override
-	public void deletar(String nome) throws IOException {
-		//sem função até pensarmos em algo melhor...
-	}
-
-	@Override
-	public void atualizar(String nome) throws IOException {
-		
-	}
-
-	@Override
-	public int ler() throws IOException{
-		int cta = 0;
-		String fileName = "src/BD/Motoristas.txt";
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		
-		while(ler.ready()){
-			String [] motorista = ler.readLine().split(";");
-			cta ++;
-		}
-		
-		ler.close();
-		
-		return cta * 17;
 	}
 }

@@ -61,21 +61,8 @@ public class ProdutoControle implements CRUD{
 			JOptionPane.showMessageDialog(null,"Ocorreu um erro de Gravação, tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
-	@Override
-	public void deletar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void atualizar(String nome) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int ler() throws IOException{
+	
+	public int numeroLinhas() throws IOException{
 		int cta = 0;
 		String fileName = "src/BD/Produtos.txt";
 		BufferedReader ler = new BufferedReader(new FileReader(fileName));
@@ -88,5 +75,25 @@ public class ProdutoControle implements CRUD{
 		ler.close();
 		
 		return cta * 17;
+	}
+
+	@Override
+	public void deletar(String parametro, String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void atualizar(String parametro, String[] novoConteudo,
+			String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String[] ler(String fileName, String identificador)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

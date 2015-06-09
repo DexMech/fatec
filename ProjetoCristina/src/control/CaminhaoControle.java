@@ -20,7 +20,7 @@ import java.io.IOException;
 
 import entity.Caminhao;
 
-public class CaminhaoControle implements CRUD{
+public class CaminhaoControle{
 
 	public Caminhao c = new Caminhao();
 	
@@ -34,7 +34,7 @@ public class CaminhaoControle implements CRUD{
 	
 	public void gravar(String fileName) throws IOException{
 		try{
-			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt", true));
 			bw.write(c.getTipoCaminhao());
 			bw.write(";");
 			bw.write(Integer.toString(c.getCapacidadeCarga()));
@@ -49,28 +49,5 @@ public class CaminhaoControle implements CRUD{
 		} catch(IOException ioe){
 			ioe.printStackTrace();
 		}
-	}
-
-	public void atualizar(String nome) throws IOException {
-		
-	}
-
-	public int ler() throws IOException{
-		int cta = 0;
-		String fileName = "src/BD/Motoristas.txt";
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		
-		while(ler.ready()){
-			String [] motorista = ler.readLine().split(";");
-			cta ++;
-		}
-		
-		ler.close();
-		
-		return cta * 17;
-	}
-	@Override
-	public void deletar(String nome) throws IOException {
-		//sem função até pensarmos em algo melhor...
 	}
 }

@@ -22,6 +22,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
@@ -99,12 +100,12 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 
 		JLabel lblContainer = new JLabel("Carroceria:");
 		lblContainer.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblContainer.setBounds(14, 334, 152, 14);
+		lblContainer.setBounds(14, 303, 152, 14);
 		getContentPane().add(lblContainer);
 
 		cbCarroceria = new JComboBox(CARROCERIA);
 		cbCarroceria.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		cbCarroceria.setBounds(129, 330, 270, 23);
+		cbCarroceria.setBounds(129, 299, 270, 23);
 		cbCarroceria.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				car.c.setPeso(cbCarroceria.getSelectedItem().toString());
@@ -290,9 +291,9 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 							.toString(), textPlaca.getText(), cbEstado.getSelectedItem().toString(), textCidade.getText());
 					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
 					try {
-						mc.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem() + ".txt");
-						cam.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem() + ".txt");
-						car.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem() + ".txt");
+						mc.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
+						cam.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
+						car.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
 						limpar();
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -312,7 +313,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 					limpar();
 			}
 		});
-		btnLimpar.setBounds(195, 537, 111, 32);
+		btnLimpar.setBounds(120, 537, 111, 32);
 		getContentPane().add(btnLimpar);
 
 		textValidadeFim = new JFormattedTextField(data);
@@ -331,12 +332,12 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 
 		lblCidade = new JLabel("Cidade:");
 		lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCidade.setBounds(14, 463, 46, 14);
+		lblCidade.setBounds(14, 457, 46, 14);
 		getContentPane().add(lblCidade);
 
 		JLabel lblEstado = new JLabel("Estado:");
 		lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblEstado.setBounds(14, 507, 71, 14);
+		lblEstado.setBounds(14, 491, 71, 14);
 		getContentPane().add(lblEstado);
 
 		textCidade = new JTextField();
@@ -348,39 +349,39 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				lblCidade.setForeground(Color.black);
 			}
 		});
-		textCidade.setBounds(136, 457, 128, 23);
+		textCidade.setBounds(70, 457, 128, 23);
 		getContentPane().add(textCidade);
 		textCidade.setColumns(10);
 
 		JLabel lblLargura = new JLabel("Largura:");
 		lblLargura.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblLargura.setBounds(14, 299, 71, 23);
+		lblLargura.setBounds(238, 364, 71, 23);
 		getContentPane().add(lblLargura);
 
 		JLabel lblAltura = new JLabel("Altura:");
 		lblAltura.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblAltura.setBounds(14, 366, 46, 18);
+		lblAltura.setBounds(14, 335, 46, 18);
 		getContentPane().add(lblAltura);
 
 		JLabel lblComprimento = new JLabel("Comprimento:");
 		lblComprimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblComprimento.setBounds(14, 397, 112, 19);
+		lblComprimento.setBounds(14, 366, 112, 19);
 		getContentPane().add(lblComprimento);
 
 		JLabel lblVolume = new JLabel("Volume:");
 		lblVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblVolume.setBounds(232, 368, 74, 14);
+		lblVolume.setBounds(232, 337, 74, 14);
 		getContentPane().add(lblVolume);
 
 		JLabel lblPeso = new JLabel("Peso:");
 		lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblPeso.setBounds(232, 305, 46, 14);
+		lblPeso.setBounds(14, 396, 46, 14);
 		getContentPane().add(lblPeso);
 
 		textLargura = new JTextField();
 		textLargura.setEditable(false);
 		textLargura.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		textLargura.setBounds(136, 301, 58, 23);
+		textLargura.setBounds(318, 364, 58, 23);
 		textLargura.setText(Double.toString(2.46));
 		getContentPane().add(textLargura);
 		textLargura.setColumns(10);
@@ -389,7 +390,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		textAltura.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textAltura.setEditable(false);
 		textAltura.setColumns(10);
-		textAltura.setBounds(136, 367, 58, 23);
+		textAltura.setBounds(136, 336, 58, 23);
 		textAltura.setText(Double.toString(3));
 		getContentPane().add(textAltura);
 
@@ -397,54 +398,54 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		textComprimento.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textComprimento.setEditable(false);
 		textComprimento.setColumns(10);
-		textComprimento.setBounds(136, 395, 58, 23);
+		textComprimento.setBounds(136, 364, 58, 23);
 		textComprimento.setText(Double.toString(7.65));
 		getContentPane().add(textComprimento);
 
 		JLabel lblMm = new JLabel("m");
 		lblMm.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblMm.setBounds(201, 303, 46, 14);
+		lblMm.setBounds(386, 368, 46, 14);
 		getContentPane().add(lblMm);
 
 		JLabel lblM = new JLabel("m");
 		lblM.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblM.setBounds(201, 373, 46, 14);
+		lblM.setBounds(201, 342, 46, 14);
 		getContentPane().add(lblM);
 
 		JLabel lblKg_1 = new JLabel("kg");
 		lblKg_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblKg_1.setBounds(386, 303, 46, 19);
+		lblKg_1.setBounds(201, 394, 46, 19);
 		getContentPane().add(lblKg_1);
 
 		textPeso = new JTextField();
 		textPeso.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textPeso.setEditable(false);
-		textPeso.setBounds(291, 302, 85, 21);
+		textPeso.setBounds(109, 393, 85, 21);
 		getContentPane().add(textPeso);
 		textPeso.setText("Sem peso");
 		textPeso.setColumns(10);
 
 		JLabel label = new JLabel("m");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label.setBounds(201, 401, 46, 14);
+		label.setBounds(201, 370, 46, 14);
 		getContentPane().add(label);
 
 		textVolume = new JTextField();
 		textVolume.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textVolume.setEditable(false);
 		textVolume.setColumns(10);
-		textVolume.setBounds(291, 364, 85, 23);
+		textVolume.setBounds(291, 333, 85, 23);
 		textVolume.setText(Double.toString(56.457));
 		getContentPane().add(textVolume);
 
 		JLabel lblM_1 = new JLabel("m\u00B3");
 		lblM_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblM_1.setBounds(386, 371, 46, 14);
+		lblM_1.setBounds(386, 340, 46, 14);
 		getContentPane().add(lblM_1);
 		
 		cbEstado = new JComboBox(ESTADOS);
 		cbEstado.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		cbEstado.setBounds(120, 503, 209, 23);
+		cbEstado.setBounds(80, 487, 209, 23);
 		getContentPane().add(cbEstado);
 		
 		lblRg = new JLabel("RG:");
@@ -488,6 +489,29 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		JButton btnBuscaCPF = new JButton("");
 		btnBuscaCPF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MotoristaControle mc = new MotoristaControle();
+				String cliente[] = null;				
+				try {
+					cliente = mc.ler("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem() ,textCpf.getValue().toString());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
+				if (cliente[0] == null){
+					JOptionPane.showMessageDialog(null, "Motorista não encontrado");
+				} else {
+					textNome.setText(cliente[0]);
+					textRg.setValue(cliente[1]);
+					textCpf.setValue(cliente[2]);
+					textCNH.setValue(cliente[3]);
+					textValidadeFim.setValue(cliente[4]);
+					textTelefone.setText(cliente[5]);
+					textCelular.setText(cliente[6]);
+					textPlaca.setValue(cliente[9]);
+					textCidade.setText(cliente[11]);
+					cbEstado.setSelectedItem(cliente[10]);
+					cbCarroceria.setSelectedItem(cliente[12]);
+				}
 			}
 		});
 		btnBuscaCPF.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/busca.png")));
@@ -496,9 +520,46 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		
 		JButton btnDeletar = new JButton("Deletar");
 		btnDeletar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnDeletar.setBounds(350, 537, 100, 32);
+		btnDeletar.setBounds(238, 537, 100, 32);
 		getContentPane().add(btnDeletar);
 		btnDeletar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/red-x.png")));
+		
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] novasInformacoes = new String[18];
+				MotoristaControle mc = new MotoristaControle();
+				
+				novasInformacoes[0] = textNome.getText();
+				novasInformacoes[1] = textRg.getValue().toString();
+				novasInformacoes[2] = textCpf.getValue().toString();
+				novasInformacoes[3] = textCNH.getValue().toString();
+				novasInformacoes[4] = textValidadeFim.getValue().toString();
+				novasInformacoes[5] = textTelefone.getValue().toString();
+				novasInformacoes[6] = textCelular.getValue().toString();
+				novasInformacoes[7] = cbCaminhao.getSelectedItem().toString();
+				novasInformacoes[8] = textPesoCaminhao.getText();
+				novasInformacoes[9] = textPlaca.getValue().toString();
+				novasInformacoes[10] = textCidade.getText();
+				novasInformacoes[11] = cbEstado.getSelectedItem().toString();
+				novasInformacoes[12] = cbCarroceria.getSelectedItem().toString();
+				novasInformacoes[13] = textPeso.getText();
+				novasInformacoes[14] = textAltura.getText();
+				novasInformacoes[15] = textLargura.getText();
+				novasInformacoes[16] = textComprimento.getText();
+				novasInformacoes[17] = textVolume.getText();
+				
+				try {
+					mc.atualizar(textCpf.getValue().toString(), novasInformacoes, "src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAtualizar.setBounds(348, 537, 111, 32);
+		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
+		getContentPane().add(btnAtualizar);
 
 		setVisible(true);
 	}
@@ -586,6 +647,4 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		textRg.setValue("");
 		textCpf.setValue("");
 	}
-	
-	
 }

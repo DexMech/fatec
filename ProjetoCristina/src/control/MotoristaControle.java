@@ -14,6 +14,7 @@ package control;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class MotoristaControle implements CRUD{
 	 * Método de gravação no txt. O caminho é um package feito para acumular os
 	 * resources gerados pelo programa.*/
 	public void gravar(String fileName) throws IOException{
-		
+		fileName += ".txt";
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			
@@ -66,28 +67,96 @@ public class MotoristaControle implements CRUD{
 		}
 	}
 	
-	public int ler() throws IOException{
-		int cta = 0;
-		String fileName = "src/BD/Motoristas.txt";
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
+	@Override
+	public String[] ler(String fileName, String cpf) throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
+		int cta = numeroLinhas(fileName + ".txt");
+		String motorista[] = new String[18];
 		
-		while(ler.ready()){
-			String [] motorista = ler.readLine().split(";");
+		for (int i = 0; i < cta; i ++){
+			String temp[] = br.readLine().split(";");
+			
+			if(temp[2].equals(cpf)){
+				motorista = temp;
+			}
+		}
+		
+		br.close();
+		
+		return motorista;
+	}
+
+	@Override
+	public void deletar(String nome, String fileName) throws IOException {
+		
+	}
+
+	@Override
+	public void atualizar(String cpf, String[] novoConteudo, String fileName) throws IOException {
+		BufferedWriter arquivoTemporario = new BufferedWriter(new FileWriter(fileName + "2.txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + ".txt"));
+		int cta = numeroLinhas(fileName + ".txt");
+		
+		for (int i = 0; i < cta; i ++){
+			String temporario[] = lerArquivo.readLine().split(";");
+			
+			if (temporario[2].equals(cpf)){
+				for (int j = 0; j < 18; j ++){
+					arquivoTemporario.write(novoConteudo[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			} else {
+				for (int j = 0; j < 18; j ++){
+					arquivoTemporario.write(temporario[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			}
+		}
+		
+		lerArquivo.close();
+		arquivoTemporario.close();
+		
+		merge(fileName);
+	}
+	
+	public void merge(String fileName) throws IOException{
+		BufferedWriter arquivoFinal = new BufferedWriter(new FileWriter(fileName + ".txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + "2.txt"));
+		int cta = numeroLinhas(fileName + "2.txt");
+		String temporario = null;
+		
+		for (int i = 0; i < cta; i ++){
+			temporario = lerArquivo.readLine();
+			arquivoFinal.write(temporario);
+			arquivoFinal.newLine();
+			temporario = null;
+		}
+		
+		arquivoFinal.close();
+		lerArquivo.close();
+		
+		deletarArquivo(fileName + "2.txt");
+	}
+
+	public void deletarArquivo(String fileName){
+		File f = new File(fileName);
+		
+		f.delete();
+	}
+	
+	public int numeroLinhas(String fileName) throws IOException {
+		BufferedReader counter = new BufferedReader(new FileReader(fileName));
+		int cta = 0;
+		
+		while(counter.ready()){
+			String [] motorista = counter.readLine().split(";");
 			cta ++;
 		}
 		
-		ler.close();
+		counter.close();
 		
-		return cta * 17;
-	}
-
-	@Override
-	public void deletar(String nome) throws IOException {
-		
-	}
-
-	@Override
-	public void atualizar(String nome) throws IOException {
-		
+		return cta;
 	}
 }

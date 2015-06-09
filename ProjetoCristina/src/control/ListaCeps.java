@@ -51,23 +51,23 @@ public class ListaCeps {
 		br.close();
 	}
 	
-	public double firstPosition() throws IOException{
-		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
-		String km = null;
-		
-		String ceps[] = br.readLine().split(";");
-		
-		km = ceps[0];
-		km = km.replace("km", "");
-		km = km.trim();
-		km = km.replace(",", ".");
-		
-		double dist = Double.parseDouble(km);
-		
-		br.close();
-		
-		return dist;
-	}
+//	public double firstPosition() throws IOException{
+//		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
+//		String km = null;
+//		
+//		String ceps[] = br.readLine().split(";");
+//		
+//		km = ceps[0];
+//		km = km.replace("km", "");
+//		km = km.trim();
+//		km = km.replace(",", ".");
+//		
+//		double dist = Double.parseDouble(km);
+//		
+//		br.close();
+//		
+//		return dist;
+//	}
 	
 	public void calculoDistancias(){
 		
@@ -82,11 +82,11 @@ public class ListaCeps {
 		double distancia = 0;
 		int posicao = 0;
 		
-		try {
-			fc.adicionaCep(firstPosition(), listaCeps[0]);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			fc.adicionaCep(firstPosition(), listaCeps[0]);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		while (tamanho > 1){
 			for (int i = 1; i < tamanho; i ++){
