@@ -12,7 +12,7 @@ public class ListaCeps {
 	private double distanciaMinima = Double.MAX_VALUE;
 	
 	public ListaCeps() throws IOException{
-		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 		int numLinhas = 0;
 		
 		while (br.ready()){
@@ -39,13 +39,15 @@ public class ListaCeps {
 	}
 	
 	public void preencherLista() throws IOException{
-		BufferedReader br = new BufferedReader(new FileReader("src/BD/Clientes.txt"));
-				
+		BufferedReader br = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
+		String[] cepp=null;	
 		for (int i = 0; i < listaCeps.length; i ++){
 			String ceps[] = br.readLine().split(";");
+			 cepp=ceps[8].split(",");
 			
-			listaCeps[i] = ceps[5];
+			listaCeps[i] = cepp[3];
 			tamanho ++;
+			cepp=null;	
 		}
 		
 		br.close();
@@ -104,7 +106,7 @@ public class ListaCeps {
 			distanciaMinima = Double.MAX_VALUE;
 		}
 		
-		fc.mostrar();
+		fc.gravar();
 		
 		System.out.println("Distancia total percorrida: " + fc.distanciaTotal() + " km");
 	}

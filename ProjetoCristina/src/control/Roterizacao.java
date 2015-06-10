@@ -19,6 +19,7 @@ public class Roterizacao implements CRUD{
 		distanciaTexto = distancia.pesquisa(pontoInicial, pontoFinal);
 		
 		distanciaTexto = distanciaTexto.replace("km", "");
+		distanciaTexto = distanciaTexto.replace("m", "");
 		distanciaTexto = distanciaTexto.trim();
 		distanciaTexto = distanciaTexto.replace(",", ".");
 		

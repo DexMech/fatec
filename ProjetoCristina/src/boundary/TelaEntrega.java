@@ -258,17 +258,6 @@ public class TelaEntrega extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
-		
-		JButton btnNewButton = new JButton("Separa por Motorista");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
-				con.separa();
-			}
-		});
-		btnNewButton.setBounds(180, 391, 195, 33);
-		contentPane.add(btnNewButton);
 
 
 	}

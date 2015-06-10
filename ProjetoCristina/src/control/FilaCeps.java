@@ -1,8 +1,15 @@
 package control;
 
+import java.awt.List;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FilaCeps {
 
@@ -22,11 +29,32 @@ public class FilaCeps {
 		tamanho ++;
 	}
 	
-	public void mostrar(){
-		System.out.println("Lista de CEP's com distância: ");
-		for (int i = 0; i < tamanho; i ++){
-			System.out.println(filaCeps[i] + " " + distancias[i]);
+	public void gravar(){
+		
+		try {
+			BufferedWriter dist = new BufferedWriter(new FileWriter("src/BD/Distancias.txt"));
+			BufferedWriter fila = new BufferedWriter(new FileWriter("src/BD/FilaCeps.txt"));
+			
+			for(int i=0;i<distancias.length-1;i++){
+				dist.write(""+distancias[i]);
+				dist.write("\n");
+				
+			}
+			for(int i=0;i<filaCeps.length-1;i++){
+				fila.write(filaCeps[i]);
+				fila.write("\n");
+				
+			}
+			
+			
+			fila.close();
+			dist.close();
+			constroiArquivo();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	}
 	
 	public double distanciaTotal(){
@@ -38,4 +66,163 @@ public class FilaCeps {
 		
 		return total;
 	}
-}
+	private void constroiArquivo(){
+		
+	
+		try {
+			BufferedReader leFila = new BufferedReader(new FileReader("src/BD/FilaCeps.txt"));
+			BufferedReader leDist = new BufferedReader(new FileReader("src/BD/Distancias.txt"));
+			RandomAccessFile leCli = new RandomAccessFile("src/BD/Entrega.txt","r");
+			BufferedWriter escreve = new BufferedWriter(new FileWriter("src/BD/entregaMid.txt",true));
+			StringBuilder lista = new  StringBuilder();
+			VerificaLinhas verifica = new VerificaLinhas();
+			
+			int i=0;
+			int num = verifica.verifica("src/BD/Clientes.txt")-1;
+			
+			while(i<num-1){
+				String linha=leCli.readLine();
+				
+				String fila=leFila.readLine();
+				String dist=leDist.readLine();
+				System.out.println(fila);
+				System.out.println(linha);
+				while(!linha.contains(fila)){
+					if(linha.equals(null)){
+						leCli.seek(0);}
+					
+					linha=leCli.readLine();
+					
+					
+				}
+				
+				lista.append(linha);
+				lista.append(";");
+				lista.append(dist);
+				escreve.write(lista.toString());
+				escreve.write("\n");
+				linha=null;
+				lista.setLength(0);
+				leCli.seek(0);
+				i++;
+			}
+			
+			
+			
+			
+			leFila.close();
+			leDist.close();
+			leCli.close();
+			escreve.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+	}
+	private void separaMotorista(){
+		
+		
+
+			/**
+			 * verifica a quantidade de linhas no arquivo Entrega.txt
+			 */
+			VerificaLinhas verifica =new VerificaLinhas();
+			int num = verifica.verifica("src/BD/EntregaMid.txt");
+			num = num - 1;
+			System.out.println(num);
+				
+					List temp = new List();
+					try {
+						double calc = 0.0;
+						double recebe=0.0;
+						/**
+						 * abre os arquivos para leitura
+						 */
+						BufferedReader mot = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
+						BufferedReader entrega = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
+						BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/EntregaMot.txt",true));
+						List listaEntrega = new List();
+						List listaMotorista = new List();
+						String linha;
+						String mota = mot.readLine();
+						
+						for(String cont:mota.split(";")){
+							listaMotorista.add(cont);
+
+						}
+						recebe = Double.parseDouble(listaMotorista.getItem(8));
+
+
+
+						while((linha=entrega.readLine())!=null &&num>0){
+							
+							listaEntrega.delItems(0, listaEntrega.getItemCount()-1);
+
+							for(String cont:linha.split(";")){
+								listaEntrega.add(cont);
+
+							}
+							
+							calc = Double.parseDouble(listaEntrega.getItem(7))*Double.parseDouble(listaEntrega.getItem(7));
+
+
+
+							recebe = recebe - calc;
+
+							if(recebe<0){
+								listaMotorista.delItems(0, listaMotorista.getItemCount()-1);
+								mota=mot.readLine();
+								for(String cont:mota.split(";")){
+									listaMotorista.add(cont);
+
+								}
+								recebe = Double.parseDouble(listaMotorista.getItem(8));
+							}
+
+
+							escrita.write(listaMotorista.getItem(0));
+							escrita.write(";");
+							escrita.write(listaMotorista.getItem(7));
+							escrita.write(";");
+							for(int i=0;i<listaEntrega.getItemCount();i++){
+								escrita.write(listaEntrega.getItem(i));
+								escrita.write(";");
+							}
+							escrita.newLine();
+						num = num - 1;
+
+
+						}
+						mot.close();
+						entrega.close();
+						escrita.close();
+					
+					} catch (IOException e) {
+				
+						e.printStackTrace();
+					}catch(NullPointerException e){
+
+
+					}
+
+				}
+
+
+
+
+
+				
+				
+				
+				
+			
+
+	}
+
