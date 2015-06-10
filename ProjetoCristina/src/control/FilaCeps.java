@@ -35,7 +35,7 @@ public class FilaCeps {
 			BufferedWriter dist = new BufferedWriter(new FileWriter("src/BD/Distancias.txt"));
 			BufferedWriter fila = new BufferedWriter(new FileWriter("src/BD/FilaCeps.txt"));
 			
-			for(int i=0;i<distancias.length-1;i++){
+			for(int i=0;i<=distancias.length-1;i++){
 				dist.write(""+distancias[i]);
 				dist.write("\n");
 				
@@ -73,20 +73,18 @@ public class FilaCeps {
 			BufferedReader leFila = new BufferedReader(new FileReader("src/BD/FilaCeps.txt"));
 			BufferedReader leDist = new BufferedReader(new FileReader("src/BD/Distancias.txt"));
 			RandomAccessFile leCli = new RandomAccessFile("src/BD/Entrega.txt","r");
-			BufferedWriter escreve = new BufferedWriter(new FileWriter("src/BD/entregaMid.txt",true));
+			BufferedWriter escreve = new BufferedWriter(new FileWriter("src/BD/EntregaMid.txt"));
 			StringBuilder lista = new  StringBuilder();
 			VerificaLinhas verifica = new VerificaLinhas();
 			
 			int i=0;
-			int num = verifica.verifica("src/BD/Clientes.txt")-1;
+			int num = verifica.verifica("src/BD/Entrega.txt")-1;
 			
 			while(i<num-1){
 				String linha=leCli.readLine();
 				
 				String fila=leFila.readLine();
 				String dist=leDist.readLine();
-				System.out.println(fila);
-				System.out.println(linha);
 				while(!linha.contains(fila)){
 					if(linha.equals(null)){
 						leCli.seek(0);}
@@ -124,7 +122,7 @@ public class FilaCeps {
 		
 		
 		
-		
+		separaMotorista();
 	}
 	private void separaMotorista(){
 		
@@ -146,8 +144,8 @@ public class FilaCeps {
 						 * abre os arquivos para leitura
 						 */
 						BufferedReader mot = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
-						BufferedReader entrega = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
-						BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/EntregaMot.txt",true));
+						BufferedReader entrega = new BufferedReader(new FileReader("src/BD/EntregaMid.txt"));
+						BufferedWriter escrita = new  BufferedWriter(new FileWriter("src/BD/EntregaMot.txt"));
 						List listaEntrega = new List();
 						List listaMotorista = new List();
 						String linha;

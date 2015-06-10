@@ -65,12 +65,12 @@ public class ControlaTelaRota {
 					recebelinha = linha.split(";");
 					cep=recebelinha[10].split(",");
 					cepp=cep[3];
-					as = geo.pesquisa("03821-020",recebelinha[10].replace(",", "+"));
+					
 					bu.append(recebelinha[2]);
 					bu.append(";");
 					bu.append(cepp);
 					bu.append(";");
-					bu.append(as);
+					bu.append(recebelinha[11]);
 					bu.append(";");
 					bu.append(recebelinha[3]);
 					lala=bu.toString().split(";");
