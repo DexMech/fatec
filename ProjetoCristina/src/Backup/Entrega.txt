@@ -1,21 +1,4 @@
-﻿﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;111;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;1000;rua colonia leopoldina,198,vila silvia,03821-020
+Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03821-020
+Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000
+Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000
+Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000

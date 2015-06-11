@@ -200,7 +200,7 @@ public class TelaEntrega extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "Volume", "Data", "Quantidade"
+				"Produto", "Fabricante","Fornecedor", "Descrição", "Peso", "Volume", "Data", "Quantidade"
 			}
 		));
 		scrollPane.setViewportView(table);

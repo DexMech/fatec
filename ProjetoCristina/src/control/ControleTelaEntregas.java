@@ -203,13 +203,14 @@ public class ControleTelaEntregas implements CRUD{
 					linha = le.readLine();
 					int j = 0;
 					if(linha.contains(arquivo)){
-						Object[] objeto = new Object[7];
+						Object[] objeto = new Object[8];
 
-						objeto[5] = data.getText();
-						objeto[6] = quantidade.getText();
+						objeto[6] = data.getText();
+						objeto[7] = quantidade.getText();
+						System.out.println("oi");
 						Object[] recipiente = linha.split(";");
 
-						for(int i=0;i<5;i++){
+						for(int i=0;i<6;i++){
 
 							objeto[i] = recipiente[j];
 							j++;

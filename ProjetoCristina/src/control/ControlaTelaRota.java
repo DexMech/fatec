@@ -63,14 +63,14 @@ public class ControlaTelaRota {
 				cepp=null;
 				if(linha.contains(combo.getSelectedItem().toString())){
 					recebelinha = linha.split(";");
-					cep=recebelinha[10].split(",");
+					cep=recebelinha[11].split(",");
 					cepp=cep[3];
 					
 					bu.append(recebelinha[2]);
 					bu.append(";");
 					bu.append(cepp);
 					bu.append(";");
-					bu.append(recebelinha[11]);
+					bu.append(recebelinha[12]);
 					bu.append(";");
 					bu.append(recebelinha[3]);
 					lala=bu.toString().split(";");

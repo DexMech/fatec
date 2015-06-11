@@ -107,7 +107,7 @@ public class TelaConsultaEntrega extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"Nome do Motorista", "Caminh\u00E3o", "Cliente", "Nome do produto", "Fabricante", "Descri\u00E7\u00E3o", "Peso", "volume", "Data", "Quantidade", "Endereço"
+				"Nome do Motorista", "Caminhão", "Cliente", "Nome do produto", "Fabricante","Fornecedor", "Descrição", "Peso", "volume", "Data", "Quantidade", "Endereço"
 			}
 		));
 		table.getColumnModel().getColumn(2).setPreferredWidth(185);
@@ -235,7 +235,7 @@ public class TelaConsultaEntrega extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setBounds(536, 350, 101, 33);
+		btnNewButton.setBounds(556, 350, 101, 33);
 		contentPane.add(btnNewButton);
 
 

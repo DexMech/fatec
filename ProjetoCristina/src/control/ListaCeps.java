@@ -43,7 +43,7 @@ public class ListaCeps {
 		String[] cepp=null;	
 		for (int i = 0; i < listaCeps.length; i ++){
 			String ceps[] = br.readLine().split(";");
-			 cepp=ceps[8].split(",");
+			 cepp=ceps[9].split(",");
 			
 			listaCeps[i] = cepp[3];
 			tamanho ++;

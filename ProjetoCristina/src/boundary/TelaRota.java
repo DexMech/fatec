@@ -142,18 +142,6 @@ public class TelaRota extends JFrame {
 		));
 		scrollPane.setViewportView(table);
 		
-		JLabel lblTotal = new JLabel("New label");
-		lblTotal.setBounds(39, 415, 70, 15);
-		contentPane.add(lblTotal);
-		
-		JLabel lblKm = new JLabel("New label");
-		lblKm.setBounds(323, 415, 70, 15);
-		contentPane.add(lblKm);
-		
-		JLabel lblTotProduto = new JLabel("New label");
-		lblTotProduto.setBounds(469, 415, 70, 15);
-		contentPane.add(lblTotProduto);
-		
 		JLabel lblData = new JLabel("Data");
 		lblData.setBounds(26, 45, 70, 15);
 		contentPane.add(lblData);
@@ -172,7 +160,7 @@ public class TelaRota extends JFrame {
 		contentPane.add(txtdata);
 		
 		 ComboMot = new JComboBox();
-		ComboMot.setBounds(40, 121, 140, 24);
+		ComboMot.setBounds(29, 121, 140, 24);
 		contentPane.add(ComboMot);
 	}
 }

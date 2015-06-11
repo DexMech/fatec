@@ -1,2 +1,3 @@
-alf;Toco;﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1111;111;rua serra verde,150,vila silvia,03821-230;
-joao;cu;﻿alex;forno;china ne;forno que caiu na giovanna;10.0;10.0;16/11/1992;1000;rua das noivas;
+Arthur Gomes Araujo;Toco;Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000;7.8;
+Arthur Gomes Araujo;Toco;Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000;1.0;
+Arthur Gomes Araujo;Toco;Arthur Gomes Araujo;alex;jumbo;hotel;merda;10.0;10.0;01/06/2015;1;Av. Aguia de Haia,2255,A.E. Carvalho,03694-000;1.0;

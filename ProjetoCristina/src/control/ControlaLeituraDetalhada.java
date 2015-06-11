@@ -29,7 +29,7 @@ public class ControlaLeituraDetalhada {
 
 	}
 	public void preenche(){
-		String[] items ={"Nome do Motorista","Veículo","Nome do Cliente","Produto","Fabricante","Descrição","Peso","Volume","Data","Quantidade","Região"};
+		String[] items ={"Nome do Motorista","Veículo","Nome do Cliente","Produto","Fabricante","Fornecedor","Descrição","Peso","Volume","Data","Quantidade","Endereço"};
 		
 		String linha = "";
 
@@ -41,12 +41,18 @@ public class ControlaLeituraDetalhada {
 				if(linha.contains(objeto[1].toString())&&linha.contains(objeto[3].toString())){
 					recebe = linha.split(";");
 					int pos = 0;
+					
+				
 					for(String ve:recebe){
 						text.append(items[pos]+"\n");
 						text.append(ve+"\n");
 						text.append("------------------------------------------------------------------------------------------------------\n");
 						pos++;
+						if(pos>11){
+						break;}
 					}
+					
+					
 				}
 
 

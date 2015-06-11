@@ -51,7 +51,7 @@ public class ControlaBackup {
 				{
 					linha = leitura.readLine();
 
-					if(linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")||linha.contains("EntregaMot.txt")){
+					if(linha.contains("Distancias.txt")||linha.contains("FilaCeps.txt")||linha.contains("EntregaMid.txt")||linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")||linha.contains("EntregaMot.txt")){
 
 						confere++;
 						
@@ -64,7 +64,7 @@ public class ControlaBackup {
 			} 
 			catch(NullPointerException e){
 
-				if(confere==5){
+				if(confere==8){
 
 					try {
 						Process processo = Runtime.getRuntime().exec("cp src/BD/Clientes.txt   src/Backup");
@@ -72,6 +72,10 @@ public class ControlaBackup {
 						Process processo2 = Runtime.getRuntime().exec("cp src/BD/Motoristas.txt   src/Backup");
 						Process processo3 = Runtime.getRuntime().exec("cp src/BD/Produtos.txt  src/Backup");
 						Process processo4 = Runtime.getRuntime().exec("cp src/BD/EntregaMot.txt  src/Backup");
+						Process processo5 = Runtime.getRuntime().exec("cp src/BD/FilaCeps.txt  src/Backup");
+						Process processo6 = Runtime.getRuntime().exec("cp src/BD/EntregaMid.txt  src/Backup");
+						Process processo7 = Runtime.getRuntime().exec("cp src/BD/Distancias.txt  src/Backup");
+					
 					
 						label.setText("Salvo com Sucesso");
 					} catch (IOException e1) {
@@ -104,7 +108,7 @@ public class ControlaBackup {
 					{
 						linha = leitura.readLine();
 
-						if(linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")){
+						if(linha.contains("Distancias.txt")||linha.contains("FilaCeps.txt")||linha.contains("EntregaMid.txt")||linha.contains("Clientes.txt")||linha.contains("Entrega.txt")||linha.contains("Motoristas.txt")||linha.contains("Produtos.txt")||linha.contains("EntregaMot.txt")){
 
 							confere++;
 						}
@@ -116,13 +120,17 @@ public class ControlaBackup {
 				} 
 				catch(NullPointerException e){
 
-					if(confere==4){
+					if(confere==8){
 
 						try {
-							Process processo = Runtime.getRuntime().exec("copy src/BD/Clientes.txt   src/Backup");
-							Process processo1 = Runtime.getRuntime().exec("copy src/BD/Entrega.txt   src/Backup");
-							Process processo2 = Runtime.getRuntime().exec("copy src/BD/Motoristas.txt   src/Backup");
-							Process processo3 = Runtime.getRuntime().exec("copy src/BD/Produtos.txt  src/Backup");
+							Process processo = Runtime.getRuntime().exec("cp src/BD/Clientes.txt   src/Backup");
+							Process processo1 = Runtime.getRuntime().exec("cp src/BD/Entrega.txt   src/Backup");
+							Process processo2 = Runtime.getRuntime().exec("cp src/BD/Motoristas.txt   src/Backup");
+							Process processo3 = Runtime.getRuntime().exec("cp src/BD/Produtos.txt  src/Backup");
+							Process processo4 = Runtime.getRuntime().exec("cp src/BD/EntregaMot.txt  src/Backup");
+							Process processo5 = Runtime.getRuntime().exec("cp src/BD/FilaCeps.txt  src/Backup");
+							Process processo6 = Runtime.getRuntime().exec("cp src/BD/EntregaMid.txt  src/Backup");
+							Process processo7 = Runtime.getRuntime().exec("cp src/BD/Distancias.txt  src/Backup");
 							label.setText("Salvo com Sucesso");
 						} catch (IOException e1) {
 

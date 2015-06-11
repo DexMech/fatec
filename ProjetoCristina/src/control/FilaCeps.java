@@ -168,7 +168,7 @@ public class FilaCeps {
 
 							}
 							
-							calc = Double.parseDouble(listaEntrega.getItem(7))*Double.parseDouble(listaEntrega.getItem(7));
+							calc = Double.parseDouble(listaEntrega.getItem(8))*Double.parseDouble(listaEntrega.getItem(8));
 
 
 

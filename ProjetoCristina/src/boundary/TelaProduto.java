@@ -257,6 +257,7 @@ public class TelaProduto extends JFrame {
 		btnBusca = new JButton("");
 		btnBusca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				ProdutoControle pc = new ProdutoControle();
 				String produto[] = null;				
 				
