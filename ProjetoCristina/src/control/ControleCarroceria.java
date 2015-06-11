@@ -10,7 +10,7 @@ package control;
  * 		<li>1.2 - Retirada de extends desnecessário</li>
  * </ul>
  * 
- *  Classe criada para controlar os caminhões.*/
+ * */
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,33 +18,39 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import entity.Caminhao;
+import entity.Carroceria;
 
-public class CaminhaoControle{
+public class ControleCarroceria{
 
-	public Caminhao c = new Caminhao();
+	public Carroceria c = new Carroceria();
 	
-	public void InstanciarCaminhaoControle(String tipoCaminhao, String numeroPlaca, String cidade, String estado){
-		c.setTipoCaminhao(tipoCaminhao);
-		c.setCapacidadeCarga(tipoCaminhao);
-		c.setNumeroPlaca(numeroPlaca);
-		c.setCidade(cidade);
-		c.setEstado(estado);
+	public void InstanciarCarroceriaControle(String nome){
+		c.setNome(nome);
+		c.setAltura(nome);
+		c.setLargura(nome);
+		c.setComprimento(nome);
+		c.setPeso(nome);
+		c.setVolume();
 	}
 	
 	public void gravar(String fileName) throws IOException{
+		
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt", true));
-			bw.write(c.getTipoCaminhao());
+
+			bw.write(c.getNome());
 			bw.write(";");
-			bw.write(Integer.toString(c.getCapacidadeCarga()));
+			bw.write(Double.toString(c.getPeso()));
 			bw.write(";");
-			bw.write(c.getNumeroPlaca());
+			bw.write(Double.toString(c.getAltura()));
 			bw.write(";");
-			bw.write(c.getCidade());
+			bw.write(Double.toString(c.getLargura()));
 			bw.write(";");
-			bw.write(c.getEstado());
+			bw.write(Double.toString(c.getComprimento()));
 			bw.write(";");
+			bw.write(Double.toString(c.getVolume()));
+			bw.write(";");
+			bw.newLine();
 			bw.close();
 		} catch(IOException ioe){
 			ioe.printStackTrace();

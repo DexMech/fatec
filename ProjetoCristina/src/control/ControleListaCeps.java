@@ -4,14 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ListaCeps {
+import util.Roterizacao;
+
+public class ControleListaCeps {
 
 	public String listaCeps[];
 	private int tamanho;
 	private int inicio;
 	private double distanciaMinima = Double.MAX_VALUE;
 	
-	public ListaCeps() throws IOException{
+	public ControleListaCeps() throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 		int numLinhas = 0;
 		
@@ -79,7 +81,7 @@ public class ListaCeps {
 			e.printStackTrace();
 		}
 		
-		FilaCeps fc = new FilaCeps(tamanho);
+		ControleFilaCeps fc = new ControleFilaCeps(tamanho);
 		Roterizacao r = new Roterizacao();
 		double distancia = 0;
 		int posicao = 0;

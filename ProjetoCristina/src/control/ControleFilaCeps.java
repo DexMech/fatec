@@ -11,13 +11,15 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FilaCeps {
+import util.VerificaLinhas;
+
+public class ControleFilaCeps {
 
 	public String filaCeps[];
 	public double distancias[];
 	private int tamanho;
 	
-	public FilaCeps(int capacidade){
+	public ControleFilaCeps(int capacidade){
 		filaCeps = new String[capacidade];
 		distancias = new double [capacidade];
 		tamanho = 0;

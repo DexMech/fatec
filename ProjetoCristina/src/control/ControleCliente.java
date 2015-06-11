@@ -21,9 +21,11 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import util.CRUD;
+import util.Geolocalizacao;
 import entity.Cliente;
 
-public class ClienteControle implements CRUD{
+public class ControleCliente implements CRUD{
 
 	Cliente c = new Cliente();
 	

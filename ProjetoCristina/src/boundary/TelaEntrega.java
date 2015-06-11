@@ -25,7 +25,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
 import control.ControleTelaEntregas;
-import control.MotoristaControle;
+import control.ControleMotorista;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

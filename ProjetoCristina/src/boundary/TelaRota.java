@@ -13,8 +13,8 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.JLabel;
 import javax.swing.JFormattedTextField;
 
-import control.ControlaTelaRota;
-import control.ListaCeps;
+import control.ControleTelaRota;
+import control.ControleListaCeps;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -63,9 +63,9 @@ public class TelaRota extends JFrame {
 			
 			@Override
 			public void windowOpened(WindowEvent e) {
-				new ControlaTelaRota().Pegamotorista(getComboMot());
+				new ControleTelaRota().Pegamotorista(getComboMot());
 				try {
-					ListaCeps lc = new ListaCeps();
+					ControleListaCeps lc = new ControleListaCeps();
 					lc.calculoDistancias();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -122,7 +122,7 @@ public class TelaRota extends JFrame {
 		JButton btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ControlaTelaRota().rota(getTable(),ComboMot,getTxtdata());
+				new ControleTelaRota().rota(getTable(),ComboMot,getTxtdata());
 			}
 		});
 		btnBuscar.setBounds(206, 119, 117, 28);
@@ -166,7 +166,7 @@ public class TelaRota extends JFrame {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ControlaTelaRota().limpar(getTable());
+				new ControleTelaRota().limpar(getTable());
 			}
 		});
 		btnLimpar.setBounds(658, 427, 117, 25);

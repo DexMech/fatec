@@ -23,8 +23,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import control.MotoristaControle;
-import control.ProdutoControle;
+import control.ControleMotorista;
+import control.ControleProduto;
 
 import javax.swing.JScrollPane;
 
@@ -214,7 +214,7 @@ public class TelaProduto extends JFrame {
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ProdutoControle pc = new ProdutoControle();
+				ControleProduto pc = new ControleProduto();
 				
 				if(valido()){
 					cbFabricante.addItem(cbFabricante.getSelectedItem());
@@ -258,7 +258,7 @@ public class TelaProduto extends JFrame {
 		btnBusca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				ProdutoControle pc = new ProdutoControle();
+				ControleProduto pc = new ControleProduto();
 				String produto[] = null;				
 				
 				try {
@@ -286,7 +286,7 @@ public class TelaProduto extends JFrame {
 		btnDeletar = new JButton("Deletar");
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ProdutoControle pc = new ProdutoControle();
+				ControleProduto pc = new ControleProduto();
 				
 				try {
 					pc.deletar(tfNome.getText(), "src/BD/Produtos");
@@ -307,7 +307,7 @@ public class TelaProduto extends JFrame {
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String [] novasInformacoes = new String[6];
-				ProdutoControle pc = new ProdutoControle();
+				ControleProduto pc = new ControleProduto();
 				
 				novasInformacoes[0] = tfNome.getText();
 				novasInformacoes[1] = cbFabricante.getSelectedItem().toString();

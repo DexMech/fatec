@@ -22,11 +22,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-public class ControlaBackup {
+public class ControleBackup {
 	private JTextArea text;
 	private JLabel label;
 	
-	public ControlaBackup(JTextArea text,JLabel label){
+	public ControleBackup(JTextArea text,JLabel label){
 		this.text = text;
 		this.label = label;
 	}

@@ -26,14 +26,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
-import control.CaminhaoControle;
-import control.CarroceriaControle;
+import control.ControleCaminhao;
+import control.ControleCarroceria;
 import control.ComboBoxItens;
-import control.MotoristaControle;
+import control.ControleMotorista;
 
 public class TelaMotorista extends JFrame implements ComboBoxItens{
-	CaminhaoControle cam = new CaminhaoControle();
-	CarroceriaControle car = new CarroceriaControle();
+	ControleCaminhao cam = new ControleCaminhao();
+	ControleCarroceria car = new ControleCarroceria();
 	private JTextField textNome;
 	private JFormattedTextField textCNH;
 	private JFormattedTextField textTelefone;
@@ -281,7 +281,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				.getResource("/images/save.png")));
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MotoristaControle mc = new MotoristaControle();
+				ControleMotorista mc = new ControleMotorista();
 
 				if (validar()) {
 					mc.InstanciarMotoristaControle(textNome.getText(), textCNH.getValue().toString(), 
@@ -489,7 +489,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		JButton btnBuscaCPF = new JButton("");
 		btnBuscaCPF.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MotoristaControle mc = new MotoristaControle();
+				ControleMotorista mc = new ControleMotorista();
 				String cliente[] = null;				
 				try {
 					cliente = mc.ler("src/BD/Motoristas" ,textCpf.getValue().toString());
@@ -522,7 +522,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		JButton btnDeletar = new JButton("Deletar");
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				MotoristaControle mc = new MotoristaControle();
+				ControleMotorista mc = new ControleMotorista();
 				
 				try {
 					mc.deletar(textCpf.getValue().toString(), "src/BD/Motoristas");
@@ -543,7 +543,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String [] novasInformacoes = new String[18];
-				MotoristaControle mc = new MotoristaControle();
+				ControleMotorista mc = new ControleMotorista();
 				
 				novasInformacoes[0] = textNome.getText();
 				novasInformacoes[1] = textRg.getValue().toString();

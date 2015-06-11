@@ -16,10 +16,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import util.Geolocalizacao;
+import util.VerificaLinhas;
 
 
 
-public class ControlaTelaRota {
+
+public class ControleTelaRota {
 	private DefaultTableModel modelo ;
 	private JComboBox combo;
 	private JFormattedTextField data;

@@ -31,9 +31,9 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
-import control.ClienteControle;
-import control.Geolocalizacao;
-import control.MotoristaControle;
+import util.Geolocalizacao;
+import control.ControleCliente;
+import control.ControleMotorista;
 
 public class TelaCliente extends JFrame {
 	
@@ -343,7 +343,7 @@ public class TelaCliente extends JFrame {
 		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteControle cc = new ClienteControle();
+				ControleCliente cc = new ControleCliente();
 				if(validar()){ // chama o metodo validador
 					if(chckbxSegunda.isSelected()){
 						buffer.append("Segunda;");
@@ -460,7 +460,7 @@ public class TelaCliente extends JFrame {
 		JButton btnBusca = new JButton("");
 		btnBusca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteControle cc = new ClienteControle();
+				ControleCliente cc = new ControleCliente();
 				String cliente[] = null;				
 				String identificador = null;
 				int cta = 0;
@@ -549,7 +549,7 @@ public class TelaCliente extends JFrame {
 		contentPane.add(btnBusca);
 		btnDeletar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ClienteControle cc = new ClienteControle();
+				ControleCliente cc = new ControleCliente();
 				String identificacao = null;
 				
 				if (rdbtnCpf.isSelected()){
@@ -577,7 +577,7 @@ public class TelaCliente extends JFrame {
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String [] novasInformacoes = new String[14];
-				ClienteControle cc = new ClienteControle();
+				ControleCliente cc = new ControleCliente();
 				Geolocalizacao geo = new Geolocalizacao();
 				String identificacao = null;
 				int cta = 0;

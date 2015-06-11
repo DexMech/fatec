@@ -21,9 +21,10 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import util.CRUD;
 import entity.Motorista;
 
-public class MotoristaControle implements CRUD{
+public class ControleMotorista implements CRUD{
 
 	private Motorista m = new Motorista();
 	

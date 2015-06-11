@@ -19,9 +19,10 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import util.CRUD;
 import entity.Produto;
 
-public class ProdutoControle implements CRUD{
+public class ControleProduto implements CRUD{
 	
 	Produto p = new Produto();
 	

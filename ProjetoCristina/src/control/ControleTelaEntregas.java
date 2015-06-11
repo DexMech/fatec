@@ -32,6 +32,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import util.CRUD;
 import boundary.TelaEntrega;
 
 

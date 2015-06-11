@@ -18,7 +18,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import control.ControlaConsultaEntrega;
+import control.ControleConsultaEntrega;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -61,7 +61,7 @@ public class TelaConsultaEntrega extends JFrame {
 /**
  * criação de uma instância de ControlaConsultaEntrega
  */
-	private ControlaConsultaEntrega control = new ControlaConsultaEntrega();
+	private ControleConsultaEntrega control = new ControleConsultaEntrega();
 	/**
 	 * M&eacutetodo que retorna o componente getTxtCliente
 	 * @return

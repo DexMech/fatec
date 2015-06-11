@@ -20,13 +20,13 @@ import java.io.ObjectInputStream.GetField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 
-import control.ControlaBackup;
+import control.ControleBackup;
 
 import java.awt.Color;
 import java.awt.Font;
 
 public class TelaBackup extends JFrame {
-	private  ControlaBackup backup;  
+	private  ControleBackup backup;  
 	private JPanel contentPane;
 	private JTextArea textAreaBackup;
 	private JLabel labelBackup;
@@ -64,7 +64,7 @@ public class TelaBackup extends JFrame {
 		btnSalvarBackup.setIcon(new ImageIcon(TelaBackup.class.getResource("/images/save.png")));
 		btnSalvarBackup.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
+				backup = new ControleBackup(getTextAreaBackup(),getLabelBackup());
 				backup.salvar();
 			}
 		});
@@ -88,7 +88,7 @@ public class TelaBackup extends JFrame {
 		btnRecuperar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnRecuperar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
+				backup = new ControleBackup(getTextAreaBackup(),getLabelBackup());
 				backup.escolher();
 			}
 		});
@@ -99,7 +99,7 @@ public class TelaBackup extends JFrame {
 		btnRecuperar_1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnRecuperar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
+				backup = new ControleBackup(getTextAreaBackup(),getLabelBackup());
 				backup.recuperar();	
 			}
 		});
@@ -111,7 +111,7 @@ public class TelaBackup extends JFrame {
 		btnLimpar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				backup = new ControlaBackup(getTextAreaBackup(),getLabelBackup());
+				backup = new ControleBackup(getTextAreaBackup(),getLabelBackup());
 				backup.limpar();
 			}
 		});

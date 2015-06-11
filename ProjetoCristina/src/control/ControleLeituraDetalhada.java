@@ -16,13 +16,13 @@ import javax.swing.JTextPane;
 
 import entity.ConsultaDetalhada;
 
-public class ControlaLeituraDetalhada {
+public class ControleLeituraDetalhada {
 
 	private Object[] objeto;
 	private JTextArea text;
 	private String[] recebe;
 
-	public ControlaLeituraDetalhada( Object[] objeto,JTextArea text) {
+	public ControleLeituraDetalhada( Object[] objeto,JTextArea text) {
 
 		this.text =text;
 		this.objeto = objeto;

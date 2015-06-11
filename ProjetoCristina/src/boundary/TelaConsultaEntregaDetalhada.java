@@ -14,7 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
-import control.ControlaLeituraDetalhada;
+import control.ControleLeituraDetalhada;
 import java.awt.Font;
 
 public class TelaConsultaEntregaDetalhada extends JFrame {
@@ -70,7 +70,7 @@ public class TelaConsultaEntregaDetalhada extends JFrame {
 				 * Cria uma novo instancia de ControlaLeituraDetalhada, passando como
 				 * parâmetro um vetor de objetos e um componente TextArea e invocando o método preenche 
 				 */
-				new ControlaLeituraDetalhada(objeto,getTextArea()).preenche();
+				new ControleLeituraDetalhada(objeto,getTextArea()).preenche();
 				
 			}
 			
