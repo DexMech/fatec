@@ -14,6 +14,7 @@ package control;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -45,7 +46,7 @@ public class ClienteControle implements CRUD{
 	public void gravar(String fileName){
 		
 		try{
-			BufferedWriter escrever = new BufferedWriter(new FileWriter(fileName, true));
+			BufferedWriter escrever = new BufferedWriter(new FileWriter(fileName + ".txt", true));
 			Geolocalizacao geo = new Geolocalizacao();
 			
 			String distancia = geo.pesquisa("03821-020", c.getCep());
@@ -76,21 +77,6 @@ public class ClienteControle implements CRUD{
 		
 	}
 	
-	public int numeroLinhas() throws IOException{
-		int cta = 0;
-		String fileName = "src/BD/Clientes.txt";
-		BufferedReader ler = new BufferedReader(new FileReader(fileName));
-		
-		while(ler.ready()){
-			String [] cliente = ler.readLine().split(";");
-			cta ++;
-		}
-		
-		ler.close();
-		
-		return cta * 17;
-	}
-	
 	public double tratamentoLocalizacao(String distancia){
 	
 		distancia = distancia.replace("km", "");
@@ -101,22 +87,116 @@ public class ClienteControle implements CRUD{
 	}
 
 	@Override
-	public void deletar(String parametro, String fileName) throws IOException {
-		// TODO Auto-generated method stub
+	public void deletar(String cpf, String fileName) throws IOException {
+		BufferedWriter arquivoTemporario = new BufferedWriter(new FileWriter(fileName + "2.txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + ".txt"));
 		
+		int cta = numeroLinhas(fileName);
+		
+		for (int i = 0; i < cta; i ++){
+			String temporario[] = lerArquivo.readLine().split(";");
+			
+			if (!temporario[6].equals(cpf)){
+				for (int j = 0; j < 14; j ++){
+					arquivoTemporario.write(temporario[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			}
+		}
+		
+		lerArquivo.close();
+		arquivoTemporario.close();
+		
+		merge(fileName);
 	}
 
 	@Override
-	public void atualizar(String parametro, String[] novoConteudo,
-			String fileName) throws IOException {
-		// TODO Auto-generated method stub
+	public void atualizar(String cpf, String[] novoConteudo, String fileName) throws IOException {
+		BufferedWriter arquivoTemporario = new BufferedWriter(new FileWriter(fileName + "2.txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + ".txt"));
+		int cta = numeroLinhas(fileName + ".txt");
 		
+		for (int i = 0; i < cta; i ++){
+			String temporario[] = lerArquivo.readLine().split(";");
+			
+			if (temporario[6].equals(cpf)){
+				for (int j = 0; j < 14; j ++){
+					arquivoTemporario.write(novoConteudo[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			} else {
+				for (int j = 0; j < 14; j ++){
+					arquivoTemporario.write(temporario[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			}
+		}
+		
+		lerArquivo.close();
+		arquivoTemporario.close();
+		
+		merge(fileName);
+	}
+	
+	public void merge(String fileName) throws IOException{
+		BufferedWriter arquivoFinal = new BufferedWriter(new FileWriter(fileName + ".txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + "2.txt"));
+		int cta = numeroLinhas(fileName + "2.txt");
+		String temporario = null;
+		
+		for (int i = 0; i < cta; i ++){
+			temporario = lerArquivo.readLine();
+			arquivoFinal.write(temporario);
+			arquivoFinal.newLine();
+			temporario = null;
+		}
+		
+		arquivoFinal.close();
+		lerArquivo.close();
+		
+		deletarArquivo(fileName + "2.txt");
+	}
+	
+	public void deletarArquivo(String fileName){
+		File f = new File(fileName);
+		
+		f.delete();
 	}
 
 	@Override
-	public String[] ler(String fileName, String identificador)
-			throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+	public String[] ler(String fileName, String cpf) throws IOException{
+		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
+		int cta = numeroLinhas(fileName + ".txt");
+		String motorista[] = new String[14];
+	
+		for (int i = 0; i < cta; i ++){
+			String temp[] = br.readLine().split(";");
+		
+			if(temp[6].equals(cpf)){
+				motorista = temp;
+			}
+		}
+	
+		br.close();
+	
+		return motorista;
+		
+	}
+	
+	public int numeroLinhas(String fileName) throws IOException {
+		BufferedReader counter = new BufferedReader(new FileReader(fileName));
+		int cta = 0;
+		
+		while(counter.ready()){
+			String [] motorista = counter.readLine().split(";");
+			cta ++;
+		}
+		
+		counter.close();
+		
+		return cta;
 	}
 }

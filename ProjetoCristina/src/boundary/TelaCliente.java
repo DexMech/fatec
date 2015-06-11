@@ -23,6 +23,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -32,6 +33,7 @@ import javax.swing.text.MaskFormatter;
 
 import control.ClienteControle;
 import control.Geolocalizacao;
+import control.MotoristaControle;
 
 public class TelaCliente extends JFrame {
 	
@@ -82,6 +84,8 @@ public class TelaCliente extends JFrame {
 	JRadioButton rdbtnCnpj = new JRadioButton("CNPJ");
 
 	JLabel lblAvisoDia;	
+	private final JButton btnDeletar = new JButton("Deletar");
+	private final JButton btnAtualizar = new JButton("Atualizar");
 	
 	/**
 	 * Create the frame.
@@ -102,7 +106,7 @@ public class TelaCliente extends JFrame {
 		
 		setTitle("Cadastro de Cliente");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(606, 506);
+		setSize(540, 506);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -335,7 +339,7 @@ public class TelaCliente extends JFrame {
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSalvar.setBounds(57, 419, 103, 32);
+		btnSalvar.setBounds(10, 419, 103, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -388,7 +392,7 @@ public class TelaCliente extends JFrame {
 					cc.InstanciarCliente(txtNome.getText(),txtEndereco.getText(), Integer.parseInt(txtNumero.getText()), txtTelefone.getValue().toString(), 
 							txtCelular.getValue().toString(), txtBairro.getText(), txtCEP.getValue().toString(), indent, buffer.toString());
 											
-					cc.gravar("src/BD/Clientes.txt");
+					cc.gravar("src/BD/Clientes");
 					limpar();
 					LimpaFormatacao();
 									
@@ -401,7 +405,7 @@ public class TelaCliente extends JFrame {
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLimpar.setBounds(286, 419, 127, 32);
+		btnLimpar.setBounds(125, 419, 127, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaCliente.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -452,6 +456,200 @@ public class TelaCliente extends JFrame {
 		txtCelular.setColumns(10);
 		txtCelular.setBounds(393, 137, 116, 25);
 		contentPane.add(txtCelular);
+		
+		JButton btnBusca = new JButton("");
+		btnBusca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClienteControle cc = new ClienteControle();
+				String cliente[] = null;				
+				String identificador = null;
+				int cta = 0;
+				
+				if (rdbtnCpf.isSelected()){
+					cta = 1;
+					identificador = txtCPF.getValue().toString();
+				} else {
+					cta = 2;
+					identificador = txtCNPJ.getValue().toString();
+				}
+				
+				try {
+					cliente = cc.ler("src/BD/Clientes" ,identificador);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
+				if (cliente[0] == null){
+					JOptionPane.showMessageDialog(null, "Cliente não encontrado");
+				} else {
+					txtNome.setText(cliente[1]);
+					
+					String temp[] = cliente[2].split(",");
+					
+					txtEndereco.setText(temp[0]);
+					txtNumero.setText(temp[1]);
+					txtBairro.setText(temp[2]);
+					
+					txtTelefone.setValue(cliente[3]);
+					txtCelular.setValue(cliente[4]);
+					txtCEP.setValue(cliente[5]);
+					
+					if (cta == 1){
+						txtCPF.setValue(cliente[6]);
+					} else if (cta == 2){
+						txtCNPJ.setValue(cliente[6]);
+					}
+					
+					if (!cliente[7].equals("Nada")){
+						chckbxSegunda.setSelected(true);
+					} else {
+						chckbxSegunda.setSelected(false);
+					}
+					
+					if (!cliente[8].equals("Nada")){
+						chckbxTerca.setSelected(true);
+					} else {
+						chckbxTerca.setSelected(false);
+					}
+					
+					if (!cliente[9].equals("Nada")){
+						chckbxQuarta.setSelected(true);
+					} else {
+						chckbxQuarta.setSelected(false);
+					}
+					
+					if (!cliente[10].equals("Nada")){
+						chckbxQuinta.setSelected(true);
+					} else {
+						chckbxQuinta.setSelected(false);
+					}
+					
+					if (!cliente[11].equals("Nada")){
+						chckbxSexta.setSelected(true);
+					} else {
+						chckbxSexta.setSelected(false);
+					}
+					
+					if (!cliente[12].equals("Nada")){
+						chckbxSabado.setSelected(true);
+					} else {
+						chckbxSabado.setSelected(false);
+					}
+					
+					if (!cliente[13].equals("Nada")){
+						chckbxDomingo.setSelected(true);
+					} else {
+						chckbxDomingo.setSelected(false);
+					}
+				}
+			}
+		});
+		btnBusca.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/busca.png")));
+		btnBusca.setBounds(389, 187, 31, 23);
+		contentPane.add(btnBusca);
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ClienteControle cc = new ClienteControle();
+				String identificacao = null;
+				
+				if (rdbtnCpf.isSelected()){
+					identificacao = txtCPF.getValue().toString();
+				} else {
+					identificacao = txtCNPJ.getValue().toString();
+				}
+				
+				try {
+					cc.deletar(identificacao, "src/BD/Clientes");
+					JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso");
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o cliente", "Erro", JOptionPane.ERROR_MESSAGE);
+					e.printStackTrace();
+				}
+			}
+		});
+		btnDeletar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnDeletar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/red-x.png")));
+		btnDeletar.setBounds(264, 419, 122, 32);
+		
+		contentPane.add(btnDeletar);
+		
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] novasInformacoes = new String[14];
+				ClienteControle cc = new ClienteControle();
+				Geolocalizacao geo = new Geolocalizacao();
+				String identificacao = null;
+				int cta = 0;
+				
+				if (rdbtnCpf.isSelected()){
+					cta = 1;
+					identificacao = txtCPF.getValue().toString();
+				} else {
+					cta = 2;
+					identificacao = txtCNPJ.getValue().toString();
+				}
+				
+				novasInformacoes[0] = geo.pesquisa("03821-020", txtCEP.getText()); 
+				novasInformacoes[1] = txtNome.getText();
+				novasInformacoes[2] = txtEndereco.getText() + "," + txtNumero.getText() + "," + txtBairro.getText();
+				novasInformacoes[3] = txtTelefone.getValue().toString();
+				novasInformacoes[4] = txtCelular.getValue().toString();
+				novasInformacoes[5] = txtCEP.getValue().toString();
+				
+				if (cta == 1){
+					novasInformacoes[6] = txtCPF.getValue().toString();
+				} else if (cta == 2){
+					novasInformacoes[6] = txtCNPJ.getValue().toString();
+				}
+				
+				if(chckbxSegunda.isSelected()){
+					novasInformacoes[7] = "Segunda";
+				}else {
+					novasInformacoes[7] = "Nada";
+				}
+				if(chckbxTerca.isSelected()){
+					novasInformacoes[8] = "Terca";
+				}else {
+					novasInformacoes[8] = "Nada";
+				}
+				if(chckbxQuarta.isSelected()){
+					novasInformacoes[9] = "Quarta";
+				}else {
+					novasInformacoes[9] = "Nada";
+				}
+				if(chckbxQuinta.isSelected()){
+					novasInformacoes[10] = "Quinta";
+				}else {
+					novasInformacoes[10] = "Nada";
+				}
+				if(chckbxSexta.isSelected()){
+					novasInformacoes[11] = "Sexta";
+				}else {
+					novasInformacoes[11] = "Nada";
+				}
+				if(chckbxSabado.isSelected()){
+					novasInformacoes[12] = "Sabado";
+				}else {
+					novasInformacoes[12] = "Nada";
+				}
+				if(chckbxDomingo.isSelected()){
+					novasInformacoes[13] = "Domingo";
+				}else {
+					novasInformacoes[13] = "Nada";
+				}
+				
+				try {
+					cc.atualizar(identificacao, novasInformacoes, "src/BD/Motoristas");
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
+		btnAtualizar.setBounds(400, 419, 116, 32);
+		
+		contentPane.add(btnAtualizar);
 		
 		
 		

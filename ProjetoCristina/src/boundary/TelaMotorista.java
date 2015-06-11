@@ -291,9 +291,9 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 							.toString(), textPlaca.getText(), cbEstado.getSelectedItem().toString(), textCidade.getText());
 					car.InstanciarCarroceriaControle(cbCarroceria.getSelectedItem().toString());
 					try {
-						mc.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
-						cam.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
-						car.gravar("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
+						mc.gravar("src/BD/Motoristas");
+						cam.gravar("src/BD/Motoristas");
+						car.gravar("src/BD/Motoristas");
 						limpar();
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -492,7 +492,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				MotoristaControle mc = new MotoristaControle();
 				String cliente[] = null;				
 				try {
-					cliente = mc.ler("src/BD/Caminhoes/" + cbCaminhao.getSelectedItem() ,textCpf.getValue().toString());
+					cliente = mc.ler("src/BD/Motoristas" ,textCpf.getValue().toString());
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -505,8 +505,8 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 					textCpf.setValue(cliente[2]);
 					textCNH.setValue(cliente[3]);
 					textValidadeFim.setValue(cliente[4]);
-					textTelefone.setText(cliente[5]);
-					textCelular.setText(cliente[6]);
+					textTelefone.setValue(cliente[5]);
+					textCelular.setValue(cliente[6]);
 					textPlaca.setValue(cliente[9]);
 					textCidade.setText(cliente[11]);
 					cbEstado.setSelectedItem(cliente[10]);
@@ -519,6 +519,19 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 		getContentPane().add(btnBuscaCPF);
 		
 		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MotoristaControle mc = new MotoristaControle();
+				
+				try {
+					mc.deletar(textCpf.getValue().toString(), "src/BD/Motoristas");
+					JOptionPane.showMessageDialog(null, "Motorista deletado com sucesso");
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o motorista", "Erro", JOptionPane.ERROR_MESSAGE);
+					e.printStackTrace();
+				}
+			}
+		});
 		btnDeletar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnDeletar.setBounds(238, 537, 100, 32);
 		getContentPane().add(btnDeletar);
@@ -550,7 +563,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				novasInformacoes[17] = textVolume.getText();
 				
 				try {
-					mc.atualizar(textCpf.getValue().toString(), novasInformacoes, "src/BD/Caminhoes/" + cbCaminhao.getSelectedItem());
+					mc.atualizar(textCpf.getValue().toString(), novasInformacoes, "src/BD/Motoristas");
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

@@ -87,8 +87,28 @@ public class MotoristaControle implements CRUD{
 	}
 
 	@Override
-	public void deletar(String nome, String fileName) throws IOException {
+	public void deletar(String cpf, String fileName) throws IOException {
+		BufferedWriter arquivoTemporario = new BufferedWriter(new FileWriter(fileName + "2.txt"));
+		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + ".txt"));
 		
+		int cta = numeroLinhas(fileName);
+		
+		for (int i = 0; i < cta; i ++){
+			String temporario[] = lerArquivo.readLine().split(";");
+			
+			if (!temporario[2].equals(cpf)){
+				for (int j = 0; j < 18; j ++){
+					arquivoTemporario.write(temporario[j]);
+					arquivoTemporario.write(";");
+				}
+				arquivoTemporario.newLine();
+			}
+		}
+		
+		lerArquivo.close();
+		arquivoTemporario.close();
+		
+		merge(fileName);
 	}
 
 	@Override

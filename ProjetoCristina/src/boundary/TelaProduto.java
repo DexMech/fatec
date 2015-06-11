@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+import control.MotoristaControle;
 import control.ProdutoControle;
 
 import javax.swing.JScrollPane;
@@ -30,6 +32,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
 import javax.swing.ImageIcon;
+
 import java.awt.Font;
 
 public class TelaProduto extends JFrame {
@@ -57,6 +60,9 @@ public class TelaProduto extends JFrame {
 	
 	private JLabel lblAvisoProduto;
 	private JTextField tfFornecedor;
+	private JButton btnBusca;
+	private JButton btnDeletar;
+	private JButton btnAtualizar;
 
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
@@ -117,8 +123,8 @@ public class TelaProduto extends JFrame {
 		contentPane.add(scrollPane);
 		
 		taDescritivo = new JTextArea();
-		taDescritivo.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		scrollPane.setViewportView(taDescritivo);
+		taDescritivo.setFont(new Font("Monospaced", Font.PLAIN, 14));
 		taDescritivo.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -214,7 +220,7 @@ public class TelaProduto extends JFrame {
 		
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnSalvar.setBounds(40, 397, 123, 32);
+		btnSalvar.setBounds(20, 397, 123, 32);
 		btnSalvar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/save.png")));
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -224,7 +230,7 @@ public class TelaProduto extends JFrame {
 					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), tfFornecedor.getText(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
-					pc.gravar("src/BD/Produtos.txt");
+					pc.gravar("src/BD/Produtos");
 					limpar();
 					limpaFormatacao();
 				}
@@ -234,7 +240,7 @@ public class TelaProduto extends JFrame {
 		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLimpar.setBounds(402, 397, 123, 32);
+		btnLimpar.setBounds(155, 397, 123, 32);
 		btnLimpar.setIcon(new ImageIcon(TelaProduto.class.getResource("/images/limpar.png")));
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -262,6 +268,78 @@ public class TelaProduto extends JFrame {
 		tfFornecedor.setColumns(10);
 		tfFornecedor.setBounds(113, 104, 378, 23);
 		contentPane.add(tfFornecedor);
+		
+		btnBusca = new JButton("");
+		btnBusca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProdutoControle pc = new ProdutoControle();
+				String produto[] = null;				
+				
+				try {
+					produto = pc.ler("src/BD/Produtos" ,tfNome.getText());
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				
+				if (produto[0] == null){
+					JOptionPane.showMessageDialog(null, "Produto não encontrado");
+				} else {
+					tfNome.setText(produto[0]);
+					tfFabricante.setText(produto[1]);
+					tfFornecedor.setText(produto[2]);
+					taDescritivo.setText(produto[3]);
+					tfKg.setText(produto[4]);
+					tfVolume.setText(produto[5]);
+				}
+			}
+		});
+		btnBusca.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/busca.png")));
+		btnBusca.setBounds(503, 17, 31, 23);
+		contentPane.add(btnBusca);
+		
+		btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ProdutoControle pc = new ProdutoControle();
+				
+				try {
+					pc.deletar(tfNome.getText(), "src/BD/Produtos");
+					JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o produto", "Erro", JOptionPane.ERROR_MESSAGE);
+					e.printStackTrace();
+				}
+			}
+		});
+		btnDeletar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnDeletar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/red-x.png")));
+		btnDeletar.setBounds(284, 397, 123, 32);
+		contentPane.add(btnDeletar);
+		
+		btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String [] novasInformacoes = new String[6];
+				ProdutoControle pc = new ProdutoControle();
+				
+				novasInformacoes[0] = tfNome.getText();
+				novasInformacoes[1] = tfFabricante.getText();
+				novasInformacoes[2] = tfFornecedor.getText();
+				novasInformacoes[3] = taDescritivo.getText();
+				novasInformacoes[4] = tfKg.getText();
+				novasInformacoes[5] = tfVolume.getText();
+								
+				try {
+					pc.atualizar(tfNome.getText(), novasInformacoes, "src/BD/Produtos");
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnAtualizar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
+		btnAtualizar.setBounds(419, 397, 119, 32);
+		contentPane.add(btnAtualizar);
 		
 		setVisible(true);
 	}
