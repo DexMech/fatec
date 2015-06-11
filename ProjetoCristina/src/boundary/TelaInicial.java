@@ -45,14 +45,14 @@ public class TelaInicial extends JFrame {
 		JMenuItem View=new JMenuItem("Consultar  Entregas");
 		Entregas.add(CadEnt);
 		Entregas.add(View);
-		JMenuItem Back=new JMenuItem("Backup e Restauração");
 		JMenuItem Rota=new JMenuItem("Roteirização");
+		JMenuItem Back=new JMenuItem("Backup e Restauração");
 		JMenuItem Sair=new JMenuItem("Sair");
 		
 		menu.add(cadastro);
 		menu.add(Entregas);
-		menu.add(Back);
 		menu.add(Rota);
+		menu.add(Back);
 		menu.add(Sair);
 		barraMenu.add(menu);
 		CadCli.addActionListener(new ActionListener() {
