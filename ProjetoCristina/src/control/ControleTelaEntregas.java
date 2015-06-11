@@ -35,7 +35,7 @@ import javax.swing.table.DefaultTableModel;
 import boundary.TelaEntrega;
 
 
-public class ControleTelaEntregas {
+public class ControleTelaEntregas implements CRUD{
 
 
 	private JComboBox  cbCliente;
@@ -307,6 +307,73 @@ public class ControleTelaEntregas {
 
 		return "Gravado com sucesso";
 
+	}
+
+
+	@Override
+	public void gravar(String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void deletar(String parametro, String fileName) throws IOException {
+		boolean saida=false;
+		BufferedReader le = new BufferedReader(new FileReader(fileName));
+	
+		String linha="";
+		StringBuilder stringCria = new StringBuilder();
+		
+		while(le.ready()){
+			linha=le.readLine();
+			if(linha.contains(parametro)){
+				
+				saida=true;
+			}
+		}
+		
+		if(saida){
+			while(le.ready()){
+				linha=le.readLine();
+				if(!linha.contains(parametro)){
+					stringCria.append(linha);
+					stringCria.append("#");
+					
+				}
+		
+				
+				
+			}
+			BufferedWriter apaga = new BufferedWriter(new FileWriter(fileName));
+			for(String cont:stringCria.toString().split("#")){
+			apaga.write(cont);
+			apaga.write("\n");
+			}
+			apaga.close();
+			le.close();
+			JOptionPane.showMessageDialog(null, "Deletado com sucesso");
+		}else{
+			
+			JOptionPane.showMessageDialog(null, "não encontrado");
+			
+		}
+	}
+
+
+	@Override
+	public void atualizar(String parametro, String[] novoConteudo,
+			String fileName) throws IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public String[] ler(String fileName, String identificador)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

@@ -17,6 +17,7 @@ import javax.swing.text.MaskFormatter;
 import javax.swing.Icon;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -41,6 +42,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.Font;
 
 
@@ -54,7 +56,7 @@ public class TelaEntrega extends JFrame {
 		return cbProduto;
 	}
 
-	private ControleTelaEntregas con=new ControleTelaEntregas(getCbCliente(), getCbProduto(), getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
+	private ControleTelaEntregas con;
 	private JTable table;
 	private JTextField txtQuantidade;
 	private JTextField textFieldRegiao;
@@ -169,7 +171,7 @@ public class TelaEntrega extends JFrame {
 		btnGravar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!txtData.getText().equals("")&&!txtQuantidade.getText().equals("")){
-					con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
+					
 					con.gravar();
 					limpar();
 				}
@@ -208,7 +210,6 @@ public class TelaEntrega extends JFrame {
 		btnAdicionar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/adicionar.png")));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
 				con.preencher();
 			}
 		});
@@ -258,6 +259,25 @@ public class TelaEntrega extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(232, 20, 70, 15);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					if(cbCliente.getSelectedItem()==""){
+						JOptionPane.showMessageDialog(null, "Preencha os Campos");
+					}else{
+					con.deletar(getCbCliente().getSelectedItem().toString(), "src/BD/Entrega.txt");
+					}
+				} catch (IOException e1) {
+				
+					e1.printStackTrace();
+				}
+			}
+		});
+		btnDeletar.setIcon(new ImageIcon(TelaEntrega.class.getResource("/images/atencao.gif")));
+		btnDeletar.setBounds(185, 391, 117, 33);
+		contentPane.add(btnDeletar);
 
 
 	}
@@ -284,7 +304,7 @@ public class TelaEntrega extends JFrame {
 		txtData.setText("");
 		textFieldRegiao.setText("");
 		txtQuantidade.setText("");
-		con = new ControleTelaEntregas(getCbCliente(), getCbProduto(),getTable(),getTextField(),getFormattedTextField(),getTextFieldRegiao());
+		
 		con.limpar(); 	
 	}
 }
