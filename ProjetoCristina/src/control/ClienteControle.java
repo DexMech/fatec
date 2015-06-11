@@ -91,7 +91,7 @@ public class ClienteControle implements CRUD{
 		BufferedWriter arquivoTemporario = new BufferedWriter(new FileWriter(fileName + "2.txt"));
 		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + ".txt"));
 		
-		int cta = numeroLinhas(fileName);
+		int cta = numeroLinhas(fileName + ".txt");
 		
 		for (int i = 0; i < cta; i ++){
 			String temporario[] = lerArquivo.readLine().split(";");

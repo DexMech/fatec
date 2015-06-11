@@ -34,6 +34,7 @@ import java.awt.event.FocusEvent;
 import javax.swing.ImageIcon;
 
 import java.awt.Font;
+import javax.swing.JComboBox;
 
 public class TelaProduto extends JFrame {
 
@@ -42,7 +43,6 @@ public class TelaProduto extends JFrame {
 	private JPanel contentPane;
 	
 	private JTextField tfNome;
-	private JTextField tfFabricante;
 	private JTextField tfKg;
 	private JTextField tfVolume;
 	
@@ -59,11 +59,14 @@ public class TelaProduto extends JFrame {
 	private JScrollPane scrollPane;
 	
 	private JLabel lblAvisoProduto;
-	private JTextField tfFornecedor;
 	private JButton btnBusca;
 	private JButton btnDeletar;
 	private JButton btnAtualizar;
 
+	private String nomeProduto;
+	private JComboBox cbFabricante;
+	private JComboBox cbFornecedor;
+	
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -86,6 +89,7 @@ public class TelaProduto extends JFrame {
 		tfNome.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
+				nomeProduto = tfNome.getText();
 				tfNome.setBackground(Color.white);
 				lblNome.setForeground(Color.black);
 			}
@@ -98,20 +102,6 @@ public class TelaProduto extends JFrame {
 		lblFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblFabricante.setBounds(10, 60, 89, 20);
 		contentPane.add(lblFabricante);
-		
-		tfFabricante = new JTextField();
-		tfFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfFabricante.setBounds(113, 59, 378, 23);
-		tfFabricante.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				tfFabricante.setBackground(Color.white);
-				lblFabricante.setForeground(Color.black);
-			}
-		});
-		tfFabricante.setText("");
-		contentPane.add(tfFabricante);
-		tfFabricante.setColumns(10);
 		
 		lblDescritivo = new JLabel("Descritivo");
 		lblDescritivo.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -143,7 +133,7 @@ public class TelaProduto extends JFrame {
 		tfKg = new JTextField();
 		tfKg.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		tfKg.setBounds(20, 344, 71, 23);
-		tfKg.setText("");
+		tfKg.setText(".");
 		tfKg.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent arg0) {							
@@ -204,7 +194,7 @@ public class TelaProduto extends JFrame {
 				lblVolume.setForeground(Color.black);
 			}
 		});
-		tfVolume.setText("");
+		tfVolume.setText(".");
 		contentPane.add(tfVolume);
 		tfVolume.setColumns(10);
 		
@@ -227,7 +217,9 @@ public class TelaProduto extends JFrame {
 				ProdutoControle pc = new ProdutoControle();
 				
 				if(valido()){
-					pc.InstanciaProdutoControle(tfNome.getText(), tfFabricante.getText(), tfFornecedor.getText(), taDescritivo.getText(), 
+					cbFabricante.addItem(cbFabricante.getSelectedItem());
+					cbFornecedor.addItem(cbFornecedor.getSelectedItem());
+					pc.InstanciaProdutoControle(tfNome.getText(), cbFabricante.getSelectedItem().toString(), cbFornecedor.getSelectedItem().toString(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
 					pc.gravar("src/BD/Produtos");
@@ -262,13 +254,6 @@ public class TelaProduto extends JFrame {
 		lblFornecedor.setBounds(10, 105, 99, 20);
 		contentPane.add(lblFornecedor);
 		
-		tfFornecedor = new JTextField();
-		tfFornecedor.setText("");
-		tfFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfFornecedor.setColumns(10);
-		tfFornecedor.setBounds(113, 104, 378, 23);
-		contentPane.add(tfFornecedor);
-		
 		btnBusca = new JButton("");
 		btnBusca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -285,8 +270,8 @@ public class TelaProduto extends JFrame {
 					JOptionPane.showMessageDialog(null, "Produto não encontrado");
 				} else {
 					tfNome.setText(produto[0]);
-					tfFabricante.setText(produto[1]);
-					tfFornecedor.setText(produto[2]);
+					cbFabricante.setSelectedItem(produto[1]);
+					cbFornecedor.setSelectedItem(produto[2]);
 					taDescritivo.setText(produto[3]);
 					tfKg.setText(produto[4]);
 					tfVolume.setText(produto[5]);
@@ -305,6 +290,7 @@ public class TelaProduto extends JFrame {
 				try {
 					pc.deletar(tfNome.getText(), "src/BD/Produtos");
 					JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
+					limpar();
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o produto", "Erro", JOptionPane.ERROR_MESSAGE);
 					e.printStackTrace();
@@ -323,16 +309,18 @@ public class TelaProduto extends JFrame {
 				ProdutoControle pc = new ProdutoControle();
 				
 				novasInformacoes[0] = tfNome.getText();
-				novasInformacoes[1] = tfFabricante.getText();
-				novasInformacoes[2] = tfFornecedor.getText();
+				novasInformacoes[1] = cbFabricante.getSelectedItem().toString();
+				novasInformacoes[2] = cbFornecedor.getSelectedItem().toString();
 				novasInformacoes[3] = taDescritivo.getText();
 				novasInformacoes[4] = tfKg.getText();
 				novasInformacoes[5] = tfVolume.getText();
 								
 				try {
-					pc.atualizar(tfNome.getText(), novasInformacoes, "src/BD/Produtos");
+					pc.atualizar(nomeProduto, novasInformacoes, "src/BD/Produtos");
+					JOptionPane.showMessageDialog(null, "Produto atualizado com sucesso");
 				} catch (IOException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Erro ao atualizar o produto", "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
@@ -340,6 +328,32 @@ public class TelaProduto extends JFrame {
 		btnAtualizar.setIcon(new ImageIcon(TelaMotorista.class.getResource("/images/atualizar.png")));
 		btnAtualizar.setBounds(419, 397, 119, 32);
 		contentPane.add(btnAtualizar);
+		
+		cbFabricante = new JComboBox();
+		cbFabricante.addItem("");
+		cbFabricante.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				cbFabricante.setBackground(Color.white);
+				lblFabricante.setForeground(Color.black);
+			}
+		});
+		cbFabricante.setEditable(true);
+		cbFabricante.setBounds(113, 62, 378, 20);
+		contentPane.add(cbFabricante);
+		
+		cbFornecedor = new JComboBox();
+		cbFornecedor.addItem("");
+		cbFornecedor.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e){
+				cbFornecedor.setBackground(Color.white);
+				lblFornecedor.setForeground(Color.black);
+			}
+		});
+		cbFornecedor.setEditable(true);
+		cbFornecedor.setBounds(113, 107, 378, 20);
+		contentPane.add(cbFornecedor);
 		
 		setVisible(true);
 	}
@@ -354,17 +368,17 @@ public class TelaProduto extends JFrame {
 			valido = false;
 		}
 
-		if(tfFabricante.getText().isEmpty()){
+		if(cbFabricante.getSelectedItem().toString().isEmpty()){
 			
 			lblFabricante.setForeground(new Color(255,69,0));
-			tfFabricante.setBackground(new Color(255,250,205));
+			cbFabricante.setBackground(new Color(255,250,205));
 			valido = false;
 		}
 		
-		if(tfFornecedor.getText().isEmpty()){
+		if(cbFornecedor.getSelectedItem().toString().isEmpty()){
 			
 			lblFornecedor.setForeground(new Color(255,69,0));
-			tfFornecedor.setBackground(new Color(255,250,205));
+			cbFornecedor.setBackground(new Color(255,250,205));
 			valido = false;
 		}
 
@@ -397,10 +411,10 @@ public class TelaProduto extends JFrame {
 	
 	public void limpar(){
 		tfNome.setText("");
-		tfFabricante.setText("");
-		tfFornecedor.setText("");
-		tfKg.setText("");
-		tfVolume.setText("");
+		cbFabricante.setSelectedIndex(0);
+		cbFornecedor.setSelectedIndex(0);
+		tfKg.setText(".");
+		tfVolume.setText(".");
 		taDescritivo.setText("");
 		
 		limpaFormatacao();
@@ -411,10 +425,10 @@ public class TelaProduto extends JFrame {
 		tfNome.setBackground(Color.white);
 		lblNome.setForeground(Color.black);
 		
-		tfFabricante.setBackground(Color.white);
+		cbFabricante.setBackground(Color.white);
 		lblFabricante.setForeground(Color.black);
 		
-		tfFornecedor.setBackground(Color.white);
+		cbFornecedor.setBackground(Color.white);
 		lblFornecedor.setForeground(Color.black);
 		
 		taDescritivo.setBackground(Color.white);

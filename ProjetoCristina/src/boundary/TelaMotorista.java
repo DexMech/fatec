@@ -508,9 +508,10 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 					textTelefone.setValue(cliente[5]);
 					textCelular.setValue(cliente[6]);
 					textPlaca.setValue(cliente[9]);
-					textCidade.setText(cliente[11]);
-					cbEstado.setSelectedItem(cliente[10]);
+					textCidade.setText(cliente[10]);
+					cbEstado.setSelectedItem(cliente[11]);
 					cbCarroceria.setSelectedItem(cliente[12]);
+					cbCaminhao.setSelectedItem(cliente[7]);
 				}
 			}
 		});
@@ -526,6 +527,7 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				try {
 					mc.deletar(textCpf.getValue().toString(), "src/BD/Motoristas");
 					JOptionPane.showMessageDialog(null, "Motorista deletado com sucesso");
+					limpar();
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o motorista", "Erro", JOptionPane.ERROR_MESSAGE);
 					e.printStackTrace();
@@ -564,7 +566,9 @@ public class TelaMotorista extends JFrame implements ComboBoxItens{
 				
 				try {
 					mc.atualizar(textCpf.getValue().toString(), novasInformacoes, "src/BD/Motoristas");
+					JOptionPane.showMessageDialog(null, "Motorista atualizado com sucesso");
 				} catch (IOException e1) {
+					JOptionPane.showMessageDialog(null, "Erro ao atualizar o motorista", "Erro", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}

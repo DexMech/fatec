@@ -561,6 +561,7 @@ public class TelaCliente extends JFrame {
 				try {
 					cc.deletar(identificacao, "src/BD/Clientes");
 					JOptionPane.showMessageDialog(null, "Cliente deletado com sucesso");
+					limpar();
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(null, "Houve um erro ao deletar o cliente", "Erro", JOptionPane.ERROR_MESSAGE);
 					e.printStackTrace();
@@ -639,9 +640,11 @@ public class TelaCliente extends JFrame {
 				}
 				
 				try {
-					cc.atualizar(identificacao, novasInformacoes, "src/BD/Motoristas");
+					cc.atualizar(identificacao, novasInformacoes, "src/BD/Clientes");
+					JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso");
 				} catch (IOException e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Houve um erro ao atualizar o cliente", "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

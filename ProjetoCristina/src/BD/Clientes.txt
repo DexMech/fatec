@@ -1,2 +1,2 @@
-joao;joao;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03821-020
-﻿alex;alex;china ne;forno que caiu na giovanna;10.0;10.0;08/06/2015;10;rua colonia leopoldina,198,vila silvia,03694-000
+7.8;Arthur Gomes Araujo;Av. Aguia de Haia,2255,A.E. Carvalho;(11)2280-2742;(11)97999-1114;03694-000;123.456.789-00;Segunda;Terca;Quarta;Nada;Nada;Nada;Nada;
+7,8 km;HueBer;huehue,123,brbr;(22)2222-3333;(22)22222-2222;03694-000;222.222.222-22;Segunda;Terca;Quarta;Quinta;Sexta;Nada;Nada;

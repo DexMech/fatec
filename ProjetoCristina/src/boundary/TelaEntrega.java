@@ -191,7 +191,7 @@ public class TelaEntrega extends JFrame {
 		
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 144, 600, 211);
+		scrollPane.setBounds(20, 154, 600, 211);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -249,8 +249,8 @@ public class TelaEntrega extends JFrame {
 		contentPane.add(lblQuantidade);
 		
 		textFieldRegiao = new JTextField();
-		textFieldRegiao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textFieldRegiao.setEditable(false);
+		textFieldRegiao.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textFieldRegiao.setBounds(232, 40, 318, 28);
 		contentPane.add(textFieldRegiao);
 		textFieldRegiao.setColumns(10);
