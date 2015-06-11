@@ -1,4 +1,4 @@
-package control;
+package util;
 
 /**
  * @author Arthur Gomes

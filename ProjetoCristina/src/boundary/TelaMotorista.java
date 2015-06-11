@@ -26,9 +26,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
+import util.ComboBoxItens;
 import control.ControleCaminhao;
 import control.ControleCarroceria;
-import control.ComboBoxItens;
 import control.ControleMotorista;
 
 public class TelaMotorista extends JFrame implements ComboBoxItens{
