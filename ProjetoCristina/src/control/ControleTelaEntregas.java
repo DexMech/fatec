@@ -261,7 +261,8 @@ public class ControleTelaEntregas implements CRUD{
 
 
 	public void gravar() {
-
+String cep="; ; ; ; ; ; ; ; ;origem,origem,origem,03821-020";
+boolean contem=false;
 		try {
 			BufferedWriter escrita = new BufferedWriter(new FileWriter("src/BD/Entrega.txt",true));
 			ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
@@ -277,13 +278,26 @@ public class ControleTelaEntregas implements CRUD{
 
 				linhas.add(b); 
 			}
+			BufferedReader le = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
+			String linha;
+			while(le.ready()){
+				
+				linha=le.readLine();
+				if(linha.contains("origem"));
+				contem=true;
+			}
+			if(contem==false){
+			escrita.write(cep);
+			escrita.newLine();
+			}
+			contem=false;
 			for(StringBuilder b1: linhas){  
 				escrita.write(b1.toString());
 				escrita.newLine();
 			}
 		
 			JOptionPane.showMessageDialog(null,"Gravação concluida com sucesso." , "Sucesso" , JOptionPane.INFORMATION_MESSAGE);
-		
+		le.close();
 			escrita.close();	
 		} 
 		catch(IOException e){
