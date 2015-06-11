@@ -11,7 +11,9 @@ import java.util.Vector;
 
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -111,6 +113,18 @@ public class ControlaTelaRota {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+	public void limpar(JTable tabela){
+
+		int i=0;
+		modelo = (DefaultTableModel) tabela.getModel();
+		while(tabela.getRowCount()>0){
+			modelo.removeRow(i);
+
+		}
+		
+
 
 	}
 

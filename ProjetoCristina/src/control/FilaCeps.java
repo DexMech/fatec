@@ -134,7 +134,7 @@ public class FilaCeps {
 			VerificaLinhas verifica =new VerificaLinhas();
 			int num = verifica.verifica("src/BD/EntregaMid.txt");
 			num = num - 1;
-			System.out.println(num);
+			
 				
 					List temp = new List();
 					try {

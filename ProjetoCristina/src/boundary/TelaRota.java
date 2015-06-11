@@ -162,5 +162,14 @@ public class TelaRota extends JFrame {
 		 ComboMot = new JComboBox();
 		ComboMot.setBounds(29, 121, 140, 24);
 		contentPane.add(ComboMot);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ControlaTelaRota().limpar(getTable());
+			}
+		});
+		btnLimpar.setBounds(658, 427, 117, 25);
+		contentPane.add(btnLimpar);
 	}
 }

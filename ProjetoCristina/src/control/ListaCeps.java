@@ -108,6 +108,6 @@ public class ListaCeps {
 		
 		fc.gravar();
 		
-		System.out.println("Distancia total percorrida: " + fc.distanciaTotal() + " km");
+		
 	}
 }
