@@ -12,6 +12,7 @@ import java.util.Vector;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ import util.VerificaLinhas;
 
 
 public class ControleTelaRota {
-	private DefaultTableModel modelo ;
+
 	private JComboBox combo;
 	private JFormattedTextField data;
 	private JTable tabela;
@@ -38,19 +39,20 @@ public class ControleTelaRota {
 	 * @param data
 	 */
 	public void rota(JTable tabela,JComboBox combo,JFormattedTextField data){
-		Object[] lala=null;
-		StringBuilder bu = new  StringBuilder();
+		DefaultTableModel modelo;
+		Object[] conteiner=null;
+		StringBuilder constroi = new  StringBuilder();
 		boolean ver = true;
 		Vector<String > rec=new Vector<String>();
 
 		String as = null;
 
-		Geolocalizacao geo = new Geolocalizacao();
+
 
 
 		modelo  = (DefaultTableModel) tabela.getModel();
 		try {
-			
+
 			BufferedReader le = new BufferedReader(new FileReader("src/BD/EntregaMot.txt"));
 			VerificaLinhas veri = new VerificaLinhas();
 			int num =veri.verifica("src/BD/EntregaMot.txt");
@@ -61,8 +63,8 @@ public class ControleTelaRota {
 			String[] cep;
 			String cepp;
 			while(i<=num){
-				bu.setLength(0);
-				lala=null;
+				constroi.setLength(0);
+				conteiner=null;
 				recebelinha=null;
 				cep=null;
 				cepp=null;
@@ -70,16 +72,16 @@ public class ControleTelaRota {
 					recebelinha = linha.split(";");
 					cep=recebelinha[11].split(",");
 					cepp=cep[3];
-					
-					bu.append(recebelinha[2]);
-					bu.append(";");
-					bu.append(cepp);
-					bu.append(";");
-					bu.append(recebelinha[12]);
-					bu.append(";");
-					bu.append(recebelinha[3]);
-					lala=bu.toString().split(";");
-					modelo.addRow(lala);
+
+					constroi.append(recebelinha[2]);
+					constroi.append(";");
+					constroi.append(cepp);
+					constroi.append(";");
+					constroi.append(recebelinha[12]);
+					constroi.append(";");
+					constroi.append(recebelinha[3]);
+					conteiner=constroi.toString().split(";");
+					modelo.addRow(conteiner);
 
 
 				}
@@ -102,6 +104,7 @@ public class ControleTelaRota {
 	 * @param combo
 	 */
 	public void Pegamotorista(JComboBox combo){
+		DefaultTableModel modelo;
 		try {
 			BufferedReader le = new BufferedReader(new FileReader("src/BD/Motoristas.txt"));
 			String linha;
@@ -118,15 +121,82 @@ public class ControleTelaRota {
 		}
 
 	}
-	public void limpar(JTable tabela){
+	public void PegaPorData(String path,JTable table,JFormattedTextField data){
 
+		DefaultTableModel model;
+		Object[] conteiner=null;
+		StringBuilder constroi = new  StringBuilder();
+		boolean ver = true;
+		Vector<String > rec=new Vector<String>();
+
+		String as = null;
+
+
+		
+			JOptionPane.showMessageDialog(null, "Preencha o Campo data");
+		
+			model  = (DefaultTableModel) table.getModel();
+			try {
+
+				BufferedReader le = new BufferedReader(new FileReader(path));
+				VerificaLinhas veri = new VerificaLinhas();
+				int num =veri.verifica(path);
+				num = num - 1;
+				int i=1;
+				String linha =le.readLine();
+				String[] recebelinha;
+				String[] cep;
+				String cepp;
+				while(i<=num){
+					constroi.setLength(0);
+					conteiner=null;
+					recebelinha=null;
+					cep=null;
+					cepp=null;
+					if(linha.contains(data.getText())){
+						recebelinha = linha.split(";");
+						cep=recebelinha[11].split(",");
+						cepp=cep[3];
+
+						constroi.append(recebelinha[2]);
+						constroi.append(";");
+						constroi.append(cepp);
+						constroi.append(";");
+						constroi.append(recebelinha[12]);
+						constroi.append(";");
+						constroi.append(recebelinha[3]);
+						conteiner=constroi.toString().split(";");
+						model.addRow(conteiner);
+
+
+
+					}
+					linha=le.readLine();
+					i++;	
+				}
+
+
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		
+	}
+
+
+
+
+
+	public void limpar(JTable tabela){
+		DefaultTableModel modelo;
 		int i=0;
 		modelo = (DefaultTableModel) tabela.getModel();
 		while(tabela.getRowCount()>0){
 			modelo.removeRow(i);
 
 		}
-		
+
 
 
 	}

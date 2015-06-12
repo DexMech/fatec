@@ -4,6 +4,7 @@ import java.text.ParseException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -16,13 +17,21 @@ import javax.swing.JFormattedTextField;
 import control.ControleTelaRota;
 import control.ControleListaCeps;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JComboBox;
+
+import java.awt.Font;
 
 public class TelaRota extends JFrame {
 
@@ -158,6 +167,21 @@ public class TelaRota extends JFrame {
 		txtdata = new JFormattedTextField(mascara);
 		txtdata.setBounds(30, 66, 140, 25);
 		contentPane.add(txtdata);
+		txtdata.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(table.getRowCount()==0){
+				new ControleTelaRota().PegaPorData("src/BD/EntregaMot.txt", getTable(),txtdata);
+				}
+			
+			}
+			@Override
+			public void focusGained(FocusEvent e) {
+				txtdata.setForeground(Color.BLUE);
+				
+			}
+		});
 		
 		 ComboMot = new JComboBox();
 		ComboMot.setBounds(29, 121, 140, 24);
@@ -171,5 +195,11 @@ public class TelaRota extends JFrame {
 		});
 		btnLimpar.setBounds(658, 427, 117, 25);
 		contentPane.add(btnLimpar);
+		
+		JLabel lblAperteTabAps = new JLabel("* aperte tab após preencher a data");
+		lblAperteTabAps.setFont(new Font("Dialog", Font.BOLD, 9));
+		lblAperteTabAps.setForeground(Color.RED);
+		lblAperteTabAps.setBounds(188, 71, 260, 20);
+		contentPane.add(lblAperteTabAps);
 	}
 }
