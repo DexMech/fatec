@@ -64,6 +64,27 @@ public class ControleProduto implements CRUD{
 		}
 	}
 	
+	public String[] preencherCb(String fileName, String nome) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
+		int cta = numeroLinhas(fileName + ".txt");
+		String motorista[] = new String[6];
+		ListaLigadaNomes lln = new ListaLigadaNomes();
+		
+		for (int i = 0; i < cta; i ++){
+			String temp[] = br.readLine().split(";");
+			
+			if(temp[0].contains(nome)){
+				lln.addInicio(temp[0]);
+			}
+		}
+		
+		br.close();
+		
+		lln.retornoCb();
+		
+		return lln.items;
+	}
+	
 	public String[] ler(String fileName, String nome) throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
 		int cta = numeroLinhas(fileName + ".txt");

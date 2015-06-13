@@ -4,45 +4,35 @@
 
 package boundary;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import control.ControleMotorista;
-import control.ControleProduto;
-
-import javax.swing.JScrollPane;
-
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-
 import javax.swing.ImageIcon;
-
-import java.awt.Font;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import control.ControleProduto;
 
 public class TelaProduto extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	
 	private JPanel contentPane;
-	
-	private JTextField tfNome;
 	private JTextField tfKg;
 	private JTextField tfVolume;
 	
@@ -66,6 +56,7 @@ public class TelaProduto extends JFrame {
 	private String nomeProduto;
 	private JComboBox cbFabricante;
 	private JComboBox cbFornecedor;
+	private JComboBox cbNome;
 	
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
@@ -82,21 +73,6 @@ public class TelaProduto extends JFrame {
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNome.setBounds(10, 20, 68, 20);
 		contentPane.add(lblNome);
-		
-		tfNome = new JTextField();
-		tfNome.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		tfNome.setBounds(113, 19, 378, 23);
-		tfNome.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				nomeProduto = tfNome.getText();
-				tfNome.setBackground(Color.white);
-				lblNome.setForeground(Color.black);
-			}
-		});
-		tfNome.setText("");
-		contentPane.add(tfNome);
-		tfNome.setColumns(10);
 		
 		lblFabricante = new JLabel("Fabricante:");
 		lblFabricante.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -219,7 +195,7 @@ public class TelaProduto extends JFrame {
 				if(valido()){
 					cbFabricante.addItem(cbFabricante.getSelectedItem());
 					cbFornecedor.addItem(cbFornecedor.getSelectedItem());
-					pc.InstanciaProdutoControle(tfNome.getText(), cbFabricante.getSelectedItem().toString(), cbFornecedor.getSelectedItem().toString(), taDescritivo.getText(), 
+					pc.InstanciaProdutoControle(cbNome.getSelectedItem().toString(), cbFabricante.getSelectedItem().toString(), cbFornecedor.getSelectedItem().toString(), taDescritivo.getText(), 
 							Float.parseFloat(tfKg.getText()), Float.parseFloat(tfVolume.getText()));
 					
 					pc.gravar("src/BD/Produtos");
@@ -257,12 +233,11 @@ public class TelaProduto extends JFrame {
 		btnBusca = new JButton("");
 		btnBusca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				ControleProduto pc = new ControleProduto();
-				String produto[] = null;				
+				String produto[] = null;	
 				
 				try {
-					produto = pc.ler("src/BD/Produtos" ,tfNome.getText());
+					produto = pc.ler("src/BD/Produtos" ,cbNome.getSelectedItem().toString());
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -270,12 +245,12 @@ public class TelaProduto extends JFrame {
 				if (produto[0] == null){
 					JOptionPane.showMessageDialog(null, "Produto não encontrado");
 				} else {
-					tfNome.setText(produto[0]);
 					cbFabricante.setSelectedItem(produto[1]);
 					cbFornecedor.setSelectedItem(produto[2]);
 					taDescritivo.setText(produto[3]);
 					tfKg.setText(produto[4]);
 					tfVolume.setText(produto[5]);
+					cbNome.removeItemAt(cbNome.getItemCount()-1);
 				}
 			}
 		});
@@ -289,7 +264,7 @@ public class TelaProduto extends JFrame {
 				ControleProduto pc = new ControleProduto();
 				
 				try {
-					pc.deletar(tfNome.getText(), "src/BD/Produtos");
+					pc.deletar(cbNome.getSelectedItem().toString(), "src/BD/Produtos");
 					JOptionPane.showMessageDialog(null, "Produto deletado com sucesso");
 					limpar();
 				} catch (IOException e) {
@@ -309,7 +284,7 @@ public class TelaProduto extends JFrame {
 				String [] novasInformacoes = new String[6];
 				ControleProduto pc = new ControleProduto();
 				
-				novasInformacoes[0] = tfNome.getText();
+				novasInformacoes[0] = cbNome.getSelectedItem().toString();
 				novasInformacoes[1] = cbFabricante.getSelectedItem().toString();
 				novasInformacoes[2] = cbFornecedor.getSelectedItem().toString();
 				novasInformacoes[3] = taDescritivo.getText();
@@ -356,16 +331,46 @@ public class TelaProduto extends JFrame {
 		cbFornecedor.setBounds(113, 107, 378, 20);
 		contentPane.add(cbFornecedor);
 		
+		cbNome = new JComboBox();
+		cbNome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ControleProduto pc = new ControleProduto();			
+				String cbItems[] = null;
+				
+				if (cbNome.getSelectedItem() != null){
+					try{
+						cbItems = pc.preencherCb("src/BD/Produtos" ,cbNome.getSelectedItem().toString());
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+				
+					for (int i = 0; i < cbItems.length; i ++){
+						cbNome.addItem(cbItems[i]);
+					}
+				}
+			}
+		});			
+		cbNome.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				cbNome.setBackground(Color.white);
+				lblNome.setForeground(Color.black);
+			}
+		});
+		cbNome.setEditable(true);
+		cbNome.setBounds(113, 22, 378, 20);
+		contentPane.add(cbNome);
+		
 		setVisible(true);
 	}
 	
 	public boolean valido(){
 		boolean valido = true;
 		
-		if(tfNome.getText().isEmpty()){
+		if(cbNome.getSelectedItem().toString().isEmpty()){
 			
 			lblNome.setForeground(Color.RED);
-			tfNome.setBackground(new Color(255,250,205));
+			cbNome.setBackground(new Color(255,250,205));
 			valido = false;
 		}
 
@@ -411,9 +416,9 @@ public class TelaProduto extends JFrame {
 	}
 	
 	public void limpar(){
-		tfNome.setText("");
-		cbFabricante.setSelectedIndex(0);
-		cbFornecedor.setSelectedIndex(0);
+		cbNome.removeAllItems();
+		cbFabricante.setSelectedItem("");
+		cbFornecedor.setSelectedItem("");
 		tfKg.setText(".");
 		tfVolume.setText(".");
 		taDescritivo.setText("");
@@ -423,7 +428,7 @@ public class TelaProduto extends JFrame {
 	
 	public void limpaFormatacao(){
 		
-		tfNome.setBackground(Color.white);
+		cbNome.setBackground(Color.white);
 		lblNome.setForeground(Color.black);
 		
 		cbFabricante.setBackground(Color.white);
