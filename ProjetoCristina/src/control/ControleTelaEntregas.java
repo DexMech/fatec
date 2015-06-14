@@ -60,7 +60,9 @@ public class ControleTelaEntregas implements CRUD{
 
 	}
 
-
+/**
+ * Le informações
+ */
 	public void ler() {
 
 		data.addFocusListener(new FocusListener() {

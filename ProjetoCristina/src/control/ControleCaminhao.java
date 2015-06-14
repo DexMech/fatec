@@ -23,7 +23,13 @@ import entity.Caminhao;
 public class ControleCaminhao{
 
 	public Caminhao c = new Caminhao();
-	
+	/**
+	 * Recebe dados
+	 * @param tipoCaminhao
+	 * @param numeroPlaca
+	 * @param cidade
+	 * @param estado
+	 */
 	public void InstanciarCaminhaoControle(String tipoCaminhao, String numeroPlaca, String cidade, String estado){
 		c.setTipoCaminhao(tipoCaminhao);
 		c.setCapacidadeCarga(tipoCaminhao);
@@ -31,7 +37,11 @@ public class ControleCaminhao{
 		c.setCidade(cidade);
 		c.setEstado(estado);
 	}
-	
+	/**
+	 * Grava informações em arquivo
+	 * @param fileName
+	 * @throws IOException
+	 */
 	public void gravar(String fileName) throws IOException{
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName + ".txt", true));

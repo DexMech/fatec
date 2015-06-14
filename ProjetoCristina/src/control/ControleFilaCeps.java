@@ -30,7 +30,9 @@ public class ControleFilaCeps {
 		filaCeps[tamanho] = cep;
 		tamanho ++;
 	}
-	
+	/**
+	 * Metodo de gravar
+	 */
 	public void gravar(){
 		
 		try {
@@ -45,7 +47,6 @@ public class ControleFilaCeps {
 			for(int i=0;i<filaCeps.length-1;i++){
 				fila.write(filaCeps[i]);
 				fila.write("\n");
-				
 			}
 			
 			
@@ -68,6 +69,9 @@ public class ControleFilaCeps {
 		
 		return total;
 	}
+	/**
+	 * Metodo de criação de arquivo.
+	 */
 	private void constroiArquivo(){
 		
 	

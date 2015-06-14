@@ -42,7 +42,7 @@ public class TelaConsultaEntrega extends JFrame {
 
 
 /**
- * M&eacutetodo que retorna o componente LabelGrava
+ * Metodo que retorna o componente LabelGrava
  * 
  */
 	public JLabel getLabelgrava() {

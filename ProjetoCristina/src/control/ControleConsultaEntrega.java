@@ -31,7 +31,9 @@ public class ControleConsultaEntrega {
 	public TelaConsultaEntrega con ;
 	private String cliente;
 
-
+/**
+ * Metodo exibe mensagem e fecha caixa.
+ */
 	public void sair(){
 
 
@@ -43,7 +45,12 @@ public class ControleConsultaEntrega {
 		}
 	}
 
-
+/**
+ * Metodo de busca conforme informações digitadas.
+ * @param cliente
+ * @param data
+ * @param tabela
+ */
 	public void busca(String cliente,String data,JTable tabela){
 
 		this.cliente =cliente;
@@ -73,7 +80,13 @@ public class ControleConsultaEntrega {
 
 	}
 
-
+/**
+ * Metodo que limpa campos.
+ * @param tabela
+ * @param label
+ * @param cliente
+ * @param data
+ */
 	public void limpar(JTable tabela,JLabel label,JTextField cliente,JFormattedTextField data){
 
 		int i=0;
@@ -94,7 +107,11 @@ public class ControleConsultaEntrega {
 		return "Gravado com sucesso";
 
 	}
-
+/**
+ * Metodo de exportação para xls.
+ * @param tabela
+ * @param label
+ */
 	public void exporta(JTable tabela,JLabel label){
 		ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 		StringBuilder b = new StringBuilder();
@@ -128,7 +145,10 @@ public class ControleConsultaEntrega {
 
 		label.setIcon(new ImageIcon(this.getClass().getResource("/images/check.png")));
 	}
-
+/**
+ * Metodo que captura data e hora.
+ * @return
+ */
     public String getHora() {  
         
         // cria um StringBuilder  

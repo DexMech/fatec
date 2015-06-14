@@ -28,6 +28,9 @@ public class ControleLeituraDetalhada {
 		this.objeto = objeto;
 
 	}
+	/**
+	 * Preenche vetor
+	 */
 	public void preenche(){
 		String[] items ={"Nome do Motorista","Veículo","Nome do Cliente","Produto","Fabricante","Fornecedor","Descrição","Peso","Volume","Data","Quantidade","Endereço"};
 		

@@ -29,6 +29,12 @@ public class ControleLeituraEntrega {
 	public TelaConsultaEntrega con ;
 	private String cliente;
 
+	/**
+	 * Metodo de busca.
+	 * @param cliente
+	 * @param data
+	 * @param tabela
+	 */
 	public void busca(String cliente,String data,JTable tabela){
 
 
@@ -54,7 +60,13 @@ public class ControleLeituraEntrega {
 
 	}
 
-
+/**
+ * Metodo para limpar
+ * @param tabela
+ * @param label
+ * @param cliente
+ * @param data
+ */
 	public void limpar(JTable tabela,JLabel label,JTextField cliente,JFormattedTextField data){
 
 		int i=0;
@@ -69,7 +81,11 @@ public class ControleLeituraEntrega {
 		data.setText("");
 
 	}
-
+/**
+ * Metodo para exportar para xls.
+ * @param tabela
+ * @param label
+ */
 	public void exporta(JTable tabela,JLabel label){
 		ArrayList<StringBuilder> linhas = new ArrayList<StringBuilder>(); 
 		StringBuilder b = new StringBuilder();

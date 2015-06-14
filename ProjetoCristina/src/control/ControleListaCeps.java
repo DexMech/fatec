@@ -12,7 +12,10 @@ public class ControleListaCeps {
 	private int tamanho;
 	private int inicio;
 	private double distanciaMinima = Double.MAX_VALUE;
-	
+	/**
+	 * Metodo de controle de lista de CEP.
+	 * @throws IOException
+	 */
 	public ControleListaCeps() throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 		int numLinhas = 0;
@@ -25,7 +28,10 @@ public class ControleListaCeps {
 		listaCeps = new String[numLinhas];
 		tamanho = 0;
 	}
-	
+	/**
+	 * Metodo para emover CEP
+	 * @param p
+	 */
 	public void removeCep(int p){
 		listaCeps[0] = listaCeps[p];
 		
@@ -39,7 +45,10 @@ public class ControleListaCeps {
 	public int getTamanho(){
 		return tamanho;
 	}
-	
+	/**
+	 * Preenche lista.
+	 * @throws IOException
+	 */
 	public void preencherLista() throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader("src/BD/Entrega.txt"));
 		String[] cepp=null;	
@@ -72,7 +81,9 @@ public class ControleListaCeps {
 //		
 //		return dist;
 //	}
-	
+	/**
+	 * Metodo para calculo de distancia.
+	 */
 	public void calculoDistancias(){
 		
 		try {

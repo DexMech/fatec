@@ -25,7 +25,15 @@ import entity.Produto;
 public class ControleProduto implements CRUD{
 	
 	Produto p = new Produto();
-	
+	/**
+	 * Metodo para instanciar produto
+	 * @param nome
+	 * @param fabricante
+	 * @param fornecedor
+	 * @param descritivo
+	 * @param kg
+	 * @param metros
+	 */
 	public void InstanciaProdutoControle(String nome, String fabricante, String fornecedor, String descritivo, float kg, float metros){
 		
 		p.setNome(nome);
@@ -36,7 +44,9 @@ public class ControleProduto implements CRUD{
 		p.setMetros(metros);		
 		
 	}
-	
+	/**
+	 * Metodo para gravação
+	 */
 	public void gravar(String fileName) {
 				
 		try{
@@ -63,7 +73,13 @@ public class ControleProduto implements CRUD{
 			JOptionPane.showMessageDialog(null,"Ocorreu um erro de Gravação, tente novamente mais tarde." , "Erro", JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
+	/**
+	 * Metodo para preenchimento
+	 * @param fileName
+	 * @param nome
+	 * @return
+	 * @throws IOException
+	 */
 	public String[] preencherCb(String fileName, String nome) throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
 		int cta = numeroLinhas(fileName + ".txt");
@@ -84,7 +100,9 @@ public class ControleProduto implements CRUD{
 		
 		return lln.items;
 	}
-	
+	/**
+	 * Metodo de leitura
+	 */
 	public String[] ler(String fileName, String nome) throws IOException{
 		BufferedReader br = new BufferedReader(new FileReader(fileName + ".txt"));
 		int cta = numeroLinhas(fileName + ".txt");

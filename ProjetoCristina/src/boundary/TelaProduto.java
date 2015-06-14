@@ -58,6 +58,9 @@ public class TelaProduto extends JFrame {
 	private JComboBox cbFornecedor;
 	private JComboBox cbNome;
 	
+	/**
+	 * Cria tela de produto
+	 */
 	public TelaProduto() {
 		setTitle("Cadastro de Produtos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -363,7 +366,10 @@ public class TelaProduto extends JFrame {
 		
 		setVisible(true);
 	}
-	
+	/**
+	 * Valida se o campo está ou não vazio.
+	 * @return
+	 */
 	public boolean valido(){
 		boolean valido = true;
 		
@@ -414,7 +420,9 @@ public class TelaProduto extends JFrame {
 		
 		return valido;
 	}
-	
+	/**
+	 * Metodo limpa campo.
+	 */
 	public void limpar(){
 		cbNome.removeAllItems();
 		cbFabricante.setSelectedItem("");
@@ -425,7 +433,9 @@ public class TelaProduto extends JFrame {
 		
 		limpaFormatacao();
 	}
-	
+	/**
+	 * Metodo limpa formatação
+	 */
 	public void limpaFormatacao(){
 		
 		cbNome.setBackground(Color.white);

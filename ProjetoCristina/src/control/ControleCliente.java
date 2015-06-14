@@ -28,7 +28,18 @@ import entity.Cliente;
 public class ControleCliente implements CRUD{
 
 	Cliente c = new Cliente();
-	
+	/**
+	 * Instancia Cliente.
+	 * @param nome
+	 * @param endereco
+	 * @param numero
+	 * @param telefone
+	 * @param celular
+	 * @param bairro
+	 * @param cep
+	 * @param indentificacao
+	 * @param diasDaSemana
+	 */
 	public void InstanciarCliente(String nome, String endereco, int numero, String telefone, String celular, String bairro, String cep, String indentificacao, String diasDaSemana){
 		c.setNome(nome);
 		c.setEndereco(endereco);
@@ -78,7 +89,11 @@ public class ControleCliente implements CRUD{
 		}
 		
 	}
-	
+	/**
+	 * Metodo de tratamento de localização
+	 * @param distancia
+	 * @return
+	 */
 	public double tratamentoLocalizacao(String distancia){
 	
 		distancia = distancia.replace("km", "");
@@ -142,7 +157,11 @@ public class ControleCliente implements CRUD{
 		
 		merge(fileName);
 	}
-	
+	/**
+	 * Concatena informações.
+	 * @param fileName
+	 * @throws IOException
+	 */
 	public void merge(String fileName) throws IOException{
 		BufferedWriter arquivoFinal = new BufferedWriter(new FileWriter(fileName + ".txt"));
 		BufferedReader lerArquivo = new BufferedReader(new FileReader(fileName + "2.txt"));
@@ -161,7 +180,10 @@ public class ControleCliente implements CRUD{
 		
 		deletarArquivo(fileName + "2.txt");
 	}
-	
+	/**
+	 * Deleta nome.
+	 * @param fileName
+	 */
 	public void deletarArquivo(String fileName){
 		File f = new File(fileName);
 		
@@ -187,7 +209,12 @@ public class ControleCliente implements CRUD{
 		return motorista;
 		
 	}
-	
+	/**
+	 * Conta quantidade de linhas.
+	 * @param fileName
+	 * @return
+	 * @throws IOException
+	 */
 	public int numeroLinhas(String fileName) throws IOException {
 		BufferedReader counter = new BufferedReader(new FileReader(fileName));
 		int cta = 0;

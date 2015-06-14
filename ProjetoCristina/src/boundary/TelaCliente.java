@@ -38,7 +38,7 @@ import control.ControleMotorista;
 public class TelaCliente extends JFrame {
 	
 	/**
-	 * 
+	 * Cria formatação, areas de textos e Mascaras.
 	 */
 	private static final long serialVersionUID = 1L;
 	private StringBuffer buffer = new StringBuffer();
