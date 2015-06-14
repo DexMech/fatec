@@ -13,7 +13,8 @@ package util;
 public interface ComboBoxItens {
 
 	/**
-	 * Constante para preencher os Estados para as placas de caminhões*/
+	 * Constante para preencher os Estados para as placas de caminhões
+	 */
 	public final String [] ESTADOS = {"Acre - AC", 
 		"Alagoas - AL",
 		"Amapá - AP",
@@ -43,13 +44,15 @@ public interface ComboBoxItens {
 		"Tocantins - TO"};
 	
 	/**
-	 * Constante para preencher os tipos de caminhão*/
+	 * Constante para preencher os tipos de caminhão
+	 */
 	public final String VEICULO[] = { "Toco", "Truck", "Carreta 2 Eixos",
 			"Carreta Baú", "Carreta 3 Eixos", "Carreta Cavalo Truckado",
 			"Carreta Cavalo Truckado Baú", "Bi-trem(Treminhão) - 7 eixos" };
 	
 	/**
-	 * Constante para preencher as carrocerias*/
+	 * Constante para preencher as carrocerias
+	 */
 	public final String CARROCERIA[] = {
 			"Carroceria tipo sider tamanho padrão",
 			"Carroceria tipo sider semi reboque ",

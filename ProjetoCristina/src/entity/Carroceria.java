@@ -96,7 +96,8 @@ public class Carroceria {
 	
 	/**
 	 * A classe @class <b>setLargura</b> recebe um parâmetro @param text do tipo <code>String</code>,
-	 * recebido de acordo com a escolha do tipo de carroceria. */
+	 * recebido de acordo com a escolha do tipo de carroceria. 
+	 */
 	
 	public void setLargura(String text){
 		if (text.equals("Carroceria tipo sider tamanho padrão"))  
@@ -128,7 +129,8 @@ public class Carroceria {
 	
 	/**
 	 * A classe @class <b>setComprimento</b> recebe um parâmetro @param text do tipo <code>String</code>,
-	 * recebido de acordo com a escolha do tipo de carroceria. */
+	 * recebido de acordo com a escolha do tipo de carroceria. 
+	 */
 	
 	public void setComprimento(String text){
 		if (text.equals("Carroceria tipo sider tamanho padr�o")) 
@@ -165,7 +167,8 @@ public class Carroceria {
 	
 	/**
 	 * Volume calculado com fórmula: 
-	 * <center>{@code Altura * Largura * Comprimento}</center>.*/
+	 * <center>{@code Altura * Largura * Comprimento}</center>.
+	 */
 	
 	public void setVolume(){
 		this.volume = (double) getAltura() * getLargura() * getComprimento();

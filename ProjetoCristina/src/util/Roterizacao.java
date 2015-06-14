@@ -10,6 +10,9 @@ public class Roterizacao implements CRUD{
 		
 	}
 	
+	/**
+	 * Calcular a distância da roteirização
+	 */
 	public double roterizar(String pontoInicial, String pontoFinal){
 		double distanciaDouble = 0.0;
 		String distanciaTexto = null;

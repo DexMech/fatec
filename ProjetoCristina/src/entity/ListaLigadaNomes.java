@@ -9,11 +9,15 @@ public class ListaLigadaNomes {
 		inicio = null;
 	}
 	
+	/**
+	 * Adiciona no inicio
+	 */
 	public void addInicio(String e){
 		Node novo = new Node(e);
 		novo.prox = inicio;
 		inicio = novo;
 	}
+	
 	
 	public int contador(){
 		int cta = 0;

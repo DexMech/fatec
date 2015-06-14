@@ -5,6 +5,10 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class VerificaLinhas {
+	
+	/**
+	 * Verifica se há uma próxima linha
+	 */
 	public int verifica(String caminho){
 		
 		
